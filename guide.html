@@ -233,23 +233,17 @@
               <p class="font-semibold text-slate-800 text-sm">Your keys — what each one does</p>
               <div class="mt-2 space-y-2 text-sm text-slate-600">
                 <div class="flex items-start gap-2">
-                  <span class="inline-block w-3 h-3 rounded-full bg-blue-500 flex-shrink-0 mt-1"></span>
-                  <p><strong class="text-slate-700">Blue dongle</strong> — tap on the intercom reader downstairs to open the building door</p>
+                  <svg class="w-4 h-4 text-green-500 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20"><circle cx="10" cy="10" r="8"/></svg>
+                  <p><strong class="text-slate-700">Green dongle</strong> — tap on the intercom reader downstairs to open the building door</p>
                 </div>
                 <div class="flex items-start gap-2">
-                  <span class="inline-block w-3 h-3 rounded-full bg-red-400 flex-shrink-0 mt-1"></span>
-                  <p><strong class="text-slate-700">Regular key (bottom)</strong> — opens the <strong>lower lock</strong> on the apartment door upstairs</p>
+                  <svg class="w-4 h-4 text-slate-400 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 7a2 2 0 012 2m4 0a6 6 0 01-7.743 5.743L11 17H9v2H7v2H4a1 1 0 01-1-1v-2.586a1 1 0 01.293-.707l5.964-5.964A6 6 0 1121 9z"/></svg>
+                  <p><strong class="text-slate-700">Longer key</strong> — opens the <strong>bottom (lower) lock</strong> on the apartment door</p>
                 </div>
                 <div class="flex items-start gap-2">
-                  <span class="inline-block w-3 h-3 rounded-full bg-purple-400 flex-shrink-0 mt-1"></span>
-                  <p><strong class="text-slate-700">Regular key (top)</strong> — opens the <strong>upper lock</strong> on the apartment door upstairs</p>
+                  <svg class="w-4 h-4 text-slate-400 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 7a2 2 0 012 2m4 0a6 6 0 01-7.743 5.743L11 17H9v2H7v2H4a1 1 0 01-1-1v-2.586a1 1 0 01.293-.707l5.964-5.964A6 6 0 1121 9z"/></svg>
+                  <p><strong class="text-slate-700">Shorter key</strong> — opens the <strong>top (upper) lock</strong> on the apartment door</p>
                 </div>
-              </div>
-              <!-- PLACEHOLDER — replace with the annotated photo of the keys -->
-              <div class="ph-img">
-                <svg class="w-10 h-10 text-sea-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 9a2 2 0 012-2h.93a2 2 0 001.664-.89l.812-1.22A2 2 0 0110.07 4h3.86a2 2 0 011.664.89l.812 1.22A2 2 0 0018.07 7H19a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 13a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
-                <span class="text-xs font-semibold text-sea-600 uppercase tracking-wider">Add annotated key photo here</span>
-                <span class="ph-caption">The photo with blue/red/purple colour annotations already exists — use it directly</span>
               </div>
             </div>
           </div>
@@ -257,7 +251,7 @@
             <div class="step-num">5</div>
             <div>
               <p class="font-semibold text-slate-800 text-sm">Enter the building</p>
-              <p class="text-slate-500 text-sm mt-0.5">Tap the <strong class="text-slate-700">blue dongle</strong> on the intercom reader by the front door. The door will unlock. Take the elevator (or stairs) to the <strong class="text-slate-700">top floor — Apartment 17</strong>.</p>
+              <p class="text-slate-500 text-sm mt-0.5">Tap the <strong class="text-slate-700">green dongle</strong> on the intercom reader by the front door. The door will unlock. Take the stairs to the <strong class="text-slate-700">top floor — Apartment 17</strong>.</p>
             </div>
           </div>
           <div class="step">
@@ -895,7 +889,7 @@
           </div>
           <div class="flex items-start gap-3">
             <span class="w-2 h-2 rounded-full bg-blue-400 flex-shrink-0 mt-2"></span>
-            <p><strong class="text-slate-800">Parking:</strong> [PARKING NOTES — e.g. "Free street parking available on Str. X after 7pm. Nearest paid car park: [NAME] — 5 min walk."]</p>
+            <p><strong class="text-slate-800">Parking:</strong> Free street parking after 20:00 until 08:00. During the day: 6 lei (≈1€) per hour or 30 lei (≈8€) per day.</p>
           </div>
         </div>
       </div>
@@ -936,7 +930,7 @@
             <span class="font-semibold text-slate-800 text-sm">Is there parking available?</span>
             <svg class="w-4 h-4 text-slate-400 group-open:rotate-180 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
           </summary>
-          <p class="mt-3 text-sm text-slate-600 leading-relaxed">[PARKING DETAILS — e.g. "There is free street parking available nearby. The building does not have a dedicated car park. Nearest paid option is X."]</p>
+          <p class="mt-3 text-sm text-slate-600 leading-relaxed">Street parking is available around the building. It's <strong>free after 20:00 until 08:00</strong>. During the day the rate is 6 lei (≈1€) per hour or 30 lei (≈8€) for the full day.</p>
         </details>
       </div>
 
