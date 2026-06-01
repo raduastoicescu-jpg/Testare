@@ -362,76 +362,91 @@
       <section id="amenities">
         <h3 class="font-serif text-2xl font-semibold text-sea-950 mb-6">What this place offers</h3>
 
-        <!-- Internet & work -->
-        <div class="mb-6">
-          <p class="text-xs font-semibold text-slate-400 uppercase tracking-widest mb-3">Internet &amp; workspace</p>
-          <div class="grid grid-cols-2 md:grid-cols-3 gap-x-6 gap-y-4">
-            <div class="flex items-center gap-3"><svg class="w-5 h-5 text-sea-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.111 16.404a5.5 5.5 0 017.778 0M12 20h.01m-7.08-7.071c3.904-3.905 10.236-3.905 14.141 0M1.394 9.393c5.857-5.857 15.355-5.857 21.213 0"/></svg><span class="text-sm text-slate-700">Fast WiFi — 454 Mbps</span></div>
-            <div class="flex items-center gap-3"><svg class="w-5 h-5 text-sea-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg><span class="text-sm text-slate-700">Dedicated workspace</span></div>
-            <div class="flex items-center gap-3"><svg class="w-5 h-5 text-sea-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 18h.01M8 21h8a2 2 0 002-2v-2a2 2 0 00-2-2H8a2 2 0 00-2 2v2a2 2 0 002 2zM12 3v9m0 0l-3-3m3 3l3-3"/></svg><span class="text-sm text-slate-700">Pocket WiFi</span></div>
+        <!-- Preview: always visible top picks -->
+        <div id="amenities-preview" class="grid grid-cols-2 gap-x-6 gap-y-4">
+          <div class="flex items-center gap-3"><svg class="w-5 h-5 text-sea-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.111 16.404a5.5 5.5 0 017.778 0M12 20h.01m-7.08-7.071c3.904-3.905 10.236-3.905 14.141 0M1.394 9.393c5.857-5.857 15.355-5.857 21.213 0"/></svg><span class="text-sm text-slate-700">Fast WiFi — 454 Mbps</span></div>
+          <div class="flex items-center gap-3"><svg class="w-5 h-5 text-sea-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg><span class="text-sm text-slate-700">Dedicated workspace</span></div>
+          <div class="flex items-center gap-3"><svg class="w-5 h-5 text-sea-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/></svg><span class="text-sm text-slate-700">City skyline view &amp; balcony</span></div>
+          <div class="flex items-center gap-3"><svg class="w-5 h-5 text-sea-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"/></svg><span class="text-sm text-slate-700">Zanussi gas cooker &amp; oven</span></div>
+          <div class="flex items-center gap-3"><svg class="w-5 h-5 text-sea-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9" stroke-width="2"/><circle cx="12" cy="12" r="4" stroke-width="2"/></svg><span class="text-sm text-slate-700">Washer (free, in-unit)</span></div>
+          <div class="flex items-center gap-3"><svg class="w-5 h-5 text-sea-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2" stroke-width="2"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 9h18"/></svg><span class="text-sm text-slate-700">Cot &amp; travel cot</span></div>
+          <div class="flex items-center gap-3"><svg class="w-5 h-5 text-sea-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg><span class="text-sm text-slate-700">Carbon monoxide alarm</span></div>
+          <div class="flex items-center gap-3"><svg class="w-5 h-5 text-sea-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 19h16M4 15h16a2 2 0 002-2V6a2 2 0 00-2-2H4a2 2 0 00-2 2v7a2 2 0 002 2z"/></svg><span class="text-sm text-slate-700">Bath</span></div>
+        </div>
+
+        <!-- Full expanded list -->
+        <div id="amenities-full" class="hidden mt-6 space-y-6">
+
+          <div>
+            <p class="text-xs font-semibold text-slate-400 uppercase tracking-widest mb-3">Internet &amp; workspace</p>
+            <div class="grid grid-cols-2 md:grid-cols-3 gap-x-6 gap-y-4">
+              <div class="flex items-center gap-3"><svg class="w-5 h-5 text-sea-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.111 16.404a5.5 5.5 0 017.778 0M12 20h.01m-7.08-7.071c3.904-3.905 10.236-3.905 14.141 0M1.394 9.393c5.857-5.857 15.355-5.857 21.213 0"/></svg><span class="text-sm text-slate-700">Fast WiFi — 454 Mbps</span></div>
+              <div class="flex items-center gap-3"><svg class="w-5 h-5 text-sea-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg><span class="text-sm text-slate-700">Dedicated workspace</span></div>
+              <div class="flex items-center gap-3"><svg class="w-5 h-5 text-sea-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 18h.01M8 21h8a2 2 0 002-2v-2a2 2 0 00-2-2H8a2 2 0 00-2 2v2a2 2 0 002 2zM12 3v9m0 0l-3-3m3 3l3-3"/></svg><span class="text-sm text-slate-700">Pocket WiFi</span></div>
+            </div>
+          </div>
+
+          <div>
+            <p class="text-xs font-semibold text-slate-400 uppercase tracking-widest mb-3">Kitchen &amp; dining</p>
+            <div class="grid grid-cols-2 md:grid-cols-3 gap-x-6 gap-y-4">
+              <div class="flex items-center gap-3"><svg class="w-5 h-5 text-sea-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"/></svg><span class="text-sm text-slate-700">Zanussi gas cooker &amp; oven</span></div>
+              <div class="flex items-center gap-3"><svg class="w-5 h-5 text-sea-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="2" width="14" height="20" rx="2" stroke-width="2"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10h14"/></svg><span class="text-sm text-slate-700">Fridge &amp; freezer</span></div>
+              <div class="flex items-center gap-3"><svg class="w-5 h-5 text-sea-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="4" width="16" height="16" rx="2" stroke-width="2"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 4v4h8V4"/></svg><span class="text-sm text-slate-700">Microwave</span></div>
+              <div class="flex items-center gap-3"><svg class="w-5 h-5 text-sea-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21h10M12 3v10m-4-6c0 2.209 1.791 4 4 4s4-1.791 4-4"/></svg><span class="text-sm text-slate-700">Kettle &amp; coffee maker</span></div>
+              <div class="flex items-center gap-3"><svg class="w-5 h-5 text-sea-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17"/></svg><span class="text-sm text-slate-700">Cooking basics &amp; crockery</span></div>
+            </div>
+          </div>
+
+          <div>
+            <p class="text-xs font-semibold text-slate-400 uppercase tracking-widest mb-3">Bedroom &amp; laundry</p>
+            <div class="grid grid-cols-2 md:grid-cols-3 gap-x-6 gap-y-4">
+              <div class="flex items-center gap-3"><svg class="w-5 h-5 text-sea-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9" stroke-width="2"/><circle cx="12" cy="12" r="4" stroke-width="2"/></svg><span class="text-sm text-slate-700">Washer (free, in-unit)</span></div>
+              <div class="flex items-center gap-3"><svg class="w-5 h-5 text-sea-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"/></svg><span class="text-sm text-slate-700">Bed linen &amp; towels</span></div>
+              <div class="flex items-center gap-3"><svg class="w-5 h-5 text-sea-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h18M3 14h18M10 4v16M14 4v16"/></svg><span class="text-sm text-slate-700">Room-darkening blinds</span></div>
+              <div class="flex items-center gap-3"><svg class="w-5 h-5 text-sea-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 17V7m0 10a2 2 0 01-2 2H5a2 2 0 01-2-2V7a2 2 0 012-2h2a2 2 0 012 2m0 10a2 2 0 002 2h2a2 2 0 002-2M9 7a2 2 0 012-2h2a2 2 0 012 2m0 10V7"/></svg><span class="text-sm text-slate-700">Iron &amp; drying rack</span></div>
+              <div class="flex items-center gap-3"><svg class="w-5 h-5 text-sea-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16V4m0 0L3 8m4-4l4 4M17 8v12m0 0l4-4m-4 4l-4-4"/></svg><span class="text-sm text-slate-700">Extra pillows &amp; blankets</span></div>
+              <div class="flex items-center gap-3"><svg class="w-5 h-5 text-sea-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7h.01M12 7h.01M16 7h.01M3 11h18M3 15h18M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg><span class="text-sm text-slate-700">Mosquito net</span></div>
+            </div>
+          </div>
+
+          <div>
+            <p class="text-xs font-semibold text-slate-400 uppercase tracking-widest mb-3">Bathroom</p>
+            <div class="grid grid-cols-2 md:grid-cols-3 gap-x-6 gap-y-4">
+              <div class="flex items-center gap-3"><svg class="w-5 h-5 text-sea-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 19h16M4 15h16a2 2 0 002-2V6a2 2 0 00-2-2H4a2 2 0 00-2 2v7a2 2 0 002 2z"/></svg><span class="text-sm text-slate-700">Bath</span></div>
+              <div class="flex items-center gap-3"><svg class="w-5 h-5 text-sea-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 3H5a2 2 0 00-2 2v4m6-6h10a2 2 0 012 2v4M9 3v18m0 0h10a2 2 0 002-2V9M9 21H5a2 2 0 01-2-2V9m0 0h18"/></svg><span class="text-sm text-slate-700">Hairdryer</span></div>
+              <div class="flex items-center gap-3"><svg class="w-5 h-5 text-sea-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"/></svg><span class="text-sm text-slate-700">Shampoo &amp; conditioner</span></div>
+              <div class="flex items-center gap-3"><svg class="w-5 h-5 text-sea-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1M4.22 4.22l.707.707m12.728 12.728l.707.707M3 12H2m20 0h-1M4.22 19.78l.707-.707M18.364 5.636l.707-.707"/></svg><span class="text-sm text-slate-700">Body soap &amp; shower gel</span></div>
+              <div class="flex items-center gap-3"><svg class="w-5 h-5 text-sea-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg><span class="text-sm text-slate-700">Hot water</span></div>
+            </div>
+          </div>
+
+          <div>
+            <p class="text-xs font-semibold text-slate-400 uppercase tracking-widest mb-3">Family</p>
+            <div class="grid grid-cols-2 md:grid-cols-3 gap-x-6 gap-y-4">
+              <div class="flex items-center gap-3"><svg class="w-5 h-5 text-sea-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2" stroke-width="2"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 9h18"/></svg><span class="text-sm text-slate-700">Cot &amp; travel cot</span></div>
+              <div class="flex items-center gap-3"><svg class="w-5 h-5 text-sea-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/></svg><span class="text-sm text-slate-700">Children's books &amp; toys</span></div>
+              <div class="flex items-center gap-3"><svg class="w-5 h-5 text-sea-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z"/></svg><span class="text-sm text-slate-700">Children's tableware</span></div>
+              <div class="flex items-center gap-3"><svg class="w-5 h-5 text-sea-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 10l-2 1m0 0l-2-1m2 1v2.5M20 7l-2 1m2-1l-2-1m2 1v2.5M14 4l-2-1-2 1M4 7l2-1M4 7l2 1M4 7v2.5M12 21l-2-1m2 1l2-1m-2 1v-2.5M6 18l-2-1v-2.5M18 18l2-1v-2.5"/></svg><span class="text-sm text-slate-700">Board games</span></div>
+            </div>
+          </div>
+
+          <div>
+            <p class="text-xs font-semibold text-slate-400 uppercase tracking-widest mb-3">Safety &amp; comfort</p>
+            <div class="grid grid-cols-2 md:grid-cols-3 gap-x-6 gap-y-4">
+              <div class="flex items-center gap-3"><svg class="w-5 h-5 text-sea-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"/></svg><span class="text-sm text-slate-700">Smoke alarm</span></div>
+              <div class="flex items-center gap-3"><svg class="w-5 h-5 text-sea-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg><span class="text-sm text-slate-700">Carbon monoxide alarm</span></div>
+              <div class="flex items-center gap-3"><svg class="w-5 h-5 text-sea-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10"/></svg><span class="text-sm text-slate-700">Fire extinguisher</span></div>
+              <div class="flex items-center gap-3"><svg class="w-5 h-5 text-sea-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"/></svg><span class="text-sm text-slate-700">First aid kit</span></div>
+              <div class="flex items-center gap-3"><svg class="w-5 h-5 text-sea-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg><span class="text-sm text-slate-700">AC unit &amp; heating</span></div>
+            </div>
           </div>
         </div>
 
-        <!-- Kitchen -->
-        <div class="mb-6">
-          <p class="text-xs font-semibold text-slate-400 uppercase tracking-widest mb-3">Kitchen &amp; dining</p>
-          <div class="grid grid-cols-2 md:grid-cols-3 gap-x-6 gap-y-4">
-            <div class="flex items-center gap-3"><svg class="w-5 h-5 text-sea-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"/></svg><span class="text-sm text-slate-700">Zanussi gas cooker &amp; oven</span></div>
-            <div class="flex items-center gap-3"><svg class="w-5 h-5 text-sea-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="2" width="14" height="20" rx="2" stroke-width="2"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10h14"/></svg><span class="text-sm text-slate-700">Fridge &amp; freezer</span></div>
-            <div class="flex items-center gap-3"><svg class="w-5 h-5 text-sea-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="4" width="16" height="16" rx="2" stroke-width="2"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 4v4h8V4"/></svg><span class="text-sm text-slate-700">Microwave</span></div>
-            <div class="flex items-center gap-3"><svg class="w-5 h-5 text-sea-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21h10M12 3v10m-4-6c0 2.209 1.791 4 4 4s4-1.791 4-4"/></svg><span class="text-sm text-slate-700">Kettle &amp; coffee maker</span></div>
-            <div class="flex items-center gap-3"><svg class="w-5 h-5 text-sea-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17"/></svg><span class="text-sm text-slate-700">Cooking basics &amp; crockery</span></div>
-          </div>
-        </div>
-
-        <!-- Bedroom & laundry -->
-        <div class="mb-6">
-          <p class="text-xs font-semibold text-slate-400 uppercase tracking-widest mb-3">Bedroom &amp; laundry</p>
-          <div class="grid grid-cols-2 md:grid-cols-3 gap-x-6 gap-y-4">
-            <div class="flex items-center gap-3"><svg class="w-5 h-5 text-sea-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9" stroke-width="2"/><circle cx="12" cy="12" r="4" stroke-width="2"/></svg><span class="text-sm text-slate-700">Washer (free, in-unit)</span></div>
-            <div class="flex items-center gap-3"><svg class="w-5 h-5 text-sea-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"/></svg><span class="text-sm text-slate-700">Bed linen &amp; towels</span></div>
-            <div class="flex items-center gap-3"><svg class="w-5 h-5 text-sea-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h18M3 14h18M10 4v16M14 4v16"/></svg><span class="text-sm text-slate-700">Room-darkening blinds</span></div>
-            <div class="flex items-center gap-3"><svg class="w-5 h-5 text-sea-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 17V7m0 10a2 2 0 01-2 2H5a2 2 0 01-2-2V7a2 2 0 012-2h2a2 2 0 012 2m0 10a2 2 0 002 2h2a2 2 0 002-2M9 7a2 2 0 012-2h2a2 2 0 012 2m0 10V7"/></svg><span class="text-sm text-slate-700">Iron &amp; drying rack</span></div>
-            <div class="flex items-center gap-3"><svg class="w-5 h-5 text-sea-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16V4m0 0L3 8m4-4l4 4M17 8v12m0 0l4-4m-4 4l-4-4"/></svg><span class="text-sm text-slate-700">Extra pillows &amp; blankets</span></div>
-            <div class="flex items-center gap-3"><svg class="w-5 h-5 text-sea-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7h.01M12 7h.01M16 7h.01M3 11h18M3 15h18M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg><span class="text-sm text-slate-700">Mosquito net</span></div>
-          </div>
-        </div>
-
-        <!-- Bathroom -->
-        <div class="mb-6">
-          <p class="text-xs font-semibold text-slate-400 uppercase tracking-widest mb-3">Bathroom</p>
-          <div class="grid grid-cols-2 md:grid-cols-3 gap-x-6 gap-y-4">
-            <div class="flex items-center gap-3"><svg class="w-5 h-5 text-sea-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 19h16M4 15h16a2 2 0 002-2V6a2 2 0 00-2-2H4a2 2 0 00-2 2v7a2 2 0 002 2z"/></svg><span class="text-sm text-slate-700">Bath</span></div>
-            <div class="flex items-center gap-3"><svg class="w-5 h-5 text-sea-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 3H5a2 2 0 00-2 2v4m6-6h10a2 2 0 012 2v4M9 3v18m0 0h10a2 2 0 002-2V9M9 21H5a2 2 0 01-2-2V9m0 0h18"/></svg><span class="text-sm text-slate-700">Hairdryer</span></div>
-            <div class="flex items-center gap-3"><svg class="w-5 h-5 text-sea-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"/></svg><span class="text-sm text-slate-700">Shampoo &amp; conditioner</span></div>
-            <div class="flex items-center gap-3"><svg class="w-5 h-5 text-sea-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1M4.22 4.22l.707.707m12.728 12.728l.707.707M3 12H2m20 0h-1M4.22 19.78l.707-.707M18.364 5.636l.707-.707"/></svg><span class="text-sm text-slate-700">Body soap &amp; shower gel</span></div>
-            <div class="flex items-center gap-3"><svg class="w-5 h-5 text-sea-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg><span class="text-sm text-slate-700">Hot water</span></div>
-          </div>
-        </div>
-
-        <!-- Family -->
-        <div class="mb-6">
-          <p class="text-xs font-semibold text-slate-400 uppercase tracking-widest mb-3">Family</p>
-          <div class="grid grid-cols-2 md:grid-cols-3 gap-x-6 gap-y-4">
-            <div class="flex items-center gap-3"><svg class="w-5 h-5 text-sea-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2" stroke-width="2"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 9h18"/></svg><span class="text-sm text-slate-700">Cot &amp; travel cot</span></div>
-            <div class="flex items-center gap-3"><svg class="w-5 h-5 text-sea-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/></svg><span class="text-sm text-slate-700">Children's books &amp; toys</span></div>
-            <div class="flex items-center gap-3"><svg class="w-5 h-5 text-sea-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z"/></svg><span class="text-sm text-slate-700">Children's tableware</span></div>
-            <div class="flex items-center gap-3"><svg class="w-5 h-5 text-sea-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 10l-2 1m0 0l-2-1m2 1v2.5M20 7l-2 1m2-1l-2-1m2 1v2.5M14 4l-2-1-2 1M4 7l2-1M4 7l2 1M4 7v2.5M12 21l-2-1m2 1l2-1m-2 1v-2.5M6 18l-2-1v-2.5M18 18l2-1v-2.5"/></svg><span class="text-sm text-slate-700">Board games</span></div>
-          </div>
-        </div>
-
-        <!-- Safety & heating -->
-        <div class="mb-6">
-          <p class="text-xs font-semibold text-slate-400 uppercase tracking-widest mb-3">Safety &amp; comfort</p>
-          <div class="grid grid-cols-2 md:grid-cols-3 gap-x-6 gap-y-4">
-            <div class="flex items-center gap-3"><svg class="w-5 h-5 text-sea-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"/></svg><span class="text-sm text-slate-700">Smoke alarm</span></div>
-            <div class="flex items-center gap-3"><svg class="w-5 h-5 text-sea-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg><span class="text-sm text-slate-700">Carbon monoxide alarm</span></div>
-            <div class="flex items-center gap-3"><svg class="w-5 h-5 text-sea-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10"/></svg><span class="text-sm text-slate-700">Fire extinguisher</span></div>
-            <div class="flex items-center gap-3"><svg class="w-5 h-5 text-sea-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"/></svg><span class="text-sm text-slate-700">First aid kit</span></div>
-            <div class="flex items-center gap-3"><svg class="w-5 h-5 text-sea-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg><span class="text-sm text-slate-700">AC unit &amp; heating</span></div>
-            <div class="flex items-center gap-3"><svg class="w-5 h-5 text-sea-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/></svg><span class="text-sm text-slate-700">City skyline view &amp; balcony</span></div>
-          </div>
-        </div>
+        <!-- Toggle button -->
+        <button id="amenities-toggle" class="mt-6 w-full border border-slate-300 rounded-xl py-3 flex items-center justify-center gap-2 text-sm font-semibold text-slate-700 hover:border-slate-400 hover:bg-slate-50 transition-colors duration-200 cursor-pointer">
+          <span id="amenities-toggle-label">Show all 62 amenities</span>
+          <svg id="amenities-toggle-icon" class="w-4 h-4 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+        </button>
       </section>
 
       <hr class="my-8 border-slate-100" />
@@ -487,81 +502,101 @@
 
       <!-- Reviews -->
       <section id="reviews">
-        <div class="flex items-center gap-3 mb-6">
+        <div class="flex items-center gap-3 mb-5">
           <svg class="w-5 h-5 text-amber-400" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-          <h3 class="font-serif text-2xl font-semibold text-sea-950">4.96 · Guest Favorite</h3>
+          <h3 class="font-serif text-2xl font-semibold text-sea-950">4.96 · Guest Favourite</h3>
         </div>
 
-        <!-- Rating bars -->
-        <div class="grid grid-cols-2 gap-x-10 gap-y-3 text-sm mb-8">
+        <!-- Rating bars — corrected scores -->
+        <div class="grid grid-cols-2 gap-x-10 gap-y-3 text-sm mb-6">
           <div class="flex items-center gap-3"><span class="text-slate-500 w-28 flex-shrink-0">Cleanliness</span><div class="flex-1 h-1.5 bg-slate-100 rounded-full overflow-hidden"><div class="h-1.5 bg-sea-500 rounded-full" style="width:100%"></div></div><span class="font-semibold text-sea-900 w-8 text-right">5.0</span></div>
           <div class="flex items-center gap-3"><span class="text-slate-500 w-28 flex-shrink-0">Accuracy</span><div class="flex-1 h-1.5 bg-slate-100 rounded-full overflow-hidden"><div class="h-1.5 bg-sea-500 rounded-full" style="width:98%"></div></div><span class="font-semibold text-sea-900 w-8 text-right">4.9</span></div>
           <div class="flex items-center gap-3"><span class="text-slate-500 w-28 flex-shrink-0">Check-in</span><div class="flex-1 h-1.5 bg-slate-100 rounded-full overflow-hidden"><div class="h-1.5 bg-sea-500 rounded-full" style="width:100%"></div></div><span class="font-semibold text-sea-900 w-8 text-right">5.0</span></div>
           <div class="flex items-center gap-3"><span class="text-slate-500 w-28 flex-shrink-0">Communication</span><div class="flex-1 h-1.5 bg-slate-100 rounded-full overflow-hidden"><div class="h-1.5 bg-sea-500 rounded-full" style="width:100%"></div></div><span class="font-semibold text-sea-900 w-8 text-right">5.0</span></div>
-          <div class="flex items-center gap-3"><span class="text-slate-500 w-28 flex-shrink-0">Location</span><div class="flex-1 h-1.5 bg-slate-100 rounded-full overflow-hidden"><div class="h-1.5 bg-sea-500 rounded-full" style="width:96%"></div></div><span class="font-semibold text-sea-900 w-8 text-right">4.8</span></div>
-          <div class="flex items-center gap-3"><span class="text-slate-500 w-28 flex-shrink-0">Value</span><div class="flex-1 h-1.5 bg-slate-100 rounded-full overflow-hidden"><div class="h-1.5 bg-sea-500 rounded-full" style="width:96%"></div></div><span class="font-semibold text-sea-900 w-8 text-right">4.8</span></div>
+          <div class="flex items-center gap-3"><span class="text-slate-500 w-28 flex-shrink-0">Location</span><div class="flex-1 h-1.5 bg-slate-100 rounded-full overflow-hidden"><div class="h-1.5 bg-sea-500 rounded-full" style="width:98%"></div></div><span class="font-semibold text-sea-900 w-8 text-right">4.9</span></div>
+          <div class="flex items-center gap-3"><span class="text-slate-500 w-28 flex-shrink-0">Value</span><div class="flex-1 h-1.5 bg-slate-100 rounded-full overflow-hidden"><div class="h-1.5 bg-sea-500 rounded-full" style="width:100%"></div></div><span class="font-semibold text-sea-900 w-8 text-right">5.0</span></div>
         </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
-          <article class="rounded-2xl border border-slate-100 p-5 bg-white hover:border-sea-200 transition-colors duration-200">
-            <div class="flex items-center gap-3 mb-3">
-              <div class="w-10 h-10 rounded-full overflow-hidden bg-sea-100 flex-shrink-0 flex items-center justify-center font-semibold text-sea-700">N</div>
-              <div><p class="font-semibold text-slate-800 text-sm">Noa · Chicago, IL</p><p class="text-xs text-slate-400">April 2026 · Stayed about a week</p></div>
-              <div class="ml-auto flex">
-                <svg class="w-3.5 h-3.5 text-amber-400" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-                <svg class="w-3.5 h-3.5 text-amber-400" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-                <svg class="w-3.5 h-3.5 text-amber-400" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-                <svg class="w-3.5 h-3.5 text-amber-400" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-                <svg class="w-3.5 h-3.5 text-amber-400" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-              </div>
-            </div>
-            <p class="text-slate-600 text-sm leading-relaxed">"A real gem! The best neighbourhood in the city by far. Only a few minutes walk from a beautiful park, Maria's apartment was a perfect match for our family trip! The design of the place is delightful and fun (loved the bath!), you have everything you need and more."</p>
-          </article>
+        <!-- Guest review topic tags (from Airbnb) -->
+        <p class="text-xs font-semibold text-slate-500 uppercase tracking-widest mb-2">Guests often mention</p>
+        <div class="flex gap-2 overflow-x-auto pb-3 mb-6 -mx-1 px-1" style="scrollbar-width:none">
+          <span class="inline-flex items-center gap-1.5 flex-shrink-0 text-xs text-slate-700 bg-white border border-slate-200 px-3 py-2 rounded-xl">🌿 Parks</span>
+          <span class="inline-flex items-center gap-1.5 flex-shrink-0 text-xs text-slate-700 bg-white border border-slate-200 px-3 py-2 rounded-xl">🎁 Hospitality</span>
+          <span class="inline-flex items-center gap-1.5 flex-shrink-0 text-xs text-slate-700 bg-white border border-slate-200 px-3 py-2 rounded-xl">📍 Location</span>
+          <span class="inline-flex items-center gap-1.5 flex-shrink-0 text-xs text-slate-700 bg-white border border-slate-200 px-3 py-2 rounded-xl">👟 Walkability</span>
+          <span class="inline-flex items-center gap-1.5 flex-shrink-0 text-xs text-slate-700 bg-white border border-slate-200 px-3 py-2 rounded-xl">🎧 Quiet</span>
+          <span class="inline-flex items-center gap-1.5 flex-shrink-0 text-xs text-slate-700 bg-white border border-slate-200 px-3 py-2 rounded-xl">🛋️ Comfort</span>
+          <span class="inline-flex items-center gap-1.5 flex-shrink-0 text-xs text-slate-700 bg-white border border-slate-200 px-3 py-2 rounded-xl">🧹 Cleanliness</span>
+          <span class="inline-flex items-center gap-1.5 flex-shrink-0 text-xs text-slate-700 bg-white border border-slate-200 px-3 py-2 rounded-xl">📅 Long stays</span>
+          <span class="inline-flex items-center gap-1.5 flex-shrink-0 text-xs text-slate-700 bg-white border border-slate-200 px-3 py-2 rounded-xl">✅ Accuracy</span>
+        </div>
 
-          <article class="rounded-2xl border border-slate-100 p-5 bg-white hover:border-sea-200 transition-colors duration-200">
-            <div class="flex items-center gap-3 mb-3">
-              <div class="w-10 h-10 rounded-full overflow-hidden bg-sea-100 flex-shrink-0 flex items-center justify-center font-semibold text-sea-700">A</div>
-              <div><p class="font-semibold text-slate-800 text-sm">Andrei-Florin</p><p class="text-xs text-slate-400">November 2025 · Stayed about a week</p></div>
-              <div class="ml-auto flex">
-                <svg class="w-3.5 h-3.5 text-amber-400" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-                <svg class="w-3.5 h-3.5 text-amber-400" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-                <svg class="w-3.5 h-3.5 text-amber-400" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-                <svg class="w-3.5 h-3.5 text-amber-400" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-                <svg class="w-3.5 h-3.5 text-amber-400" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-              </div>
-            </div>
-            <p class="text-slate-600 text-sm leading-relaxed">"We stayed for almost two weeks. The apartment has everything you need for a long stay — clean, cosy, kitchen fully equipped and bed very comfortable. The location is quiet and there is a supermarket open 24/7 just three minutes from the building. Thank you Maria for being such a great host!"</p>
-          </article>
+        <!-- Carousel -->
+        <div class="relative">
+          <!-- Arrow buttons (desktop) -->
+          <button id="rev-prev" class="hidden md:flex absolute -left-5 top-1/2 -translate-y-1/2 z-10 w-9 h-9 rounded-full bg-white border border-slate-200 shadow items-center justify-center hover:shadow-md transition-shadow duration-200 cursor-pointer" aria-label="Previous review">
+            <svg class="w-4 h-4 text-slate-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
+          </button>
+          <button id="rev-next" class="hidden md:flex absolute -right-5 top-1/2 -translate-y-1/2 z-10 w-9 h-9 rounded-full bg-white border border-slate-200 shadow items-center justify-center hover:shadow-md transition-shadow duration-200 cursor-pointer" aria-label="Next review">
+            <svg class="w-4 h-4 text-slate-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+          </button>
 
-          <article class="rounded-2xl border border-slate-100 p-5 bg-white hover:border-sea-200 transition-colors duration-200">
-            <div class="flex items-center gap-3 mb-3">
-              <div class="w-10 h-10 rounded-full overflow-hidden bg-sea-100 flex-shrink-0 flex items-center justify-center font-semibold text-sea-700">A</div>
-              <div><p class="font-semibold text-slate-800 text-sm">Andrea</p><p class="text-xs text-slate-400">July 2025 · Stayed a few nights</p></div>
-              <div class="ml-auto flex">
-                <svg class="w-3.5 h-3.5 text-amber-400" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-                <svg class="w-3.5 h-3.5 text-amber-400" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-                <svg class="w-3.5 h-3.5 text-amber-400" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-                <svg class="w-3.5 h-3.5 text-amber-400" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-                <svg class="w-3.5 h-3.5 text-amber-400" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-              </div>
-            </div>
-            <p class="text-slate-600 text-sm leading-relaxed">"Whenever we are in Bucharest, we always check if Maria's place is free. It is the best accommodation we have ever had — we now feel like home there and Maria is a great host. Strongly recommended."</p>
-          </article>
+          <!-- Scrollable track -->
+          <div id="rev-track" class="flex gap-4 overflow-x-auto snap-x snap-mandatory scroll-smooth pb-3 -mx-1 px-1" style="scrollbar-width:none;-webkit-overflow-scrolling:touch">
 
-          <article class="rounded-2xl border border-slate-100 p-5 bg-white hover:border-sea-200 transition-colors duration-200">
-            <div class="flex items-center gap-3 mb-3">
-              <div class="w-10 h-10 rounded-full overflow-hidden bg-sea-100 flex-shrink-0 flex items-center justify-center font-semibold text-sea-700">I</div>
-              <div><p class="font-semibold text-slate-800 text-sm">Ioana</p><p class="text-xs text-slate-400">May 2025 · Stayed a few nights</p></div>
-              <div class="ml-auto flex">
-                <svg class="w-3.5 h-3.5 text-amber-400" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-                <svg class="w-3.5 h-3.5 text-amber-400" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-                <svg class="w-3.5 h-3.5 text-amber-400" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-                <svg class="w-3.5 h-3.5 text-amber-400" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-                <svg class="w-3.5 h-3.5 text-amber-400" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <article class="snap-start flex-shrink-0 w-[85%] sm:w-[calc(50%-8px)] rounded-2xl border border-slate-100 p-5 bg-white">
+              <div class="flex items-center gap-3 mb-3">
+                <div class="w-9 h-9 rounded-full bg-sea-100 flex-shrink-0 flex items-center justify-center font-semibold text-sea-700 text-sm">N</div>
+                <div><p class="font-semibold text-slate-800 text-sm">Noa · Chicago, IL</p><p class="text-xs text-slate-400">April 2026 · ~1 week</p></div>
+                <div class="ml-auto flex gap-0.5">
+                  <svg class="w-3 h-3 text-amber-400" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg class="w-3 h-3 text-amber-400" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg class="w-3 h-3 text-amber-400" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg class="w-3 h-3 text-amber-400" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg class="w-3 h-3 text-amber-400" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                </div>
               </div>
-            </div>
-            <p class="text-slate-600 text-sm leading-relaxed">"We loved staying in this flat! Great location, quiet and airy, nicely decorated — we particularly liked the books and quotes dotted around the place that never failed to put a smile on our faces. Hope to visit again!"</p>
-          </article>
+              <p class="text-slate-600 text-sm leading-relaxed">"A real gem! The best neighbourhood in the city by far. Only a few minutes walk from a beautiful park, Maria's apartment was a perfect match for our family trip! The design of the place is delightful and you have everything you need and more."</p>
+            </article>
+
+            <article class="snap-start flex-shrink-0 w-[85%] sm:w-[calc(50%-8px)] rounded-2xl border border-slate-100 p-5 bg-white">
+              <div class="flex items-center gap-3 mb-3">
+                <div class="w-9 h-9 rounded-full bg-sea-100 flex-shrink-0 flex items-center justify-center font-semibold text-sea-700 text-sm">A</div>
+                <div><p class="font-semibold text-slate-800 text-sm">Andrei-Florin</p><p class="text-xs text-slate-400">Nov 2025 · ~2 weeks</p></div>
+                <div class="ml-auto flex gap-0.5">
+                  <svg class="w-3 h-3 text-amber-400" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg class="w-3 h-3 text-amber-400" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg class="w-3 h-3 text-amber-400" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg class="w-3 h-3 text-amber-400" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg class="w-3 h-3 text-amber-400" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                </div>
+              </div>
+              <p class="text-slate-600 text-sm leading-relaxed">"We stayed for almost two weeks. The apartment has everything you need for a long stay — clean, cosy, kitchen fully equipped and bed very comfortable. Supermarket open 24/7 just three minutes away. Thank you Maria!"</p>
+            </article>
+
+            <article class="snap-start flex-shrink-0 w-[85%] sm:w-[calc(50%-8px)] rounded-2xl border border-slate-100 p-5 bg-white">
+              <div class="flex items-center gap-3 mb-3">
+                <div class="w-9 h-9 rounded-full bg-sea-100 flex-shrink-0 flex items-center justify-center font-semibold text-sea-700 text-sm">A</div>
+                <div><p class="font-semibold text-slate-800 text-sm">Andrea</p><p class="text-xs text-slate-400">July 2025 · A few nights</p></div>
+                <div class="ml-auto flex gap-0.5">
+                  <svg class="w-3 h-3 text-amber-400" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg class="w-3 h-3 text-amber-400" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg class="w-3 h-3 text-amber-400" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg class="w-3 h-3 text-amber-400" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg class="w-3 h-3 text-amber-400" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                </div>
+              </div>
+              <p class="text-slate-600 text-sm leading-relaxed">"Whenever we are in Bucharest, we always check if Maria's place is free. It is the best accommodation we have ever had — we now feel like home there and Maria is a great host. Strongly recommended."</p>
+            </article>
+
+            <article class="snap-start flex-shrink-0 w-[85%] sm:w-[calc(50%-8px)] rounded-2xl border border-slate-100 p-5 bg-white">
+              <div class="flex items-center gap-3 mb-3">
+                <div class="w-9 h-9 rounded-full bg-sea-100 flex-shrink-0 flex items-center justify-center font-semibold text-sea-700 text-sm">I</div>
+                <div><p class="font-semibold text-slate-800 text-sm">Ioana</p><p class="text-xs text-slate-400">May 2025 · A few nights</p></div>
+                <div class="ml-auto flex gap-0.5">
+                  <svg class="w-3 h-3 text-amber-400" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg class="w-3 h-3 text-amber-400" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg class="w-3 h-3 text-amber-400" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg class="w-3 h-3 text-amber-400" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg class="w-3 h-3 text-amber-400" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                </div>
+              </div>
+              <p class="text-slate-600 text-sm leading-relaxed">"We loved staying in this flat! Great location, quiet and airy, nicely decorated — we particularly liked the books and quotes dotted around the place that never failed to put a smile on our faces. Hope to visit again!"</p>
+            </article>
+
+          </div>
+
+          <!-- Dot indicators -->
+          <div id="rev-dots" class="flex justify-center gap-1.5 mt-3">
+            <button class="rev-dot w-2 h-2 rounded-full bg-sea-500 transition-all duration-200 cursor-pointer" data-index="0" aria-label="Review 1"></button>
+            <button class="rev-dot w-2 h-2 rounded-full bg-slate-200 transition-all duration-200 cursor-pointer" data-index="1" aria-label="Review 2"></button>
+            <button class="rev-dot w-2 h-2 rounded-full bg-slate-200 transition-all duration-200 cursor-pointer" data-index="2" aria-label="Review 3"></button>
+            <button class="rev-dot w-2 h-2 rounded-full bg-slate-200 transition-all duration-200 cursor-pointer" data-index="3" aria-label="Review 4"></button>
+          </div>
         </div>
 
         <a href="https://www.airbnb.co.uk/rooms/53208110#reviews" target="_blank" rel="noopener noreferrer" class="mt-6 inline-flex items-center gap-2 text-sea-700 font-medium text-sm underline hover:text-sea-900 transition-colors duration-200 cursor-pointer">
@@ -858,6 +893,66 @@
     });
     updateAirbnbLinks();
   });
+
+  // ── Amenities expand / collapse ───────────────────────────────
+  (function () {
+    const toggle = document.getElementById('amenities-toggle');
+    const full   = document.getElementById('amenities-full');
+    const label  = document.getElementById('amenities-toggle-label');
+    const icon   = document.getElementById('amenities-toggle-icon');
+    if (!toggle || !full) return;
+    let expanded = false;
+    toggle.addEventListener('click', function () {
+      expanded = !expanded;
+      full.classList.toggle('hidden', !expanded);
+      label.textContent = expanded ? 'Show fewer amenities' : 'Show all 62 amenities';
+      icon.style.transform = expanded ? 'rotate(180deg)' : '';
+    });
+  })();
+
+  // ── Reviews carousel ─────────────────────────────────────────
+  (function () {
+    const track   = document.getElementById('rev-track');
+    const btnPrev = document.getElementById('rev-prev');
+    const btnNext = document.getElementById('rev-next');
+    const dots    = Array.from(document.querySelectorAll('.rev-dot'));
+    if (!track) return;
+
+    function cardWidth() {
+      const first = track.firstElementChild;
+      if (!first) return 0;
+      return first.offsetWidth + parseInt(getComputedStyle(track).gap || 16);
+    }
+
+    function currentIndex() {
+      return Math.round(track.scrollLeft / (cardWidth() || 1));
+    }
+
+    function scrollToIndex(i) {
+      const count = track.children.length;
+      i = Math.max(0, Math.min(count - 1, i));
+      track.scrollTo({ left: i * cardWidth(), behavior: 'smooth' });
+    }
+
+    function syncDots() {
+      const i = currentIndex();
+      dots.forEach((d, idx) => {
+        d.classList.toggle('bg-sea-500', idx === i);
+        d.classList.toggle('w-4',        idx === i);
+        d.classList.toggle('bg-slate-200', idx !== i);
+        d.classList.toggle('w-2',        idx !== i);
+      });
+      if (btnPrev) btnPrev.style.opacity = i === 0 ? '0.4' : '1';
+      if (btnNext) btnNext.style.opacity = i >= track.children.length - 1 ? '0.4' : '1';
+    }
+
+    if (btnPrev) btnPrev.addEventListener('click', () => scrollToIndex(currentIndex() - 1));
+    if (btnNext) btnNext.addEventListener('click', () => scrollToIndex(currentIndex() + 1));
+    dots.forEach(d => d.addEventListener('click', () => scrollToIndex(+d.dataset.index)));
+
+    track.addEventListener('scroll', syncDots, { passive: true });
+    syncDots();
+  })();
 </script>
 </body>
 </html>
