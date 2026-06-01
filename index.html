@@ -205,19 +205,18 @@
 
       <!-- Overview -->
       <section id="about">
-        <!-- Type + location + rating — one clean line -->
-        <div class="flex items-center justify-between gap-3 flex-wrap">
-          <div class="flex items-center gap-2 text-sm text-slate-500">
-            <span class="font-semibold text-sea-700 bg-sea-50 border border-sea-100 px-2.5 py-0.5 rounded-full text-xs">Entire condo</span>
-            <span>·</span>
-            <span>Floreasca, Bucharest</span>
-          </div>
-          <div class="flex items-center gap-1.5">
-            <svg class="w-4 h-4 text-amber-400" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-            <span class="font-semibold text-sea-900 text-sm">4.96</span>
-            <span class="text-slate-300">·</span>
+        <!-- Type · location · rating — all inline, dots as separators -->
+        <div class="flex items-center gap-1.5 text-sm text-slate-500 flex-wrap">
+          <span class="font-semibold text-sea-700 bg-sea-50 border border-sea-100 px-2.5 py-0.5 rounded-full text-xs whitespace-nowrap">Entire condo</span>
+          <span class="text-slate-300">·</span>
+          <span class="whitespace-nowrap">Floreasca, Bucharest</span>
+          <span class="text-slate-300">·</span>
+          <span class="inline-flex items-center gap-1 whitespace-nowrap">
+            <svg class="w-3.5 h-3.5 text-amber-400" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <span class="font-semibold text-sea-900 text-xs">4.96</span>
+            <span class="text-slate-300 text-xs">·</span>
             <a href="#reviews" class="text-sea-600 text-xs hover:text-sea-900 transition-colors duration-200 cursor-pointer">50+ reviews</a>
-          </div>
+          </span>
         </div>
 
         <!-- Stat pills — no wrapping issues -->
@@ -241,12 +240,12 @@
         </div>
       </section>
 
-      <hr class="my-8 border-slate-100" />
+      <hr class="my-5 md:my-8 border-slate-100" />
 
       <!-- Host -->
       <div class="flex items-center gap-4">
-        <div class="w-14 h-14 rounded-full bg-sea-100 overflow-hidden flex-shrink-0 ring-2 ring-sea-200">
-          <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=120&q=80&auto=format&fit=crop&crop=face" alt="Host Maria" class="w-full h-full object-cover" />
+        <div class="w-14 h-14 rounded-full bg-gradient-to-br from-sea-400 to-sea-700 flex items-center justify-center flex-shrink-0 ring-2 ring-sea-200" aria-hidden="true">
+          <span class="text-xl font-bold text-white select-none">M</span>
         </div>
         <div>
           <p class="font-semibold text-sea-950">Hosted by Maria</p>
@@ -258,7 +257,7 @@
         </span>
       </div>
 
-      <hr class="my-8 border-slate-100" />
+      <hr class="my-5 md:my-8 border-slate-100" />
 
       <!-- Highlights -->
       <div class="grid grid-cols-2 sm:grid-cols-3 gap-4 sm:gap-6">
@@ -318,7 +317,7 @@
         </div>
       </div>
 
-      <hr class="my-8 border-slate-100" />
+      <hr class="my-5 md:my-8 border-slate-100" />
 
       <!-- Gallery -->
       <div class="gallery-grid rounded-2xl overflow-hidden">
@@ -346,7 +345,7 @@
         </div>
       </div>
 
-      <hr class="my-8 border-slate-100" />
+      <hr class="my-5 md:my-8 border-slate-100" />
 
       <!-- Description -->
       <div>
@@ -356,7 +355,7 @@
         <p class="text-slate-600 leading-relaxed mt-3">Situated 100m from parks and lakes on the 4th floor of a recently renovated building. Your host Maria is always a message away — guests consistently highlight her speed and warmth.</p>
       </div>
 
-      <hr class="my-8 border-slate-100" />
+      <hr class="my-5 md:my-8 border-slate-100" />
 
       <!-- Amenities -->
       <section id="amenities">
@@ -449,7 +448,7 @@
         </button>
       </section>
 
-      <hr class="my-8 border-slate-100" />
+      <hr class="my-5 md:my-8 border-slate-100" />
 
       <!-- Urgency / social proof banner -->
       <div class="flex items-center gap-3 bg-amber-50 border border-amber-200 rounded-xl px-4 py-3 mb-8">
@@ -498,7 +497,7 @@
         </div>
       </section>
 
-      <hr class="my-8 border-slate-100" />
+      <hr class="my-5 md:my-8 border-slate-100" />
 
       <!-- Reviews -->
       <section id="reviews">
@@ -605,7 +604,7 @@
         </a>
       </section>
 
-      <hr class="my-8 border-slate-100" />
+      <hr class="my-5 md:my-8 border-slate-100" />
 
       <!-- Location -->
       <section id="location">
