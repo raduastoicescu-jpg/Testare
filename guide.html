@@ -166,6 +166,10 @@
         <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
         Food &amp; Area
       </button>
+      <button data-tab="rules"     class="tab-btn flex-shrink-0 px-4 py-3 text-xs font-semibold text-slate-500 border-b-2 border-transparent hover:text-sea-700 transition-colors duration-200 cursor-pointer whitespace-nowrap flex items-center gap-1.5">
+        <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01"/></svg>
+        House Rules
+      </button>
       <button data-tab="faq"       class="tab-btn flex-shrink-0 px-4 py-3 text-xs font-semibold text-slate-500 border-b-2 border-transparent hover:text-sea-700 transition-colors duration-200 cursor-pointer whitespace-nowrap flex items-center gap-1.5">
         <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
         FAQ
@@ -926,6 +930,172 @@
     </div>
 
     <!-- ── FAQ ───────────────────────────────────────────────── -->
+    <!-- ── HOUSE RULES ──────────────────────────────────────────── -->
+    <div id="tab-rules" class="tab-panel fade-in space-y-4">
+
+      <!-- Welcome card -->
+      <div class="info-card bg-sea-700 border-sea-700">
+        <div class="flex items-start gap-3">
+          <svg class="w-6 h-6 text-sea-300 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/></svg>
+          <div>
+            <p class="font-semibold text-white text-sm">Hello and welcome!</p>
+            <p class="text-sea-200 text-sm mt-1 leading-relaxed">We're so glad you're here. To ensure a comfortable and enjoyable stay for everyone, please take a moment to read through these house rules. Thank you for choosing our apartment!</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Strict rules (red) -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+
+        <div class="flex items-start gap-3 p-4 bg-red-50 border border-red-100 rounded-xl">
+          <div class="w-9 h-9 rounded-lg bg-red-100 flex items-center justify-center flex-shrink-0">
+            <svg class="w-4.5 h-4.5 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18.364 18.364A9 9 0 005.636 5.636m12.728 12.728A9 9 0 015.636 5.636m12.728 12.728L5.636 5.636"/></svg>
+          </div>
+          <div>
+            <p class="font-semibold text-red-800 text-sm">No Smoking</p>
+            <p class="text-xs text-red-600 mt-0.5 leading-relaxed">Smoking is not permitted inside the apartment or on the balcony. A <strong>€100 fine</strong> will be applied at the end of the reservation if smoking occurs on the premises.</p>
+          </div>
+        </div>
+
+        <div class="flex items-start gap-3 p-4 bg-red-50 border border-red-100 rounded-xl">
+          <div class="w-9 h-9 rounded-lg bg-red-100 flex items-center justify-center flex-shrink-0">
+            <svg class="w-4.5 h-4.5 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"/></svg>
+          </div>
+          <div>
+            <p class="font-semibold text-red-800 text-sm">No Pets</p>
+            <p class="text-xs text-red-600 mt-0.5 leading-relaxed">Pets are not allowed unless specified and agreed upon before the booking was confirmed. Please contact us in advance if you're travelling with a pet.</p>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Noise / Parties (amber) -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+
+        <div class="flex items-start gap-3 p-4 bg-amber-50 border border-amber-100 rounded-xl">
+          <div class="w-9 h-9 rounded-lg bg-amber-100 flex items-center justify-center flex-shrink-0">
+            <svg class="w-4.5 h-4.5 text-amber-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2"/></svg>
+          </div>
+          <div>
+            <p class="font-semibold text-amber-800 text-sm">Quiet Hours</p>
+            <p class="text-xs text-amber-700 mt-0.5 leading-relaxed">Please keep noise to a minimum between <strong>10:00 PM and 8:00 AM</strong>. Be respectful of our neighbours in this residential building.</p>
+          </div>
+        </div>
+
+        <div class="flex items-start gap-3 p-4 bg-amber-50 border border-amber-100 rounded-xl">
+          <div class="w-9 h-9 rounded-lg bg-amber-100 flex items-center justify-center flex-shrink-0">
+            <svg class="w-4.5 h-4.5 text-amber-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/></svg>
+          </div>
+          <div>
+            <p class="font-semibold text-amber-800 text-sm">No Parties or Events</p>
+            <p class="text-xs text-amber-700 mt-0.5 leading-relaxed">This is a quiet residential building. Parties and loud gatherings are not permitted. We appreciate a good celebration — just not here.</p>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Standard rules (sea/slate) -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+
+        <div class="flex items-start gap-3 p-4 bg-white border border-slate-100 rounded-xl">
+          <div class="w-9 h-9 rounded-lg bg-sea-50 flex items-center justify-center flex-shrink-0">
+            <svg class="w-4.5 h-4.5 text-sea-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+          </div>
+          <div>
+            <p class="font-semibold text-slate-800 text-sm">Guest Limit</p>
+            <p class="text-xs text-slate-500 mt-0.5 leading-relaxed">Maximum <strong class="text-slate-700">4 guests</strong> in the apartment. Visitors are welcome during the day but must not stay overnight without prior approval.</p>
+          </div>
+        </div>
+
+        <div class="flex items-start gap-3 p-4 bg-white border border-slate-100 rounded-xl">
+          <div class="w-9 h-9 rounded-lg bg-sea-50 flex items-center justify-center flex-shrink-0">
+            <svg class="w-4.5 h-4.5 text-sea-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+          </div>
+          <div>
+            <p class="font-semibold text-slate-800 text-sm">Check-in / Check-out</p>
+            <p class="text-xs text-slate-500 mt-0.5 leading-relaxed">Check-in from <strong class="text-slate-700">3:00 PM</strong>. Check-out by <strong class="text-slate-700">11:00 AM</strong>. Early check-in or late check-out may be arranged — please ask in advance.</p>
+          </div>
+        </div>
+
+        <div class="flex items-start gap-3 p-4 bg-white border border-slate-100 rounded-xl">
+          <div class="w-9 h-9 rounded-lg bg-sea-50 flex items-center justify-center flex-shrink-0">
+            <svg class="w-4.5 h-4.5 text-sea-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"/></svg>
+          </div>
+          <div>
+            <p class="font-semibold text-slate-800 text-sm">Cleanliness</p>
+            <p class="text-xs text-slate-500 mt-0.5 leading-relaxed">We take pride in our clean space. Please leave the apartment in the same condition you found it. Cleaning supplies are available for your use.</p>
+          </div>
+        </div>
+
+        <div class="flex items-start gap-3 p-4 bg-white border border-slate-100 rounded-xl">
+          <div class="w-9 h-9 rounded-lg bg-sea-50 flex items-center justify-center flex-shrink-0">
+            <svg class="w-4.5 h-4.5 text-sea-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"/></svg>
+          </div>
+          <div>
+            <p class="font-semibold text-slate-800 text-sm">Kitchen Use</p>
+            <p class="text-xs text-slate-500 mt-0.5 leading-relaxed">Feel free to use the kitchen. Please clean up after yourself — wash and put away all dishes before check-out.</p>
+          </div>
+        </div>
+
+        <div class="flex items-start gap-3 p-4 bg-white border border-slate-100 rounded-xl">
+          <div class="w-9 h-9 rounded-lg bg-sea-50 flex items-center justify-center flex-shrink-0">
+            <svg class="w-4.5 h-4.5 text-sea-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+          </div>
+          <div>
+            <p class="font-semibold text-slate-800 text-sm">Appliances</p>
+            <p class="text-xs text-slate-500 mt-0.5 leading-relaxed">Use all appliances (stove, oven, microwave, etc.) safely and as intended. Please turn them off when not in use.</p>
+          </div>
+        </div>
+
+        <div class="flex items-start gap-3 p-4 bg-white border border-slate-100 rounded-xl">
+          <div class="w-9 h-9 rounded-lg bg-sea-50 flex items-center justify-center flex-shrink-0">
+            <svg class="w-4.5 h-4.5 text-sea-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 7h16M4 7a2 2 0 01-2-2V4a1 1 0 011-1h18a1 1 0 011 1v1a2 2 0 01-2 2M4 7l1 13a2 2 0 002 2h10a2 2 0 002-2L20 7"/></svg>
+          </div>
+          <div>
+            <p class="font-semibold text-slate-800 text-sm">Garbage Disposal</p>
+            <p class="text-xs text-slate-500 mt-0.5 leading-relaxed">Dispose of trash in the bins provided inside and outside the building. Recycling guidelines are posted in the apartment.</p>
+          </div>
+        </div>
+
+        <div class="flex items-start gap-3 p-4 bg-white border border-slate-100 rounded-xl">
+          <div class="w-9 h-9 rounded-lg bg-sea-50 flex items-center justify-center flex-shrink-0">
+            <svg class="w-4.5 h-4.5 text-sea-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/></svg>
+          </div>
+          <div>
+            <p class="font-semibold text-slate-800 text-sm">Security</p>
+            <p class="text-xs text-slate-500 mt-0.5 leading-relaxed">Lock all doors and windows when you leave the apartment and take care of the keys. A replacement fee applies if keys are lost.</p>
+          </div>
+        </div>
+
+        <div class="flex items-start gap-3 p-4 bg-white border border-slate-100 rounded-xl">
+          <div class="w-9 h-9 rounded-lg bg-sea-50 flex items-center justify-center flex-shrink-0">
+            <svg class="w-4.5 h-4.5 text-sea-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/></svg>
+          </div>
+          <div>
+            <p class="font-semibold text-slate-800 text-sm">Utilities</p>
+            <p class="text-xs text-slate-500 mt-0.5 leading-relaxed">Please be mindful of water and electricity usage. Turn off lights, heating/cooling, and taps when not needed — thank you for helping conserve resources.</p>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Emergency contact card -->
+      <div class="info-card border-sea-100 bg-sea-50">
+        <div class="flex items-start gap-3">
+          <svg class="w-5 h-5 text-sea-500 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
+          <div class="flex-1">
+            <p class="font-semibold text-sea-800 text-sm">Questions or emergencies?</p>
+            <p class="text-sea-700 text-xs mt-0.5 mb-2">Don't hesitate to reach out — we're always happy to help.</p>
+            <div class="flex flex-wrap gap-2">
+              <a href="https://wa.me/40758111343" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 text-xs font-semibold text-white bg-[#25D366] hover:bg-green-600 px-3 py-1.5 rounded-full transition-colors duration-200 cursor-pointer"><svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>+40 758 111 343</a>
+              <a href="https://wa.me/40766440363" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 text-xs font-semibold text-white bg-[#25D366] hover:bg-green-600 px-3 py-1.5 rounded-full transition-colors duration-200 cursor-pointer"><svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>+40 766 440 363</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
     <div id="tab-faq" class="tab-panel fade-in space-y-3">
 
       <div class="info-card">
