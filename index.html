@@ -89,8 +89,8 @@
 <nav id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-transparent px-4 md:px-8">
   <div class="max-w-7xl mx-auto flex items-center justify-between h-16">
     <a href="#" class="flex items-center gap-2 cursor-pointer">
-      <svg class="w-6 h-6 text-white drop-shadow" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-        <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
+      <svg class="w-6 h-6 text-white drop-shadow" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/>
       </svg>
       <span id="nav-title" class="font-serif font-semibold text-lg text-white drop-shadow transition-colors duration-300">Lovely Condo Bucharest</span>
     </a>
@@ -209,7 +209,10 @@
         <div class="flex items-center gap-1.5 text-sm text-slate-500 flex-wrap">
           <span class="font-semibold text-sea-700 bg-sea-50 border border-sea-100 px-2.5 py-0.5 rounded-full text-xs whitespace-nowrap">Entire condo</span>
           <span class="text-slate-300">·</span>
-          <span class="whitespace-nowrap">Floreasca, Bucharest</span>
+          <span class="inline-flex items-center gap-1 whitespace-nowrap">
+            <svg class="w-3 h-3 text-sea-400 flex-shrink-0" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+            Floreasca, Bucharest
+          </span>
           <span class="text-slate-300">·</span>
           <span class="inline-flex items-center gap-1 whitespace-nowrap">
             <svg class="w-3.5 h-3.5 text-amber-400" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
@@ -608,36 +611,100 @@
 
       <!-- Location -->
       <section id="location">
-        <h3 class="font-serif text-2xl font-semibold text-sea-950 mb-4">The neighbourhood</h3>
-        <div class="bg-sea-50 border border-sea-100 rounded-2xl p-6">
-          <div class="flex items-center gap-2 mb-4">
-            <svg class="w-5 h-5 text-sea-500" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
-            <span class="font-semibold text-sea-900">Floreasca · Bucharest, Romania</span>
+        <h3 class="font-serif text-2xl font-semibold text-sea-950 mb-1">The neighbourhood</h3>
+        <div class="flex items-center gap-1.5 mb-4">
+          <svg class="w-3.5 h-3.5 text-sea-400" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+          <span class="text-sm font-medium text-sea-600">Floreasca, Sector 1 · Bucharest</span>
+        </div>
+
+        <!-- Why Floreasca intro -->
+        <div class="bg-gradient-to-br from-sea-700 to-sea-900 rounded-2xl p-6 mb-4 text-white">
+          <p class="font-semibold text-sea-100 text-xs uppercase tracking-widest mb-2">Why Floreasca?</p>
+          <p class="text-white text-sm leading-relaxed">Floreasca is widely considered Bucharest's most desirable address — a leafy, low-rise enclave in the prestigious Sector 1 that manages to feel like a quiet village while sitting just minutes from the city centre. Tree-lined boulevards, a thriving restaurant scene, two of the city's best parks and a genuinely international crowd make it the neighbourhood guests most often ask to return to.</p>
+          <!-- Vibe chips -->
+          <div class="flex flex-wrap gap-2 mt-4">
+            <span class="inline-flex items-center gap-1 bg-white/15 text-sea-100 text-xs font-medium px-2.5 py-1 rounded-full">
+              <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"/></svg>
+              Green &amp; Leafy
+            </span>
+            <span class="inline-flex items-center gap-1 bg-white/15 text-sea-100 text-xs font-medium px-2.5 py-1 rounded-full">
+              <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/></svg>
+              Quiet &amp; Safe
+            </span>
+            <span class="inline-flex items-center gap-1 bg-white/15 text-sea-100 text-xs font-medium px-2.5 py-1 rounded-full">
+              <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+              Family Friendly
+            </span>
+            <span class="inline-flex items-center gap-1 bg-white/15 text-sea-100 text-xs font-medium px-2.5 py-1 rounded-full">
+              <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"/></svg>
+              Restaurant Hub
+            </span>
+            <span class="inline-flex items-center gap-1 bg-white/15 text-sea-100 text-xs font-medium px-2.5 py-1 rounded-full">
+              <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+              Walkable
+            </span>
+            <span class="inline-flex items-center gap-1 bg-white/15 text-sea-100 text-xs font-medium px-2.5 py-1 rounded-full">
+              <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9"/></svg>
+              International Crowd
+            </span>
           </div>
-          <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-sm text-slate-600">
+        </div>
+
+        <!-- What makes it special -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-4">
+          <div class="bg-slate-50 rounded-xl p-4 border border-slate-100">
+            <p class="font-semibold text-slate-800 text-sm mb-1">Parks on your doorstep</p>
+            <p class="text-xs text-slate-500 leading-relaxed">Floreasca Park &amp; Lake is 100 metres away — a hidden gem for morning jogs, picnics and watching the city slow down. Herăstrău Park, Bucharest's largest, is a short walk further.</p>
+          </div>
+          <div class="bg-slate-50 rounded-xl p-4 border border-slate-100">
+            <p class="font-semibold text-slate-800 text-sm mb-1">The best restaurants in the city</p>
+            <p class="text-xs text-slate-500 leading-relaxed">Calea Floreasca and the surrounding streets are home to some of Bucharest's most celebrated restaurants and cafés — from neighbourhood bakeries to top-rated fine dining.</p>
+          </div>
+          <div class="bg-slate-50 rounded-xl p-4 border border-slate-100">
+            <p class="font-semibold text-slate-800 text-sm mb-1">Prestige without the noise</p>
+            <p class="text-xs text-slate-500 leading-relaxed">Unlike the city centre, Floreasca is genuinely quiet. Sector 1 has some of the best-kept streets in Romania — wide pavements, mature trees, and a residential calm that makes unwinding easy.</p>
+          </div>
+          <div class="bg-slate-50 rounded-xl p-4 border border-slate-100">
+            <p class="font-semibold text-slate-800 text-sm mb-1">Everything within reach</p>
+            <p class="text-xs text-slate-500 leading-relaxed">Promenada Mall in 10 minutes on foot, Mega Image 24/7 around the corner, metro at Aurel Vlaicu or Ștefan cel Mare, and Old Town 15 minutes away by metro.</p>
+          </div>
+        </div>
+
+        <!-- Proximity list -->
+        <div class="bg-sea-50 border border-sea-100 rounded-2xl p-5">
+          <p class="text-xs font-semibold text-sea-600 uppercase tracking-wider mb-3">How far is everything?</p>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-2.5 text-sm text-slate-600">
             <div class="flex items-start gap-2">
               <svg class="w-4 h-4 text-sea-400 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"/></svg>
-              <span><strong class="text-slate-700">Floreasca Park &amp; Lake</strong> — 100m, perfect for morning runs</span>
+              <span><strong class="text-slate-700">Floreasca Park &amp; Lake</strong> — 100 m</span>
             </div>
             <div class="flex items-start gap-2">
-              <svg class="w-4 h-4 text-sea-400 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4"/></svg>
-              <span><strong class="text-slate-700">Metro</strong> — Aurel Vlaicu 15 min walk · Ștefan cel Mare 10 min</span>
-            </div>
-            <div class="flex items-start gap-2">
-              <svg class="w-4 h-4 text-sea-400 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"/></svg>
-              <span><strong class="text-slate-700">Promenada Mall</strong> — 10 min walk, shopping &amp; dining</span>
+              <svg class="w-4 h-4 text-sea-400 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"/></svg>
+              <span><strong class="text-slate-700">Herăstrău Park</strong> — 15 min walk</span>
             </div>
             <div class="flex items-start gap-2">
               <svg class="w-4 h-4 text-sea-400 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"/></svg>
-              <span><strong class="text-slate-700">Mega Image 24/7</strong> — 3 min walk, groceries any time</span>
+              <span><strong class="text-slate-700">Mega Image 24/7</strong> — 3 min walk</span>
             </div>
             <div class="flex items-start gap-2">
-              <svg class="w-4 h-4 text-sea-400 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"/></svg>
-              <span><strong class="text-slate-700">Airport</strong> — ~30 min by taxi or Express 783 bus</span>
+              <svg class="w-4 h-4 text-sea-400 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"/></svg>
+              <span><strong class="text-slate-700">Promenada Mall</strong> — 10 min walk</span>
+            </div>
+            <div class="flex items-start gap-2">
+              <svg class="w-4 h-4 text-sea-400 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4"/></svg>
+              <span><strong class="text-slate-700">Metro</strong> — Aurel Vlaicu 15 min · Ștefan cel Mare 10 min</span>
             </div>
             <div class="flex items-start gap-2">
               <svg class="w-4 h-4 text-sea-400 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2v10z"/></svg>
-              <span><strong class="text-slate-700">Old Town</strong> — 15 min by metro, restaurants &amp; nightlife</span>
+              <span><strong class="text-slate-700">Old Town</strong> — 15 min by metro</span>
+            </div>
+            <div class="flex items-start gap-2">
+              <svg class="w-4 h-4 text-sea-400 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"/></svg>
+              <span><strong class="text-slate-700">Otopeni Airport</strong> — ~30 min taxi or Express 783</span>
+            </div>
+            <div class="flex items-start gap-2">
+              <svg class="w-4 h-4 text-sea-400 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19V6l12-3v13M9 19c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zm12-3c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zM9 10l12-3"/></svg>
+              <span><strong class="text-slate-700">Dorobanți &amp; Victoriei</strong> — 10 min walk, great café scene</span>
             </div>
           </div>
           <p class="text-xs text-slate-400 mt-4 pt-3 border-t border-sea-100">Exact address shared with confirmed guests only.</p>
