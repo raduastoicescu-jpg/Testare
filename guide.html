@@ -376,21 +376,54 @@
           <summary class="flex items-center justify-between gap-3 px-5 py-4 cursor-pointer list-none select-none hover:bg-slate-50 transition-colors duration-150">
             <div class="flex items-center gap-2.5">
               <svg class="w-5 h-5 text-sea-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.111 16.404a5.5 5.5 0 017.778 0M12 20h.01m-7.08-7.071c3.904-3.905 10.236-3.905 14.141 0M1.394 9.393c5.857-5.857 15.355-5.857 21.213 0"/></svg>
-              <span class="font-semibold text-sea-900 text-sm">WiFi</span>
+              <div>
+                <span class="font-semibold text-sea-900 text-sm">WiFi</span>
+                <span class="ml-2 text-xs text-sea-500 font-normal">Retea Draguta</span>
+              </div>
             </div>
             <svg class="w-4 h-4 text-sea-400 flex-shrink-0 transition-transform duration-200 group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
           </summary>
-          <div class="px-5 pb-5 pt-4 border-t border-slate-100">
-            <div class="grid grid-cols-2 gap-4">
-              <div class="bg-sea-50 rounded-xl p-4 text-center">
-                <p class="text-xs font-semibold text-sea-500 uppercase tracking-wide mb-1">Network</p>
-                <p class="big-value text-xl">[WIFI_NAME]</p>
+          <div class="px-5 pb-5 pt-4 border-t border-slate-100 space-y-4">
+
+            <!-- Primary network -->
+            <div>
+              <p class="text-xs font-semibold text-sea-500 uppercase tracking-wide mb-2.5">Connect to this network</p>
+              <div class="grid grid-cols-2 gap-3">
+                <div class="bg-sea-50 rounded-xl p-4 text-center">
+                  <p class="text-xs font-semibold text-sea-400 uppercase tracking-wide mb-1.5">Network name</p>
+                  <p class="font-bold text-sea-900 text-base tracking-tight select-all">Retea Draguta</p>
+                </div>
+                <div class="bg-sea-50 rounded-xl p-4 text-center">
+                  <p class="text-xs font-semibold text-sea-400 uppercase tracking-wide mb-1.5">Password</p>
+                  <p class="font-bold text-sea-900 text-base tracking-tight select-all">Oparolagrea1</p>
+                </div>
               </div>
-              <div class="bg-sea-50 rounded-xl p-4 text-center">
-                <p class="text-xs font-semibold text-sea-500 uppercase tracking-wide mb-1">Password</p>
-                <p class="big-value text-xl">[WIFI_PASSWORD]</p>
-              </div>
+              <p class="text-xs text-slate-400 mt-2 text-center">Tap the password to select it, then copy &amp; paste</p>
             </div>
+
+            <!-- Fallback -->
+            <details class="group/fb">
+              <summary class="flex items-center gap-2 cursor-pointer list-none select-none text-xs font-semibold text-slate-400 hover:text-slate-600 transition-colors duration-150 py-1">
+                <svg class="w-3.5 h-3.5 transition-transform duration-200 group-open/fb:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                WiFi not working? Try this
+              </summary>
+              <div class="mt-3 bg-amber-50 border border-amber-200 rounded-xl p-4">
+                <p class="text-xs text-amber-700 font-semibold mb-1">If a previous guest reset the router</p>
+                <p class="text-xs text-amber-600 mb-3">Occasionally the router gets reset to factory defaults. In that case, use these credentials instead:</p>
+                <div class="grid grid-cols-2 gap-3">
+                  <div class="bg-white rounded-lg p-3 text-center border border-amber-100">
+                    <p class="text-xs font-semibold text-amber-500 uppercase tracking-wide mb-1">Network name</p>
+                    <p class="font-bold text-slate-800 text-sm select-all">UPC8965308</p>
+                  </div>
+                  <div class="bg-white rounded-lg p-3 text-center border border-amber-100">
+                    <p class="text-xs font-semibold text-amber-500 uppercase tracking-wide mb-1">Password</p>
+                    <p class="font-bold text-slate-800 text-sm select-all">maxNmhZhvpz6</p>
+                  </div>
+                </div>
+                <p class="text-xs text-amber-600 mt-3">Still having trouble? Message us and we'll help right away.</p>
+              </div>
+            </details>
+
           </div>
         </details>
       </div>
