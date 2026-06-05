@@ -763,18 +763,22 @@
         <span class="flex-shrink-0 px-3 py-1.5 bg-blue-50 text-blue-700 text-xs font-semibold rounded-full border border-blue-100">Transport</span>
       </div>
 
-      <!-- Supermarkets -->
-      <div class="bg-white rounded-2xl border border-slate-100 shadow-sm p-4">
-        <div class="flex items-center gap-2.5 mb-3.5">
-          <div class="w-8 h-8 rounded-xl bg-slate-100 flex items-center justify-center flex-shrink-0">
-            <svg class="w-4 h-4 text-slate-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"/></svg>
-          </div>
-          <div>
-            <h3 class="font-semibold text-sea-900 text-sm">Supermarkets &amp; Shopping</h3>
-            <p class="text-xs text-slate-400">3 options nearby</p>
-          </div>
-        </div>
-        <div class="space-y-2.5">
+      <!-- Supermarkets (open by default) -->
+      <div class="bg-white rounded-2xl border border-slate-100 shadow-sm overflow-hidden">
+        <details class="group" open>
+          <summary class="flex items-center justify-between gap-3 px-4 py-4 cursor-pointer list-none select-none hover:bg-slate-50 transition-colors duration-150">
+            <div class="flex items-center gap-2.5">
+              <div class="w-8 h-8 rounded-xl bg-slate-100 flex items-center justify-center flex-shrink-0">
+                <svg class="w-4 h-4 text-slate-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"/></svg>
+              </div>
+              <div>
+                <h3 class="font-semibold text-sea-900 text-sm">Supermarkets &amp; Shopping</h3>
+                <p class="text-xs text-slate-400">3 options nearby</p>
+              </div>
+            </div>
+            <svg class="w-4 h-4 text-sea-400 flex-shrink-0 transition-transform duration-200 group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+          </summary>
+          <div class="px-4 pb-4 pt-3 border-t border-slate-100 space-y-2.5">
           <div class="border border-slate-100 rounded-xl p-3 hover:border-slate-200 hover:bg-slate-50/50 transition-colors duration-200">
             <div class="flex items-start justify-between gap-2 mb-1">
               <div class="flex items-center gap-1.5 min-w-0">
@@ -800,7 +804,7 @@
               </div>
               <span class="text-xs bg-slate-100 text-slate-500 font-semibold px-2 py-0.5 rounded-full flex-shrink-0">Hypermarket</span>
             </div>
-            <p class="text-xs text-slate-400 font-medium mb-1">Tel: 0800 080 888</p>
+            <p class="text-xs text-slate-400 font-medium mb-1">Tel: 0800 080 888 · <span class="text-sea-600 font-semibold">~20 min walk</span></p>
             <p class="text-xs text-slate-500">Large hypermarket — fresh produce, deli counter, great value</p>
           </div>
           <div class="border border-slate-100 rounded-xl p-3 hover:border-slate-200 hover:bg-slate-50/50 transition-colors duration-200">
@@ -812,7 +816,7 @@
                 </span>
                 <p class="font-semibold text-slate-800 text-sm"><a href="https://maps.app.goo.gl/ycyBrjXwH3DF7yN39" target="_blank" rel="noopener noreferrer" class="hover:text-sea-600 transition-colors">Promenada Mall ↗</a></p>
               </div>
-              <span class="text-xs bg-slate-100 text-slate-500 font-semibold px-2 py-0.5 rounded-full flex-shrink-0">15 min walk</span>
+              <span class="text-xs bg-slate-100 text-slate-500 font-semibold px-2 py-0.5 rounded-full flex-shrink-0">~22 min walk</span>
             </div>
             <p class="text-xs text-slate-400 font-medium mb-1">Tel: 0730 246 246</p>
             <p class="text-xs text-slate-500">Bucharest's best mall — fashion, food court, cinema, near Herăstrău Lake</p>
@@ -821,20 +825,26 @@
         <div class="mt-3 p-3 bg-sea-50 rounded-xl text-xs text-slate-600">
           <span class="font-semibold text-slate-700">Online delivery:</span> Use <strong>Glovo</strong> or <strong>Bringo</strong> — address: <em>Str. Banul Antonache 52-60, Bloc C, Ap. 17, et. 4</em>
         </div>
+          </div>
+        </details>
       </div>
 
       <!-- Coffee -->
-      <div class="bg-white rounded-2xl border border-slate-100 shadow-sm p-4">
-        <div class="flex items-center gap-2.5 mb-3.5">
-          <div class="w-8 h-8 rounded-xl bg-amber-50 flex items-center justify-center flex-shrink-0">
-            <svg class="w-4 h-4 text-amber-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8h2a2 2 0 012 2v6a2 2 0 01-2 2h-2m-4 0H7a2 2 0 01-2-2V4a2 2 0 012-2h10a2 2 0 012 2v4"/></svg>
-          </div>
-          <div>
-            <h3 class="font-semibold text-sea-900 text-sm">Coffee Shops</h3>
-            <p class="text-xs text-slate-400">Romanians take coffee seriously</p>
-          </div>
-        </div>
-        <div class="space-y-2.5">
+      <div class="bg-white rounded-2xl border border-slate-100 shadow-sm overflow-hidden">
+        <details class="group">
+          <summary class="flex items-center justify-between gap-3 px-4 py-4 cursor-pointer list-none select-none hover:bg-slate-50 transition-colors duration-150">
+            <div class="flex items-center gap-2.5">
+              <div class="w-8 h-8 rounded-xl bg-amber-50 flex items-center justify-center flex-shrink-0">
+                <svg class="w-4 h-4 text-amber-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8h2a2 2 0 012 2v6a2 2 0 01-2 2h-2m-4 0H7a2 2 0 01-2-2V4a2 2 0 012-2h10a2 2 0 012 2v4"/></svg>
+              </div>
+              <div>
+                <h3 class="font-semibold text-sea-900 text-sm">Coffee Shops</h3>
+                <p class="text-xs text-slate-400">Romanians take coffee seriously</p>
+              </div>
+            </div>
+            <svg class="w-4 h-4 text-sea-400 flex-shrink-0 transition-transform duration-200 group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+          </summary>
+          <div class="px-4 pb-4 pt-3 border-t border-slate-100 space-y-2.5">
           <div class="border border-slate-100 rounded-xl p-3 hover:border-amber-100 hover:bg-amber-50/30 transition-colors duration-200">
             <div class="flex items-start justify-between gap-2 mb-1">
               <div class="flex items-center gap-1.5 min-w-0">
@@ -891,21 +901,26 @@
             <p class="text-xs text-slate-400 font-medium mb-1">Calea Dorobanților 18 · <span class="text-sea-600 font-semibold">10 min walk</span></p>
             <p class="text-xs text-slate-500">100% specialty arabica chain — quality coffee at affordable prices, cozy space</p>
           </div>
-        </div>
+          </div>
+        </details>
       </div>
 
       <!-- Bakeries -->
-      <div class="bg-white rounded-2xl border border-slate-100 shadow-sm p-4">
-        <div class="flex items-center gap-2.5 mb-3.5">
-          <div class="w-8 h-8 rounded-xl bg-orange-50 flex items-center justify-center flex-shrink-0">
-            <svg class="w-4 h-4 text-orange-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 15.546c-.523 0-1.046.151-1.5.454a2.704 2.704 0 01-3 0 2.704 2.704 0 00-3 0 2.701 2.701 0 00-1.5-.454M9 6v2m3-2v2m3-2v2M9 3h.01M12 3h.01M15 3h.01M21 21v-7a2 2 0 00-2-2H5a2 2 0 00-2 2v7h18zm-3-9v-2a2 2 0 00-2-2H8a2 2 0 00-2 2v2h12z"/></svg>
-          </div>
-          <div>
-            <h3 class="font-semibold text-sea-900 text-sm">Bakeries &amp; Pastry Shops</h3>
-            <p class="text-xs text-slate-400">Fresh bread &amp; Romanian classics</p>
-          </div>
-        </div>
-        <div class="space-y-2.5">
+      <div class="bg-white rounded-2xl border border-slate-100 shadow-sm overflow-hidden">
+        <details class="group">
+          <summary class="flex items-center justify-between gap-3 px-4 py-4 cursor-pointer list-none select-none hover:bg-slate-50 transition-colors duration-150">
+            <div class="flex items-center gap-2.5">
+              <div class="w-8 h-8 rounded-xl bg-orange-50 flex items-center justify-center flex-shrink-0">
+                <svg class="w-4 h-4 text-orange-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 15.546c-.523 0-1.046.151-1.5.454a2.704 2.704 0 01-3 0 2.704 2.704 0 00-3 0 2.701 2.701 0 00-1.5-.454M9 6v2m3-2v2m3-2v2M9 3h.01M12 3h.01M15 3h.01M21 21v-7a2 2 0 00-2-2H5a2 2 0 00-2 2v7h18zm-3-9v-2a2 2 0 00-2-2H8a2 2 0 00-2 2v2h12z"/></svg>
+              </div>
+              <div>
+                <h3 class="font-semibold text-sea-900 text-sm">Bakeries &amp; Pastry Shops</h3>
+                <p class="text-xs text-slate-400">Fresh bread &amp; Romanian classics</p>
+              </div>
+            </div>
+            <svg class="w-4 h-4 text-sea-400 flex-shrink-0 transition-transform duration-200 group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+          </summary>
+          <div class="px-4 pb-4 pt-3 border-t border-slate-100 space-y-2.5">
           <!-- Maria's pick — highlighted -->
           <div class="border-2 border-orange-200 rounded-xl p-3 bg-orange-50/40 hover:bg-orange-50/70 transition-colors duration-200">
             <div class="flex items-start justify-between gap-2 mb-1">
@@ -946,7 +961,7 @@
               </div>
               <span class="text-xs bg-slate-100 text-slate-500 font-semibold px-2 py-0.5 rounded-full flex-shrink-0">Local</span>
             </div>
-            <p class="text-xs text-slate-400 font-medium mb-1">Tel: 0722 460 432</p>
+            <p class="text-xs text-slate-400 font-medium mb-1">Tel: 0722 460 432 · <span class="text-sea-600 font-semibold">~12 min walk</span></p>
             <p class="text-xs text-slate-500">Popular local patisserie — great variety of sweet and savoury pastries</p>
           </div>
           <div class="border border-slate-100 rounded-xl p-3 hover:border-orange-100 hover:bg-orange-50/20 transition-colors duration-200">
@@ -974,7 +989,7 @@
               </div>
               <span class="text-xs bg-slate-100 text-slate-500 font-semibold px-2 py-0.5 rounded-full flex-shrink-0">Local</span>
             </div>
-            <p class="text-xs text-slate-400 font-medium mb-1">Tel: 0723 300 005</p>
+            <p class="text-xs text-slate-400 font-medium mb-1">Tel: 0723 300 005 · <span class="text-sea-600 font-semibold">~10 min walk</span></p>
             <p class="text-xs text-slate-500">Good neighbourhood bakery for fresh bread and simple pastries</p>
           </div>
           <div class="border border-slate-100 rounded-xl p-3 hover:border-orange-100 hover:bg-orange-50/20 transition-colors duration-200">
@@ -988,24 +1003,29 @@
               </div>
               <span class="text-xs bg-slate-100 text-slate-500 font-semibold px-2 py-0.5 rounded-full flex-shrink-0">Chain</span>
             </div>
-            <p class="text-xs text-slate-400 font-medium mb-1">Tel: 021 230 6700</p>
+            <p class="text-xs text-slate-400 font-medium mb-1">Tel: 021 230 6700 · <span class="text-sea-600 font-semibold">~10 min walk</span></p>
             <p class="text-xs text-slate-500">Reliable Romanian bakery chain — great for a quick pastry or sandwich</p>
           </div>
-        </div>
+          </div>
+        </details>
       </div>
 
       <!-- Restaurants -->
-      <div class="bg-white rounded-2xl border border-slate-100 shadow-sm p-4">
-        <div class="flex items-center gap-2.5 mb-3.5">
-          <div class="w-8 h-8 rounded-xl bg-sea-50 flex items-center justify-center flex-shrink-0">
-            <svg class="w-4 h-4 text-sea-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4"/></svg>
-          </div>
-          <div>
-            <h3 class="font-semibold text-sea-900 text-sm">Restaurants</h3>
-            <p class="text-xs text-slate-400">Top-rated spots in the neighbourhood</p>
-          </div>
-        </div>
-        <div class="space-y-2.5">
+      <div class="bg-white rounded-2xl border border-slate-100 shadow-sm overflow-hidden">
+        <details class="group">
+          <summary class="flex items-center justify-between gap-3 px-4 py-4 cursor-pointer list-none select-none hover:bg-slate-50 transition-colors duration-150">
+            <div class="flex items-center gap-2.5">
+              <div class="w-8 h-8 rounded-xl bg-sea-50 flex items-center justify-center flex-shrink-0">
+                <svg class="w-4 h-4 text-sea-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4"/></svg>
+              </div>
+              <div>
+                <h3 class="font-semibold text-sea-900 text-sm">Restaurants</h3>
+                <p class="text-xs text-slate-400">Top-rated spots in the neighbourhood</p>
+              </div>
+            </div>
+            <svg class="w-4 h-4 text-sea-400 flex-shrink-0 transition-transform duration-200 group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+          </summary>
+          <div class="px-4 pb-4 pt-3 border-t border-slate-100 space-y-2.5">
           <div class="border border-slate-100 rounded-xl p-3 hover:border-sea-200 hover:bg-sea-50/20 transition-colors duration-200">
             <div class="flex items-start justify-between gap-2 mb-1">
               <div class="flex items-center gap-1.5 min-w-0">
@@ -1101,21 +1121,26 @@
               </div>
             </div>
           </div>
-        </div>
+          </div>
+        </details>
       </div>
 
       <!-- Fitness & Wellness -->
-      <div class="bg-white rounded-2xl border border-slate-100 shadow-sm p-4">
-        <div class="flex items-center gap-2.5 mb-3.5">
-          <div class="w-8 h-8 rounded-xl bg-purple-50 flex items-center justify-center flex-shrink-0">
-            <svg class="w-4 h-4 text-purple-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/></svg>
-          </div>
-          <div>
-            <h3 class="font-semibold text-sea-900 text-sm">Fitness &amp; Wellness</h3>
-            <p class="text-xs text-slate-400">Stay active during your visit</p>
-          </div>
-        </div>
-        <div class="space-y-2.5">
+      <div class="bg-white rounded-2xl border border-slate-100 shadow-sm overflow-hidden">
+        <details class="group">
+          <summary class="flex items-center justify-between gap-3 px-4 py-4 cursor-pointer list-none select-none hover:bg-slate-50 transition-colors duration-150">
+            <div class="flex items-center gap-2.5">
+              <div class="w-8 h-8 rounded-xl bg-purple-50 flex items-center justify-center flex-shrink-0">
+                <svg class="w-4 h-4 text-purple-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/></svg>
+              </div>
+              <div>
+                <h3 class="font-semibold text-sea-900 text-sm">Fitness &amp; Wellness</h3>
+                <p class="text-xs text-slate-400">Stay active during your visit</p>
+              </div>
+            </div>
+            <svg class="w-4 h-4 text-sea-400 flex-shrink-0 transition-transform duration-200 group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+          </summary>
+          <div class="px-4 pb-4 pt-3 border-t border-slate-100 space-y-2.5">
           <!-- Discount highlight -->
           <div class="border-2 border-purple-200 rounded-xl p-3 bg-purple-50/40 hover:bg-purple-50/70 transition-colors duration-200">
             <div class="flex items-start justify-between gap-2 mb-1">
@@ -1128,7 +1153,7 @@
               </div>
               <span class="text-xs bg-purple-100 text-purple-700 font-semibold px-2 py-0.5 rounded-full flex-shrink-0 border border-purple-200">Guest discount</span>
             </div>
-            <p class="text-xs text-slate-400 font-medium mb-1">HIIT Studio · Tel: 031 426 0237</p>
+            <p class="text-xs text-slate-400 font-medium mb-1">HIIT Studio · Tel: 031 426 0237 · <span class="text-sea-600 font-semibold">~8 min walk</span></p>
             <p class="text-xs text-slate-500">Mention <strong class="text-slate-700">Radu Stoicescu</strong> when booking — you'll get a guest discount. High-energy 45-min classes.</p>
           </div>
           <div class="border border-slate-100 rounded-xl p-3 hover:border-purple-100 hover:bg-purple-50/20 transition-colors duration-200">
@@ -1142,7 +1167,7 @@
               </div>
               <span class="text-xs bg-slate-100 text-slate-500 font-semibold px-2 py-0.5 rounded-full flex-shrink-0">Yoga</span>
             </div>
-            <p class="text-xs text-slate-400 font-medium mb-1">Tel: 0733 591 129</p>
+            <p class="text-xs text-slate-400 font-medium mb-1">Tel: 0733 591 129 · <span class="text-sea-600 font-semibold">~10 min walk</span></p>
             <p class="text-xs text-slate-500">Calm, well-equipped studio with various styles and class times</p>
           </div>
           <div class="border border-slate-100 rounded-xl p-3 hover:border-purple-100 hover:bg-purple-50/20 transition-colors duration-200">
@@ -1173,21 +1198,26 @@
             <p class="text-xs text-slate-400 font-medium mb-1"><span class="text-sea-600 font-semibold">2 min walk</span></p>
             <p class="text-xs text-slate-500">Running track, outdoor gym, lakeside paths — perfect for morning jogs or evening strolls</p>
           </div>
-        </div>
+          </div>
+        </details>
       </div>
 
       <!-- Getting Around -->
-      <div class="bg-white rounded-2xl border border-slate-100 shadow-sm p-4">
-        <div class="flex items-center gap-2.5 mb-3.5">
-          <div class="w-8 h-8 rounded-xl bg-blue-50 flex items-center justify-center flex-shrink-0">
-            <svg class="w-4 h-4 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4"/></svg>
-          </div>
-          <div>
-            <h3 class="font-semibold text-sea-900 text-sm">Getting Around</h3>
-            <p class="text-xs text-slate-400">Transport from the apartment</p>
-          </div>
-        </div>
-        <div class="space-y-2.5">
+      <div class="bg-white rounded-2xl border border-slate-100 shadow-sm overflow-hidden">
+        <details class="group">
+          <summary class="flex items-center justify-between gap-3 px-4 py-4 cursor-pointer list-none select-none hover:bg-slate-50 transition-colors duration-150">
+            <div class="flex items-center gap-2.5">
+              <div class="w-8 h-8 rounded-xl bg-blue-50 flex items-center justify-center flex-shrink-0">
+                <svg class="w-4 h-4 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4"/></svg>
+              </div>
+              <div>
+                <h3 class="font-semibold text-sea-900 text-sm">Getting Around</h3>
+                <p class="text-xs text-slate-400">Transport from the apartment</p>
+              </div>
+            </div>
+            <svg class="w-4 h-4 text-sea-400 flex-shrink-0 transition-transform duration-200 group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+          </summary>
+          <div class="px-4 pb-4 pt-3 border-t border-slate-100 space-y-2.5">
           <div class="border border-slate-100 rounded-xl p-3">
             <div class="flex items-center gap-2 mb-0.5">
               <svg class="w-4 h-4 text-blue-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
@@ -1241,22 +1271,28 @@
               <svg class="w-4 h-4 text-slate-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6M5 4h7a5 5 0 010 10H9V4z"/></svg>
               <p class="font-semibold text-slate-800 text-sm">Parking</p>
             </div>
-            <p class="text-xs text-slate-500">Free 20:00–08:00. Daytime: 6 lei (≈€1)/hr · 30 lei (≈€8)/day.</p>
+            <p class="text-xs text-slate-500">Free 20:00–08:00. Daytime: 6 lei (≈€1)/hr · 30 lei (≈€6)/day.</p>
           </div>
-        </div>
+          </div>
+        </details>
       </div>
 
       <!-- Things to Do -->
-      <div class="bg-white rounded-2xl border border-slate-100 shadow-sm p-4">
-        <div class="flex items-center gap-2.5 mb-4">
-          <div class="w-8 h-8 rounded-xl bg-yellow-50 flex items-center justify-center flex-shrink-0">
-            <svg class="w-4 h-4 text-yellow-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"/></svg>
-          </div>
-          <div>
-            <h3 class="font-semibold text-sea-900 text-sm">Things to Do</h3>
-            <p class="text-xs text-slate-400">Floreasca, Bucharest &amp; beyond</p>
-          </div>
-        </div>
+      <div class="bg-white rounded-2xl border border-slate-100 shadow-sm overflow-hidden">
+        <details class="group">
+          <summary class="flex items-center justify-between gap-3 px-4 py-4 cursor-pointer list-none select-none hover:bg-slate-50 transition-colors duration-150">
+            <div class="flex items-center gap-2.5">
+              <div class="w-8 h-8 rounded-xl bg-yellow-50 flex items-center justify-center flex-shrink-0">
+                <svg class="w-4 h-4 text-yellow-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"/></svg>
+              </div>
+              <div>
+                <h3 class="font-semibold text-sea-900 text-sm">Things to Do</h3>
+                <p class="text-xs text-slate-400">Floreasca, Bucharest &amp; beyond</p>
+              </div>
+            </div>
+            <svg class="w-4 h-4 text-sea-400 flex-shrink-0 transition-transform duration-200 group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+          </summary>
+          <div class="px-4 pb-4 pt-3 border-t border-slate-100">
 
         <!-- Nearby -->
         <p class="text-xs font-semibold text-slate-400 uppercase tracking-wide mb-2">In the neighbourhood</p>
@@ -1312,6 +1348,8 @@
             <p class="text-xs text-slate-500">The "Pearl of the Carpathians" — Peles Castle, mountain air, skiing in winter, hiking in summer</p>
           </div>
         </div>
+          </div>
+        </details>
       </div>
 
     </div>
