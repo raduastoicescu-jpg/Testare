@@ -162,13 +162,13 @@
         <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/></svg>
         WiFi &amp; Home
       </button>
-      <button data-tab="food"      class="tab-btn flex-shrink-0 px-4 py-3 text-xs font-semibold text-slate-500 border-b-2 border-transparent hover:text-sea-700 transition-colors duration-200 cursor-pointer whitespace-nowrap flex items-center gap-1.5">
-        <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
-        Food &amp; Area
-      </button>
       <button data-tab="rules"     class="tab-btn flex-shrink-0 px-4 py-3 text-xs font-semibold text-slate-500 border-b-2 border-transparent hover:text-sea-700 transition-colors duration-200 cursor-pointer whitespace-nowrap flex items-center gap-1.5">
         <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01"/></svg>
         House Rules
+      </button>
+      <button data-tab="food"      class="tab-btn flex-shrink-0 px-4 py-3 text-xs font-semibold text-slate-500 border-b-2 border-transparent hover:text-sea-700 transition-colors duration-200 cursor-pointer whitespace-nowrap flex items-center gap-1.5">
+        <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+        Food &amp; Area
       </button>
       <button data-tab="faq"       class="tab-btn flex-shrink-0 px-4 py-3 text-xs font-semibold text-slate-500 border-b-2 border-transparent hover:text-sea-700 transition-colors duration-200 cursor-pointer whitespace-nowrap flex items-center gap-1.5">
         <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
@@ -744,247 +744,333 @@
     </div>
 
     <!-- ── FOOD & AREA ─────────────────────────────────────────── -->
-    <div id="tab-food" class="tab-panel fade-in space-y-5">
+    <div id="tab-food" class="tab-panel fade-in space-y-4">
 
-      <p class="text-slate-500 text-sm">Maria's personal recommendations in and around Floreasca.</p>
+      <!-- Intro -->
+      <div class="bg-gradient-to-r from-sea-700 to-sea-800 rounded-2xl p-4">
+        <p class="text-sea-300 text-xs font-semibold uppercase tracking-wide mb-1">Local picks</p>
+        <p class="text-white font-semibold text-base leading-snug">Maria's favourite spots in Floreasca</p>
+        <p class="text-sea-300 text-xs mt-1.5 leading-relaxed">Everything within walking distance — one of Bucharest's most vibrant neighbourhoods.</p>
+      </div>
+
+      <!-- Category chips -->
+      <div class="flex gap-2 overflow-x-auto scrollbar-none pb-0.5 -mx-1 px-1">
+        <span class="flex-shrink-0 px-3 py-1.5 bg-slate-100 text-slate-600 text-xs font-semibold rounded-full">Shops</span>
+        <span class="flex-shrink-0 px-3 py-1.5 bg-amber-50 text-amber-700 text-xs font-semibold rounded-full border border-amber-100">Coffee</span>
+        <span class="flex-shrink-0 px-3 py-1.5 bg-orange-50 text-orange-700 text-xs font-semibold rounded-full border border-orange-100">Bakeries</span>
+        <span class="flex-shrink-0 px-3 py-1.5 bg-sea-50 text-sea-700 text-xs font-semibold rounded-full border border-sea-100">Restaurants</span>
+        <span class="flex-shrink-0 px-3 py-1.5 bg-purple-50 text-purple-700 text-xs font-semibold rounded-full border border-purple-100">Fitness</span>
+        <span class="flex-shrink-0 px-3 py-1.5 bg-blue-50 text-blue-700 text-xs font-semibold rounded-full border border-blue-100">Transport</span>
+      </div>
 
       <!-- Supermarkets -->
-      <div class="info-card">
-        <h3 class="font-semibold text-sea-900 mb-4 flex items-center gap-2">
-          <svg class="w-5 h-5 text-sea-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"/></svg>
-          Supermarkets &amp; Shopping
-        </h3>
-        <div class="space-y-3">
-          <div class="flex items-start gap-3">
-            <span class="w-2 h-2 rounded-full bg-sea-400 flex-shrink-0 mt-2"></span>
-            <div>
-              <p class="font-semibold text-slate-800 text-sm"><a href="https://maps.app.goo.gl/AiVQsEjy6JTXJxRf9" target="_blank" rel="noopener noreferrer" class="hover:text-sea-600 transition-colors">Mega Image ↗</a> — 3 min walk</p>
-              <p class="text-slate-500 text-xs">Open 24/7 · Closest shop — great for groceries, wine, coffee pods</p>
-            </div>
+      <div class="bg-white rounded-2xl border border-slate-100 shadow-sm p-4">
+        <div class="flex items-center gap-2.5 mb-3.5">
+          <div class="w-8 h-8 rounded-xl bg-slate-100 flex items-center justify-center flex-shrink-0">
+            <svg class="w-4 h-4 text-slate-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"/></svg>
           </div>
-          <div class="flex items-start gap-3">
-            <span class="w-2 h-2 rounded-full bg-sea-400 flex-shrink-0 mt-2"></span>
-            <div>
+          <div>
+            <h3 class="font-semibold text-sea-900 text-sm">Supermarkets &amp; Shopping</h3>
+            <p class="text-xs text-slate-400">3 options nearby</p>
+          </div>
+        </div>
+        <div class="space-y-2.5">
+          <div class="border border-slate-100 rounded-xl p-3 hover:border-slate-200 hover:bg-slate-50/50 transition-colors duration-200">
+            <div class="flex items-start justify-between gap-2 mb-1">
+              <p class="font-semibold text-slate-800 text-sm"><a href="https://maps.app.goo.gl/AiVQsEjy6JTXJxRf9" target="_blank" rel="noopener noreferrer" class="hover:text-sea-600 transition-colors">Mega Image ↗</a></p>
+              <span class="text-xs bg-green-50 text-green-700 font-semibold px-2 py-0.5 rounded-full flex-shrink-0">24/7</span>
+            </div>
+            <p class="text-xs text-slate-400 font-medium mb-1">Supermarket · <span class="text-sea-600 font-semibold">3 min walk</span></p>
+            <p class="text-xs text-slate-500">Closest shop — groceries, wine, coffee pods, essentials</p>
+          </div>
+          <div class="border border-slate-100 rounded-xl p-3 hover:border-slate-200 hover:bg-slate-50/50 transition-colors duration-200">
+            <div class="flex items-start justify-between gap-2 mb-1">
               <p class="font-semibold text-slate-800 text-sm"><a href="https://maps.app.goo.gl/bJjhiEi3NCmxVXzL6" target="_blank" rel="noopener noreferrer" class="hover:text-sea-600 transition-colors">Kaufland București-Tei ↗</a></p>
-              <p class="text-slate-500 text-xs">Tel: 0800 080 888 · Larger supermarket with fresh produce &amp; deli</p>
+              <span class="text-xs bg-slate-100 text-slate-500 font-semibold px-2 py-0.5 rounded-full flex-shrink-0">Hypermarket</span>
             </div>
+            <p class="text-xs text-slate-400 font-medium mb-1">Tel: 0800 080 888</p>
+            <p class="text-xs text-slate-500">Large hypermarket — fresh produce, deli counter, great value</p>
           </div>
-          <div class="flex items-start gap-3">
-            <span class="w-2 h-2 rounded-full bg-sea-400 flex-shrink-0 mt-2"></span>
-            <div>
-              <p class="font-semibold text-slate-800 text-sm"><a href="https://maps.app.goo.gl/ycyBrjXwH3DF7yN39" target="_blank" rel="noopener noreferrer" class="hover:text-sea-600 transition-colors">Promenada Mall ↗</a> — 15 min walk</p>
-              <p class="text-slate-500 text-xs">Tel: 0730 246 246 · One of Bucharest's best malls — fashion, home, food court, near the lake</p>
+          <div class="border border-slate-100 rounded-xl p-3 hover:border-slate-200 hover:bg-slate-50/50 transition-colors duration-200">
+            <div class="flex items-start justify-between gap-2 mb-1">
+              <p class="font-semibold text-slate-800 text-sm"><a href="https://maps.app.goo.gl/ycyBrjXwH3DF7yN39" target="_blank" rel="noopener noreferrer" class="hover:text-sea-600 transition-colors">Promenada Mall ↗</a></p>
+              <span class="text-xs bg-slate-100 text-slate-500 font-semibold px-2 py-0.5 rounded-full flex-shrink-0">15 min walk</span>
             </div>
+            <p class="text-xs text-slate-400 font-medium mb-1">Tel: 0730 246 246</p>
+            <p class="text-xs text-slate-500">Bucharest's best mall — fashion, food court, cinema, near Herăstrău Lake</p>
           </div>
         </div>
         <div class="mt-3 p-3 bg-sea-50 rounded-xl text-xs text-slate-600">
-          💡 <strong class="text-slate-700">Online grocery delivery:</strong> Use <strong>Glovo</strong> or <strong>Bringo</strong> and enter delivery address: <em>Str. Banul Antonache 52-60, Bloc C, Apartament 17, etaj 4</em>
+          <span class="font-semibold text-slate-700">Online delivery:</span> Use <strong>Glovo</strong> or <strong>Bringo</strong> — address: <em>Str. Banul Antonache 52-60, Bloc C, Ap. 17, et. 4</em>
         </div>
       </div>
 
       <!-- Coffee -->
-      <div class="info-card">
-        <h3 class="font-semibold text-sea-900 mb-4 flex items-center gap-2">
-          <svg class="w-5 h-5 text-sea-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8h2a2 2 0 012 2v6a2 2 0 01-2 2h-2m-4 0H7a2 2 0 01-2-2V4a2 2 0 012-2h10a2 2 0 012 2v4"/></svg>
-          Coffee Shops
-        </h3>
-        <p class="text-xs text-slate-400 mb-3">Romanians love coffee — most places also do great takeaway!</p>
-        <div class="space-y-3">
-          <div class="flex items-start gap-3">
-            <span class="w-2 h-2 rounded-full bg-amber-400 flex-shrink-0 mt-2"></span>
-            <div>
+      <div class="bg-white rounded-2xl border border-slate-100 shadow-sm p-4">
+        <div class="flex items-center gap-2.5 mb-3.5">
+          <div class="w-8 h-8 rounded-xl bg-amber-50 flex items-center justify-center flex-shrink-0">
+            <svg class="w-4 h-4 text-amber-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8h2a2 2 0 012 2v6a2 2 0 01-2 2h-2m-4 0H7a2 2 0 01-2-2V4a2 2 0 012-2h10a2 2 0 012 2v4"/></svg>
+          </div>
+          <div>
+            <h3 class="font-semibold text-sea-900 text-sm">Coffee Shops</h3>
+            <p class="text-xs text-slate-400">Romanians take coffee seriously</p>
+          </div>
+        </div>
+        <div class="space-y-2.5">
+          <div class="border border-slate-100 rounded-xl p-3 hover:border-amber-100 hover:bg-amber-50/30 transition-colors duration-200">
+            <div class="flex items-start justify-between gap-2 mb-1">
               <p class="font-semibold text-slate-800 text-sm"><a href="https://maps.app.goo.gl/SdaR5dCDFq1WKu8BA" target="_blank" rel="noopener noreferrer" class="hover:text-sea-600 transition-colors">Two Minutes ↗</a></p>
-              <p class="text-slate-500 text-xs">Tel: 0740 972 657 · Quick specialty coffee on the go</p>
+              <span class="text-xs bg-amber-50 text-amber-700 font-semibold px-2 py-0.5 rounded-full flex-shrink-0 border border-amber-100">Specialty</span>
             </div>
+            <p class="text-xs text-slate-400 font-medium mb-1">Tel: 0740 972 657 · <span class="text-sea-600 font-semibold">5 min walk</span></p>
+            <p class="text-xs text-slate-500">Quick specialty coffee on the go — popular with the Floreasca crowd</p>
           </div>
-          <div class="flex items-start gap-3">
-            <span class="w-2 h-2 rounded-full bg-amber-400 flex-shrink-0 mt-2"></span>
-            <div>
+          <div class="border border-slate-100 rounded-xl p-3 hover:border-amber-100 hover:bg-amber-50/30 transition-colors duration-200">
+            <div class="flex items-start justify-between gap-2 mb-1">
               <p class="font-semibold text-slate-800 text-sm"><a href="https://maps.app.goo.gl/RnfqZdbArsGpqhgW7" target="_blank" rel="noopener noreferrer" class="hover:text-sea-600 transition-colors">Origo Dorobanți ↗</a></p>
-              <p class="text-slate-500 text-xs">Tel: 0759 637 564 · Great specialty coffee &amp; brunch spot</p>
+              <span class="text-xs bg-amber-50 text-amber-700 font-semibold px-2 py-0.5 rounded-full flex-shrink-0 border border-amber-100">Specialty + Brunch</span>
             </div>
+            <p class="text-xs text-slate-400 font-medium mb-1">Tel: 0759 637 564 · <span class="text-sea-600 font-semibold">10 min walk</span></p>
+            <p class="text-xs text-slate-500">One of Bucharest's best specialty bars — excellent pour-overs, brunch menu worth the trip</p>
           </div>
-          <div class="flex items-start gap-3">
-            <span class="w-2 h-2 rounded-full bg-amber-400 flex-shrink-0 mt-2"></span>
-            <div>
+          <div class="border border-slate-100 rounded-xl p-3 hover:border-amber-100 hover:bg-amber-50/30 transition-colors duration-200">
+            <div class="flex items-start justify-between gap-2 mb-1">
               <p class="font-semibold text-slate-800 text-sm"><a href="https://maps.app.goo.gl/sMCGohNAAT5bw1UH7" target="_blank" rel="noopener noreferrer" class="hover:text-sea-600 transition-colors">MURALE ↗</a></p>
-              <p class="text-slate-500 text-xs">Cool café with great atmosphere</p>
+              <span class="text-xs bg-slate-100 text-slate-500 font-semibold px-2 py-0.5 rounded-full flex-shrink-0">Lifestyle Café</span>
             </div>
+            <p class="text-xs text-slate-400 font-medium mb-1"><span class="text-sea-600 font-semibold">8 min walk</span></p>
+            <p class="text-xs text-slate-500">Cool atmosphere, great for working or catching up over coffee</p>
           </div>
-          <div class="flex items-start gap-3">
-            <span class="w-2 h-2 rounded-full bg-amber-400 flex-shrink-0 mt-2"></span>
-            <div>
+          <div class="border border-slate-100 rounded-xl p-3 hover:border-amber-100 hover:bg-amber-50/30 transition-colors duration-200">
+            <div class="flex items-start justify-between gap-2 mb-1">
               <p class="font-semibold text-slate-800 text-sm"><a href="https://maps.app.goo.gl/u4UPKn9TvowWyxN4A" target="_blank" rel="noopener noreferrer" class="hover:text-sea-600 transition-colors">5 to go — Piața Dorobanți ↗</a></p>
-              <p class="text-slate-500 text-xs">Tel: 0748 026 555 · Budget-friendly, fast, always busy</p>
+              <span class="text-xs bg-green-50 text-green-700 font-semibold px-2 py-0.5 rounded-full flex-shrink-0 border border-green-100">Budget</span>
             </div>
+            <p class="text-xs text-slate-400 font-medium mb-1">Tel: 0748 026 555 · <span class="text-sea-600 font-semibold">12 min walk</span></p>
+            <p class="text-xs text-slate-500">Bucharest's favourite budget chain — fast, always busy, always reliable</p>
           </div>
         </div>
       </div>
 
-      <!-- Pastries -->
-      <div class="info-card">
-        <h3 class="font-semibold text-sea-900 mb-4 flex items-center gap-2">
-          <svg class="w-5 h-5 text-sea-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 15.546c-.523 0-1.046.151-1.5.454a2.704 2.704 0 01-3 0 2.704 2.704 0 00-3 0 2.701 2.701 0 00-1.5-.454M9 6v2m3-2v2m3-2v2M9 3h.01M12 3h.01M15 3h.01M21 21v-7a2 2 0 00-2-2H5a2 2 0 00-2 2v7h18zm-3-9v-2a2 2 0 00-2-2H8a2 2 0 00-2 2v2h12z"/></svg>
-          Bakeries &amp; Pastry Shops
-        </h3>
-        <div class="space-y-3">
-          <div class="flex items-start gap-3">
-            <span class="w-2 h-2 rounded-full bg-orange-400 flex-shrink-0 mt-2"></span>
-            <div>
-              <p class="font-semibold text-slate-800 text-sm"><a href="https://maps.app.goo.gl/ggJpvYVPbJKj9yrn9" target="_blank" rel="noopener noreferrer" class="hover:text-sea-600 transition-colors">Patiseria Andreea F ↗</a></p>
-              <p class="text-slate-500 text-xs">Tel: 0722 460 432</p>
-            </div>
+      <!-- Bakeries -->
+      <div class="bg-white rounded-2xl border border-slate-100 shadow-sm p-4">
+        <div class="flex items-center gap-2.5 mb-3.5">
+          <div class="w-8 h-8 rounded-xl bg-orange-50 flex items-center justify-center flex-shrink-0">
+            <svg class="w-4 h-4 text-orange-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 15.546c-.523 0-1.046.151-1.5.454a2.704 2.704 0 01-3 0 2.704 2.704 0 00-3 0 2.701 2.701 0 00-1.5-.454M9 6v2m3-2v2m3-2v2M9 3h.01M12 3h.01M15 3h.01M21 21v-7a2 2 0 00-2-2H5a2 2 0 00-2 2v7h18zm-3-9v-2a2 2 0 00-2-2H8a2 2 0 00-2 2v2h12z"/></svg>
           </div>
-          <div class="flex items-start gap-3">
-            <span class="w-2 h-2 rounded-full bg-orange-400 flex-shrink-0 mt-2"></span>
-            <div>
+          <div>
+            <h3 class="font-semibold text-sea-900 text-sm">Bakeries &amp; Pastry Shops</h3>
+            <p class="text-xs text-slate-400">Fresh bread &amp; Romanian classics</p>
+          </div>
+        </div>
+        <div class="space-y-2.5">
+          <!-- Maria's pick — highlighted -->
+          <div class="border-2 border-orange-200 rounded-xl p-3 bg-orange-50/40 hover:bg-orange-50/70 transition-colors duration-200">
+            <div class="flex items-start justify-between gap-2 mb-1">
+              <p class="font-semibold text-slate-800 text-sm"><a href="https://maps.app.goo.gl/7WnMVP3qpHtNbuQF8" target="_blank" rel="noopener noreferrer" class="hover:text-sea-600 transition-colors">Patiseria Comteia ↗</a></p>
+              <span class="text-xs bg-orange-100 text-orange-700 font-semibold px-2 py-0.5 rounded-full flex-shrink-0 border border-orange-200">Maria's pick</span>
+            </div>
+            <p class="text-xs text-slate-400 font-medium mb-1">Traditional Romanian · <span class="text-sea-600 font-semibold">15 min walk</span></p>
+            <p class="text-xs text-slate-500">One of Bucharest's oldest pastry shops — still makes <em>merdenele</em> the traditional way. A real city institution, worth the walk.</p>
+          </div>
+          <div class="border border-slate-100 rounded-xl p-3 hover:border-orange-100 hover:bg-orange-50/20 transition-colors duration-200">
+            <div class="flex items-start justify-between gap-2 mb-1">
               <p class="font-semibold text-slate-800 text-sm"><a href="https://maps.app.goo.gl/bK1oVtLEF6FNtDqu6" target="_blank" rel="noopener noreferrer" class="hover:text-sea-600 transition-colors">Pain Plaisir Floreasca ↗</a></p>
-              <p class="text-slate-500 text-xs">Tel: 0745 908 888 · French-style bakery, great croissants</p>
+              <span class="text-xs bg-blue-50 text-blue-600 font-semibold px-2 py-0.5 rounded-full flex-shrink-0 border border-blue-100">French</span>
             </div>
+            <p class="text-xs text-slate-400 font-medium mb-1">Tel: 0745 908 888 · <span class="text-sea-600 font-semibold">8 min walk</span></p>
+            <p class="text-xs text-slate-500">Great croissants, quiches and pastries — popular weekend breakfast spot</p>
           </div>
-          <div class="flex items-start gap-3">
-            <span class="w-2 h-2 rounded-full bg-orange-400 flex-shrink-0 mt-2"></span>
-            <div>
+          <div class="border border-slate-100 rounded-xl p-3 hover:border-orange-100 hover:bg-orange-50/20 transition-colors duration-200">
+            <div class="flex items-start justify-between gap-2 mb-1">
+              <p class="font-semibold text-slate-800 text-sm"><a href="https://maps.app.goo.gl/ggJpvYVPbJKj9yrn9" target="_blank" rel="noopener noreferrer" class="hover:text-sea-600 transition-colors">Patiseria Andreea F ↗</a></p>
+              <span class="text-xs bg-slate-100 text-slate-500 font-semibold px-2 py-0.5 rounded-full flex-shrink-0">Local</span>
+            </div>
+            <p class="text-xs text-slate-400 font-medium mb-1">Tel: 0722 460 432</p>
+            <p class="text-xs text-slate-500">Popular local patisserie — great variety of sweet and savoury pastries</p>
+          </div>
+          <div class="border border-slate-100 rounded-xl p-3 hover:border-orange-100 hover:bg-orange-50/20 transition-colors duration-200">
+            <div class="flex items-start justify-between gap-2 mb-1">
               <p class="font-semibold text-slate-800 text-sm"><a href="https://maps.app.goo.gl/qdYqzJmZ5DR1fJuX8" target="_blank" rel="noopener noreferrer" class="hover:text-sea-600 transition-colors">Cuptorul Brâncovenesc Dorobanți ↗</a></p>
-              <p class="text-slate-500 text-xs">Tel: 0729 079 926 · Traditional Romanian breads &amp; pastries</p>
+              <span class="text-xs bg-slate-100 text-slate-500 font-semibold px-2 py-0.5 rounded-full flex-shrink-0">Traditional</span>
             </div>
+            <p class="text-xs text-slate-400 font-medium mb-1">Tel: 0729 079 926 · <span class="text-sea-600 font-semibold">12 min walk</span></p>
+            <p class="text-xs text-slate-500">Traditional Romanian breads and pastries — cozonac, plăcintă, wood-fired loaves</p>
           </div>
-          <div class="flex items-start gap-3">
-            <span class="w-2 h-2 rounded-full bg-orange-400 flex-shrink-0 mt-2"></span>
-            <div>
+          <div class="border border-slate-100 rounded-xl p-3 hover:border-orange-100 hover:bg-orange-50/20 transition-colors duration-200">
+            <div class="flex items-start justify-between gap-2 mb-1">
               <p class="font-semibold text-slate-800 text-sm"><a href="https://maps.app.goo.gl/P2dVfZH8UCaqfVWn8" target="_blank" rel="noopener noreferrer" class="hover:text-sea-600 transition-colors">Baguette Beller ↗</a></p>
-              <p class="text-slate-500 text-xs">Tel: 0723 300 005</p>
+              <span class="text-xs bg-slate-100 text-slate-500 font-semibold px-2 py-0.5 rounded-full flex-shrink-0">Local</span>
             </div>
+            <p class="text-xs text-slate-400 font-medium mb-1">Tel: 0723 300 005</p>
+            <p class="text-xs text-slate-500">Good neighbourhood bakery for fresh bread and simple pastries</p>
           </div>
-          <div class="flex items-start gap-3">
-            <span class="w-2 h-2 rounded-full bg-orange-400 flex-shrink-0 mt-2"></span>
-            <div>
+          <div class="border border-slate-100 rounded-xl p-3 hover:border-orange-100 hover:bg-orange-50/20 transition-colors duration-200">
+            <div class="flex items-start justify-between gap-2 mb-1">
               <p class="font-semibold text-slate-800 text-sm"><a href="https://maps.app.goo.gl/eTG6wcTdMUeLH13h7" target="_blank" rel="noopener noreferrer" class="hover:text-sea-600 transition-colors">Ana Pan Beller ↗</a></p>
-              <p class="text-slate-500 text-xs">Tel: 021 230 6700</p>
+              <span class="text-xs bg-slate-100 text-slate-500 font-semibold px-2 py-0.5 rounded-full flex-shrink-0">Chain</span>
             </div>
-          </div>
-          <div class="flex items-start gap-3">
-            <span class="w-2 h-2 rounded-full bg-red-400 flex-shrink-0 mt-2"></span>
-            <div>
-              <p class="font-semibold text-slate-800 text-sm"><a href="https://maps.app.goo.gl/7WnMVP3qpHtNbuQF8" target="_blank" rel="noopener noreferrer" class="hover:text-sea-600 transition-colors">Patiseria Comteia ↗</a> ⭐ Maria's pick</p>
-              <p class="text-slate-500 text-xs">One of the oldest Romanian pastry shops in Bucharest — still makes <em>merdenele</em> the traditional way. Worth a short walk!</p>
-            </div>
+            <p class="text-xs text-slate-400 font-medium mb-1">Tel: 021 230 6700</p>
+            <p class="text-xs text-slate-500">Reliable Romanian bakery chain — great for a quick pastry or sandwich</p>
           </div>
         </div>
       </div>
 
       <!-- Restaurants -->
-      <div class="info-card">
-        <h3 class="font-semibold text-sea-900 mb-4 flex items-center gap-2">
-          <svg class="w-5 h-5 text-sea-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
-          Restaurants
-        </h3>
-        <div class="space-y-4">
-
-          <div class="border border-slate-100 rounded-xl p-3">
+      <div class="bg-white rounded-2xl border border-slate-100 shadow-sm p-4">
+        <div class="flex items-center gap-2.5 mb-3.5">
+          <div class="w-8 h-8 rounded-xl bg-sea-50 flex items-center justify-center flex-shrink-0">
+            <svg class="w-4 h-4 text-sea-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4"/></svg>
+          </div>
+          <div>
+            <h3 class="font-semibold text-sea-900 text-sm">Restaurants</h3>
+            <p class="text-xs text-slate-400">Top-rated spots in the neighbourhood</p>
+          </div>
+        </div>
+        <div class="space-y-2.5">
+          <div class="border border-slate-100 rounded-xl p-3 hover:border-sea-200 hover:bg-sea-50/20 transition-colors duration-200">
             <div class="flex items-start justify-between gap-2 mb-1">
               <p class="font-semibold text-slate-800 text-sm"><a href="https://maps.google.com/?q=Yoshi+Sushi+Teppanyaki+Banul+Antonache+Bucharest" target="_blank" rel="noopener noreferrer" class="hover:text-sea-600 transition-colors">Yoshi Sushi &amp; Teppanyaki ↗</a></p>
-              <span class="text-xs text-slate-400 font-medium flex-shrink-0">€€€</span>
+              <span class="text-xs text-slate-400 font-semibold flex-shrink-0">€€€</span>
             </div>
-            <p class="text-xs text-sea-600 font-medium mb-1">🍣 Japanese · Str. Banul Antonache 40-44 <span class="text-slate-400">(2 min walk)</span></p>
-            <p class="text-xs text-slate-500">Best sushi in Bucharest — Philadelphia rolls, Kyoto sets, live teppanyaki. ⭐ 4.5 TripAdvisor · 1,500+ reviews</p>
+            <p class="text-xs text-slate-400 font-medium mb-1">Japanese · Str. Banul Antonache 40-44 · <span class="text-sea-600 font-semibold">2 min walk</span></p>
+            <p class="text-xs text-slate-500">Best sushi in Bucharest — Philadelphia rolls, Kyoto sets, live teppanyaki. 4.5 TripAdvisor · 1,500+ reviews</p>
           </div>
-
-          <div class="border border-slate-100 rounded-xl p-3">
+          <div class="border border-slate-100 rounded-xl p-3 hover:border-sea-200 hover:bg-sea-50/20 transition-colors duration-200">
             <div class="flex items-start justify-between gap-2 mb-1">
               <p class="font-semibold text-slate-800 text-sm"><a href="https://maps.google.com/?q=POT+stories+Calea+Floreasca+111+Bucharest" target="_blank" rel="noopener noreferrer" class="hover:text-sea-600 transition-colors">POT.stories ↗</a></p>
-              <span class="text-xs text-slate-400 font-medium flex-shrink-0">€€€</span>
+              <span class="text-xs text-slate-400 font-semibold flex-shrink-0">€€€</span>
             </div>
-            <p class="text-xs text-sea-600 font-medium mb-1">🌊 Mediterranean fusion · Calea Floreasca 111-113 <span class="text-slate-400">(10 min walk)</span></p>
-            <p class="text-xs text-slate-500">Creative Mediterranean with beautiful plating — charred octopus, salmon tartare, stylish beach-house vibe. ⭐ 4.6 Google · "probably the best restaurant in Bucharest"</p>
+            <p class="text-xs text-slate-400 font-medium mb-1">Mediterranean fusion · Calea Floreasca 111-113 · <span class="text-sea-600 font-semibold">10 min walk</span></p>
+            <p class="text-xs text-slate-500">Creative Mediterranean with beautiful plating — charred octopus, salmon tartare, stylish beach-house vibe. 4.6 Google · "probably the best restaurant in Bucharest"</p>
           </div>
-
-          <div class="border border-slate-100 rounded-xl p-3">
+          <div class="border border-slate-100 rounded-xl p-3 hover:border-sea-200 hover:bg-sea-50/20 transition-colors duration-200">
             <div class="flex items-start justify-between gap-2 mb-1">
               <p class="font-semibold text-slate-800 text-sm"><a href="https://maps.google.com/?q=BistroMar+Piata+Floreasca+Bucharest" target="_blank" rel="noopener noreferrer" class="hover:text-sea-600 transition-colors">BistroMar ↗</a></p>
-              <span class="text-xs text-slate-400 font-medium flex-shrink-0">€€</span>
+              <span class="text-xs text-slate-400 font-semibold flex-shrink-0">€€</span>
             </div>
-            <p class="text-xs text-sea-600 font-medium mb-1">🐟 Seafood · Piața Floreasca Market, Str. Banul Antonache 41 <span class="text-slate-400">(2 min walk)</span></p>
-            <p class="text-xs text-slate-500">Pick your fish from the market stall — chef cooks it fresh in front of you. Huge portions, great value. ⭐ TripAdvisor #45 of 2,721 Bucharest restaurants</p>
+            <p class="text-xs text-slate-400 font-medium mb-1">Seafood · Piața Floreasca Market · <span class="text-sea-600 font-semibold">2 min walk</span></p>
+            <p class="text-xs text-slate-500">Pick your fish from the market stall — chef cooks it fresh in front of you. Huge portions, great value. TripAdvisor #45 of 2,721 Bucharest restaurants</p>
           </div>
-
         </div>
-        <p class="text-xs text-slate-400 mt-3">💡 For delivery: use <strong class="text-slate-500">Bolt Food</strong> or <strong class="text-slate-500">Glovo</strong> and enter the apartment address.</p>
+        <p class="text-xs text-slate-400 mt-3">For delivery: use <strong class="text-slate-500">Bolt Food</strong> or <strong class="text-slate-500">Glovo</strong> with the apartment address.</p>
       </div>
 
-      <!-- Fitness -->
-      <div class="info-card">
-        <h3 class="font-semibold text-sea-900 mb-4 flex items-center gap-2">
-          <svg class="w-5 h-5 text-sea-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/></svg>
-          Fitness &amp; Wellness
-        </h3>
-        <div class="space-y-3">
-          <div class="flex items-start gap-3">
-            <span class="w-2 h-2 rounded-full bg-purple-400 flex-shrink-0 mt-2"></span>
-            <div>
-              <p class="font-semibold text-slate-800 text-sm"><a href="https://maps.app.goo.gl/uFQpthcfLe2Wzvy76" target="_blank" rel="noopener noreferrer" class="hover:text-sea-600 transition-colors">BEAT45 Fitness Studio ↗</a> 🎁 Discount!</p>
-              <p class="text-slate-500 text-xs">Tel: 031 426 0237 · Mention <strong class="text-slate-700">Radu Stoicescu</strong> when booking and you'll get a discount</p>
-            </div>
+      <!-- Fitness & Wellness -->
+      <div class="bg-white rounded-2xl border border-slate-100 shadow-sm p-4">
+        <div class="flex items-center gap-2.5 mb-3.5">
+          <div class="w-8 h-8 rounded-xl bg-purple-50 flex items-center justify-center flex-shrink-0">
+            <svg class="w-4 h-4 text-purple-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/></svg>
           </div>
-          <div class="flex items-start gap-3">
-            <span class="w-2 h-2 rounded-full bg-purple-400 flex-shrink-0 mt-2"></span>
-            <div>
+          <div>
+            <h3 class="font-semibold text-sea-900 text-sm">Fitness &amp; Wellness</h3>
+            <p class="text-xs text-slate-400">Stay active during your visit</p>
+          </div>
+        </div>
+        <div class="space-y-2.5">
+          <!-- Discount highlight -->
+          <div class="border-2 border-purple-200 rounded-xl p-3 bg-purple-50/40 hover:bg-purple-50/70 transition-colors duration-200">
+            <div class="flex items-start justify-between gap-2 mb-1">
+              <p class="font-semibold text-slate-800 text-sm"><a href="https://maps.app.goo.gl/uFQpthcfLe2Wzvy76" target="_blank" rel="noopener noreferrer" class="hover:text-sea-600 transition-colors">BEAT45 Fitness Studio ↗</a></p>
+              <span class="text-xs bg-purple-100 text-purple-700 font-semibold px-2 py-0.5 rounded-full flex-shrink-0 border border-purple-200">Guest discount</span>
+            </div>
+            <p class="text-xs text-slate-400 font-medium mb-1">HIIT Studio · Tel: 031 426 0237</p>
+            <p class="text-xs text-slate-500">Mention <strong class="text-slate-700">Radu Stoicescu</strong> when booking — you'll get a guest discount. High-energy 45-min classes.</p>
+          </div>
+          <div class="border border-slate-100 rounded-xl p-3 hover:border-purple-100 hover:bg-purple-50/20 transition-colors duration-200">
+            <div class="flex items-start justify-between gap-2 mb-1">
               <p class="font-semibold text-slate-800 text-sm"><a href="https://maps.app.goo.gl/twthLjQren9SSTRk9" target="_blank" rel="noopener noreferrer" class="hover:text-sea-600 transition-colors">FS Studio — Yoga ↗</a></p>
-              <p class="text-slate-500 text-xs">Tel: 0733 591 129 · Cool yoga studio nearby</p>
+              <span class="text-xs bg-slate-100 text-slate-500 font-semibold px-2 py-0.5 rounded-full flex-shrink-0">Yoga</span>
             </div>
+            <p class="text-xs text-slate-400 font-medium mb-1">Tel: 0733 591 129</p>
+            <p class="text-xs text-slate-500">Calm, well-equipped studio with various styles and class times</p>
           </div>
-          <div class="flex items-start gap-3">
-            <span class="w-2 h-2 rounded-full bg-purple-400 flex-shrink-0 mt-2"></span>
-            <div>
+          <div class="border border-slate-100 rounded-xl p-3 hover:border-purple-100 hover:bg-purple-50/20 transition-colors duration-200">
+            <div class="flex items-start justify-between gap-2 mb-1">
               <p class="font-semibold text-slate-800 text-sm"><a href="https://maps.app.goo.gl/GewEtkVyzsT5DDJo6" target="_blank" rel="noopener noreferrer" class="hover:text-sea-600 transition-colors">Stay Fit Gym Dorobanți ↗</a></p>
-              <p class="text-slate-500 text-xs">Tel: 0773 963 564 · New gym close by</p>
+              <span class="text-xs bg-slate-100 text-slate-500 font-semibold px-2 py-0.5 rounded-full flex-shrink-0">Gym</span>
             </div>
+            <p class="text-xs text-slate-400 font-medium mb-1">Tel: 0773 963 564 · <span class="text-sea-600 font-semibold">12 min walk</span></p>
+            <p class="text-xs text-slate-500">Modern gym with daily passes — no commitment needed</p>
+          </div>
+          <div class="border border-slate-100 rounded-xl p-3 hover:border-purple-100 hover:bg-purple-50/20 transition-colors duration-200">
+            <div class="flex items-start justify-between gap-2 mb-1">
+              <p class="font-semibold text-slate-800 text-sm"><a href="https://maps.google.com/?q=Parcul+Floreasca+Bucharest" target="_blank" rel="noopener noreferrer" class="hover:text-sea-600 transition-colors">Floreasca Park &amp; Lake ↗</a></p>
+              <span class="text-xs bg-green-50 text-green-700 font-semibold px-2 py-0.5 rounded-full flex-shrink-0 border border-green-100">Free · Outdoor</span>
+            </div>
+            <p class="text-xs text-slate-400 font-medium mb-1"><span class="text-sea-600 font-semibold">2 min walk</span></p>
+            <p class="text-xs text-slate-500">Running track, outdoor gym, lakeside paths — perfect for morning jogs or evening strolls</p>
           </div>
         </div>
       </div>
 
-      <!-- Getting around -->
-      <div class="info-card">
-        <h3 class="font-semibold text-sea-900 mb-4 flex items-center gap-2">
-          <svg class="w-5 h-5 text-sea-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4"/></svg>
-          Getting Around
-        </h3>
-        <div class="space-y-3 text-sm text-slate-600">
-          <div class="flex items-start gap-3">
-            <span class="w-2 h-2 rounded-full bg-blue-400 flex-shrink-0 mt-2"></span>
-            <p><strong class="text-slate-800">Metro:</strong> Aurel Vlaicu station — 15 min walk. Stefan cel Mare station — 10 min walk. Line M2 connects to the city center in ~10 min.</p>
+      <!-- Getting Around -->
+      <div class="bg-white rounded-2xl border border-slate-100 shadow-sm p-4">
+        <div class="flex items-center gap-2.5 mb-3.5">
+          <div class="w-8 h-8 rounded-xl bg-blue-50 flex items-center justify-center flex-shrink-0">
+            <svg class="w-4 h-4 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4"/></svg>
           </div>
-          <div class="flex items-start gap-3">
-            <span class="w-2 h-2 rounded-full bg-blue-400 flex-shrink-0 mt-2"></span>
-            <p><strong class="text-slate-800">Bus:</strong> Stop directly in front of the building connects to the city center.</p>
+          <div>
+            <h3 class="font-semibold text-sea-900 text-sm">Getting Around</h3>
+            <p class="text-xs text-slate-400">Transport from the apartment</p>
           </div>
-          <div class="flex items-start gap-3">
-            <span class="w-2 h-2 rounded-full bg-blue-400 flex-shrink-0 mt-2"></span>
-            <p><strong class="text-slate-800">Airport:</strong> Henri Coandă International Airport — ~30 min by taxi or Express 783 bus from Piața Unirii.</p>
+        </div>
+        <div class="space-y-2.5">
+          <div class="border border-slate-100 rounded-xl p-3">
+            <p class="font-semibold text-slate-800 text-sm mb-0.5">Metro <span class="text-xs text-sea-600 font-normal ml-1">10–15 min walk</span></p>
+            <p class="text-xs text-slate-500">Aurel Vlaicu (15 min) or Stefan cel Mare (10 min). Line M2 to city centre in ~10 min.</p>
           </div>
-          <div class="flex items-start gap-3">
-            <span class="w-2 h-2 rounded-full bg-blue-400 flex-shrink-0 mt-2"></span>
-            <p><strong class="text-slate-800">Taxi / Ride-share:</strong> Bolt and Uber both work well in Bucharest. Avoid unmarked taxis.</p>
+          <div class="border border-slate-100 rounded-xl p-3">
+            <p class="font-semibold text-slate-800 text-sm mb-0.5">Bus <span class="text-xs text-sea-600 font-normal ml-1">In front of building</span></p>
+            <p class="text-xs text-slate-500">Stop directly outside connects to the city centre.</p>
           </div>
-          <div class="flex items-start gap-3">
-            <span class="w-2 h-2 rounded-full bg-blue-400 flex-shrink-0 mt-2"></span>
-            <p><strong class="text-slate-800">Parking:</strong> Free street parking after 20:00 until 08:00. During the day: 6 lei (≈1€) per hour or 30 lei (≈8€) per day.</p>
+          <div class="border border-slate-100 rounded-xl p-3">
+            <p class="font-semibold text-slate-800 text-sm mb-0.5">Bolt &amp; Uber</p>
+            <p class="text-xs text-slate-500">Both work great in Bucharest. Always use an app — avoid unmarked taxis.</p>
+          </div>
+          <div class="border border-slate-100 rounded-xl p-3">
+            <p class="font-semibold text-slate-800 text-sm mb-0.5">Airport <span class="text-xs text-slate-400 font-normal ml-1">Henri Coandă</span></p>
+            <p class="text-xs text-slate-500">~30 min by taxi or Express 783 bus from Piața Unirii.</p>
+          </div>
+          <div class="border border-slate-100 rounded-xl p-3">
+            <p class="font-semibold text-slate-800 text-sm mb-0.5">Parking</p>
+            <p class="text-xs text-slate-500">Free 20:00–08:00. Daytime: 6 lei (≈€1)/hr · 30 lei (≈€8)/day.</p>
           </div>
         </div>
       </div>
 
-      <!-- Nearby -->
-      <div class="info-card">
-        <h3 class="font-semibold text-sea-900 mb-4 flex items-center gap-2">
-          <svg class="w-5 h-5 text-sea-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"/></svg>
-          Things to Do Nearby
-        </h3>
-        <div class="space-y-2 text-sm text-slate-600">
-          <p>🌳 <strong class="text-slate-800">Floreasca Park &amp; Lake</strong> — 100m, great for morning runs or evening strolls</p>
-          <p>🛍️ <strong class="text-slate-800">Promenada Mall</strong> — one of Bucharest's best shopping centres, 10 min walk</p>
-          <p>🏙️ <strong class="text-slate-800">Old Town (Centrul Vechi)</strong> — 15 min by metro, restaurants, bars &amp; nightlife</p>
-          <p>🎨 <strong class="text-slate-800">National Museum of Art</strong> — 20 min by metro</p>
-          <p>🌿 <strong class="text-slate-800">Herăstrău Park</strong> — Bucharest's largest park, 15 min walk</p>
+      <!-- Things to Do -->
+      <div class="bg-white rounded-2xl border border-slate-100 shadow-sm p-4">
+        <div class="flex items-center gap-2.5 mb-3.5">
+          <div class="w-8 h-8 rounded-xl bg-yellow-50 flex items-center justify-center flex-shrink-0">
+            <svg class="w-4 h-4 text-yellow-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"/></svg>
+          </div>
+          <div>
+            <h3 class="font-semibold text-sea-900 text-sm">Things to Do</h3>
+            <p class="text-xs text-slate-400">Bucharest highlights</p>
+          </div>
+        </div>
+        <div class="space-y-2.5">
+          <div class="border border-slate-100 rounded-xl p-3">
+            <p class="font-semibold text-slate-800 text-sm mb-0.5">Floreasca Park &amp; Lake <span class="text-xs text-sea-600 font-semibold font-normal ml-1">2 min walk</span></p>
+            <p class="text-xs text-slate-500">Morning runs, lakeside strolls, outdoor exercise equipment</p>
+          </div>
+          <div class="border border-slate-100 rounded-xl p-3">
+            <p class="font-semibold text-slate-800 text-sm mb-0.5">Herăstrău Park <span class="text-xs text-sea-600 font-semibold font-normal ml-1">15 min walk</span></p>
+            <p class="text-xs text-slate-500">Bucharest's largest park — rowing, cycling, outdoor concerts, lakeside restaurants</p>
+          </div>
+          <div class="border border-slate-100 rounded-xl p-3">
+            <p class="font-semibold text-slate-800 text-sm mb-0.5">Promenada Mall <span class="text-xs text-sea-600 font-semibold font-normal ml-1">15 min walk</span></p>
+            <p class="text-xs text-slate-500">One of Bucharest's best malls — fashion, food court, cinema, near the lake</p>
+          </div>
+          <div class="border border-slate-100 rounded-xl p-3">
+            <p class="font-semibold text-slate-800 text-sm mb-0.5">Old Town (Centrul Vechi) <span class="text-xs text-sea-600 font-semibold font-normal ml-1">15 min by metro</span></p>
+            <p class="text-xs text-slate-500">Restaurants, bars &amp; nightlife — the heart of Bucharest</p>
+          </div>
+          <div class="border border-slate-100 rounded-xl p-3">
+            <p class="font-semibold text-slate-800 text-sm mb-0.5">National Museum of Art <span class="text-xs text-sea-600 font-semibold font-normal ml-1">20 min by metro</span></p>
+            <p class="text-xs text-slate-500">Romanian and European fine art in the former Royal Palace</p>
+          </div>
         </div>
       </div>
 
