@@ -370,30 +370,42 @@
     <!-- ── WIFI & HOME ────────────────────────────────────────── -->
     <div id="tab-home" class="tab-panel fade-in space-y-5">
 
-      <!-- WiFi card -->
-      <div class="info-card">
-        <h3 class="font-semibold text-sea-900 mb-4 flex items-center gap-2">
-          <svg class="w-5 h-5 text-sea-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.111 16.404a5.5 5.5 0 017.778 0M12 20h.01m-7.08-7.071c3.904-3.905 10.236-3.905 14.141 0M1.394 9.393c5.857-5.857 15.355-5.857 21.213 0"/></svg>
-          WiFi
-        </h3>
-        <div class="grid grid-cols-2 gap-4">
-          <div class="bg-sea-50 rounded-xl p-4 text-center">
-            <p class="text-xs font-semibold text-sea-500 uppercase tracking-wide mb-1">Network</p>
-            <p class="big-value text-xl">[WIFI_NAME]</p>
+      <!-- WiFi card — open by default -->
+      <div class="bg-white rounded-2xl border border-slate-100 shadow-sm overflow-hidden">
+        <details class="group" open>
+          <summary class="flex items-center justify-between gap-3 px-5 py-4 cursor-pointer list-none select-none hover:bg-slate-50 transition-colors duration-150">
+            <div class="flex items-center gap-2.5">
+              <svg class="w-5 h-5 text-sea-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.111 16.404a5.5 5.5 0 017.778 0M12 20h.01m-7.08-7.071c3.904-3.905 10.236-3.905 14.141 0M1.394 9.393c5.857-5.857 15.355-5.857 21.213 0"/></svg>
+              <span class="font-semibold text-sea-900 text-sm">WiFi</span>
+            </div>
+            <svg class="w-4 h-4 text-sea-400 flex-shrink-0 transition-transform duration-200 group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+          </summary>
+          <div class="px-5 pb-5 pt-4 border-t border-slate-100">
+            <div class="grid grid-cols-2 gap-4">
+              <div class="bg-sea-50 rounded-xl p-4 text-center">
+                <p class="text-xs font-semibold text-sea-500 uppercase tracking-wide mb-1">Network</p>
+                <p class="big-value text-xl">[WIFI_NAME]</p>
+              </div>
+              <div class="bg-sea-50 rounded-xl p-4 text-center">
+                <p class="text-xs font-semibold text-sea-500 uppercase tracking-wide mb-1">Password</p>
+                <p class="big-value text-xl">[WIFI_PASSWORD]</p>
+              </div>
+            </div>
           </div>
-          <div class="bg-sea-50 rounded-xl p-4 text-center">
-            <p class="text-xs font-semibold text-sea-500 uppercase tracking-wide mb-1">Password</p>
-            <p class="big-value text-xl">[WIFI_PASSWORD]</p>
-          </div>
-        </div>
+        </details>
       </div>
 
       <!-- Oven -->
-      <div class="info-card">
-        <h3 class="font-semibold text-sea-900 mb-3 flex items-center gap-2">
-          <svg class="w-5 h-5 text-sea-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><rect x="2" y="3" width="20" height="18" rx="2" stroke-width="2"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 3v18M2 9h5M2 15h5"/></svg>
-          Gas Oven &amp; Hob
-        </h3>
+      <div class="bg-white rounded-2xl border border-slate-100 shadow-sm overflow-hidden">
+        <details class="group">
+          <summary class="flex items-center justify-between gap-3 px-5 py-4 cursor-pointer list-none select-none hover:bg-slate-50 transition-colors duration-150">
+            <div class="flex items-center gap-2.5">
+              <svg class="w-5 h-5 text-sea-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><rect x="2" y="3" width="20" height="18" rx="2" stroke-width="2"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 3v18M2 9h5M2 15h5"/></svg>
+              <span class="font-semibold text-sea-900 text-sm">Gas Oven &amp; Hob</span>
+            </div>
+            <svg class="w-4 h-4 text-sea-400 flex-shrink-0 transition-transform duration-200 group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+          </summary>
+          <div class="px-5 pb-5 pt-4 border-t border-slate-100">
         <div class="inline-flex items-center gap-1.5 bg-amber-50 border border-amber-200 text-amber-700 text-xs font-semibold px-3 py-1.5 rounded-full mb-3">
           <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 18.657A8 8 0 016.343 7.343S7 9 9 10c0-2 .5-5 2.986-7C14 5 16.09 5.777 17.656 7.343A7.975 7.975 0 0120 13a7.975 7.975 0 01-2.343 5.657z"/></svg>
           Gas appliance — the apartment has a smoke &amp; gas alarm for your safety
@@ -443,14 +455,24 @@
                class="w-full rounded-2xl object-cover"
                style="max-height:200px;object-position:center" />
         </div>
+          </div>
+        </details>
       </div>
 
       <!-- Washing machine -->
-      <div class="info-card">
-        <h3 class="font-semibold text-sea-900 mb-3 flex items-center gap-2">
-          <svg class="w-5 h-5 text-sea-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9" stroke-width="2"/><circle cx="12" cy="12" r="4" stroke-width="2"/></svg>
-          Washing Machine
-        </h3>
+      <div class="bg-white rounded-2xl border border-slate-100 shadow-sm overflow-hidden">
+        <details class="group">
+          <summary class="flex items-center justify-between gap-3 px-5 py-4 cursor-pointer list-none select-none hover:bg-slate-50 transition-colors duration-150">
+            <div class="flex items-center gap-2.5">
+              <svg class="w-5 h-5 text-sea-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9" stroke-width="2"/><circle cx="12" cy="12" r="4" stroke-width="2"/></svg>
+              <div>
+                <p class="font-semibold text-sea-900 text-sm">Washing Machine</p>
+                <p class="text-xs text-slate-400 font-normal">Samsung EcoBubble · kitchen</p>
+              </div>
+            </div>
+            <svg class="w-4 h-4 text-sea-400 flex-shrink-0 transition-transform duration-200 group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+          </summary>
+          <div class="px-5 pb-5 pt-4 border-t border-slate-100">
         <p class="text-xs text-slate-500 mb-3">Samsung EcoBubble — located in the <strong class="text-slate-700">kitchen</strong>.</p>
 
         <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTX64DHjmq3P04P_YQS3XVeZ-G6on2zVyaRrTnj2F7USg&s=10"
@@ -483,14 +505,24 @@
         <div class="mt-3 bg-sea-50 border border-sea-100 rounded-xl px-4 py-2.5 text-xs text-sea-700">
           ✅ <strong>Recommended:</strong> Daily Wash at 30–40°C. When finished, remove laundry and leave the door <strong>slightly open</strong> to air the drum.
         </div>
+          </div>
+        </details>
       </div>
 
       <!-- AC -->
-      <div class="info-card">
-        <h3 class="font-semibold text-sea-900 mb-3 flex items-center gap-2">
-          <svg class="w-5 h-5 text-sea-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v18M3 12h18M5.636 5.636l12.728 12.728M18.364 5.636L5.636 18.364"/></svg>
-          Air Conditioning — Daewoo 12000 BTU
-        </h3>
+      <div class="bg-white rounded-2xl border border-slate-100 shadow-sm overflow-hidden">
+        <details class="group">
+          <summary class="flex items-center justify-between gap-3 px-5 py-4 cursor-pointer list-none select-none hover:bg-slate-50 transition-colors duration-150">
+            <div class="flex items-center gap-2.5">
+              <svg class="w-5 h-5 text-sea-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v18M3 12h18M5.636 5.636l12.728 12.728M18.364 5.636L5.636 18.364"/></svg>
+              <div>
+                <p class="font-semibold text-sea-900 text-sm">Air Conditioning</p>
+                <p class="text-xs text-slate-400 font-normal">Daewoo 12000 BTU · Wi-Fi enabled</p>
+              </div>
+            </div>
+            <svg class="w-4 h-4 text-sea-400 flex-shrink-0 transition-transform duration-200 group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+          </summary>
+          <div class="px-5 pb-5 pt-4 border-t border-slate-100">
         <p class="text-xs text-slate-500 mb-3">Wi-Fi enabled · <a href="https://www.emag.ro/aparat-de-aer-conditionat-daewoo-12000-btu-wi-fi-a-kit-de-instalare-inclus-3m-filtre-cu-ioni-de-argint-functie-ifeel-eco-mode-negru-dac-12chsdb/pd/D1C7SSMBM/" target="_blank" rel="noopener noreferrer" class="text-sea-600 underline hover:text-sea-800">View product ↗</a></p>
 
         <img src="https://optimclima.ro/wp-content/uploads/2025/04/Aer-conditionat-Daewoo-12000-BTU.jpg"
@@ -548,14 +580,24 @@
           <p>🌿 Turn off the AC when leaving the apartment.</p>
           <p>⚠️ Do not set below <strong class="text-slate-600">18°C</strong> and do not block the indoor unit airflow.</p>
         </div>
+          </div>
+        </details>
       </div>
 
       <!-- TV -->
-      <div class="info-card">
-        <h3 class="font-semibold text-sea-900 mb-3 flex items-center gap-2">
-          <svg class="w-5 h-5 text-sea-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><rect x="2" y="3" width="20" height="14" rx="2" stroke-width="2"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 21h8m-4-4v4"/></svg>
-          TV &amp; Streaming
-        </h3>
+      <div class="bg-white rounded-2xl border border-slate-100 shadow-sm overflow-hidden">
+        <details class="group">
+          <summary class="flex items-center justify-between gap-3 px-5 py-4 cursor-pointer list-none select-none hover:bg-slate-50 transition-colors duration-150">
+            <div class="flex items-center gap-2.5">
+              <svg class="w-5 h-5 text-sea-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><rect x="2" y="3" width="20" height="14" rx="2" stroke-width="2"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 21h8m-4-4v4"/></svg>
+              <div>
+                <p class="font-semibold text-sea-900 text-sm">TV &amp; Streaming</p>
+                <p class="text-xs text-slate-400 font-normal">Samsung Smart TV · UPC cable · Netflix</p>
+              </div>
+            </div>
+            <svg class="w-4 h-4 text-sea-400 flex-shrink-0 transition-transform duration-200 group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+          </summary>
+          <div class="px-5 pb-5 pt-4 border-t border-slate-100">
 
         <img src="https://images.pexels.com/photos/5202925/pexels-photo-5202925.jpeg?auto=compress&cs=tinysrgb&w=800"
              alt="Smart TV on wall"
@@ -611,15 +653,24 @@
           <p>⚠️ <strong class="text-slate-600">Apps not working?</strong> → Switch back to Smart Hub / Home</p>
           <p>💡 <strong class="text-slate-600">Lost?</strong> → Press the 🏠 <strong class="text-slate-600">Home button</strong> on the Samsung remote to return to Smart TV</p>
         </div>
+          </div>
+        </details>
       </div>
 
       <!-- Coffee machine -->
-      <div class="info-card">
-        <h3 class="font-semibold text-sea-900 mb-3 flex items-center gap-2">
-          <svg class="w-5 h-5 text-sea-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8h2a2 2 0 012 2v1a2 2 0 01-2 2h-2M3 8h14v9a4 4 0 01-4 4H7a4 4 0 01-4-4V8zm7 4v4"/></svg>
-          Coffee Machine — Tchibo Cafissimo
-        </h3>
-
+      <div class="bg-white rounded-2xl border border-slate-100 shadow-sm overflow-hidden">
+        <details class="group">
+          <summary class="flex items-center justify-between gap-3 px-5 py-4 cursor-pointer list-none select-none hover:bg-slate-50 transition-colors duration-150">
+            <div class="flex items-center gap-2.5">
+              <svg class="w-5 h-5 text-sea-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8h2a2 2 0 012 2v1a2 2 0 01-2 2h-2M3 8h14v9a4 4 0 01-4 4H7a4 4 0 01-4-4V8zm7 4v4"/></svg>
+              <div>
+                <p class="font-semibold text-sea-900 text-sm">Coffee Machine</p>
+                <p class="text-xs text-slate-400 font-normal">Tchibo Cafissimo</p>
+              </div>
+            </div>
+            <svg class="w-4 h-4 text-sea-400 flex-shrink-0 transition-transform duration-200 group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+          </summary>
+          <div class="px-5 pb-5 pt-4 border-t border-slate-100">
         <img src="https://tchibo.ro/cdn/shop/files/1_35b447cd-2ac5-4445-b60e-eb145955f869.jpg?v=1777589095&width=1000"
              alt="Tchibo Cafissimo coffee machine"
              class="w-full rounded-2xl object-cover mb-4"
@@ -653,31 +704,8 @@
           <p class="text-xs font-semibold text-amber-700 uppercase tracking-wide mb-1">Where to buy capsules</p>
           <p class="text-sm text-amber-800">Only <strong>Tchibo Cafissimo-compatible capsules</strong> work with this machine. Find them at <strong>Mega Image</strong> (3 min walk, open 24/7) in the coffee aisle — Colombia, Brasil, Espresso Intense &amp; Elegant, ~14–17 lei/box. Also available at <a href="https://tchibo.ro/collections/capsule" target="_blank" rel="noopener noreferrer" class="underline hover:text-amber-900">tchibo.ro ↗</a></p>
         </div>
-      </div>
-
-      <!-- Hot water -->
-      <div class="info-card">
-        <h3 class="font-semibold text-sea-900 mb-3 flex items-center gap-2">
-          <svg class="w-5 h-5 text-sea-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m8-9h1M3 12H2m15.364-6.364l.707.707M5.636 18.364l-.707.707M18.364 18.364l-.707-.707M5.636 5.636l.707.707"/></svg>
-          Hot Water &amp; Shower
-        </h3>
-        <p class="text-sm text-slate-600 mb-2">[BOILER/SHOWER NOTES — e.g. "Hot water is instant — no need to wait. The shower pressure can be adjusted with the small lever on the left. If the water is not hot, check that the boiler switch on the bathroom wall is in the ON position."]</p>
-        <p class="text-sm text-slate-600">🚰 <strong class="text-slate-700">Drinking water:</strong> There is a filtering jug in the upper kitchen cabinets — use it for tap water. The tap water in Bucharest is safe and Radu drinks it directly, but the jug is there if you prefer filtered.</p>
-        <!-- PLACEHOLDER — replace with a photo of the shower controls / boiler switch -->
-        <div class="ph-img">
-          <svg class="w-10 h-10 text-sea-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 9a2 2 0 012-2h.93a2 2 0 001.664-.89l.812-1.22A2 2 0 0110.07 4h3.86a2 2 0 011.664.89l.812 1.22A2 2 0 0018.07 7H19a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 13a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
-          <span class="text-xs font-semibold text-sea-600 uppercase tracking-wider">Add photo of shower controls here</span>
-          <span class="ph-caption">Show temperature/pressure levers and the boiler wall switch if applicable</span>
-        </div>
-      </div>
-
-      <!-- Balcony -->
-      <div class="info-card">
-        <h3 class="font-semibold text-sea-900 mb-3 flex items-center gap-2">
-          <svg class="w-5 h-5 text-sea-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
-          Balcony
-        </h3>
-        <p class="text-sm text-slate-600">[BALCONY NOTES — e.g. "The balcony door handle turns 90° to open. Please don't leave the door open when the AC is running. There are chairs and a small table — enjoy the city view!"]</p>
+          </div>
+        </details>
       </div>
 
     </div>
