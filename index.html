@@ -158,7 +158,7 @@
       <svg class="w-4 h-4 text-sea-300" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
         <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
       </svg>
-      <span class="text-sea-200 text-sm font-medium tracking-wide uppercase">Floreasca · Bucharest, Romania</span>
+      <a href="https://maps.google.com/?q=Floreasca,+Sector+1,+Bucharest,+Romania" target="_blank" rel="noopener noreferrer" class="text-sea-200 text-sm font-medium tracking-wide uppercase hover:text-white transition-colors duration-200 cursor-pointer">Floreasca · Bucharest, Romania ↗</a>
     </div>
 
     <h1 class="font-serif italic text-4xl md:text-7xl font-bold text-white leading-tight mb-5" style="text-shadow:0 2px 24px rgba(0,0,0,0.3)">
@@ -174,12 +174,13 @@
         <span>4.96 · Guest Favorite</span>
       </div>
       <!-- superhost chip -->
-      <div class="flex items-center gap-1.5 bg-white/15 backdrop-blur-sm border border-white/20 text-white text-sm font-medium px-4 py-2 rounded-full">
+      <button onclick="openSuperhost()" class="flex items-center gap-1.5 bg-white/15 backdrop-blur-sm border border-white/20 text-white text-sm font-medium px-4 py-2 rounded-full hover:bg-white/25 transition-colors duration-200 cursor-pointer" title="What is a Superhost?">
         <svg class="w-4 h-4 text-sea-300" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"/>
         </svg>
         <span>Superhost</span>
-      </div>
+        <svg class="w-3 h-3 text-sea-300 opacity-70" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+      </button>
       <!-- CTA -->
       <a href="#book" class="ml-0 md:ml-2 bg-sea-500 hover:bg-sea-600 text-white font-semibold px-7 py-2.5 rounded-full transition-colors duration-200 cursor-pointer shadow-lg">
         Check Availability
@@ -209,10 +210,10 @@
         <div class="flex items-center gap-1.5 text-sm text-slate-500 flex-wrap">
           <span class="font-semibold text-sea-700 bg-sea-50 border border-sea-100 px-2.5 py-0.5 rounded-full text-xs whitespace-nowrap">Entire condo</span>
           <span class="text-slate-300">·</span>
-          <span class="inline-flex items-center gap-1 whitespace-nowrap">
+          <a href="https://maps.google.com/?q=Floreasca,+Sector+1,+Bucharest,+Romania" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1 whitespace-nowrap hover:text-sea-600 transition-colors duration-200 cursor-pointer">
             <svg class="w-3 h-3 text-sea-400 flex-shrink-0" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
-            Floreasca, Bucharest
-          </span>
+            Floreasca, Bucharest ↗
+          </a>
           <span class="text-slate-300">·</span>
           <span class="inline-flex items-center gap-1 whitespace-nowrap">
             <svg class="w-3.5 h-3.5 text-amber-400" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
@@ -252,12 +253,24 @@
         </div>
         <div>
           <p class="font-semibold text-sea-950">Hosted by Maria</p>
-          <p class="text-sm text-slate-500">Superhost · 5 years hosting</p>
+          <button onclick="openSuperhost()" class="text-sm text-slate-500 hover:text-sea-600 transition-colors cursor-pointer text-left">Superhost · 5 years hosting <span class="text-xs text-sea-400">(?)</span></button>
         </div>
-        <span class="ml-auto inline-flex items-center gap-1.5 text-xs font-semibold text-sea-700 bg-sea-50 border border-sea-200 px-3 py-1.5 rounded-full">
-          <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
-          Verified Superhost
-        </span>
+        <div class="ml-auto flex items-center gap-2">
+          <button onclick="openSuperhost()" class="inline-flex items-center gap-1.5 text-xs font-semibold text-sea-700 bg-sea-50 border border-sea-200 px-3 py-1.5 rounded-full hover:bg-sea-100 transition-colors cursor-pointer">
+            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+            Verified Superhost
+          </button>
+          <button onclick="openProfile()" class="inline-flex items-center gap-1.5 text-xs font-semibold text-slate-600 bg-white border border-slate-200 px-3 py-1.5 rounded-full hover:border-sea-300 hover:text-sea-700 transition-colors cursor-pointer">
+            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/></svg>
+            View profile
+          </button>
+        </div>
+      </div>
+      <div class="mt-3 flex flex-wrap gap-2">
+        <a href="https://www.airbnb.com/guest/messages/2554464184" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 text-xs font-semibold text-white bg-sea-600 hover:bg-sea-700 px-3 py-1.5 rounded-full transition-colors cursor-pointer">
+          <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/></svg>
+          Message Maria on Airbnb
+        </a>
       </div>
 
       <hr class="my-5 md:my-8 border-slate-100" />
@@ -614,7 +627,7 @@
         <h3 class="font-serif text-2xl font-semibold text-sea-950 mb-1">The neighbourhood</h3>
         <div class="flex items-center gap-1.5 mb-4">
           <svg class="w-3.5 h-3.5 text-sea-400" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
-          <span class="text-sm font-medium text-sea-600">Floreasca, Sector 1 · Bucharest</span>
+          <a href="https://maps.google.com/?q=Floreasca,+Sector+1,+Bucharest,+Romania" target="_blank" rel="noopener noreferrer" class="text-sm font-medium text-sea-600 hover:text-sea-800 transition-colors duration-200 cursor-pointer">Floreasca, Sector 1 · Bucharest ↗</a>
         </div>
 
         <!-- Why Floreasca intro -->
@@ -835,6 +848,104 @@
   </div>
 </footer>
 
+<!-- ── Superhost Modal ────────────────────────────────────────── -->
+<div id="superhost-modal" class="hidden fixed inset-0 z-[200] flex items-center justify-center p-4">
+  <div class="absolute inset-0 bg-black/50 backdrop-blur-sm" onclick="closeSuperhost()"></div>
+  <div class="relative bg-white rounded-3xl shadow-2xl max-w-sm w-full p-8 z-10">
+    <button onclick="closeSuperhost()" class="absolute top-4 right-4 w-8 h-8 rounded-full bg-slate-100 hover:bg-slate-200 flex items-center justify-center transition-colors cursor-pointer" aria-label="Close">
+      <svg class="w-4 h-4 text-slate-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+    </button>
+    <div class="flex items-center gap-3 mb-5">
+      <div class="w-12 h-12 rounded-2xl bg-sea-50 flex items-center justify-center flex-shrink-0">
+        <svg class="w-6 h-6 text-sea-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"/></svg>
+      </div>
+      <div>
+        <h3 class="font-serif text-xl font-bold text-sea-950">What is a Superhost?</h3>
+        <p class="text-xs text-slate-400 mt-0.5">Airbnb's highest host recognition</p>
+      </div>
+    </div>
+    <p class="text-sm text-slate-600 leading-relaxed mb-5">Superhosts are experienced, highly rated hosts committed to exceptional guest experiences. Airbnb awards this status to the <strong class="text-slate-800">top 1% of hosts</strong> — and it must be re-earned every 12 months to keep it.</p>
+    <div class="space-y-3">
+      <div class="flex items-start gap-3">
+        <svg class="w-4 h-4 text-amber-400 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        <p class="text-xs text-slate-600"><strong class="text-slate-800">4.8+ overall rating</strong> — maintained consistently across all recent stays</p>
+      </div>
+      <div class="flex items-start gap-3">
+        <svg class="w-4 h-4 text-sea-500 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/></svg>
+        <p class="text-xs text-slate-600"><strong class="text-slate-800">&lt;1 hour response time</strong> — messages answered quickly, any time</p>
+      </div>
+      <div class="flex items-start gap-3">
+        <svg class="w-4 h-4 text-green-500 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+        <p class="text-xs text-slate-600"><strong class="text-slate-800">Near-zero cancellations</strong> — reliable bookings, no last-minute surprises</p>
+      </div>
+      <div class="flex items-start gap-3">
+        <svg class="w-4 h-4 text-sea-500 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+        <p class="text-xs text-slate-600"><strong class="text-slate-800">50+ five-star reviews</strong> — proven track record with guests worldwide</p>
+      </div>
+    </div>
+    <div class="mt-5 pt-4 border-t border-slate-100 flex gap-2">
+      <button onclick="openProfile(); closeSuperhost();" class="flex-1 text-xs font-semibold text-sea-700 bg-sea-50 border border-sea-200 px-3 py-2.5 rounded-xl hover:bg-sea-100 transition-colors cursor-pointer">View Maria's profile</button>
+      <button onclick="closeSuperhost()" class="flex-1 text-xs font-semibold text-white bg-sea-600 px-3 py-2.5 rounded-xl hover:bg-sea-700 transition-colors cursor-pointer">Got it</button>
+    </div>
+  </div>
+</div>
+
+<!-- ── Maria Profile Modal ────────────────────────────────────── -->
+<div id="profile-modal" class="hidden fixed inset-0 z-[200] flex items-center justify-center p-4">
+  <div class="absolute inset-0 bg-black/60 backdrop-blur-sm" onclick="closeProfile()"></div>
+  <div class="relative bg-white rounded-3xl shadow-2xl w-full max-w-2xl flex flex-col z-10 overflow-hidden" style="height:min(85vh,680px)">
+    <!-- Header -->
+    <div class="flex items-center justify-between px-5 py-4 border-b border-slate-100 flex-shrink-0">
+      <div class="flex items-center gap-3">
+        <div class="w-9 h-9 rounded-full bg-gradient-to-br from-sea-400 to-sea-700 flex items-center justify-center flex-shrink-0">
+          <span class="text-sm font-bold text-white">M</span>
+        </div>
+        <div>
+          <p class="font-semibold text-slate-800 text-sm">Maria · Host Profile</p>
+          <p class="text-xs text-slate-400">Superhost · Floreasca, Bucharest</p>
+        </div>
+      </div>
+      <div class="flex items-center gap-2">
+        <a href="https://www.airbnb.com/users/profile/1468183323797269643?previous_page_name=PdpHomeMarketplace" target="_blank" rel="noopener noreferrer" class="hidden sm:flex items-center gap-1 text-xs font-medium text-sea-600 hover:text-sea-800 transition-colors">
+          Open on Airbnb
+          <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+        </a>
+        <button onclick="closeProfile()" class="w-8 h-8 rounded-full bg-slate-100 hover:bg-slate-200 flex items-center justify-center transition-colors cursor-pointer" aria-label="Close">
+          <svg class="w-4 h-4 text-slate-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+        </button>
+      </div>
+    </div>
+    <!-- iframe -->
+    <div class="flex-1 relative overflow-hidden">
+      <iframe id="profile-iframe" src="about:blank" class="absolute inset-0 w-full h-full border-0" title="Maria's Airbnb profile" loading="lazy"></iframe>
+      <!-- Fallback (shown if iframe blocked) -->
+      <div id="profile-fallback" class="hidden absolute inset-0 flex flex-col items-center justify-center bg-white px-8 text-center gap-5">
+        <div class="w-16 h-16 rounded-full bg-gradient-to-br from-sea-400 to-sea-700 flex items-center justify-center">
+          <span class="text-2xl font-bold text-white">M</span>
+        </div>
+        <div>
+          <p class="font-serif text-xl font-semibold text-sea-950 mb-1">Maria</p>
+          <p class="text-sm text-slate-500 mb-0.5">Superhost · 5 years hosting · 50+ reviews</p>
+          <div class="flex items-center justify-center gap-1 mt-1">
+            <svg class="w-3.5 h-3.5 text-amber-400" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <span class="text-sm font-semibold text-slate-700">4.96</span>
+            <span class="text-xs text-slate-400">overall rating</span>
+          </div>
+        </div>
+        <p class="text-sm text-slate-500 max-w-xs leading-relaxed">Airbnb doesn't allow embedding profiles directly. Open Maria's full profile in a new tab to see all reviews and host details.</p>
+        <a href="https://www.airbnb.com/users/profile/1468183323797269643?previous_page_name=PdpHomeMarketplace" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 bg-sea-600 hover:bg-sea-700 text-white font-semibold px-6 py-3 rounded-xl transition-colors cursor-pointer text-sm">
+          <svg class="w-4 h-4" viewBox="0 0 32 32" fill="currentColor"><path d="M16 1C7.716 1 1 7.716 1 16s6.716 15 15 15 15-6.716 15-15S24.284 1 16 1zm6.781 21.733c-.234.547-.703.89-1.297.89-.313 0-.641-.094-.953-.281-1.234-.703-2.453-1.422-3.531-2.297-1.078.875-2.297 1.594-3.531 2.297-.313.188-.641.281-.953.281-.594 0-1.063-.344-1.297-.89-.422-.984.109-2.016 1.063-2.438.297-.125.594-.25.891-.375.531-.219 1.063-.453 1.578-.703-.297-.547-.594-1.078-.875-1.594-.578-1.047-1.078-2.156-1.453-3.313-.547-1.703-.344-3.375.563-4.625.922-1.266 2.438-1.969 4.016-1.969s3.094.703 4.016 1.969c.906 1.25 1.109 2.922.563 4.625-.375 1.156-.875 2.266-1.453 3.313-.281.516-.578 1.047-.875 1.594.516.25 1.047.484 1.578.703.297.125.594.25.891.375.953.422 1.484 1.453 1.063 2.438z"/></svg>
+          View profile on Airbnb
+        </a>
+        <a href="https://www.airbnb.com/guest/messages/2554464184" target="_blank" rel="noopener noreferrer" class="text-sm text-sea-600 hover:text-sea-800 font-medium flex items-center gap-1">
+          <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/></svg>
+          Message Maria on Airbnb
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+
 <!-- ── JavaScript ─────────────────────────────────────────────── -->
 <script>
   const AIRBNB_BASE = 'https://www.airbnb.co.uk/rooms/53208110';
@@ -1019,6 +1130,36 @@
     track.addEventListener('scroll', syncDots, { passive: true });
     syncDots();
   })();
+
+  // ── Superhost modal ───────────────────────────────────────────
+  function openSuperhost() {
+    document.getElementById('superhost-modal').classList.remove('hidden');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeSuperhost() {
+    document.getElementById('superhost-modal').classList.add('hidden');
+    document.body.style.overflow = '';
+  }
+
+  // ── Maria profile modal ───────────────────────────────────────
+  function openProfile() {
+    document.getElementById('profile-modal').classList.remove('hidden');
+    document.body.style.overflow = 'hidden';
+    document.getElementById('profile-iframe').src = 'https://www.airbnb.com/users/profile/1468183323797269643?previous_page_name=PdpHomeMarketplace';
+    setTimeout(() => {
+      document.getElementById('profile-fallback').classList.remove('hidden');
+    }, 2500);
+  }
+  function closeProfile() {
+    document.getElementById('profile-modal').classList.add('hidden');
+    document.body.style.overflow = '';
+    document.getElementById('profile-iframe').src = 'about:blank';
+    document.getElementById('profile-fallback').classList.add('hidden');
+  }
+
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape') { closeSuperhost(); closeProfile(); }
+  });
 </script>
 
 </body>
