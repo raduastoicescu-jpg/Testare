@@ -56,10 +56,27 @@
     .ph-play           { width:56px; height:56px; background:rgba(255,255,255,.15); border:2px solid rgba(255,255,255,.4); border-radius:50%; display:flex; align-items:center; justify-content:center; }
     .ph-badge          { position:absolute; top:.6rem; left:.6rem; font-size:.65rem; font-weight:700; letter-spacing:.06em; text-transform:uppercase; background:rgba(0,0,0,.45); color:#7DD3FC; padding:.2rem .55rem; border-radius:99px; }
     .ph-caption        { font-size:.7rem; color:#94a3b8; text-align:center; padding:0 1rem; }
+    .lang-active { font-weight: 700; color: #0369A1 !important; }
   </style>
 </head>
 
 <body class="font-sans antialiased bg-sea-50 text-slate-800">
+
+<!-- ── Fixed language picker — always visible ──────────────────── -->
+<div class="fixed top-3 right-4 z-[500]" onclick="event.stopPropagation()">
+  <button id="lang-toggle" class="flex items-center gap-1 text-xs font-medium text-slate-700 bg-white/95 hover:bg-white backdrop-blur-sm transition-colors px-2.5 py-1.5 rounded-lg cursor-pointer border border-slate-200 shadow-sm hover:border-slate-300" aria-label="Change language">
+    <span id="lang-current">🇬🇧 EN</span>
+    <svg class="w-3 h-3 opacity-60" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+  </button>
+  <div id="lang-dropdown" class="hidden absolute top-full right-0 mt-1.5 bg-white rounded-xl shadow-xl border border-slate-100 py-1.5 z-[600] w-36">
+    <button class="lang-btn w-full text-left px-4 py-2 text-xs text-slate-700 hover:bg-sea-50 hover:text-sea-800 transition-colors" data-lang="en">🇬🇧 English</button>
+    <button class="lang-btn w-full text-left px-4 py-2 text-xs text-slate-700 hover:bg-sea-50 hover:text-sea-800 transition-colors" data-lang="ro">🇷🇴 Română</button>
+    <button class="lang-btn w-full text-left px-4 py-2 text-xs text-slate-700 hover:bg-sea-50 hover:text-sea-800 transition-colors" data-lang="it">🇮🇹 Italiano</button>
+    <button class="lang-btn w-full text-left px-4 py-2 text-xs text-slate-700 hover:bg-sea-50 hover:text-sea-800 transition-colors" data-lang="de">🇩🇪 Deutsch</button>
+    <button class="lang-btn w-full text-left px-4 py-2 text-xs text-slate-700 hover:bg-sea-50 hover:text-sea-800 transition-colors" data-lang="fr">🇫🇷 Français</button>
+    <button class="lang-btn w-full text-left px-4 py-2 text-xs text-slate-700 hover:bg-sea-50 hover:text-sea-800 transition-colors" data-lang="uk">🇺🇦 Українська</button>
+  </div>
+</div>
 
 <!-- ══════════════════════════════════════════════════════════ -->
 <!--  PASSWORD GATE                                            -->
@@ -73,40 +90,41 @@
           <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
         </svg>
       </div>
-      <h1 class="font-serif text-3xl font-bold text-white">Guest Guide</h1>
-      <p class="text-sea-300 mt-1 text-sm">Lovely Condo · Bucharest</p>
+      <h1 class="font-serif text-3xl font-bold text-white" data-i18n="g.title">Guest Guide</h1>
+      <p class="text-sea-300 mt-1 text-sm" data-i18n="g.sub">Lovely Condo · Bucharest</p>
     </div>
 
     <!-- Card -->
     <div class="bg-white rounded-3xl shadow-2xl p-8">
-      <p class="text-slate-600 text-sm text-center mb-6 leading-relaxed">
+      <p class="text-slate-600 text-sm text-center mb-6 leading-relaxed" data-i18n="g.desc">
         Enter the access code Maria shared with you in the Airbnb booking confirmation.
       </p>
 
       <div class="space-y-4">
         <div>
-          <label for="pwd-input" class="block text-xs font-semibold text-slate-500 uppercase tracking-wide mb-1.5">Access code</label>
+          <label for="pwd-input" class="block text-xs font-semibold text-slate-500 uppercase tracking-wide mb-1.5" data-i18n="g.label">Access code</label>
           <input
             id="pwd-input"
             type="password"
             placeholder="Enter code…"
+            data-i18n-placeholder="g.placeholder"
             autocomplete="off"
             class="w-full border border-slate-200 rounded-xl px-4 py-3 text-slate-800 text-sm focus:outline-none focus:ring-2 focus:ring-sea-400 focus:border-transparent transition"
           />
-          <p id="pwd-error" class="text-red-500 text-xs mt-2 hidden">Incorrect code — check your booking confirmation.</p>
+          <p id="pwd-error" class="text-red-500 text-xs mt-2 hidden" data-i18n="g.error">Incorrect code — check your booking confirmation.</p>
         </div>
         <button
           id="unlock-btn"
           class="w-full bg-sea-700 hover:bg-sea-800 active:bg-sea-900 text-white font-semibold py-3 rounded-xl transition-colors duration-200 cursor-pointer text-sm"
         >
-          Unlock Guide
+          <span data-i18n="g.unlock">Unlock Guide</span>
         </button>
       </div>
 
       <p class="text-center text-xs text-slate-400 mt-5">
-        Don't have the code? Contact Maria:
+        <span data-i18n="g.contact">Don't have the code? Contact Maria:</span>
         <span class="inline-flex items-center gap-3 mt-1 flex-wrap justify-center">
-          <a href="https://www.airbnb.com/guest/messages/2554464184" target="_blank" rel="noopener noreferrer" class="text-sea-600 underline hover:text-sea-800 transition-colors duration-200 cursor-pointer">on Airbnb</a>
+          <a href="https://www.airbnb.com/guest/messages/2554464184" target="_blank" rel="noopener noreferrer" class="text-sea-600 underline hover:text-sea-800 transition-colors duration-200 cursor-pointer" data-i18n="g.on_airbnb">on Airbnb</a>
           <span class="text-slate-300">·</span>
           <a href="https://wa.me/40758111343" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1 font-semibold text-[#25D366] hover:text-green-600 transition-colors duration-200 cursor-pointer"><svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>WhatsApp</a>
         </span>
@@ -116,7 +134,7 @@
     <p class="text-center text-sea-600 text-xs mt-6">
       <a href="index.html" class="hover:text-sea-300 transition-colors duration-200 cursor-pointer flex items-center justify-center gap-1">
         <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
-        Back to listing
+        <span data-i18n="g.back">Back to listing</span>
       </a>
     </p>
   </div>
@@ -129,22 +147,28 @@
 
   <!-- Top bar -->
   <header class="sticky top-0 z-50 bg-white border-b border-sea-100 shadow-sm">
-    <div class="max-w-3xl mx-auto px-4 py-3 flex items-center justify-between">
-      <div class="flex items-center gap-2.5">
-        <svg class="w-5 h-5 text-sea-600" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-          <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
-        </svg>
+    <div class="max-w-3xl mx-auto px-4 py-2.5">
+      <div class="flex items-start gap-2.5">
+        <a href="https://maps.google.com/?q=Strada+Banul+Antonache+52-60,+Sector+1,+Bucharest,+Romania"
+           target="_blank" rel="noopener noreferrer"
+           class="mt-0.5 flex-shrink-0 text-sea-600 hover:text-sea-400 transition-colors duration-200"
+           aria-label="Open on Google Maps">
+          <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
+          </svg>
+        </a>
         <div>
-          <p class="font-serif font-semibold text-sea-900 leading-none text-base">Guest Guide</p>
-          <p class="text-xs text-slate-400 mt-0.5">Lovely Condo · Bucharest</p>
+          <p class="font-serif font-semibold text-sea-900 leading-none text-base" data-i18n="h.title">Guest Guide</p>
+          <p class="text-xs text-slate-400 mt-0.5" data-i18n="h.sub">Lovely Condo · Bucharest</p>
+          <div class="flex items-center gap-3 mt-1.5">
+            <a href="index.html" class="text-xs text-sea-600 hover:text-sea-800 transition-colors duration-200 cursor-pointer flex items-center gap-1" data-i18n="h.listing">← Listing</a>
+            <span class="text-slate-200 text-xs">|</span>
+            <button id="lock-btn" class="text-xs text-slate-400 hover:text-slate-600 transition-colors duration-200 cursor-pointer flex items-center gap-1">
+              <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/></svg>
+              <span data-i18n="h.lock">Lock</span>
+            </button>
+          </div>
         </div>
-      </div>
-      <div class="flex items-center gap-3">
-        <a href="index.html" class="text-xs text-sea-600 hover:text-sea-800 transition-colors duration-200 cursor-pointer hidden sm:block">← Listing</a>
-        <button id="lock-btn" class="text-xs text-slate-400 hover:text-slate-600 transition-colors duration-200 cursor-pointer flex items-center gap-1">
-          <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/></svg>
-          Lock
-        </button>
       </div>
     </div>
 
@@ -152,27 +176,27 @@
     <div class="max-w-3xl mx-auto px-4 flex gap-0 overflow-x-auto scrollbar-none border-t border-slate-100">
       <button data-tab="checkin"   class="tab-btn active flex-shrink-0 px-4 py-3 text-xs font-semibold text-slate-500 border-b-2 border-transparent hover:text-sea-700 transition-colors duration-200 cursor-pointer whitespace-nowrap flex items-center gap-1.5">
         <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 16l-4-4m0 0l4-4m-4 4h14m-5 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h7a3 3 0 013 3v1"/></svg>
-        Check-in
+        <span data-i18n="t.checkin">Check-in</span>
       </button>
       <button data-tab="checkout"  class="tab-btn flex-shrink-0 px-4 py-3 text-xs font-semibold text-slate-500 border-b-2 border-transparent hover:text-sea-700 transition-colors duration-200 cursor-pointer whitespace-nowrap flex items-center gap-1.5">
         <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1"/></svg>
-        Check-out
+        <span data-i18n="t.checkout">Check-out</span>
       </button>
       <button data-tab="home"      class="tab-btn flex-shrink-0 px-4 py-3 text-xs font-semibold text-slate-500 border-b-2 border-transparent hover:text-sea-700 transition-colors duration-200 cursor-pointer whitespace-nowrap flex items-center gap-1.5">
         <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/></svg>
-        WiFi &amp; Home
+        <span data-i18n="t.home">WiFi &amp; Home</span>
       </button>
       <button data-tab="rules"     class="tab-btn flex-shrink-0 px-4 py-3 text-xs font-semibold text-slate-500 border-b-2 border-transparent hover:text-sea-700 transition-colors duration-200 cursor-pointer whitespace-nowrap flex items-center gap-1.5">
         <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01"/></svg>
-        House Rules
+        <span data-i18n="t.rules">House Rules</span>
       </button>
       <button data-tab="food"      class="tab-btn flex-shrink-0 px-4 py-3 text-xs font-semibold text-slate-500 border-b-2 border-transparent hover:text-sea-700 transition-colors duration-200 cursor-pointer whitespace-nowrap flex items-center gap-1.5">
         <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
-        Food &amp; Area
+        <span data-i18n="t.food">Food &amp; Area</span>
       </button>
       <button data-tab="faq"       class="tab-btn flex-shrink-0 px-4 py-3 text-xs font-semibold text-slate-500 border-b-2 border-transparent hover:text-sea-700 transition-colors duration-200 cursor-pointer whitespace-nowrap flex items-center gap-1.5">
         <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
-        FAQ
+        <span data-i18n="t.faq">FAQ</span>
       </button>
     </div>
   </header>
@@ -184,34 +208,34 @@
     <div id="tab-checkin" class="tab-panel active fade-in space-y-5">
 
       <div class="info-card bg-sea-700 border-sea-700">
-        <p class="text-sea-200 text-xs font-semibold uppercase tracking-wide mb-1">Check-in time</p>
-        <p class="text-white font-serif text-2xl font-bold">From 3:00 PM</p>
-        <p class="text-sea-300 text-sm mt-1">Early check-in subject to availability — message Maria in advance.</p>
-        <a href="https://wa.me/40758111343" target="_blank" rel="noopener noreferrer" class="mt-2 inline-flex items-center gap-1.5 text-xs font-semibold text-white bg-white/20 hover:bg-white/30 px-3 py-1.5 rounded-full transition-colors duration-200 cursor-pointer"><svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>Message on WhatsApp</a>
+        <p class="text-sea-200 text-xs font-semibold uppercase tracking-wide mb-1" data-i18n="ci.time_lbl">Check-in time</p>
+        <p class="text-white font-serif text-2xl font-bold" data-i18n="ci.time">From 3:00 PM</p>
+        <p class="text-sea-300 text-sm mt-1" data-i18n="ci.early">Early check-in subject to availability — message Maria in advance.</p>
+        <a href="https://wa.me/40758111343" target="_blank" rel="noopener noreferrer" class="mt-2 inline-flex items-center gap-1.5 text-xs font-semibold text-white bg-white/20 hover:bg-white/30 px-3 py-1.5 rounded-full transition-colors duration-200 cursor-pointer"><svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg><span data-i18n="ci.whatsapp">Message on WhatsApp</span></a>
       </div>
 
       <div class="info-card">
         <h3 class="font-semibold text-sea-900 mb-4 flex items-center gap-2">
           <svg class="w-5 h-5 text-sea-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"/></svg>
-          Step-by-step entry
+          <span data-i18n="ci.steps">Step-by-step entry</span>
         </h3>
         <div class="space-y-4">
           <div class="step">
             <div class="step-num">1</div>
             <div>
-              <p class="font-semibold text-slate-800 text-sm">Arrive at the building</p>
-              <p class="text-slate-500 text-sm mt-0.5">Strada Banul Antonache 52-60, Floreasca. Look for <strong class="text-slate-700">Building C — the middle one</strong>, easily identified by the <strong class="text-slate-700">yellow stripe</strong> on the facade.</p>
+              <p class="font-semibold text-slate-800 text-sm" data-i18n="ci.s1_h">Arrive at the building</p>
+              <p class="text-slate-500 text-sm mt-0.5" data-i18n-html="ci.s1_p">Strada Banul Antonache 52-60, Floreasca. Look for <strong class="text-slate-700">Building C — the middle one</strong>, easily identified by the <strong class="text-slate-700">yellow stripe</strong> on the facade.</p>
               <a href="https://maps.google.com/?q=Strada+Banul+Antonache+52-60,+Sector+1,+Bucharest,+Romania" target="_blank" rel="noopener noreferrer" class="mt-2 inline-flex items-center gap-1.5 text-xs font-semibold text-sea-600 bg-sea-50 border border-sea-200 hover:bg-sea-100 px-3 py-1.5 rounded-full transition-colors duration-200 cursor-pointer">
                 <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
-                Get directions in Google Maps
+                <span data-i18n="ci.map">Get directions in Google Maps</span>
               </a>
             </div>
           </div>
           <div class="step">
             <div class="step-num">2</div>
             <div class="flex-1">
-              <p class="font-semibold text-slate-800 text-sm">Find the lockbox — left side of the entrance</p>
-              <p class="text-slate-500 text-sm mt-0.5">Before entering the building, look to the <strong class="text-slate-700">left of the front door</strong>. The lockbox is mounted there. Enter the code to open it and retrieve your keys.</p>
+              <p class="font-semibold text-slate-800 text-sm" data-i18n="ci.s2_h">Find the lockbox — left side of the entrance</p>
+              <p class="text-slate-500 text-sm mt-0.5" data-i18n-html="ci.s2_p">Before entering the building, look to the <strong class="text-slate-700">left of the front door</strong>. The lockbox is mounted there. Enter the code to open it and retrieve your keys.</p>
               <!-- Real photos of building entrance and lockbox location -->
               <div class="grid grid-cols-2 gap-2 mt-3">
                 <img src="2e29b996-fb75-4daf-948a-5062db1d0fb9.jpeg"
@@ -232,30 +256,30 @@
           <div class="step">
             <div class="step-num">3</div>
             <div>
-              <p class="font-semibold text-slate-800 text-sm">Lockbox code</p>
-              <p class="text-slate-500 text-xs mb-2">Enter this code on the lockbox dials, then pull open:</p>
+              <p class="font-semibold text-slate-800 text-sm" data-i18n="ci.s3_h">Lockbox code</p>
+              <p class="text-slate-500 text-xs mb-2" data-i18n="ci.s3_p">Enter this code on the lockbox dials, then pull open:</p>
               <div class="inline-block bg-sea-50 border-2 border-sea-200 rounded-xl px-6 py-3 text-center">
                 <p class="big-value tracking-[0.3em]">5260</p>
-                <p class="text-xs text-sea-500 mt-1">rotate dials → pull open</p>
+                <p class="text-xs text-sea-500 mt-1" data-i18n="ci.s3_hint">rotate dials → pull open</p>
               </div>
             </div>
           </div>
           <div class="step">
             <div class="step-num">4</div>
             <div>
-              <p class="font-semibold text-slate-800 text-sm">Your keys — what each one does</p>
+              <p class="font-semibold text-slate-800 text-sm" data-i18n="ci.s4_h">Your keys — what each one does</p>
               <div class="mt-2 space-y-2 text-sm text-slate-600">
                 <div class="flex items-start gap-2">
                   <svg class="w-4 h-4 text-green-500 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20"><circle cx="10" cy="10" r="8"/></svg>
-                  <p><strong class="text-slate-700">Green dongle</strong> — tap on the intercom reader downstairs to open the building door</p>
+                  <p data-i18n-html="ci.s4_k1"><strong class="text-slate-700">Green dongle</strong> — tap on the intercom reader downstairs to open the building door</p>
                 </div>
                 <div class="flex items-start gap-2">
                   <svg class="w-4 h-4 text-slate-400 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 7a2 2 0 012 2m4 0a6 6 0 01-7.743 5.743L11 17H9v2H7v2H4a1 1 0 01-1-1v-2.586a1 1 0 01.293-.707l5.964-5.964A6 6 0 1121 9z"/></svg>
-                  <p><strong class="text-slate-700">Longer key</strong> — opens the <strong>bottom (lower) lock</strong> on the apartment door</p>
+                  <p data-i18n-html="ci.s4_k2"><strong class="text-slate-700">Longer key</strong> — opens the <strong>bottom (lower) lock</strong> on the apartment door</p>
                 </div>
                 <div class="flex items-start gap-2">
                   <svg class="w-4 h-4 text-slate-400 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 7a2 2 0 012 2m4 0a6 6 0 01-7.743 5.743L11 17H9v2H7v2H4a1 1 0 01-1-1v-2.586a1 1 0 01.293-.707l5.964-5.964A6 6 0 1121 9z"/></svg>
-                  <p><strong class="text-slate-700">Shorter key</strong> — opens the <strong>top (upper) lock</strong> on the apartment door</p>
+                  <p data-i18n-html="ci.s4_k3"><strong class="text-slate-700">Shorter key</strong> — opens the <strong>top (upper) lock</strong> on the apartment door</p>
                 </div>
               </div>
             </div>
@@ -263,29 +287,29 @@
           <div class="step">
             <div class="step-num">5</div>
             <div>
-              <p class="font-semibold text-slate-800 text-sm">Enter the building</p>
-              <p class="text-slate-500 text-sm mt-0.5">Tap the <strong class="text-slate-700">green dongle</strong> on the intercom reader by the front door. The door will unlock. Take the stairs to the <strong class="text-slate-700">top floor — Apartment 17</strong>.</p>
+              <p class="font-semibold text-slate-800 text-sm" data-i18n="ci.s5_h">Enter the building</p>
+              <p class="text-slate-500 text-sm mt-0.5" data-i18n-html="ci.s5_p">Tap the <strong class="text-slate-700">green dongle</strong> on the intercom reader by the front door. The door will unlock. Take the stairs to the <strong class="text-slate-700">top floor — Apartment 17</strong>.</p>
             </div>
           </div>
           <div class="step">
             <div class="step-num">6</div>
             <div>
-              <p class="font-semibold text-slate-800 text-sm">Open the apartment door</p>
-              <p class="text-slate-500 text-sm mt-0.5">Use both keys: <strong class="text-slate-700">bottom key → lower lock</strong>, <strong class="text-slate-700">top key → upper lock</strong>. Once inside, keep the keys safe — they're all on one keyring.</p>
+              <p class="font-semibold text-slate-800 text-sm" data-i18n="ci.s6_h">Open the apartment door</p>
+              <p class="text-slate-500 text-sm mt-0.5" data-i18n-html="ci.s6_p">Use both keys: <strong class="text-slate-700">bottom key → lower lock</strong>, <strong class="text-slate-700">top key → upper lock</strong>. Once inside, keep the keys safe — they're all on one keyring.</p>
             </div>
           </div>
           <div class="step">
             <div class="step-num">7</div>
             <div>
-              <p class="font-semibold text-slate-800 text-sm">Letting visitors in (during your stay)</p>
-              <p class="text-slate-500 text-sm mt-0.5">There's a wall intercom panel near the apartment entrance door. When someone buzzes from downstairs, press and hold <strong class="text-slate-700">#</strong> to open the building door. The keypad will flicker when the door is open.</p>
+              <p class="font-semibold text-slate-800 text-sm" data-i18n="ci.s7_h">Letting visitors in (during your stay)</p>
+              <p class="text-slate-500 text-sm mt-0.5" data-i18n-html="ci.s7_p">There's a wall intercom panel near the apartment entrance door. When someone buzzes from downstairs, press and hold <strong class="text-slate-700">#</strong> to open the building door. The keypad will flicker when the door is open.</p>
             </div>
           </div>
           <div class="step">
             <div class="step-num">8</div>
             <div>
-              <p class="font-semibold text-slate-800 text-sm">At check-out — return the keys</p>
-              <p class="text-slate-500 text-sm mt-0.5">Return the full keyring to the lockbox on the left of the building entrance. Enter code <strong class="text-slate-700">5260</strong>, place keys inside, close the box and scramble the dials.</p>
+              <p class="font-semibold text-slate-800 text-sm" data-i18n="ci.s8_h">At check-out — return the keys</p>
+              <p class="text-slate-500 text-sm mt-0.5" data-i18n-html="ci.s8_p">Return the full keyring to the lockbox on the left of the building entrance. Enter code <strong class="text-slate-700">5260</strong>, place keys inside, close the box and scramble the dials.</p>
             </div>
           </div>
         </div>
@@ -295,8 +319,8 @@
         <div class="flex gap-3">
           <svg class="w-5 h-5 text-amber-500 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
           <div>
-            <p class="font-semibold text-amber-800 text-sm">Having trouble?</p>
-            <p class="text-amber-700 text-sm mt-0.5">Message Maria on Airbnb — she typically responds within minutes. Or reach her directly:</p>
+            <p class="font-semibold text-amber-800 text-sm" data-i18n="ci.trouble_h">Having trouble?</p>
+            <p class="text-amber-700 text-sm mt-0.5" data-i18n="ci.trouble_p">Message Maria on Airbnb — she typically responds within minutes. Or reach her directly:</p>
             <div class="flex flex-wrap gap-2 mt-2">
               <a href="https://wa.me/40758111343" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 text-xs font-semibold text-white bg-[#25D366] hover:bg-green-600 px-3 py-1.5 rounded-full transition-colors duration-200 cursor-pointer"><svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>+40 758 111 343</a>
               <a href="https://wa.me/40766440363" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 text-xs font-semibold text-white bg-[#25D366] hover:bg-green-600 px-3 py-1.5 rounded-full transition-colors duration-200 cursor-pointer"><svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>+40 766 440 363</a>
@@ -311,45 +335,45 @@
     <div id="tab-checkout" class="tab-panel fade-in space-y-5">
 
       <div class="info-card bg-sea-700 border-sea-700">
-        <p class="text-sea-200 text-xs font-semibold uppercase tracking-wide mb-1">Check-out time</p>
-        <p class="text-white font-serif text-2xl font-bold">By 11:00 AM</p>
-        <p class="text-sea-300 text-sm mt-1">Late check-out subject to availability — message Maria the night before.</p>
-        <a href="https://wa.me/40758111343" target="_blank" rel="noopener noreferrer" class="mt-2 inline-flex items-center gap-1.5 text-xs font-semibold text-white bg-white/20 hover:bg-white/30 px-3 py-1.5 rounded-full transition-colors duration-200 cursor-pointer"><svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>Message on WhatsApp</a>
+        <p class="text-sea-200 text-xs font-semibold uppercase tracking-wide mb-1" data-i18n="co.time_lbl">Check-out time</p>
+        <p class="text-white font-serif text-2xl font-bold" data-i18n="co.time">By 11:00 AM</p>
+        <p class="text-sea-300 text-sm mt-1" data-i18n="co.late">Late check-out subject to availability — message Maria the night before.</p>
+        <a href="https://wa.me/40758111343" target="_blank" rel="noopener noreferrer" class="mt-2 inline-flex items-center gap-1.5 text-xs font-semibold text-white bg-white/20 hover:bg-white/30 px-3 py-1.5 rounded-full transition-colors duration-200 cursor-pointer"><svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg><span data-i18n="co.whatsapp">Message on WhatsApp</span></a>
       </div>
 
       <div class="info-card">
         <h3 class="font-semibold text-sea-900 mb-4 flex items-center gap-2">
           <svg class="w-5 h-5 text-sea-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"/></svg>
-          Before you leave
+          <span data-i18n="co.before">Before you leave</span>
         </h3>
         <div class="space-y-3">
           <label class="flex items-start gap-3 cursor-pointer group">
             <input type="checkbox" class="mt-0.5 rounded border-slate-300 text-sea-600 cursor-pointer w-4 h-4 flex-shrink-0" />
-            <span class="text-sm text-slate-700 group-hover:text-slate-900 transition-colors">Return the full keyring to the lockbox (left of building entrance, code 5260) and scramble the dials</span>
+            <span class="text-sm text-slate-700 group-hover:text-slate-900 transition-colors" data-i18n="co.c1">Return the full keyring to the lockbox (left of building entrance, code 5260) and scramble the dials</span>
           </label>
           <label class="flex items-start gap-3 cursor-pointer group">
             <input type="checkbox" class="mt-0.5 rounded border-slate-300 text-sea-600 cursor-pointer w-4 h-4 flex-shrink-0" />
-            <span class="text-sm text-slate-700 group-hover:text-slate-900 transition-colors">Leave used towels in the bathroom / bathtub</span>
+            <span class="text-sm text-slate-700 group-hover:text-slate-900 transition-colors" data-i18n="co.c2">Leave used towels in the bathroom / bathtub</span>
           </label>
           <label class="flex items-start gap-3 cursor-pointer group">
             <input type="checkbox" class="mt-0.5 rounded border-slate-300 text-sea-600 cursor-pointer w-4 h-4 flex-shrink-0" />
-            <span class="text-sm text-slate-700 group-hover:text-slate-900 transition-colors">Dispose of rubbish in the green bins outside — they are right next to the building entrance</span>
+            <span class="text-sm text-slate-700 group-hover:text-slate-900 transition-colors" data-i18n="co.c3">Dispose of rubbish in the green bins outside — they are right next to the building entrance</span>
           </label>
           <label class="flex items-start gap-3 cursor-pointer group">
             <input type="checkbox" class="mt-0.5 rounded border-slate-300 text-sea-600 cursor-pointer w-4 h-4 flex-shrink-0" />
-            <span class="text-sm text-slate-700 group-hover:text-slate-900 transition-colors">Wash any dishes you used or place in the dishwasher</span>
+            <span class="text-sm text-slate-700 group-hover:text-slate-900 transition-colors" data-i18n="co.c4">Wash any dishes you used or place in the dishwasher</span>
           </label>
           <label class="flex items-start gap-3 cursor-pointer group">
             <input type="checkbox" class="mt-0.5 rounded border-slate-300 text-sea-600 cursor-pointer w-4 h-4 flex-shrink-0" />
-            <span class="text-sm text-slate-700 group-hover:text-slate-900 transition-colors">Turn off all lights, AC, and appliances</span>
+            <span class="text-sm text-slate-700 group-hover:text-slate-900 transition-colors" data-i18n="co.c5">Turn off all lights, AC, and appliances</span>
           </label>
           <label class="flex items-start gap-3 cursor-pointer group">
             <input type="checkbox" class="mt-0.5 rounded border-slate-300 text-sea-600 cursor-pointer w-4 h-4 flex-shrink-0" />
-            <span class="text-sm text-slate-700 group-hover:text-slate-900 transition-colors">Close and lock the balcony door</span>
+            <span class="text-sm text-slate-700 group-hover:text-slate-900 transition-colors" data-i18n="co.c6">Close and lock the balcony door</span>
           </label>
           <label class="flex items-start gap-3 cursor-pointer group">
             <input type="checkbox" class="mt-0.5 rounded border-slate-300 text-sea-600 cursor-pointer w-4 h-4 flex-shrink-0" />
-            <span class="text-sm text-slate-700 group-hover:text-slate-900 transition-colors">Double-check you have all your belongings</span>
+            <span class="text-sm text-slate-700 group-hover:text-slate-900 transition-colors" data-i18n="co.c7">Double-check you have all your belongings</span>
           </label>
         </div>
       </div>
@@ -358,9 +382,9 @@
         <div class="flex gap-3">
           <svg class="w-5 h-5 text-sea-500 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/></svg>
           <div>
-            <p class="font-semibold text-sea-900 text-sm">We hope you had a wonderful stay!</p>
-            <p class="text-sea-700 text-sm mt-0.5">If you enjoyed your time at the condo, a review on Airbnb would mean the world to Maria. It only takes 2 minutes and helps future guests discover the place.</p>
-            <a href="https://www.airbnb.co.uk/rooms/53208110" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 mt-3 text-xs font-semibold text-sea-600 hover:text-sea-800 underline transition-colors duration-200 cursor-pointer">Leave a review on Airbnb →</a>
+            <p class="font-semibold text-sea-900 text-sm" data-i18n="co.stay">We hope you had a wonderful stay!</p>
+            <p class="text-sea-700 text-sm mt-0.5" data-i18n="co.review">If you enjoyed your time at the condo, a review on Airbnb would mean the world to Maria. It only takes 2 minutes and helps future guests discover the place.</p>
+            <a href="https://www.airbnb.co.uk/rooms/53208110" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 mt-3 text-xs font-semibold text-sea-600 hover:text-sea-800 underline transition-colors duration-200 cursor-pointer" data-i18n="co.review_link">Leave a review on Airbnb →</a>
           </div>
         </div>
       </div>
@@ -377,7 +401,7 @@
             <div class="flex items-center gap-2.5">
               <svg class="w-5 h-5 text-sea-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.111 16.404a5.5 5.5 0 017.778 0M12 20h.01m-7.08-7.071c3.904-3.905 10.236-3.905 14.141 0M1.394 9.393c5.857-5.857 15.355-5.857 21.213 0"/></svg>
               <div>
-                <span class="font-semibold text-sea-900 text-sm">WiFi</span>
+                <span class="font-semibold text-sea-900 text-sm" data-i18n="wifi.lbl">WiFi</span>
                 <span class="ml-2 text-xs text-sea-500 font-normal">Retea Draguta</span>
               </div>
             </div>
@@ -387,40 +411,40 @@
 
             <!-- Primary network -->
             <div>
-              <p class="text-xs font-semibold text-sea-500 uppercase tracking-wide mb-2.5">Connect to this network</p>
+              <p class="text-xs font-semibold text-sea-500 uppercase tracking-wide mb-2.5" data-i18n="wifi.connect">Connect to this network</p>
               <div class="grid grid-cols-2 gap-3">
                 <div class="bg-sea-50 rounded-xl p-4 text-center">
-                  <p class="text-xs font-semibold text-sea-400 uppercase tracking-wide mb-1.5">Network name</p>
+                  <p class="text-xs font-semibold text-sea-400 uppercase tracking-wide mb-1.5" data-i18n="wifi.network">Network name</p>
                   <p class="font-bold text-sea-900 text-base tracking-tight select-all">Retea Draguta</p>
                 </div>
                 <div class="bg-sea-50 rounded-xl p-4 text-center">
-                  <p class="text-xs font-semibold text-sea-400 uppercase tracking-wide mb-1.5">Password</p>
+                  <p class="text-xs font-semibold text-sea-400 uppercase tracking-wide mb-1.5" data-i18n="wifi.password">Password</p>
                   <p class="font-bold text-sea-900 text-base tracking-tight select-all">Oparolagrea1</p>
                 </div>
               </div>
-              <p class="text-xs text-slate-400 mt-2 text-center">Tap the password to select it, then copy &amp; paste</p>
+              <p class="text-xs text-slate-400 mt-2 text-center" data-i18n="wifi.copy">Tap the password to select it, then copy &amp; paste</p>
             </div>
 
             <!-- Fallback -->
             <details class="group/fb">
               <summary class="flex items-center gap-2 cursor-pointer list-none select-none text-xs font-semibold text-slate-400 hover:text-slate-600 transition-colors duration-150 py-1">
                 <svg class="w-3.5 h-3.5 transition-transform duration-200 group-open/fb:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
-                WiFi not working? Try this
+                <span data-i18n="wifi.fb_toggle">WiFi not working? Try this</span>
               </summary>
               <div class="mt-3 bg-amber-50 border border-amber-200 rounded-xl p-4">
-                <p class="text-xs text-amber-700 font-semibold mb-1">If a previous guest reset the router</p>
-                <p class="text-xs text-amber-600 mb-3">Occasionally the router gets reset to factory defaults. In that case, use these credentials instead:</p>
+                <p class="text-xs text-amber-700 font-semibold mb-1" data-i18n="wifi.fb_title">If a previous guest reset the router</p>
+                <p class="text-xs text-amber-600 mb-3" data-i18n="wifi.fb_desc">Occasionally the router gets reset to factory defaults. In that case, use these credentials instead:</p>
                 <div class="grid grid-cols-2 gap-3">
                   <div class="bg-white rounded-lg p-3 text-center border border-amber-100">
-                    <p class="text-xs font-semibold text-amber-500 uppercase tracking-wide mb-1">Network name</p>
+                    <p class="text-xs font-semibold text-amber-500 uppercase tracking-wide mb-1" data-i18n="wifi.network">Network name</p>
                     <p class="font-bold text-slate-800 text-sm select-all">UPC8965308</p>
                   </div>
                   <div class="bg-white rounded-lg p-3 text-center border border-amber-100">
-                    <p class="text-xs font-semibold text-amber-500 uppercase tracking-wide mb-1">Password</p>
+                    <p class="text-xs font-semibold text-amber-500 uppercase tracking-wide mb-1" data-i18n="wifi.password">Password</p>
                     <p class="font-bold text-slate-800 text-sm select-all">maxNmhZhvpz6</p>
                   </div>
                 </div>
-                <p class="text-xs text-amber-600 mt-3">Still having trouble? Message us and we'll help right away.</p>
+                <p class="text-xs text-amber-600 mt-3" data-i18n="wifi.fb_still">Still having trouble? Message us and we'll help right away.</p>
               </div>
             </details>
 
@@ -435,8 +459,8 @@
             <svg class="w-5 h-5 text-emerald-700" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"/></svg>
           </div>
           <div>
-            <p class="font-semibold text-emerald-900 text-sm">Fully Equipped Kitchen</p>
-            <p class="text-xs text-slate-600 mt-0.5 leading-relaxed">You'll find everything you need to cook — pots, pans, frying pans, utensils, plates, glasses, and cutting boards — in the drawers and cabinets. The kitchen also has a <strong class="text-slate-700">microwave</strong>, a <strong class="text-slate-700">fridge with freezer</strong>, and a <strong class="text-slate-700">filtered water pitcher</strong>. Help yourself and make yourself at home.</p>
+            <p class="font-semibold text-emerald-900 text-sm" data-i18n="kit.title">Fully Equipped Kitchen</p>
+            <p class="text-xs text-slate-600 mt-0.5 leading-relaxed" data-i18n-html="kit.desc">You'll find everything you need to cook — pots, pans, frying pans, utensils, plates, glasses, and cutting boards — in the drawers and cabinets. The kitchen also has a <strong class="text-slate-700">microwave</strong>, a <strong class="text-slate-700">fridge with freezer</strong>, and a <strong class="text-slate-700">filtered water pitcher</strong>. Help yourself and make yourself at home.</p>
           </div>
         </div>
       </div>
@@ -447,33 +471,33 @@
           <summary class="flex items-center justify-between gap-3 px-5 py-4 cursor-pointer list-none select-none hover:bg-slate-50 transition-colors duration-150">
             <div class="flex items-center gap-2.5">
               <svg class="w-5 h-5 text-sea-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><rect x="2" y="3" width="20" height="18" rx="2" stroke-width="2"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 3v18M2 9h5M2 15h5"/></svg>
-              <span class="font-semibold text-sea-900 text-sm">Gas Oven &amp; Hob</span>
+              <span class="font-semibold text-sea-900 text-sm" data-i18n="app.oven">Gas Oven &amp; Hob</span>
             </div>
             <svg class="w-4 h-4 text-sea-400 flex-shrink-0 transition-transform duration-200 group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
           </summary>
           <div class="px-5 pb-5 pt-4 border-t border-slate-100">
         <div class="inline-flex items-center gap-1.5 bg-amber-50 border border-amber-200 text-amber-700 text-xs font-semibold px-3 py-1.5 rounded-full mb-3">
           <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 18.657A8 8 0 016.343 7.343S7 9 9 10c0-2 .5-5 2.986-7C14 5 16.09 5.777 17.656 7.343A7.975 7.975 0 0120 13a7.975 7.975 0 01-2.343 5.657z"/></svg>
-          Gas appliance — the apartment has a smoke &amp; gas alarm for your safety
+          <span data-i18n="app.oven_warn">Gas appliance — the apartment has a smoke &amp; gas alarm for your safety</span>
         </div>
 
         <div class="space-y-3 text-sm text-slate-600">
-          <p class="font-semibold text-sea-800 text-xs uppercase tracking-wide">Gas hob (stovetop)</p>
+          <p class="font-semibold text-sea-800 text-xs uppercase tracking-wide" data-i18n="app.hob">Gas hob (stovetop)</p>
           <div class="step">
             <div class="step-num">1</div>
-            <p>Find the knob for the ring you want. Each knob is labelled <strong class="text-slate-700">GAZ</strong>. Push the knob in gently and turn it to the right.</p>
+            <p data-i18n-html="hob.s1">Find the knob for the ring you want. Each knob is labelled <strong class="text-slate-700">GAZ</strong>. Push the knob in gently and turn it to the right.</p>
           </div>
           <div class="step">
             <div class="step-num">2</div>
-            <p>While holding the knob pushed in, press the separate <strong class="text-slate-700">igniter button</strong> (the small round button — see photos below). You'll hear a click and the flame will light.</p>
+            <p data-i18n-html="hob.s2">While holding the knob pushed in, press the separate <strong class="text-slate-700">igniter button</strong> (the small round button — see photos below). You'll hear a click and the flame will light.</p>
           </div>
           <div class="step">
             <div class="step-num">3</div>
-            <p>Keep the knob pressed for <strong class="text-slate-700">a few extra seconds</strong> after the flame appears so the safety thermostat can engage. Then release slowly.</p>
+            <p data-i18n-html="hob.s3">Keep the knob pressed for <strong class="text-slate-700">a few extra seconds</strong> after the flame appears so the safety thermostat can engage. Then release slowly.</p>
           </div>
           <div class="step">
             <div class="step-num">4</div>
-            <p>To turn off: rotate the knob back to the closed (vertical/off) position.</p>
+            <p data-i18n="hob.s4">To turn off: rotate the knob back to the closed (vertical/off) position.</p>
           </div>
         </div>
 
@@ -490,7 +514,7 @@
         </div>
 
         <div class="space-y-3 text-sm text-slate-600">
-          <p class="font-semibold text-sea-800 text-xs uppercase tracking-wide">Gas oven</p>
+          <p class="font-semibold text-sea-800 text-xs uppercase tracking-wide" data-i18n="app.gas">Gas oven</p>
         </div>
 
         <!-- YouTube video tutorial — for the gas oven -->
@@ -501,15 +525,15 @@
         <div class="space-y-3 text-sm text-slate-600">
           <div class="step">
             <div class="step-num">5</div>
-            <p>Open the oven door and lift the small <strong class="text-slate-700">trap door</strong> at the base to access the burner. Find the knob labelled <strong class="text-slate-700">CUPTOR</strong>, push it in gently and turn it to the right.</p>
+            <p data-i18n-html="gas.s5">Open the oven door and lift the small <strong class="text-slate-700">trap door</strong> at the base to access the burner. Find the knob labelled <strong class="text-slate-700">CUPTOR</strong>, push it in gently and turn it to the right.</p>
           </div>
           <div class="step">
             <div class="step-num">6</div>
-            <p>While holding the knob pressed in, hold a <strong class="text-slate-700">match or lighter</strong> (available in the apartment) to the burner — the built-in igniter does <em>not</em> work for the oven. Once lit, keep the knob pressed for <strong class="text-slate-700">a few extra seconds</strong>, then release slowly.</p>
+            <p data-i18n-html="gas.s6">While holding the knob pressed in, hold a <strong class="text-slate-700">match or lighter</strong> (available in the apartment) to the burner — the built-in igniter does <em>not</em> work for the oven. Once lit, keep the knob pressed for <strong class="text-slate-700">a few extra seconds</strong>, then release slowly.</p>
           </div>
           <div class="step">
             <div class="step-num">7</div>
-            <p>To turn off: rotate the <strong class="text-slate-700">CUPTOR</strong> knob back to the closed (vertical/off) position.</p>
+            <p data-i18n-html="gas.s7">To turn off: rotate the <strong class="text-slate-700">CUPTOR</strong> knob back to the closed (vertical/off) position.</p>
           </div>
         </div>
           </div>
@@ -523,14 +547,14 @@
             <div class="flex items-center gap-2.5">
               <svg class="w-5 h-5 text-sea-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9" stroke-width="2"/><circle cx="12" cy="12" r="4" stroke-width="2"/></svg>
               <div>
-                <p class="font-semibold text-sea-900 text-sm">Washing Machine</p>
-                <p class="text-xs text-slate-400 font-normal">Samsung EcoBubble · kitchen</p>
+                <p class="font-semibold text-sea-900 text-sm" data-i18n="app.wash">Washing Machine</p>
+                <p class="text-xs text-slate-400 font-normal" data-i18n="app.wash_sub">Samsung EcoBubble · kitchen</p>
               </div>
             </div>
             <svg class="w-4 h-4 text-sea-400 flex-shrink-0 transition-transform duration-200 group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
           </summary>
           <div class="px-5 pb-5 pt-4 border-t border-slate-100">
-        <p class="text-xs text-slate-500 mb-3">Samsung EcoBubble — located in the <strong class="text-slate-700">kitchen</strong>.</p>
+        <p class="text-xs text-slate-500 mb-3" data-i18n-html="wash.loc">Samsung EcoBubble — located in the <strong class="text-slate-700">kitchen</strong>.</p>
 
         <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTX64DHjmq3P04P_YQS3XVeZ-G6on2zVyaRrTnj2F7USg&s=10"
              alt="Samsung EcoBubble washing machine"
@@ -543,23 +567,23 @@
         </div>
 
         <div class="space-y-3 text-sm text-slate-600">
-          <div class="step"><div class="step-num">1</div><p>Load laundry and close the door.</p></div>
-          <div class="step"><div class="step-num">2</div><p>Add detergent to <strong class="text-slate-700">compartment II</strong> of the drawer.</p></div>
-          <div class="step"><div class="step-num">3</div><p>Press <strong class="text-slate-700">Power</strong>.</p></div>
+          <div class="step"><div class="step-num">1</div><p data-i18n="wash.s1">Load laundry and close the door.</p></div>
+          <div class="step"><div class="step-num">2</div><p data-i18n-html="wash.s2">Add detergent to <strong class="text-slate-700">compartment II</strong> of the drawer.</p></div>
+          <div class="step"><div class="step-num">3</div><p data-i18n-html="wash.s3">Press <strong class="text-slate-700">Power</strong>.</p></div>
           <div class="step">
             <div class="step-num">4</div>
             <div>
-              <p class="mb-1">Select a programme:</p>
+              <p class="mb-1" data-i18n="wash.s4_label">Select a programme:</p>
               <ul class="space-y-1 ml-1">
-                <li class="flex items-start gap-2"><span class="w-1.5 h-1.5 rounded-full bg-sea-400 flex-shrink-0 mt-1.5"></span><span><strong class="text-slate-700">Daily Wash</strong> — recommended for most loads</span></li>
-                <li class="flex items-start gap-2"><span class="w-1.5 h-1.5 rounded-full bg-sea-400 flex-shrink-0 mt-1.5"></span><span><strong class="text-slate-700">Cotton</strong> — towels and bedding</span></li>
-                <li class="flex items-start gap-2"><span class="w-1.5 h-1.5 rounded-full bg-sea-400 flex-shrink-0 mt-1.5"></span><span><strong class="text-slate-700">Quick Wash</strong> — small, lightly soiled loads</span></li>
+                <li class="flex items-start gap-2"><span class="w-1.5 h-1.5 rounded-full bg-sea-400 flex-shrink-0 mt-1.5"></span><span data-i18n-html="wash.prog1"><strong class="text-slate-700">Daily Wash</strong> — recommended for most loads</span></li>
+                <li class="flex items-start gap-2"><span class="w-1.5 h-1.5 rounded-full bg-sea-400 flex-shrink-0 mt-1.5"></span><span data-i18n-html="wash.prog2"><strong class="text-slate-700">Cotton</strong> — towels and bedding</span></li>
+                <li class="flex items-start gap-2"><span class="w-1.5 h-1.5 rounded-full bg-sea-400 flex-shrink-0 mt-1.5"></span><span data-i18n-html="wash.prog3"><strong class="text-slate-700">Quick Wash</strong> — small, lightly soiled loads</span></li>
               </ul>
             </div>
           </div>
-          <div class="step"><div class="step-num">5</div><p>Press <strong class="text-slate-700">Start / Pause</strong>.</p></div>
+          <div class="step"><div class="step-num">5</div><p data-i18n-html="wash.s5">Press <strong class="text-slate-700">Start / Pause</strong>.</p></div>
         </div>
-        <div class="mt-3 bg-sea-50 border border-sea-100 rounded-xl px-4 py-2.5 text-xs text-sea-700">
+        <div class="mt-3 bg-sea-50 border border-sea-100 rounded-xl px-4 py-2.5 text-xs text-sea-700" data-i18n-html="wash.tip">
           ✅ <strong>Recommended:</strong> Daily Wash at 30–40°C. When finished, remove laundry and leave the door <strong>slightly open</strong> to air the drum.
         </div>
           </div>
@@ -573,8 +597,8 @@
             <div class="flex items-center gap-2.5">
               <svg class="w-5 h-5 text-sea-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v18M3 12h18M5.636 5.636l12.728 12.728M18.364 5.636L5.636 18.364"/></svg>
               <div>
-                <p class="font-semibold text-sea-900 text-sm">Air Conditioning</p>
-                <p class="text-xs text-slate-400 font-normal">Daewoo 12000 BTU</p>
+                <p class="font-semibold text-sea-900 text-sm" data-i18n="app.ac">Air Conditioning</p>
+                <p class="text-xs text-slate-400 font-normal" data-i18n="app.ac_sub">Daewoo 12000 BTU</p>
               </div>
             </div>
             <svg class="w-4 h-4 text-sea-400 flex-shrink-0 transition-transform duration-200 group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
@@ -590,30 +614,30 @@
         <div class="space-y-3 text-sm text-slate-600 mt-4">
           <div class="step">
             <div class="step-num">1</div>
-            <p>Press <strong class="text-slate-700">ON/OFF</strong> on the remote control to start or stop the unit.</p>
+            <p data-i18n-html="ac.s1">Press <strong class="text-slate-700">ON/OFF</strong> on the remote control to start or stop the unit.</p>
           </div>
           <div class="step">
             <div class="step-num">2</div>
             <div>
-              <p class="mb-1">Press <strong class="text-slate-700">MODE</strong> to choose:</p>
+              <p class="mb-1" data-i18n-html="ac.s2_label">Press <strong class="text-slate-700">MODE</strong> to choose:</p>
               <ul class="space-y-1 ml-1">
-                <li class="flex items-start gap-2"><span class="text-base leading-none">❄️</span><span><strong class="text-slate-700">Cool</strong> — cooling (summer)</span></li>
-                <li class="flex items-start gap-2"><span class="text-base leading-none">☀️</span><span><strong class="text-slate-700">Heat</strong> — heating (winter)</span></li>
-                <li class="flex items-start gap-2"><span class="text-base leading-none">💨</span><span><strong class="text-slate-700">Fan</strong> — air circulation only</span></li>
+                <li class="flex items-start gap-2"><span class="text-base leading-none">❄️</span><span data-i18n-html="ac.cool"><strong class="text-slate-700">Cool</strong> — cooling (summer)</span></li>
+                <li class="flex items-start gap-2"><span class="text-base leading-none">☀️</span><span data-i18n-html="ac.heat"><strong class="text-slate-700">Heat</strong> — heating (winter)</span></li>
+                <li class="flex items-start gap-2"><span class="text-base leading-none">💨</span><span data-i18n-html="ac.fan"><strong class="text-slate-700">Fan</strong> — air circulation only</span></li>
               </ul>
             </div>
           </div>
           <div class="step">
             <div class="step-num">3</div>
-            <p>Use <strong class="text-slate-700">▲ / ▼</strong> to adjust temperature. Recommended: <strong class="text-slate-700">22–25°C</strong>.</p>
+            <p data-i18n-html="ac.s3">Use <strong class="text-slate-700">▲ / ▼</strong> to adjust temperature. Recommended: <strong class="text-slate-700">22–25°C</strong>.</p>
           </div>
           <div class="step">
             <div class="step-num">4</div>
-            <p>Press <strong class="text-slate-700">FAN</strong> to adjust airflow speed: Low / Medium / High / <strong class="text-slate-700">Auto</strong> (recommended).</p>
+            <p data-i18n-html="ac.s4">Press <strong class="text-slate-700">FAN</strong> to adjust airflow speed: Low / Medium / High / <strong class="text-slate-700">Auto</strong> (recommended).</p>
           </div>
           <div class="step">
             <div class="step-num">5</div>
-            <p>Press <strong class="text-slate-700">SWING</strong> to automatically adjust the airflow direction.</p>
+            <p data-i18n-html="ac.s5">Press <strong class="text-slate-700">SWING</strong> to automatically adjust the airflow direction.</p>
           </div>
         </div>
 
@@ -621,20 +645,20 @@
         <div class="grid grid-cols-2 gap-3 mt-4">
           <div class="bg-sea-50 border border-sea-100 rounded-xl p-3 text-center">
             <p class="text-lg mb-1">☀️</p>
-            <p class="text-xs font-semibold text-sea-700 uppercase tracking-wide">Summer</p>
-            <p class="text-sm text-slate-600 mt-0.5">Cool mode · 23°C · Auto fan</p>
+            <p class="text-xs font-semibold text-sea-700 uppercase tracking-wide" data-i18n="ac.summer">Summer</p>
+            <p class="text-sm text-slate-600 mt-0.5" data-i18n="ac.summer_desc">Cool mode · 23°C · Auto fan</p>
           </div>
           <div class="bg-amber-50 border border-amber-100 rounded-xl p-3 text-center">
             <p class="text-lg mb-1">❄️</p>
-            <p class="text-xs font-semibold text-amber-700 uppercase tracking-wide">Winter</p>
-            <p class="text-sm text-slate-600 mt-0.5">Heat mode · 23–24°C · Auto fan</p>
+            <p class="text-xs font-semibold text-amber-700 uppercase tracking-wide" data-i18n="ac.winter">Winter</p>
+            <p class="text-sm text-slate-600 mt-0.5" data-i18n="ac.winter_desc">Heat mode · 23–24°C · Auto fan</p>
           </div>
         </div>
 
         <div class="mt-3 space-y-1.5 text-xs text-slate-500">
-          <p>🌿 Keep windows and doors <strong class="text-slate-600">closed</strong> while AC is running.</p>
-          <p>🌿 Turn off the AC when leaving the apartment.</p>
-          <p>⚠️ Do not set below <strong class="text-slate-600">18°C</strong> and do not block the indoor unit airflow.</p>
+          <p data-i18n-html="ac.tip1">🌿 Keep windows and doors <strong class="text-slate-600">closed</strong> while AC is running.</p>
+          <p data-i18n="ac.tip2">🌿 Turn off the AC when leaving the apartment.</p>
+          <p data-i18n-html="ac.tip3">⚠️ Do not set below <strong class="text-slate-600">18°C</strong> and do not block the indoor unit airflow.</p>
         </div>
           </div>
         </details>
@@ -647,7 +671,7 @@
             <div class="flex items-center gap-2.5">
               <svg class="w-5 h-5 text-sea-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><rect x="2" y="3" width="20" height="14" rx="2" stroke-width="2"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 21h8m-4-4v4"/></svg>
               <div>
-                <p class="font-semibold text-sea-900 text-sm">TV &amp; Streaming</p>
+                <p class="font-semibold text-sea-900 text-sm" data-i18n="app.tv">TV &amp; Streaming</p>
                 <p class="text-xs text-slate-400 font-normal">Samsung Smart TV · UPC cable · Netflix</p>
               </div>
             </div>
@@ -665,49 +689,49 @@
         <div class="grid grid-cols-2 gap-3 mb-4">
           <div class="bg-sea-50 border border-sea-100 rounded-xl p-3 text-center">
             <p class="text-xl mb-1">📺</p>
-            <p class="text-xs font-semibold text-sea-700 uppercase tracking-wide">Samsung remote</p>
-            <p class="text-xs text-slate-500 mt-1">Apps · Smart TV · Netflix · YouTube</p>
+            <p class="text-xs font-semibold text-sea-700 uppercase tracking-wide" data-i18n="tv.sam_h">Samsung remote</p>
+            <p class="text-xs text-slate-500 mt-1" data-i18n="tv.sam_desc">Apps · Smart TV · Netflix · YouTube</p>
           </div>
           <div class="bg-slate-50 border border-slate-200 rounded-xl p-3 text-center">
             <p class="text-xl mb-1">📦</p>
-            <p class="text-xs font-semibold text-slate-600 uppercase tracking-wide">UPC remote</p>
-            <p class="text-xs text-slate-500 mt-1">Live TV channels · cable</p>
+            <p class="text-xs font-semibold text-slate-600 uppercase tracking-wide" data-i18n="tv.upc_h">UPC remote</p>
+            <p class="text-xs text-slate-500 mt-1" data-i18n="tv.upc_desc">Live TV channels · cable</p>
           </div>
         </div>
 
         <!-- Cable TV -->
-        <p class="text-xs font-semibold text-sea-700 uppercase tracking-wide mb-2">📡 Watch live TV channels (UPC)</p>
+        <p class="text-xs font-semibold text-sea-700 uppercase tracking-wide mb-2" data-i18n="tv.cable_h">📡 Watch live TV channels (UPC)</p>
         <div class="space-y-2 text-sm text-slate-600 mb-4">
-          <div class="step"><div class="step-num">1</div><p>Turn on the TV with the <strong class="text-slate-700">Samsung remote</strong> (Power button).</p></div>
-          <div class="step"><div class="step-num">2</div><p>Use the <strong class="text-slate-700">UPC remote</strong> to change channels.</p></div>
+          <div class="step"><div class="step-num">1</div><p data-i18n-html="tv.c1">Turn on the TV with the <strong class="text-slate-700">Samsung remote</strong> (Power button).</p></div>
+          <div class="step"><div class="step-num">2</div><p data-i18n-html="tv.c2">Use the <strong class="text-slate-700">UPC remote</strong> to change channels.</p></div>
           <div class="step">
             <div class="step-num">3</div>
-            <p>If you see <strong class="text-red-500">No Signal</strong>: press <strong class="text-slate-700">SOURCE / INPUT</strong> on the Samsung remote → select <strong class="text-slate-700">HDMI 1</strong> or <strong class="text-slate-700">HDMI 2</strong> (the one connected to the UPC receiver). Then use only the UPC remote.</p>
+            <p data-i18n-html="tv.c3">If you see <strong class="text-red-500">No Signal</strong>: press <strong class="text-slate-700">SOURCE / INPUT</strong> on the Samsung remote → select <strong class="text-slate-700">HDMI 1</strong> or <strong class="text-slate-700">HDMI 2</strong> (the one connected to the UPC receiver). Then use only the UPC remote.</p>
           </div>
         </div>
 
         <!-- Smart TV -->
-        <p class="text-xs font-semibold text-sea-700 uppercase tracking-wide mb-2">📱 Use Smart TV (Netflix / YouTube / apps)</p>
+        <p class="text-xs font-semibold text-sea-700 uppercase tracking-wide mb-2" data-i18n="tv.smart_h">📱 Use Smart TV (Netflix / YouTube / apps)</p>
         <div class="space-y-2 text-sm text-slate-600 mb-4">
-          <div class="step"><div class="step-num">1</div><p>Press <strong class="text-slate-700">SOURCE / INPUT</strong> on the Samsung remote.</p></div>
-          <div class="step"><div class="step-num">2</div><p>Select <strong class="text-slate-700">TV / Smart Hub / Home</strong> (NOT HDMI).</p></div>
-          <div class="step"><div class="step-num">3</div><p>Navigate apps with the Samsung remote only.</p></div>
+          <div class="step"><div class="step-num">1</div><p data-i18n-html="tv.s1">Press <strong class="text-slate-700">SOURCE / INPUT</strong> on the Samsung remote.</p></div>
+          <div class="step"><div class="step-num">2</div><p data-i18n-html="tv.s2">Select <strong class="text-slate-700">TV / Smart Hub / Home</strong> (NOT HDMI).</p></div>
+          <div class="step"><div class="step-num">3</div><p data-i18n="tv.s3">Navigate apps with the Samsung remote only.</p></div>
         </div>
 
         <!-- Simple rule -->
         <div class="bg-sea-700 rounded-xl px-4 py-3 mb-3 space-y-1.5">
-          <p class="text-white text-xs font-semibold uppercase tracking-wide mb-2">🎮 Simple rule</p>
-          <p class="text-sea-100 text-sm">📦 <strong class="text-white">UPC remote</strong> = TV channels</p>
-          <p class="text-sea-100 text-sm">📺 <strong class="text-white">Samsung remote</strong> = Apps / Smart TV</p>
-          <p class="text-sea-100 text-sm">🔁 <strong class="text-white">SOURCE button</strong> = switch between them</p>
+          <p class="text-white text-xs font-semibold uppercase tracking-wide mb-2" data-i18n="tv.rule_h">🎮 Simple rule</p>
+          <p class="text-sea-100 text-sm" data-i18n-html="tv.r1">📦 <strong class="text-white">UPC remote</strong> = TV channels</p>
+          <p class="text-sea-100 text-sm" data-i18n-html="tv.r2">📺 <strong class="text-white">Samsung remote</strong> = Apps / Smart TV</p>
+          <p class="text-sea-100 text-sm" data-i18n-html="tv.r3">🔁 <strong class="text-white">SOURCE button</strong> = switch between them</p>
         </div>
 
         <!-- Troubleshooting -->
         <div class="space-y-1.5 text-xs text-slate-500">
-          <p>⚠️ <strong class="text-slate-600">No signal?</strong> → Press SOURCE and change HDMI input</p>
-          <p>⚠️ <strong class="text-slate-600">Can't change channels?</strong> → You're in Smart TV mode — switch to HDMI</p>
-          <p>⚠️ <strong class="text-slate-600">Apps not working?</strong> → Switch back to Smart Hub / Home</p>
-          <p>💡 <strong class="text-slate-600">Lost?</strong> → Press the 🏠 <strong class="text-slate-600">Home button</strong> on the Samsung remote to return to Smart TV</p>
+          <p data-i18n-html="tv.ts1">⚠️ <strong class="text-slate-600">No signal?</strong> → Press SOURCE and change HDMI input</p>
+          <p data-i18n-html="tv.ts2">⚠️ <strong class="text-slate-600">Can't change channels?</strong> → You're in Smart TV mode — switch to HDMI</p>
+          <p data-i18n-html="tv.ts3">⚠️ <strong class="text-slate-600">Apps not working?</strong> → Switch back to Smart Hub / Home</p>
+          <p data-i18n-html="tv.ts4">💡 <strong class="text-slate-600">Lost?</strong> → Press the 🏠 <strong class="text-slate-600">Home button</strong> on the Samsung remote to return to Smart TV</p>
         </div>
           </div>
         </details>
@@ -720,8 +744,8 @@
             <div class="flex items-center gap-2.5">
               <svg class="w-5 h-5 text-sea-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8h2a2 2 0 012 2v1a2 2 0 01-2 2h-2M3 8h14v9a4 4 0 01-4 4H7a4 4 0 01-4-4V8zm7 4v4"/></svg>
               <div>
-                <p class="font-semibold text-sea-900 text-sm">Coffee Machine</p>
-                <p class="text-xs text-slate-400 font-normal">Tchibo Cafissimo</p>
+                <p class="font-semibold text-sea-900 text-sm" data-i18n="app.coffee">Coffee Machine</p>
+                <p class="text-xs text-slate-400 font-normal" data-i18n="app.coffee_sub">Tchibo Cafissimo</p>
               </div>
             </div>
             <svg class="w-4 h-4 text-sea-400 flex-shrink-0 transition-transform duration-200 group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
@@ -734,22 +758,22 @@
              onerror="this.style.display='none'" />
 
         <div class="space-y-3 text-sm text-slate-600 mb-4">
-          <div class="step"><div class="step-num">1</div><p>Fill the <strong class="text-slate-700">water tank</strong> with fresh water.</p></div>
-          <div class="step"><div class="step-num">2</div><p>Lift the <strong class="text-slate-700">lever</strong> and insert a Cafissimo capsule.</p></div>
-          <div class="step"><div class="step-num">3</div><p>Close the lever firmly.</p></div>
-          <div class="step"><div class="step-num">4</div><p>Place a cup under the coffee outlet.</p></div>
+          <div class="step"><div class="step-num">1</div><p data-i18n-html="cof.s1">Fill the <strong class="text-slate-700">water tank</strong> with fresh water.</p></div>
+          <div class="step"><div class="step-num">2</div><p data-i18n-html="cof.s2">Lift the <strong class="text-slate-700">lever</strong> and insert a Cafissimo capsule.</p></div>
+          <div class="step"><div class="step-num">3</div><p data-i18n="cof.s3">Close the lever firmly.</p></div>
+          <div class="step"><div class="step-num">4</div><p data-i18n="cof.s4">Place a cup under the coffee outlet.</p></div>
           <div class="step">
             <div class="step-num">5</div>
             <div>
-              <p class="mb-1">Press your desired button:</p>
+              <p class="mb-1" data-i18n="cof.s5_label">Press your desired button:</p>
               <ul class="space-y-1 ml-1">
-                <li class="flex items-start gap-2"><span class="w-1.5 h-1.5 rounded-full bg-amber-500 flex-shrink-0 mt-1.5"></span><span><strong class="text-slate-700">Espresso</strong> — small, strong</span></li>
-                <li class="flex items-start gap-2"><span class="w-1.5 h-1.5 rounded-full bg-amber-500 flex-shrink-0 mt-1.5"></span><span><strong class="text-slate-700">Caffè Crema</strong> — medium</span></li>
-                <li class="flex items-start gap-2"><span class="w-1.5 h-1.5 rounded-full bg-amber-500 flex-shrink-0 mt-1.5"></span><span><strong class="text-slate-700">Coffee</strong> — large, milder</span></li>
+                <li class="flex items-start gap-2"><span class="w-1.5 h-1.5 rounded-full bg-amber-500 flex-shrink-0 mt-1.5"></span><span data-i18n-html="cof.t1"><strong class="text-slate-700">Espresso</strong> — small, strong</span></li>
+                <li class="flex items-start gap-2"><span class="w-1.5 h-1.5 rounded-full bg-amber-500 flex-shrink-0 mt-1.5"></span><span data-i18n-html="cof.t2"><strong class="text-slate-700">Caffè Crema</strong> — medium</span></li>
+                <li class="flex items-start gap-2"><span class="w-1.5 h-1.5 rounded-full bg-amber-500 flex-shrink-0 mt-1.5"></span><span data-i18n-html="cof.t3"><strong class="text-slate-700">Coffee</strong> — large, milder</span></li>
               </ul>
             </div>
           </div>
-          <div class="step"><div class="step-num">6</div><p>Wait for brewing to finish. Open the lever to <strong class="text-slate-700">eject the used capsule</strong>.</p></div>
+          <div class="step"><div class="step-num">6</div><p data-i18n-html="cof.s6">Wait for brewing to finish. Open the lever to <strong class="text-slate-700">eject the used capsule</strong>.</p></div>
         </div>
 
         <div class="rounded-2xl overflow-hidden mb-4" style="aspect-ratio:16/9">
@@ -757,8 +781,8 @@
         </div>
 
         <div class="bg-amber-50 border border-amber-200 rounded-xl p-3">
-          <p class="text-xs font-semibold text-amber-700 uppercase tracking-wide mb-1">Where to buy capsules</p>
-          <p class="text-sm text-amber-800">Only <strong>Tchibo Cafissimo-compatible capsules</strong> work with this machine. Find them at <strong>Mega Image</strong> (3 min walk, open 24/7) in the coffee aisle — Colombia, Brasil, Espresso Intense &amp; Elegant, ~14–17 lei/box. Also available at <a href="https://tchibo.ro/collections/capsule" target="_blank" rel="noopener noreferrer" class="underline hover:text-amber-900">tchibo.ro ↗</a></p>
+          <p class="text-xs font-semibold text-amber-700 uppercase tracking-wide mb-1" data-i18n="cof.caps_h">Where to buy capsules</p>
+          <p class="text-sm text-amber-800" data-i18n-html="cof.caps_p">Only <strong>Tchibo Cafissimo-compatible capsules</strong> work with this machine. Find them at <strong>Mega Image</strong> (3 min walk, open 24/7) in the coffee aisle — Colombia, Brasil, Espresso Intense &amp; Elegant, ~14–17 lei/box. Also available at <a href="https://tchibo.ro/collections/capsule" target="_blank" rel="noopener noreferrer" class="underline hover:text-amber-900">tchibo.ro ↗</a></p>
         </div>
           </div>
         </details>
@@ -767,30 +791,30 @@
       <!-- Ironing + Bathroom card -->
       <div class="bg-white rounded-2xl border border-slate-100 shadow-sm overflow-hidden">
         <div class="px-5 py-3.5 border-b border-slate-50">
-          <p class="font-semibold text-sea-900 text-sm">What Else You'll Find</p>
+          <p class="font-semibold text-sea-900 text-sm" data-i18n="extra.title">What Else You'll Find</p>
         </div>
         <div class="grid grid-cols-1 sm:grid-cols-2 divide-y sm:divide-y-0 sm:divide-x divide-slate-50">
           <!-- Ironing -->
           <div class="px-5 py-4">
             <div class="flex items-center gap-2 mb-1.5">
               <svg class="w-4 h-4 text-sea-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 17l6-6 4 4 8-8M3 17h18"/></svg>
-              <p class="font-medium text-slate-700 text-sm">Ironing</p>
+              <p class="font-medium text-slate-700 text-sm" data-i18n="extra.ironing">Ironing</p>
             </div>
-            <p class="text-xs text-slate-500 leading-relaxed">The <strong class="text-slate-600">ironing station</strong> is in the living room closet. The <strong class="text-slate-600">ironing board</strong> is in the bedroom, behind the curtain.</p>
+            <p class="text-xs text-slate-500 leading-relaxed" data-i18n-html="extra.ironing_desc">The <strong class="text-slate-600">ironing station</strong> is in the living room closet. The <strong class="text-slate-600">ironing board</strong> is in the bedroom, behind the curtain.</p>
           </div>
           <!-- Bathroom -->
           <div class="px-5 py-4">
             <div class="flex items-center gap-2 mb-1.5">
               <svg class="w-4 h-4 text-sea-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21h10M12 21V3m0 0C9 3 6 5 6 9v6m12-6c0-4-3-6-6-6"/></svg>
-              <p class="font-medium text-slate-700 text-sm">Hair Dryer &amp; Toiletries</p>
+              <p class="font-medium text-slate-700 text-sm" data-i18n="extra.bathroom">Hair Dryer &amp; Toiletries</p>
             </div>
-            <p class="text-xs text-slate-500 leading-relaxed">In the bathroom you'll find a <strong class="text-slate-600">hair dryer</strong> and a selection of <strong class="text-slate-600">toiletries</strong> — razors, toothbrush, deodorant, and more. Whatever you use, please throw it away rather than putting it back.</p>
+            <p class="text-xs text-slate-500 leading-relaxed" data-i18n-html="extra.bathroom_desc">In the bathroom you'll find a <strong class="text-slate-600">hair dryer</strong> and a selection of <strong class="text-slate-600">toiletries</strong> — razors, toothbrush, deodorant, and more. Whatever you use, please throw it away rather than putting it back.</p>
           </div>
         </div>
         <!-- General rule -->
         <div class="px-5 py-3 bg-slate-50 border-t border-slate-100 flex items-start gap-2.5">
           <svg class="w-3.5 h-3.5 text-slate-400 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
-          <p class="text-xs text-slate-500 leading-relaxed">After using anything — ironing board, hair dryer, pans — please give it a quick clean and put it back where you found it. Thank you!</p>
+          <p class="text-xs text-slate-500 leading-relaxed" data-i18n="extra.rule">After using anything — ironing board, hair dryer, pans — please give it a quick clean and put it back where you found it. Thank you!</p>
         </div>
       </div>
 
@@ -801,19 +825,19 @@
 
       <!-- Intro -->
       <div class="bg-gradient-to-r from-sea-700 to-sea-800 rounded-2xl p-4">
-        <p class="text-sea-300 text-xs font-semibold uppercase tracking-wide mb-1">Local picks</p>
-        <p class="text-white font-semibold text-base leading-snug">Maria's favourite spots in Floreasca</p>
-        <p class="text-sea-300 text-xs mt-1.5 leading-relaxed">Everything within walking distance — one of Bucharest's most vibrant neighbourhoods.</p>
+        <p class="text-sea-300 text-xs font-semibold uppercase tracking-wide mb-1" data-i18n="food.label">Local picks</p>
+        <p class="text-white font-semibold text-base leading-snug" data-i18n="food.title">Maria's favourite spots in Floreasca</p>
+        <p class="text-sea-300 text-xs mt-1.5 leading-relaxed" data-i18n="food.sub">Everything within walking distance — one of Bucharest's most vibrant neighbourhoods.</p>
       </div>
 
       <!-- Category chips -->
       <div class="flex gap-2 overflow-x-auto scrollbar-none pb-0.5 -mx-1 px-1">
-        <span class="flex-shrink-0 px-3 py-1.5 bg-slate-100 text-slate-600 text-xs font-semibold rounded-full">Shops</span>
-        <span class="flex-shrink-0 px-3 py-1.5 bg-amber-50 text-amber-700 text-xs font-semibold rounded-full border border-amber-100">Coffee</span>
-        <span class="flex-shrink-0 px-3 py-1.5 bg-orange-50 text-orange-700 text-xs font-semibold rounded-full border border-orange-100">Bakeries</span>
-        <span class="flex-shrink-0 px-3 py-1.5 bg-sea-50 text-sea-700 text-xs font-semibold rounded-full border border-sea-100">Restaurants</span>
-        <span class="flex-shrink-0 px-3 py-1.5 bg-purple-50 text-purple-700 text-xs font-semibold rounded-full border border-purple-100">Fitness</span>
-        <span class="flex-shrink-0 px-3 py-1.5 bg-blue-50 text-blue-700 text-xs font-semibold rounded-full border border-blue-100">Transport</span>
+        <span class="flex-shrink-0 px-3 py-1.5 bg-slate-100 text-slate-600 text-xs font-semibold rounded-full" data-i18n="food.chip_shops">Shops</span>
+        <span class="flex-shrink-0 px-3 py-1.5 bg-amber-50 text-amber-700 text-xs font-semibold rounded-full border border-amber-100" data-i18n="food.chip_coffee">Coffee</span>
+        <span class="flex-shrink-0 px-3 py-1.5 bg-orange-50 text-orange-700 text-xs font-semibold rounded-full border border-orange-100" data-i18n="food.chip_bakeries">Bakeries</span>
+        <span class="flex-shrink-0 px-3 py-1.5 bg-sea-50 text-sea-700 text-xs font-semibold rounded-full border border-sea-100" data-i18n="food.chip_restaurants">Restaurants</span>
+        <span class="flex-shrink-0 px-3 py-1.5 bg-purple-50 text-purple-700 text-xs font-semibold rounded-full border border-purple-100" data-i18n="food.chip_fitness">Fitness</span>
+        <span class="flex-shrink-0 px-3 py-1.5 bg-blue-50 text-blue-700 text-xs font-semibold rounded-full border border-blue-100" data-i18n="food.chip_transport">Transport</span>
       </div>
 
       <!-- Supermarkets (open by default) -->
@@ -825,8 +849,8 @@
                 <svg class="w-4 h-4 text-slate-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"/></svg>
               </div>
               <div>
-                <h3 class="font-semibold text-sea-900 text-sm">Supermarkets &amp; Shopping</h3>
-                <p class="text-xs text-slate-400">3 options nearby</p>
+                <h3 class="font-semibold text-sea-900 text-sm" data-i18n="food.shops_h">Supermarkets &amp; Shopping</h3>
+                <p class="text-xs text-slate-400" data-i18n="food.shops_sub">3 options nearby</p>
               </div>
             </div>
             <svg class="w-4 h-4 text-sea-400 flex-shrink-0 transition-transform duration-200 group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
@@ -841,10 +865,10 @@
                 </span>
                 <p class="font-semibold text-slate-800 text-sm"><a href="https://maps.app.goo.gl/AiVQsEjy6JTXJxRf9" target="_blank" rel="noopener noreferrer" class="hover:text-sea-600 transition-colors">Mega Image ↗</a></p>
               </div>
-              <span class="text-xs bg-green-50 text-green-700 font-semibold px-2 py-0.5 rounded-full flex-shrink-0">24/7</span>
+              <span class="text-xs bg-green-50 text-green-700 font-semibold px-2 py-0.5 rounded-full flex-shrink-0" data-i18n="food.mega_tag">24/7</span>
             </div>
             <p class="text-xs text-slate-400 font-medium mb-1">Supermarket · <span class="text-sea-600 font-semibold">3 min walk</span></p>
-            <p class="text-xs text-slate-500">Closest shop — groceries, wine, coffee pods, essentials</p>
+            <p class="text-xs text-slate-500" data-i18n="food.mega_desc">Closest shop — groceries, wine, coffee pods, essentials</p>
           </div>
           <div class="border border-slate-100 rounded-xl p-3 hover:border-slate-200 hover:bg-slate-50/50 transition-colors duration-200">
             <div class="flex items-start justify-between gap-2 mb-1">
@@ -855,10 +879,10 @@
                 </span>
                 <p class="font-semibold text-slate-800 text-sm"><a href="https://maps.app.goo.gl/bJjhiEi3NCmxVXzL6" target="_blank" rel="noopener noreferrer" class="hover:text-sea-600 transition-colors">Kaufland București-Tei ↗</a></p>
               </div>
-              <span class="text-xs bg-slate-100 text-slate-500 font-semibold px-2 py-0.5 rounded-full flex-shrink-0">Hypermarket</span>
+              <span class="text-xs bg-slate-100 text-slate-500 font-semibold px-2 py-0.5 rounded-full flex-shrink-0" data-i18n="food.kauf_tag">Hypermarket</span>
             </div>
             <p class="text-xs text-slate-400 font-medium mb-1">Tel: 0800 080 888 · <span class="text-sea-600 font-semibold">~20 min walk</span></p>
-            <p class="text-xs text-slate-500">Large hypermarket — fresh produce, deli counter, great value</p>
+            <p class="text-xs text-slate-500" data-i18n="food.kauf_desc">Large hypermarket — fresh produce, deli counter, great value</p>
           </div>
           <div class="border border-slate-100 rounded-xl p-3 hover:border-slate-200 hover:bg-slate-50/50 transition-colors duration-200">
             <div class="flex items-start justify-between gap-2 mb-1">
@@ -872,10 +896,10 @@
               <span class="text-xs bg-slate-100 text-slate-500 font-semibold px-2 py-0.5 rounded-full flex-shrink-0">~22 min walk</span>
             </div>
             <p class="text-xs text-slate-400 font-medium mb-1">Tel: 0730 246 246</p>
-            <p class="text-xs text-slate-500">Bucharest's best mall — fashion, food court, cinema, near Herăstrău Lake</p>
+            <p class="text-xs text-slate-500" data-i18n="food.prom_desc">Bucharest's best mall — fashion, food court, cinema, near Herăstrău Lake</p>
           </div>
         </div>
-        <div class="mt-3 p-3 bg-sea-50 rounded-xl text-xs text-slate-600">
+        <div class="mt-3 p-3 bg-sea-50 rounded-xl text-xs text-slate-600" data-i18n-html="food.delivery">
           <span class="font-semibold text-slate-700">Online delivery:</span> Use <strong>Glovo</strong> or <strong>Bringo</strong> — address: <em>Str. Banul Antonache 52-60, Bloc C, Ap. 17, et. 4</em>
         </div>
         </details>
@@ -890,8 +914,8 @@
                 <svg class="w-4 h-4 text-amber-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8h2a2 2 0 012 2v6a2 2 0 01-2 2h-2m-4 0H7a2 2 0 01-2-2V4a2 2 0 012-2h10a2 2 0 012 2v4"/></svg>
               </div>
               <div>
-                <h3 class="font-semibold text-sea-900 text-sm">Coffee Shops</h3>
-                <p class="text-xs text-slate-400">Romanians take coffee seriously</p>
+                <h3 class="font-semibold text-sea-900 text-sm" data-i18n="food.coffee_h">Coffee Shops</h3>
+                <p class="text-xs text-slate-400" data-i18n="food.coffee_sub">Romanians take coffee seriously</p>
               </div>
             </div>
             <svg class="w-4 h-4 text-sea-400 flex-shrink-0 transition-transform duration-200 group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
@@ -906,10 +930,10 @@
                 </span>
                 <p class="font-semibold text-slate-800 text-sm"><a href="https://maps.app.goo.gl/SdaR5dCDFq1WKu8BA" target="_blank" rel="noopener noreferrer" class="hover:text-sea-600 transition-colors">Two Minutes ↗</a></p>
               </div>
-              <span class="text-xs bg-amber-50 text-amber-700 font-semibold px-2 py-0.5 rounded-full flex-shrink-0 border border-amber-100">Specialty</span>
+              <span class="text-xs bg-amber-50 text-amber-700 font-semibold px-2 py-0.5 rounded-full flex-shrink-0 border border-amber-100" data-i18n="food.tag_spec">Specialty</span>
             </div>
             <p class="text-xs text-slate-400 font-medium mb-1">Tel: 0740 972 657 · <span class="text-sea-600 font-semibold">5 min walk</span></p>
-            <p class="text-xs text-slate-500">Quick specialty coffee on the go — popular with the Floreasca crowd</p>
+            <p class="text-xs text-slate-500" data-i18n="food.two_d">Quick specialty coffee on the go — popular with the Floreasca crowd</p>
           </div>
           <div class="border border-slate-100 rounded-xl p-3 hover:border-amber-100 hover:bg-amber-50/30 transition-colors duration-200">
             <div class="flex items-start justify-between gap-2 mb-1">
@@ -920,10 +944,10 @@
                 </span>
                 <p class="font-semibold text-slate-800 text-sm"><a href="https://maps.app.goo.gl/RnfqZdbArsGpqhgW7" target="_blank" rel="noopener noreferrer" class="hover:text-sea-600 transition-colors">Origo Dorobanți ↗</a></p>
               </div>
-              <span class="text-xs bg-amber-50 text-amber-700 font-semibold px-2 py-0.5 rounded-full flex-shrink-0 border border-amber-100">Specialty + Brunch</span>
+              <span class="text-xs bg-amber-50 text-amber-700 font-semibold px-2 py-0.5 rounded-full flex-shrink-0 border border-amber-100" data-i18n="food.tag_spec_br">Specialty + Brunch</span>
             </div>
             <p class="text-xs text-slate-400 font-medium mb-1">Tel: 0759 637 564 · <span class="text-sea-600 font-semibold">10 min walk</span></p>
-            <p class="text-xs text-slate-500">One of Bucharest's best specialty bars — excellent pour-overs, brunch menu worth the trip</p>
+            <p class="text-xs text-slate-500" data-i18n="food.origo_d">One of Bucharest's best specialty bars — excellent pour-overs, brunch menu worth the trip</p>
           </div>
           <div class="border border-slate-100 rounded-xl p-3 hover:border-amber-100 hover:bg-amber-50/30 transition-colors duration-200">
             <div class="flex items-start justify-between gap-2 mb-1">
@@ -934,10 +958,10 @@
                 </span>
                 <p class="font-semibold text-slate-800 text-sm"><a href="https://maps.google.com/?q=Dose+Cafe+Armeneasca+23+Bucharest" target="_blank" rel="noopener noreferrer" class="hover:text-sea-600 transition-colors">Dose Café ↗</a></p>
               </div>
-              <span class="text-xs bg-slate-100 text-slate-500 font-semibold px-2 py-0.5 rounded-full flex-shrink-0">Lifestyle Café</span>
+              <span class="text-xs bg-slate-100 text-slate-500 font-semibold px-2 py-0.5 rounded-full flex-shrink-0" data-i18n="food.tag_life">Lifestyle Café</span>
             </div>
             <p class="text-xs text-slate-400 font-medium mb-1">Str. Armeneascǎ 23 · <span class="text-sea-600 font-semibold">12 min walk</span></p>
-            <p class="text-xs text-slate-500">Specialty coffee by two former sailors — best latte in town, warm atmosphere, great for working</p>
+            <p class="text-xs text-slate-500" data-i18n="food.dose_d">Specialty coffee by two former sailors — best latte in town, warm atmosphere, great for working</p>
           </div>
           <div class="border border-slate-100 rounded-xl p-3 hover:border-amber-100 hover:bg-amber-50/30 transition-colors duration-200">
             <div class="flex items-start justify-between gap-2 mb-1">
@@ -948,10 +972,10 @@
                 </span>
                 <p class="font-semibold text-slate-800 text-sm"><a href="https://maps.google.com/?q=Tucano+Coffee+Calea+Dorobanti+18+Bucharest" target="_blank" rel="noopener noreferrer" class="hover:text-sea-600 transition-colors">Tucano Coffee — Dorobanți ↗</a></p>
               </div>
-              <span class="text-xs bg-green-50 text-green-700 font-semibold px-2 py-0.5 rounded-full flex-shrink-0 border border-green-100">Budget</span>
+              <span class="text-xs bg-green-50 text-green-700 font-semibold px-2 py-0.5 rounded-full flex-shrink-0 border border-green-100" data-i18n="food.tag_budget">Budget</span>
             </div>
             <p class="text-xs text-slate-400 font-medium mb-1">Calea Dorobanților 18 · <span class="text-sea-600 font-semibold">10 min walk</span></p>
-            <p class="text-xs text-slate-500">100% specialty arabica chain — quality coffee at affordable prices, cozy space</p>
+            <p class="text-xs text-slate-500" data-i18n="food.tucano_d">100% specialty arabica chain — quality coffee at affordable prices, cozy space</p>
           </div>
           </div>
         </details>
@@ -966,8 +990,8 @@
                 <svg class="w-4 h-4 text-orange-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 15.546c-.523 0-1.046.151-1.5.454a2.704 2.704 0 01-3 0 2.704 2.704 0 00-3 0 2.701 2.701 0 00-1.5-.454M9 6v2m3-2v2m3-2v2M9 3h.01M12 3h.01M15 3h.01M21 21v-7a2 2 0 00-2-2H5a2 2 0 00-2 2v7h18zm-3-9v-2a2 2 0 00-2-2H8a2 2 0 00-2 2v2h12z"/></svg>
               </div>
               <div>
-                <h3 class="font-semibold text-sea-900 text-sm">Bakeries &amp; Pastry Shops</h3>
-                <p class="text-xs text-slate-400">Fresh bread &amp; Romanian classics</p>
+                <h3 class="font-semibold text-sea-900 text-sm" data-i18n="food.bak_h">Bakeries &amp; Pastry Shops</h3>
+                <p class="text-xs text-slate-400" data-i18n="food.bak_sub">Fresh bread &amp; Romanian classics</p>
               </div>
             </div>
             <svg class="w-4 h-4 text-sea-400 flex-shrink-0 transition-transform duration-200 group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
@@ -983,10 +1007,10 @@
                 </span>
                 <p class="font-semibold text-slate-800 text-sm"><a href="https://maps.app.goo.gl/7WnMVP3qpHtNbuQF8" target="_blank" rel="noopener noreferrer" class="hover:text-sea-600 transition-colors">Patiseria Comteia ↗</a></p>
               </div>
-              <span class="text-xs bg-orange-100 text-orange-700 font-semibold px-2 py-0.5 rounded-full flex-shrink-0 border border-orange-200">Maria's pick</span>
+              <span class="text-xs bg-orange-100 text-orange-700 font-semibold px-2 py-0.5 rounded-full flex-shrink-0 border border-orange-200" data-i18n="food.tag_marias">Maria's pick</span>
             </div>
             <p class="text-xs text-slate-400 font-medium mb-1">Piața Amzei 10 · <span class="text-sea-600 font-semibold">~35 min walk or metro to Piața Romană</span></p>
-            <p class="text-xs text-slate-500">One of Bucharest's oldest pastry shops — still makes <em>merdenele</em> the traditional way. A real city institution, worth the walk.</p>
+            <p class="text-xs text-slate-500" data-i18n="food.comteia_d">One of Bucharest's oldest pastry shops — still makes <em>merdenele</em> the traditional way. A real city institution, worth the walk.</p>
           </div>
           <div class="border border-slate-100 rounded-xl p-3 hover:border-orange-100 hover:bg-orange-50/20 transition-colors duration-200">
             <div class="flex items-start justify-between gap-2 mb-1">
@@ -997,10 +1021,10 @@
                 </span>
                 <p class="font-semibold text-slate-800 text-sm"><a href="https://maps.app.goo.gl/bK1oVtLEF6FNtDqu6" target="_blank" rel="noopener noreferrer" class="hover:text-sea-600 transition-colors">Pain Plaisir Floreasca ↗</a></p>
               </div>
-              <span class="text-xs bg-blue-50 text-blue-600 font-semibold px-2 py-0.5 rounded-full flex-shrink-0 border border-blue-100">French</span>
+              <span class="text-xs bg-blue-50 text-blue-600 font-semibold px-2 py-0.5 rounded-full flex-shrink-0 border border-blue-100" data-i18n="food.tag_french">French</span>
             </div>
             <p class="text-xs text-slate-400 font-medium mb-1">Tel: 0745 908 888 · <span class="text-sea-600 font-semibold">8 min walk</span></p>
-            <p class="text-xs text-slate-500">Great croissants, quiches and pastries — popular weekend breakfast spot</p>
+            <p class="text-xs text-slate-500" data-i18n="food.pain_d">Great croissants, quiches and pastries — popular weekend breakfast spot</p>
           </div>
           <div class="border border-slate-100 rounded-xl p-3 hover:border-orange-100 hover:bg-orange-50/20 transition-colors duration-200">
             <div class="flex items-start justify-between gap-2 mb-1">
@@ -1011,10 +1035,10 @@
                 </span>
                 <p class="font-semibold text-slate-800 text-sm"><a href="https://maps.app.goo.gl/ggJpvYVPbJKj9yrn9" target="_blank" rel="noopener noreferrer" class="hover:text-sea-600 transition-colors">Patiseria Andreea F ↗</a></p>
               </div>
-              <span class="text-xs bg-slate-100 text-slate-500 font-semibold px-2 py-0.5 rounded-full flex-shrink-0">Local</span>
+              <span class="text-xs bg-slate-100 text-slate-500 font-semibold px-2 py-0.5 rounded-full flex-shrink-0" data-i18n="food.tag_local">Local</span>
             </div>
             <p class="text-xs text-slate-400 font-medium mb-1">Tel: 0722 460 432 · <span class="text-sea-600 font-semibold">~12 min walk</span></p>
-            <p class="text-xs text-slate-500">Popular local patisserie — great variety of sweet and savoury pastries</p>
+            <p class="text-xs text-slate-500" data-i18n="food.andreea_d">Popular local patisserie — great variety of sweet and savoury pastries</p>
           </div>
           <div class="border border-slate-100 rounded-xl p-3 hover:border-orange-100 hover:bg-orange-50/20 transition-colors duration-200">
             <div class="flex items-start justify-between gap-2 mb-1">
@@ -1025,10 +1049,10 @@
                 </span>
                 <p class="font-semibold text-slate-800 text-sm"><a href="https://maps.app.goo.gl/qdYqzJmZ5DR1fJuX8" target="_blank" rel="noopener noreferrer" class="hover:text-sea-600 transition-colors">Cuptorul Brâncovenesc Dorobanți ↗</a></p>
               </div>
-              <span class="text-xs bg-slate-100 text-slate-500 font-semibold px-2 py-0.5 rounded-full flex-shrink-0">Traditional</span>
+              <span class="text-xs bg-slate-100 text-slate-500 font-semibold px-2 py-0.5 rounded-full flex-shrink-0" data-i18n="food.tag_trad">Traditional</span>
             </div>
             <p class="text-xs text-slate-400 font-medium mb-1">Tel: 0729 079 926 · <span class="text-sea-600 font-semibold">12 min walk</span></p>
-            <p class="text-xs text-slate-500">Traditional Romanian breads and pastries — cozonac, plăcintă, wood-fired loaves</p>
+            <p class="text-xs text-slate-500" data-i18n="food.cupt_d">Traditional Romanian breads and pastries — cozonac, plăcintă, wood-fired loaves</p>
           </div>
           <div class="border border-slate-100 rounded-xl p-3 hover:border-orange-100 hover:bg-orange-50/20 transition-colors duration-200">
             <div class="flex items-start justify-between gap-2 mb-1">
@@ -1039,10 +1063,10 @@
                 </span>
                 <p class="font-semibold text-slate-800 text-sm"><a href="https://maps.app.goo.gl/P2dVfZH8UCaqfVWn8" target="_blank" rel="noopener noreferrer" class="hover:text-sea-600 transition-colors">Baguette Beller ↗</a></p>
               </div>
-              <span class="text-xs bg-slate-100 text-slate-500 font-semibold px-2 py-0.5 rounded-full flex-shrink-0">Local</span>
+              <span class="text-xs bg-slate-100 text-slate-500 font-semibold px-2 py-0.5 rounded-full flex-shrink-0" data-i18n="food.tag_local">Local</span>
             </div>
             <p class="text-xs text-slate-400 font-medium mb-1">Tel: 0723 300 005 · <span class="text-sea-600 font-semibold">~10 min walk</span></p>
-            <p class="text-xs text-slate-500">Good neighbourhood bakery for fresh bread and simple pastries</p>
+            <p class="text-xs text-slate-500" data-i18n="food.baguette_d">Good neighbourhood bakery for fresh bread and simple pastries</p>
           </div>
           <div class="border border-slate-100 rounded-xl p-3 hover:border-orange-100 hover:bg-orange-50/20 transition-colors duration-200">
             <div class="flex items-start justify-between gap-2 mb-1">
@@ -1053,10 +1077,10 @@
                 </span>
                 <p class="font-semibold text-slate-800 text-sm"><a href="https://maps.app.goo.gl/eTG6wcTdMUeLH13h7" target="_blank" rel="noopener noreferrer" class="hover:text-sea-600 transition-colors">Ana Pan Beller ↗</a></p>
               </div>
-              <span class="text-xs bg-slate-100 text-slate-500 font-semibold px-2 py-0.5 rounded-full flex-shrink-0">Chain</span>
+              <span class="text-xs bg-slate-100 text-slate-500 font-semibold px-2 py-0.5 rounded-full flex-shrink-0" data-i18n="food.tag_chain">Chain</span>
             </div>
             <p class="text-xs text-slate-400 font-medium mb-1">Tel: 021 230 6700 · <span class="text-sea-600 font-semibold">~10 min walk</span></p>
-            <p class="text-xs text-slate-500">Reliable Romanian bakery chain — great for a quick pastry or sandwich</p>
+            <p class="text-xs text-slate-500" data-i18n="food.anapan_d">Reliable Romanian bakery chain — great for a quick pastry or sandwich</p>
           </div>
           </div>
         </details>
@@ -1071,8 +1095,8 @@
                 <svg class="w-4 h-4 text-sea-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4"/></svg>
               </div>
               <div>
-                <h3 class="font-semibold text-sea-900 text-sm">Restaurants</h3>
-                <p class="text-xs text-slate-400">Top-rated spots in the neighbourhood</p>
+                <h3 class="font-semibold text-sea-900 text-sm" data-i18n="food.rest_h">Restaurants</h3>
+                <p class="text-xs text-slate-400" data-i18n="food.rest_sub">Top-rated spots in the neighbourhood</p>
               </div>
             </div>
             <svg class="w-4 h-4 text-sea-400 flex-shrink-0 transition-transform duration-200 group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
@@ -1090,7 +1114,7 @@
               <span class="text-xs text-slate-400 font-semibold flex-shrink-0">€€€</span>
             </div>
             <p class="text-xs text-slate-400 font-medium mb-1">Japanese · Str. Banul Antonache 40-44 · <span class="text-sea-600 font-semibold">2 min walk</span></p>
-            <p class="text-xs text-slate-500">Best sushi in Bucharest — Philadelphia rolls, Kyoto sets, live teppanyaki. 4.5 TripAdvisor · 1,500+ reviews</p>
+            <p class="text-xs text-slate-500" data-i18n="food.yoshi_d">Best sushi in Bucharest — Philadelphia rolls, Kyoto sets, live teppanyaki. 4.5 TripAdvisor · 1,500+ reviews</p>
           </div>
           <div class="border border-slate-100 rounded-xl p-3 hover:border-sea-200 hover:bg-sea-50/20 transition-colors duration-200">
             <div class="flex items-start justify-between gap-2 mb-1">
@@ -1104,7 +1128,7 @@
               <span class="text-xs text-slate-400 font-semibold flex-shrink-0">€€€</span>
             </div>
             <p class="text-xs text-slate-400 font-medium mb-1">Mediterranean fusion · Calea Floreasca 111-113 · <span class="text-sea-600 font-semibold">10 min walk</span></p>
-            <p class="text-xs text-slate-500">Creative Mediterranean with beautiful plating — charred octopus, salmon tartare, stylish beach-house vibe. 4.6 Google · "probably the best restaurant in Bucharest"</p>
+            <p class="text-xs text-slate-500" data-i18n="food.pot_d">Creative Mediterranean with beautiful plating — charred octopus, salmon tartare, stylish beach-house vibe. 4.6 Google · "probably the best restaurant in Bucharest"</p>
           </div>
           <div class="border border-slate-100 rounded-xl p-3 hover:border-sea-200 hover:bg-sea-50/20 transition-colors duration-200">
             <div class="flex items-start justify-between gap-2 mb-1">
@@ -1118,11 +1142,11 @@
               <span class="text-xs text-slate-400 font-semibold flex-shrink-0">€€</span>
             </div>
             <p class="text-xs text-slate-400 font-medium mb-1">Seafood · Piața Floreasca Market · <span class="text-sea-600 font-semibold">2 min walk</span></p>
-            <p class="text-xs text-slate-500">Pick your fish from the market stall — chef cooks it fresh in front of you. Huge portions, great value. TripAdvisor #45 of 2,721 Bucharest restaurants</p>
+            <p class="text-xs text-slate-500" data-i18n="food.bistro_d">Pick your fish from the market stall — chef cooks it fresh in front of you. Huge portions, great value. TripAdvisor #45 of 2,721 Bucharest restaurants</p>
           </div>
         </div>
         <div class="mt-3 p-3 bg-slate-50 rounded-xl">
-          <p class="text-xs text-slate-500 font-semibold mb-2">Food delivery apps</p>
+          <p class="text-xs text-slate-500 font-semibold mb-2" data-i18n="food.del_h">Food delivery apps</p>
           <div class="grid grid-cols-3 gap-2">
             <div>
               <div class="flex items-center gap-1 mb-1.5">
@@ -1186,8 +1210,8 @@
                 <svg class="w-4 h-4 text-purple-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/></svg>
               </div>
               <div>
-                <h3 class="font-semibold text-sea-900 text-sm">Fitness &amp; Wellness</h3>
-                <p class="text-xs text-slate-400">Stay active during your visit</p>
+                <h3 class="font-semibold text-sea-900 text-sm" data-i18n="food.fit_h">Fitness &amp; Wellness</h3>
+                <p class="text-xs text-slate-400" data-i18n="food.fit_sub">Stay active during your visit</p>
               </div>
             </div>
             <svg class="w-4 h-4 text-sea-400 flex-shrink-0 transition-transform duration-200 group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
@@ -1203,10 +1227,10 @@
                 </span>
                 <p class="font-semibold text-slate-800 text-sm"><a href="https://maps.app.goo.gl/uFQpthcfLe2Wzvy76" target="_blank" rel="noopener noreferrer" class="hover:text-sea-600 transition-colors">BEAT45 Fitness Studio ↗</a></p>
               </div>
-              <span class="text-xs bg-purple-100 text-purple-700 font-semibold px-2 py-0.5 rounded-full flex-shrink-0 border border-purple-200">Guest discount</span>
+              <span class="text-xs bg-purple-100 text-purple-700 font-semibold px-2 py-0.5 rounded-full flex-shrink-0 border border-purple-200" data-i18n="food.tag_disc">Guest discount</span>
             </div>
             <p class="text-xs text-slate-400 font-medium mb-1">HIIT Studio · Tel: 031 426 0237 · <span class="text-sea-600 font-semibold">~8 min walk</span></p>
-            <p class="text-xs text-slate-500">Mention <strong class="text-slate-700">Radu Stoicescu</strong> when booking — you'll get a guest discount. High-energy 45-min classes.</p>
+            <p class="text-xs text-slate-500" data-i18n="food.beat_d">Mention <strong class="text-slate-700">Radu Stoicescu</strong> when booking — you'll get a guest discount. High-energy 45-min classes.</p>
           </div>
           <div class="border border-slate-100 rounded-xl p-3 hover:border-purple-100 hover:bg-purple-50/20 transition-colors duration-200">
             <div class="flex items-start justify-between gap-2 mb-1">
@@ -1217,10 +1241,10 @@
                 </span>
                 <p class="font-semibold text-slate-800 text-sm"><a href="https://maps.app.goo.gl/twthLjQren9SSTRk9" target="_blank" rel="noopener noreferrer" class="hover:text-sea-600 transition-colors">FS Studio — Yoga ↗</a></p>
               </div>
-              <span class="text-xs bg-slate-100 text-slate-500 font-semibold px-2 py-0.5 rounded-full flex-shrink-0">Yoga</span>
+              <span class="text-xs bg-slate-100 text-slate-500 font-semibold px-2 py-0.5 rounded-full flex-shrink-0" data-i18n="food.tag_yoga">Yoga</span>
             </div>
             <p class="text-xs text-slate-400 font-medium mb-1">Tel: 0733 591 129 · <span class="text-sea-600 font-semibold">~10 min walk</span></p>
-            <p class="text-xs text-slate-500">Calm, well-equipped studio with various styles and class times</p>
+            <p class="text-xs text-slate-500" data-i18n="food.fs_d">Calm, well-equipped studio with various styles and class times</p>
           </div>
           <div class="border border-slate-100 rounded-xl p-3 hover:border-purple-100 hover:bg-purple-50/20 transition-colors duration-200">
             <div class="flex items-start justify-between gap-2 mb-1">
@@ -1231,10 +1255,10 @@
                 </span>
                 <p class="font-semibold text-slate-800 text-sm"><a href="https://maps.app.goo.gl/GewEtkVyzsT5DDJo6" target="_blank" rel="noopener noreferrer" class="hover:text-sea-600 transition-colors">Stay Fit Gym Dorobanți ↗</a></p>
               </div>
-              <span class="text-xs bg-slate-100 text-slate-500 font-semibold px-2 py-0.5 rounded-full flex-shrink-0">Gym</span>
+              <span class="text-xs bg-slate-100 text-slate-500 font-semibold px-2 py-0.5 rounded-full flex-shrink-0" data-i18n="food.tag_gym">Gym</span>
             </div>
             <p class="text-xs text-slate-400 font-medium mb-1">Tel: 0773 963 564 · <span class="text-sea-600 font-semibold">12 min walk</span></p>
-            <p class="text-xs text-slate-500">Modern gym with daily passes — no commitment needed</p>
+            <p class="text-xs text-slate-500" data-i18n="food.stayfit_d">Modern gym with daily passes — no commitment needed</p>
           </div>
           <div class="border border-slate-100 rounded-xl p-3 hover:border-purple-100 hover:bg-purple-50/20 transition-colors duration-200">
             <div class="flex items-start justify-between gap-2 mb-1">
@@ -1245,10 +1269,10 @@
                 </span>
                 <p class="font-semibold text-slate-800 text-sm"><a href="https://maps.google.com/?q=Parcul+Floreasca+Bucharest" target="_blank" rel="noopener noreferrer" class="hover:text-sea-600 transition-colors">Floreasca Park &amp; Lake ↗</a></p>
               </div>
-              <span class="text-xs bg-green-50 text-green-700 font-semibold px-2 py-0.5 rounded-full flex-shrink-0 border border-green-100">Free · Outdoor</span>
+              <span class="text-xs bg-green-50 text-green-700 font-semibold px-2 py-0.5 rounded-full flex-shrink-0 border border-green-100" data-i18n="food.tag_free">Free · Outdoor</span>
             </div>
             <p class="text-xs text-slate-400 font-medium mb-1"><span class="text-sea-600 font-semibold">2 min walk</span></p>
-            <p class="text-xs text-slate-500">Running track, outdoor gym, lakeside paths — perfect for morning jogs or evening strolls</p>
+            <p class="text-xs text-slate-500" data-i18n="food.park_d">Running track, outdoor gym, lakeside paths — perfect for morning jogs or evening strolls</p>
           </div>
           </div>
         </details>
@@ -1263,8 +1287,8 @@
                 <svg class="w-4 h-4 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4"/></svg>
               </div>
               <div>
-                <h3 class="font-semibold text-sea-900 text-sm">Getting Around</h3>
-                <p class="text-xs text-slate-400">Transport from the apartment</p>
+                <h3 class="font-semibold text-sea-900 text-sm" data-i18n="food.trans_h">Getting Around</h3>
+                <p class="text-xs text-slate-400" data-i18n="food.trans_sub">Transport from the apartment</p>
               </div>
             </div>
             <svg class="w-4 h-4 text-sea-400 flex-shrink-0 transition-transform duration-200 group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
@@ -1275,14 +1299,14 @@
               <svg class="w-4 h-4 text-blue-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
               <p class="font-semibold text-slate-800 text-sm">Metro <span class="text-xs text-sea-600 font-normal ml-1">10–15 min walk</span></p>
             </div>
-            <p class="text-xs text-slate-500">Aurel Vlaicu (15 min) or Stefan cel Mare (10 min). Line M2 to city centre in ~10 min.</p>
+            <p class="text-xs text-slate-500" data-i18n="food.metro_d">Aurel Vlaicu (15 min) or Stefan cel Mare (10 min). Line M2 to city centre in ~10 min.</p>
           </div>
           <div class="border border-slate-100 rounded-xl p-3">
             <div class="flex items-center gap-2 mb-0.5">
               <svg class="w-4 h-4 text-green-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12V7a4 4 0 018 0v5M5 19h14a1 1 0 001-1v-6H4v6a1 1 0 001 1zM7 19v2m10-2v2"/></svg>
               <p class="font-semibold text-slate-800 text-sm">Bus <span class="text-xs text-sea-600 font-normal ml-1">In front of building</span></p>
             </div>
-            <p class="text-xs text-slate-500 mb-2">Stop directly outside connects to the city centre. Use the official STB app for real-time routes &amp; tickets.</p>
+            <p class="text-xs text-slate-500 mb-2" data-i18n="food.bus_d">Stop directly outside connects to the city centre. Use the official STB app for real-time routes &amp; tickets.</p>
             <div class="flex gap-2">
               <a href="https://apps.apple.com/ro/app/info-transport-bucharest/id1454773234" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1 px-2.5 py-1 bg-black text-white text-xs font-medium rounded-lg hover:bg-gray-800 transition-colors cursor-pointer">
                 <svg class="w-3 h-3 flex-shrink-0" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
@@ -1299,7 +1323,7 @@
               <svg class="w-4 h-4 text-yellow-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 17a2 2 0 11-4 0 2 2 0 014 0zm10 0a2 2 0 11-4 0 2 2 0 014 0zM1 1h4l2.68 13.39a2 2 0 001.98 1.61h9.72a2 2 0 001.98-1.61L23 6H6"/></svg>
               <p class="font-semibold text-slate-800 text-sm">Bolt &amp; Uber</p>
             </div>
-            <p class="text-xs text-slate-500 mb-2">Both work great in Bucharest. Always use an app — avoid unmarked taxis.</p>
+            <p class="text-xs text-slate-500 mb-2" data-i18n="food.bolt_d">Both work great in Bucharest. Always use an app — avoid unmarked taxis.</p>
             <div class="flex gap-2">
               <a href="https://apps.apple.com/app/bolt-request-a-ride/id675033630" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1 px-2.5 py-1 bg-black text-white text-xs font-medium rounded-lg hover:bg-gray-800 transition-colors cursor-pointer">
                 <svg class="w-3 h-3 flex-shrink-0" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
@@ -1316,14 +1340,14 @@
               <svg class="w-4 h-4 text-sky-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"/></svg>
               <p class="font-semibold text-slate-800 text-sm">Airport <span class="text-xs text-slate-400 font-normal ml-1">Henri Coandă</span></p>
             </div>
-            <p class="text-xs text-slate-500">~30 min by taxi or Express 783 bus from Piața Unirii.</p>
+            <p class="text-xs text-slate-500" data-i18n="food.airport_d">~30 min by taxi or Express 783 bus from Piața Unirii.</p>
           </div>
           <div class="border border-slate-100 rounded-xl p-3">
             <div class="flex items-center gap-2 mb-0.5">
               <svg class="w-4 h-4 text-slate-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6M5 4h7a5 5 0 010 10H9V4z"/></svg>
               <p class="font-semibold text-slate-800 text-sm">Parking</p>
             </div>
-            <p class="text-xs text-slate-500">Free 20:00–08:00. Daytime: 6 lei (≈€1)/hr · 30 lei (≈€6)/day.</p>
+            <p class="text-xs text-slate-500" data-i18n="food.parking_d">Free 20:00–08:00. Daytime: 6 lei (≈€1)/hr · 30 lei (≈€6)/day.</p>
           </div>
           </div>
         </details>
@@ -1338,8 +1362,8 @@
                 <svg class="w-4 h-4 text-yellow-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"/></svg>
               </div>
               <div>
-                <h3 class="font-semibold text-sea-900 text-sm">Things to Do</h3>
-                <p class="text-xs text-slate-400">Floreasca, Bucharest &amp; beyond</p>
+                <h3 class="font-semibold text-sea-900 text-sm" data-i18n="food.todo_h">Things to Do</h3>
+                <p class="text-xs text-slate-400" data-i18n="food.todo_sub">Floreasca, Bucharest &amp; beyond</p>
               </div>
             </div>
             <svg class="w-4 h-4 text-sea-400 flex-shrink-0 transition-transform duration-200 group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
@@ -1412,9 +1436,9 @@
 
       <!-- Welcome card -->
       <div class="bg-gradient-to-r from-sea-700 to-sea-800 rounded-2xl p-4">
-        <p class="text-sea-300 text-xs font-semibold uppercase tracking-wide mb-1">House Rules</p>
-        <p class="text-white font-semibold text-base leading-snug">A comfortable stay for everyone</p>
-        <p class="text-sea-300 text-xs mt-1.5 leading-relaxed">Please take a moment to read through these — they're here to make your stay better.</p>
+        <p class="text-sea-300 text-xs font-semibold uppercase tracking-wide mb-1" data-i18n="rules.label">House Rules</p>
+        <p class="text-white font-semibold text-base leading-snug" data-i18n="rules.title">A comfortable stay for everyone</p>
+        <p class="text-sea-300 text-xs mt-1.5 leading-relaxed" data-i18n="rules.sub">Please take a moment to read through these — they're here to make your stay better.</p>
       </div>
 
       <!-- ── NOT ALLOWED ──────────────────────────── -->
@@ -1423,7 +1447,7 @@
           <div class="w-6 h-6 rounded-full bg-red-500 flex items-center justify-center flex-shrink-0">
             <svg class="w-3.5 h-3.5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M6 18L18 6M6 6l12 12"/></svg>
           </div>
-          <p class="font-bold text-red-700 text-sm tracking-wide uppercase">Not Allowed</p>
+          <p class="font-bold text-red-700 text-sm tracking-wide uppercase" data-i18n="rules.no">Not Allowed</p>
         </div>
         <div class="divide-y divide-slate-50">
 
@@ -1432,8 +1456,8 @@
               <svg class="w-4 h-4 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18.364 18.364A9 9 0 005.636 5.636m12.728 12.728A9 9 0 015.636 5.636m12.728 12.728L5.636 5.636"/></svg>
             </div>
             <div>
-              <p class="font-semibold text-slate-800 text-sm">No Smoking</p>
-              <p class="text-xs text-slate-500 mt-0.5 leading-relaxed">Anywhere in the apartment or on the balcony. A <strong class="text-red-600">€100 fine</strong> applies if this is violated.</p>
+              <p class="font-semibold text-slate-800 text-sm" data-i18n="rules.smoke_h">No Smoking</p>
+              <p class="text-xs text-slate-500 mt-0.5 leading-relaxed" data-i18n-html="rules.smoke_p">Anywhere in the apartment or on the balcony. A <strong class="text-red-600">€100 fine</strong> applies if this is violated.</p>
             </div>
           </div>
 
@@ -1442,8 +1466,8 @@
               <svg class="w-4 h-4 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"/></svg>
             </div>
             <div>
-              <p class="font-semibold text-slate-800 text-sm">No Pets</p>
-              <p class="text-xs text-slate-500 mt-0.5 leading-relaxed">Unless agreed upon before booking. Contact Maria in advance if you're travelling with a pet.</p>
+              <p class="font-semibold text-slate-800 text-sm" data-i18n="rules.pets_h">No Pets</p>
+              <p class="text-xs text-slate-500 mt-0.5 leading-relaxed" data-i18n="rules.pets_p">Unless agreed upon before booking. Contact Maria in advance if you're travelling with a pet.</p>
             </div>
           </div>
 
@@ -1452,8 +1476,8 @@
               <svg class="w-4 h-4 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/></svg>
             </div>
             <div>
-              <p class="font-semibold text-slate-800 text-sm">No Parties or Events</p>
-              <p class="text-xs text-slate-500 mt-0.5 leading-relaxed">This is a quiet residential building. Loud gatherings are not permitted at any time.</p>
+              <p class="font-semibold text-slate-800 text-sm" data-i18n="rules.party_h">No Parties or Events</p>
+              <p class="text-xs text-slate-500 mt-0.5 leading-relaxed" data-i18n="rules.party_p">This is a quiet residential building. Loud gatherings are not permitted at any time.</p>
             </div>
           </div>
 
@@ -1462,8 +1486,8 @@
               <svg class="w-4 h-4 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2"/></svg>
             </div>
             <div>
-              <p class="font-semibold text-slate-800 text-sm">No Loud Noise After 10 PM</p>
-              <p class="text-xs text-slate-500 mt-0.5 leading-relaxed">Quiet hours are <strong class="text-slate-700">10:00 PM – 8:00 AM</strong>. Please be mindful of neighbours.</p>
+              <p class="font-semibold text-slate-800 text-sm" data-i18n="rules.noise_h">No Loud Noise After 10 PM</p>
+              <p class="text-xs text-slate-500 mt-0.5 leading-relaxed" data-i18n-html="rules.noise_p">Quiet hours are <strong class="text-slate-700">10:00 PM – 8:00 AM</strong>. Please be mindful of neighbours.</p>
             </div>
           </div>
 
@@ -1472,8 +1496,8 @@
               <svg class="w-4 h-4 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
             </div>
             <div>
-              <p class="font-semibold text-slate-800 text-sm">No Overnight Visitors Beyond 4 Guests</p>
-              <p class="text-xs text-slate-500 mt-0.5 leading-relaxed">Max <strong class="text-slate-700">4 guests</strong> total. Day visitors are welcome — just not staying overnight without prior approval.</p>
+              <p class="font-semibold text-slate-800 text-sm" data-i18n="rules.extra_h">No Overnight Visitors Beyond 4 Guests</p>
+              <p class="text-xs text-slate-500 mt-0.5 leading-relaxed" data-i18n-html="rules.extra_p">Max <strong class="text-slate-700">4 guests</strong> total. Day visitors are welcome — just not staying overnight without prior approval.</p>
             </div>
           </div>
 
@@ -1486,7 +1510,7 @@
           <div class="w-6 h-6 rounded-full bg-green-500 flex items-center justify-center flex-shrink-0">
             <svg class="w-3.5 h-3.5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
           </div>
-          <p class="font-bold text-green-700 text-sm tracking-wide uppercase">You're Welcome To</p>
+          <p class="font-bold text-green-700 text-sm tracking-wide uppercase" data-i18n="rules.yes">You're Welcome To</p>
         </div>
         <div class="divide-y divide-slate-50">
 
@@ -1495,8 +1519,8 @@
               <svg class="w-4 h-4 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"/></svg>
             </div>
             <div>
-              <p class="font-semibold text-slate-800 text-sm">Use the Kitchen Fully</p>
-              <p class="text-xs text-slate-500 mt-0.5 leading-relaxed">Cook, use the oven, microwave, and all appliances — just clean up and wash dishes before check-out.</p>
+              <p class="font-semibold text-slate-800 text-sm" data-i18n="welcome.kitchen_h">Use the Kitchen Fully</p>
+              <p class="text-xs text-slate-500 mt-0.5 leading-relaxed" data-i18n="welcome.kitchen_p">Cook, use the oven, microwave, and all appliances — just clean up and wash dishes before check-out.</p>
             </div>
           </div>
 
@@ -1505,8 +1529,8 @@
               <svg class="w-4 h-4 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
             </div>
             <div>
-              <p class="font-semibold text-slate-800 text-sm">Have Visitors During the Day</p>
-              <p class="text-xs text-slate-500 mt-0.5 leading-relaxed">Friends and family are welcome to visit — just not to stay overnight without checking with Maria first.</p>
+              <p class="font-semibold text-slate-800 text-sm" data-i18n="welcome.visitors_h">Have Visitors During the Day</p>
+              <p class="text-xs text-slate-500 mt-0.5 leading-relaxed" data-i18n="welcome.visitors_p">Friends and family are welcome to visit — just not to stay overnight without checking with Maria first.</p>
             </div>
           </div>
 
@@ -1515,8 +1539,8 @@
               <svg class="w-4 h-4 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
             </div>
             <div>
-              <p class="font-semibold text-slate-800 text-sm">Request Early Check-in or Late Check-out</p>
-              <p class="text-xs text-slate-500 mt-0.5 leading-relaxed">Standard is <strong class="text-slate-700">check-in from 3 PM</strong>, <strong class="text-slate-700">check-out by 11 AM</strong>. Maria is flexible — just ask in advance.</p>
+              <p class="font-semibold text-slate-800 text-sm" data-i18n="welcome.checkout_h">Request Early Check-in or Late Check-out</p>
+              <p class="text-xs text-slate-500 mt-0.5 leading-relaxed" data-i18n-html="welcome.checkout_p">Standard is <strong class="text-slate-700">check-in from 3 PM</strong>, <strong class="text-slate-700">check-out by 11 AM</strong>. Maria is flexible — just ask in advance.</p>
             </div>
           </div>
 
@@ -1525,8 +1549,8 @@
               <svg class="w-4 h-4 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"/></svg>
             </div>
             <div>
-              <p class="font-semibold text-slate-800 text-sm">Use All the Amenities</p>
-              <p class="text-xs text-slate-500 mt-0.5 leading-relaxed">Netflix, WiFi, washer, air con, balcony — everything is there for you. Enjoy it.</p>
+              <p class="font-semibold text-slate-800 text-sm" data-i18n="welcome.amenities_h">Use All the Amenities</p>
+              <p class="text-xs text-slate-500 mt-0.5 leading-relaxed" data-i18n="welcome.amenities_p">Netflix, WiFi, washer, air con, balcony — everything is there for you. Enjoy it.</p>
             </div>
           </div>
 
@@ -1539,7 +1563,7 @@
           <div class="w-6 h-6 rounded-full bg-amber-400 flex items-center justify-center flex-shrink-0">
             <svg class="w-3.5 h-3.5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
           </div>
-          <p class="font-bold text-amber-700 text-sm tracking-wide uppercase">Please Keep in Mind</p>
+          <p class="font-bold text-amber-700 text-sm tracking-wide uppercase" data-i18n="keep.title">Please Keep in Mind</p>
         </div>
         <div class="divide-y divide-slate-50">
 
@@ -1548,8 +1572,8 @@
               <svg class="w-4 h-4 text-amber-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/></svg>
             </div>
             <div>
-              <p class="font-semibold text-slate-800 text-sm">Lock Up When You Leave</p>
-              <p class="text-xs text-slate-500 mt-0.5 leading-relaxed">Lock all doors and windows when going out. A key replacement fee applies if keys are lost.</p>
+              <p class="font-semibold text-slate-800 text-sm" data-i18n="keep.lock_h">Lock Up When You Leave</p>
+              <p class="text-xs text-slate-500 mt-0.5 leading-relaxed" data-i18n="keep.lock_p">Lock all doors and windows when going out. A key replacement fee applies if keys are lost.</p>
             </div>
           </div>
 
@@ -1558,8 +1582,8 @@
               <svg class="w-4 h-4 text-amber-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/></svg>
             </div>
             <div>
-              <p class="font-semibold text-slate-800 text-sm">Save Energy</p>
-              <p class="text-xs text-slate-500 mt-0.5 leading-relaxed">Turn off lights, A/C, and taps when not in use. Small gestures go a long way.</p>
+              <p class="font-semibold text-slate-800 text-sm" data-i18n="keep.energy_h">Save Energy</p>
+              <p class="text-xs text-slate-500 mt-0.5 leading-relaxed" data-i18n="keep.energy_p">Turn off lights, A/C, and taps when not in use. Small gestures go a long way.</p>
             </div>
           </div>
 
@@ -1568,8 +1592,8 @@
               <svg class="w-4 h-4 text-amber-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 7h16M4 7a2 2 0 01-2-2V4a1 1 0 011-1h18a1 1 0 011 1v1a2 2 0 01-2 2M4 7l1 13a2 2 0 002 2h10a2 2 0 002-2L20 7"/></svg>
             </div>
             <div>
-              <p class="font-semibold text-slate-800 text-sm">Dispose of Rubbish Properly</p>
-              <p class="text-xs text-slate-500 mt-0.5 leading-relaxed">Use the bins inside and outside the building. Recycling info is posted in the apartment.</p>
+              <p class="font-semibold text-slate-800 text-sm" data-i18n="keep.rubbish_h">Dispose of Rubbish Properly</p>
+              <p class="text-xs text-slate-500 mt-0.5 leading-relaxed" data-i18n="keep.rubbish_p">Use the bins inside and outside the building. Recycling info is posted in the apartment.</p>
             </div>
           </div>
 
@@ -1578,8 +1602,8 @@
               <svg class="w-4 h-4 text-amber-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"/></svg>
             </div>
             <div>
-              <p class="font-semibold text-slate-800 text-sm">Leave It as You Found It</p>
-              <p class="text-xs text-slate-500 mt-0.5 leading-relaxed">Cleaning supplies are in the apartment. A tidy space means a smooth check-out for everyone.</p>
+              <p class="font-semibold text-slate-800 text-sm" data-i18n="keep.tidy_h">Leave It as You Found It</p>
+              <p class="text-xs text-slate-500 mt-0.5 leading-relaxed" data-i18n="keep.tidy_p">Cleaning supplies are in the apartment. A tidy space means a smooth check-out for everyone.</p>
             </div>
           </div>
 
@@ -1608,10 +1632,10 @@
       <div class="info-card">
         <details class="group">
           <summary class="flex items-center justify-between cursor-pointer list-none">
-            <span class="font-semibold text-slate-800 text-sm">Can I check in early or check out late?</span>
+            <span class="font-semibold text-slate-800 text-sm" data-i18n="faq.q1">Can I check in early or check out late?</span>
             <svg class="w-4 h-4 text-slate-400 group-open:rotate-180 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
           </summary>
-          <p class="mt-3 text-sm text-slate-600 leading-relaxed">Early check-in and late check-out are subject to availability. Message Maria at least the day before — she's very flexible when the schedule allows and will do her best to accommodate you.</p>
+          <p class="mt-3 text-sm text-slate-600 leading-relaxed" data-i18n-html="faq.a1">Early check-in and late check-out are subject to availability. Message Maria at least the day before — she's very flexible when the schedule allows and will do her best to accommodate you.</p>
           <a href="https://wa.me/40758111343" target="_blank" rel="noopener noreferrer" class="mt-2 inline-flex items-center gap-1.5 text-xs font-semibold text-[#25D366] border border-green-200 hover:bg-green-50 px-3 py-1.5 rounded-full transition-colors duration-200 cursor-pointer"><svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>Message on WhatsApp</a>
         </details>
       </div>
@@ -1619,30 +1643,30 @@
       <div class="info-card">
         <details class="group">
           <summary class="flex items-center justify-between cursor-pointer list-none">
-            <span class="font-semibold text-slate-800 text-sm">Is there parking available?</span>
+            <span class="font-semibold text-slate-800 text-sm" data-i18n="faq.q2">Is there parking available?</span>
             <svg class="w-4 h-4 text-slate-400 group-open:rotate-180 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
           </summary>
-          <p class="mt-3 text-sm text-slate-600 leading-relaxed">Street parking is available around the building. It's <strong>free after 20:00 until 08:00</strong>. During the day the rate is 6 lei (≈€1) per hour or 30 lei (≈€6) for the full day.</p>
+          <p class="mt-3 text-sm text-slate-600 leading-relaxed" data-i18n-html="faq.a2">Street parking is available around the building. It's <strong>free after 20:00 until 08:00</strong>. During the day the rate is 6 lei (≈€1) per hour or 30 lei (≈€6) for the full day.</p>
         </details>
       </div>
 
       <div class="info-card">
         <details class="group">
           <summary class="flex items-center justify-between cursor-pointer list-none">
-            <span class="font-semibold text-slate-800 text-sm">Is smoking allowed?</span>
+            <span class="font-semibold text-slate-800 text-sm" data-i18n="faq.q3">Is smoking allowed?</span>
             <svg class="w-4 h-4 text-slate-400 group-open:rotate-180 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
           </summary>
-          <p class="mt-3 text-sm text-slate-600 leading-relaxed">Smoking is not permitted anywhere in the apartment, including the balcony. This is a no-smoking property.</p>
+          <p class="mt-3 text-sm text-slate-600 leading-relaxed" data-i18n="faq.a3">Smoking is not permitted anywhere in the apartment, including the balcony. This is a no-smoking property.</p>
         </details>
       </div>
 
       <div class="info-card">
         <details class="group">
           <summary class="flex items-center justify-between cursor-pointer list-none">
-            <span class="font-semibold text-slate-800 text-sm">Are pets allowed?</span>
+            <span class="font-semibold text-slate-800 text-sm" data-i18n="faq.q4">Are pets allowed?</span>
             <svg class="w-4 h-4 text-slate-400 group-open:rotate-180 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
           </summary>
-          <p class="mt-3 text-sm text-slate-600 leading-relaxed">Pets are not allowed unless they were specified and agreed upon before the booking was confirmed. If you have a pet and did not declare it at the time of booking, please message Maria to discuss.</p>
+          <p class="mt-3 text-sm text-slate-600 leading-relaxed" data-i18n-html="faq.a4">Pets are not allowed unless they were specified and agreed upon before the booking was confirmed. If you have a pet and did not declare it at the time of booking, please message Maria to discuss.</p>
           <a href="https://wa.me/40758111343" target="_blank" rel="noopener noreferrer" class="mt-2 inline-flex items-center gap-1.5 text-xs font-semibold text-[#25D366] border border-green-200 hover:bg-green-50 px-3 py-1.5 rounded-full transition-colors duration-200 cursor-pointer"><svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>Message on WhatsApp</a>
         </details>
       </div>
@@ -1650,40 +1674,40 @@
       <div class="info-card">
         <details class="group">
           <summary class="flex items-center justify-between cursor-pointer list-none">
-            <span class="font-semibold text-slate-800 text-sm">What are the quiet hours?</span>
+            <span class="font-semibold text-slate-800 text-sm" data-i18n="faq.q5">What are the quiet hours?</span>
             <svg class="w-4 h-4 text-slate-400 group-open:rotate-180 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
           </summary>
-          <p class="mt-3 text-sm text-slate-600 leading-relaxed">Please observe quiet hours between 10:00 PM and 8:00 AM, in consideration of neighbours. The building has thin walls so please keep music and voices at a moderate level.</p>
+          <p class="mt-3 text-sm text-slate-600 leading-relaxed" data-i18n="faq.a5">Please observe quiet hours between 10:00 PM and 8:00 AM, in consideration of neighbours. The building has thin walls so please keep music and voices at a moderate level.</p>
         </details>
       </div>
 
       <div class="info-card">
         <details class="group">
           <summary class="flex items-center justify-between cursor-pointer list-none">
-            <span class="font-semibold text-slate-800 text-sm">Can I have guests or throw a party?</span>
+            <span class="font-semibold text-slate-800 text-sm" data-i18n="faq.q6">Can I have guests or throw a party?</span>
             <svg class="w-4 h-4 text-slate-400 group-open:rotate-180 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
           </summary>
-          <p class="mt-3 text-sm text-slate-600 leading-relaxed">Day visitors are welcome (up to the max occupancy of 4). Parties and large gatherings are not permitted. This is a residential building and we want to keep great relations with the neighbours.</p>
+          <p class="mt-3 text-sm text-slate-600 leading-relaxed" data-i18n="faq.a6">Day visitors are welcome (up to the max occupancy of 4). Parties and large gatherings are not permitted. This is a residential building and we want to keep great relations with the neighbours.</p>
         </details>
       </div>
 
       <div class="info-card">
         <details class="group">
           <summary class="flex items-center justify-between cursor-pointer list-none">
-            <span class="font-semibold text-slate-800 text-sm">Are extra towels or bed linen available?</span>
+            <span class="font-semibold text-slate-800 text-sm" data-i18n="faq.q7">Are extra towels or bed linen available?</span>
             <svg class="w-4 h-4 text-slate-400 group-open:rotate-180 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
           </summary>
-          <p class="mt-3 text-sm text-slate-600 leading-relaxed">Extra towels and spare bed linen are available — just message Maria and she'll sort it out quickly.</p>
+          <p class="mt-3 text-sm text-slate-600 leading-relaxed" data-i18n="faq.a7">Extra towels and spare bed linen are available — just message Maria and she'll sort it out quickly.</p>
         </details>
       </div>
 
       <div class="info-card">
         <details class="group">
           <summary class="flex items-center justify-between cursor-pointer list-none">
-            <span class="font-semibold text-slate-800 text-sm">How do I order food or groceries online?</span>
+            <span class="font-semibold text-slate-800 text-sm" data-i18n="faq.q8">How do I order food or groceries online?</span>
             <svg class="w-4 h-4 text-slate-400 group-open:rotate-180 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
           </summary>
-          <div class="mt-3 space-y-2 text-sm text-slate-600">
+          <div class="mt-3 space-y-2 text-sm text-slate-600" data-i18n-html="faq.a8">
             <p><strong class="text-slate-800">Food delivery:</strong> <strong>Bolt Food</strong> or <strong>Glovo</strong> — both work great in Bucharest.</p>
             <p><strong class="text-slate-800">Grocery delivery:</strong> <strong>Glovo</strong> or <strong>Bringo</strong>.</p>
             <p><strong class="text-slate-800">Delivery address:</strong> Strada Banul Antonache 52-60, Bloc C, Apartament 17, Etaj 4, Sector 1, București.</p>
@@ -1793,5 +1817,7 @@
   });
 </script>
 
+<script src="translations-guide.js"></script>
+<script src="i18n.js"></script>
 </body>
 </html>
