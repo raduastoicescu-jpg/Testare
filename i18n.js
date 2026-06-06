@@ -6,8 +6,6 @@
   function getLang() {
     var s = localStorage.getItem('lang');
     if (s && SUPPORTED.indexOf(s) >= 0) return s;
-    var b = (navigator.language || '').substring(0, 2).toLowerCase();
-    if (SUPPORTED.indexOf(b) >= 0) return b;
     return DEFAULT;
   }
 

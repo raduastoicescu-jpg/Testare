@@ -104,23 +104,24 @@
         <span data-i18n="nav.guest_login">Guest Login</span>
       </a>
       <a href="#book" class="bg-white text-sea-800 hover:bg-sea-50 px-5 py-2 rounded-full font-semibold transition-colors duration-200 cursor-pointer shadow-sm" data-i18n="nav.book_now">Book Now</a>
+    </div>
 
-      <!-- Language switcher -->
-      <div class="relative" onclick="event.stopPropagation()">
-        <button id="lang-toggle" class="flex items-center gap-1 text-xs font-medium text-white/80 hover:text-white transition-colors px-2 py-1.5 rounded-lg cursor-pointer border border-white/20 hover:border-white/40 backdrop-blur-sm" aria-label="Change language">
-          <span id="lang-current">🇬🇧 EN</span>
-          <svg class="w-3 h-3 opacity-70" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
-        </button>
-        <div id="lang-dropdown" class="hidden absolute top-full right-0 mt-1.5 bg-white rounded-xl shadow-xl border border-slate-100 py-1.5 z-[300] w-36">
-          <button class="lang-btn w-full text-left px-4 py-2 text-xs text-slate-700 hover:bg-sea-50 hover:text-sea-800 transition-colors" data-lang="en">🇬🇧 English</button>
-          <button class="lang-btn w-full text-left px-4 py-2 text-xs text-slate-700 hover:bg-sea-50 hover:text-sea-800 transition-colors" data-lang="ro">🇷🇴 Română</button>
-          <button class="lang-btn w-full text-left px-4 py-2 text-xs text-slate-700 hover:bg-sea-50 hover:text-sea-800 transition-colors" data-lang="it">🇮🇹 Italiano</button>
-          <button class="lang-btn w-full text-left px-4 py-2 text-xs text-slate-700 hover:bg-sea-50 hover:text-sea-800 transition-colors" data-lang="de">🇩🇪 Deutsch</button>
-          <button class="lang-btn w-full text-left px-4 py-2 text-xs text-slate-700 hover:bg-sea-50 hover:text-sea-800 transition-colors" data-lang="fr">🇫🇷 Français</button>
-          <button class="lang-btn w-full text-left px-4 py-2 text-xs text-slate-700 hover:bg-sea-50 hover:text-sea-800 transition-colors" data-lang="uk">🇺🇦 Українська</button>
-        </div>
+    <!-- Language switcher — always visible -->
+    <div class="relative" onclick="event.stopPropagation()">
+      <button id="lang-toggle" class="flex items-center gap-1 text-xs font-medium text-white/80 hover:text-white transition-colors px-2 py-1.5 rounded-lg cursor-pointer border border-white/20 hover:border-white/40 backdrop-blur-sm" aria-label="Change language">
+        <span id="lang-current">🇬🇧 EN</span>
+        <svg class="w-3 h-3 opacity-70" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+      </button>
+      <div id="lang-dropdown" class="hidden absolute top-full right-0 mt-1.5 bg-white rounded-xl shadow-xl border border-slate-100 py-1.5 z-[300] w-36">
+        <button class="lang-btn w-full text-left px-4 py-2 text-xs text-slate-700 hover:bg-sea-50 hover:text-sea-800 transition-colors" data-lang="en">🇬🇧 English</button>
+        <button class="lang-btn w-full text-left px-4 py-2 text-xs text-slate-700 hover:bg-sea-50 hover:text-sea-800 transition-colors" data-lang="ro">🇷🇴 Română</button>
+        <button class="lang-btn w-full text-left px-4 py-2 text-xs text-slate-700 hover:bg-sea-50 hover:text-sea-800 transition-colors" data-lang="it">🇮🇹 Italiano</button>
+        <button class="lang-btn w-full text-left px-4 py-2 text-xs text-slate-700 hover:bg-sea-50 hover:text-sea-800 transition-colors" data-lang="de">🇩🇪 Deutsch</button>
+        <button class="lang-btn w-full text-left px-4 py-2 text-xs text-slate-700 hover:bg-sea-50 hover:text-sea-800 transition-colors" data-lang="fr">🇫🇷 Français</button>
+        <button class="lang-btn w-full text-left px-4 py-2 text-xs text-slate-700 hover:bg-sea-50 hover:text-sea-800 transition-colors" data-lang="uk">🇺🇦 Українська</button>
       </div>
     </div>
+
     <button id="nav-toggle" class="md:hidden p-2 rounded-lg cursor-pointer" aria-label="Menu">
       <svg id="menu-icon-open"  class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
       <svg id="menu-icon-close" class="w-5 h-5 text-white hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
@@ -134,21 +135,21 @@
     <nav class="max-w-7xl mx-auto px-5 py-4 flex flex-col gap-1" aria-label="Mobile navigation">
       <a href="#about"     class="mobile-nav-link flex items-center gap-3 px-4 py-3 rounded-xl text-slate-700 hover:bg-sea-50 hover:text-sea-800 font-medium text-sm transition-colors duration-200 cursor-pointer">
         <svg class="w-4 h-4 text-sea-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
-        About
+        <span data-i18n="nav.about">About</span>
       </a>
       <a href="#amenities" class="mobile-nav-link flex items-center gap-3 px-4 py-3 rounded-xl text-slate-700 hover:bg-sea-50 hover:text-sea-800 font-medium text-sm transition-colors duration-200 cursor-pointer">
         <svg class="w-4 h-4 text-sea-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"/></svg>
-        Amenities
+        <span data-i18n="nav.amenities">Amenities</span>
       </a>
       <a href="#reviews"   class="mobile-nav-link flex items-center gap-3 px-4 py-3 rounded-xl text-slate-700 hover:bg-sea-50 hover:text-sea-800 font-medium text-sm transition-colors duration-200 cursor-pointer">
         <svg class="w-4 h-4 text-sea-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z"/></svg>
-        Reviews
+        <span data-i18n="nav.reviews">Reviews</span>
       </a>
       <div class="h-px bg-slate-100 my-1"></div>
       <a href="guide.html" class="flex items-center gap-3 px-4 py-3 rounded-xl bg-sea-700 text-white hover:bg-sea-800 font-semibold text-sm transition-colors duration-200 cursor-pointer">
         <svg class="w-4 h-4 text-sea-200" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 7a2 2 0 012 2m4 0a6 6 0 01-7.743 5.743L11 17H9v2H7v2H4a1 1 0 01-1-1v-2.586a1 1 0 01.293-.707l5.964-5.964A6 6 0 1121 9z"/></svg>
-        Guest Login
-        <span class="ml-auto text-xs text-sea-300 font-normal">Confirmed guests only</span>
+        <span data-i18n="nav.guest_login">Guest Login</span>
+        <span class="ml-auto text-xs text-sea-300 font-normal" data-i18n="nav.guests_only">Confirmed guests only</span>
       </a>
       <a href="#book" class="mobile-nav-link flex items-center gap-3 px-4 py-3 rounded-xl bg-sea-500 text-white hover:bg-sea-600 font-semibold text-sm transition-colors duration-200 cursor-pointer mt-1">
         <svg class="w-4 h-4 text-sea-100" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
@@ -633,7 +634,7 @@
         </div>
 
         <a href="https://www.airbnb.co.uk/rooms/53208110#reviews" target="_blank" rel="noopener noreferrer" class="mt-6 inline-flex items-center gap-2 text-sea-700 font-medium text-sm underline hover:text-sea-900 transition-colors duration-200 cursor-pointer">
-          Read all 50+ reviews on Airbnb
+          <span data-i18n="rev.all">Read all 50+ reviews on Airbnb</span>
           <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
         </a>
       </section>
@@ -642,7 +643,7 @@
 
       <!-- Location -->
       <section id="location">
-        <h3 class="font-serif text-2xl font-semibold text-sea-950 mb-1">The neighbourhood</h3>
+        <h3 class="font-serif text-2xl font-semibold text-sea-950 mb-1" data-i18n="neigh.h">The neighbourhood</h3>
         <div class="flex items-center gap-1.5 mb-4">
           <svg class="w-3.5 h-3.5 text-sea-400" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
           <a href="https://maps.google.com/?q=Floreasca,+Sector+1,+Bucharest,+Romania" target="_blank" rel="noopener noreferrer" class="text-sm font-medium text-sea-600 hover:text-sea-800 transition-colors duration-200 cursor-pointer">Floreasca, Sector 1 · Bucharest ↗</a>
@@ -650,33 +651,33 @@
 
         <!-- Why Floreasca intro -->
         <div class="bg-gradient-to-br from-sea-700 to-sea-900 rounded-2xl p-6 mb-4 text-white">
-          <p class="font-semibold text-sea-100 text-xs uppercase tracking-widest mb-2">Why Floreasca?</p>
-          <p class="text-white text-sm leading-relaxed">Floreasca is widely considered Bucharest's most desirable address — a leafy, low-rise enclave in the prestigious Sector 1 that manages to feel like a quiet village while sitting just minutes from the city centre. Tree-lined boulevards, a thriving restaurant scene, two of the city's best parks and a genuinely international crowd make it the neighbourhood guests most often ask to return to.</p>
+          <p class="font-semibold text-sea-100 text-xs uppercase tracking-widest mb-2" data-i18n="neigh.why_h">Why Floreasca?</p>
+          <p class="text-white text-sm leading-relaxed" data-i18n="neigh.why_p">Floreasca is widely considered Bucharest's most desirable address — a leafy, low-rise enclave in the prestigious Sector 1 that manages to feel like a quiet village while sitting just minutes from the city centre. Tree-lined boulevards, a thriving restaurant scene, two of the city's best parks and a genuinely international crowd make it the neighbourhood guests most often ask to return to.</p>
           <!-- Vibe chips -->
           <div class="flex flex-wrap gap-2 mt-4">
             <span class="inline-flex items-center gap-1 bg-white/15 text-sea-100 text-xs font-medium px-2.5 py-1 rounded-full">
               <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"/></svg>
-              Green &amp; Leafy
+              <span data-i18n="neigh.green">Green &amp; Leafy</span>
             </span>
             <span class="inline-flex items-center gap-1 bg-white/15 text-sea-100 text-xs font-medium px-2.5 py-1 rounded-full">
               <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/></svg>
-              Quiet &amp; Safe
+              <span data-i18n="neigh.quiet">Quiet &amp; Safe</span>
             </span>
             <span class="inline-flex items-center gap-1 bg-white/15 text-sea-100 text-xs font-medium px-2.5 py-1 rounded-full">
               <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
-              Family Friendly
+              <span data-i18n="neigh.family">Family Friendly</span>
             </span>
             <span class="inline-flex items-center gap-1 bg-white/15 text-sea-100 text-xs font-medium px-2.5 py-1 rounded-full">
               <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"/></svg>
-              Restaurant Hub
+              <span data-i18n="neigh.restaurant">Restaurant Hub</span>
             </span>
             <span class="inline-flex items-center gap-1 bg-white/15 text-sea-100 text-xs font-medium px-2.5 py-1 rounded-full">
               <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
-              Walkable
+              <span data-i18n="neigh.walkable">Walkable</span>
             </span>
             <span class="inline-flex items-center gap-1 bg-white/15 text-sea-100 text-xs font-medium px-2.5 py-1 rounded-full">
               <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9"/></svg>
-              International Crowd
+              <span data-i18n="neigh.intl">International Crowd</span>
             </span>
           </div>
         </div>
@@ -684,61 +685,61 @@
         <!-- What makes it special -->
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-4">
           <div class="bg-slate-50 rounded-xl p-4 border border-slate-100">
-            <p class="font-semibold text-slate-800 text-sm mb-1">Parks on your doorstep</p>
-            <p class="text-xs text-slate-500 leading-relaxed">Floreasca Park &amp; Lake is 100 metres away — a hidden gem for morning jogs, picnics and watching the city slow down. Herăstrău Park, Bucharest's largest, is a short walk further.</p>
+            <p class="font-semibold text-slate-800 text-sm mb-1" data-i18n="neigh.parks_h">Parks on your doorstep</p>
+            <p class="text-xs text-slate-500 leading-relaxed" data-i18n="neigh.parks_p">Floreasca Park &amp; Lake is 100 metres away — a hidden gem for morning jogs, picnics and watching the city slow down. Herăstrău Park, Bucharest's largest, is a short walk further.</p>
           </div>
           <div class="bg-slate-50 rounded-xl p-4 border border-slate-100">
-            <p class="font-semibold text-slate-800 text-sm mb-1">The best restaurants in the city</p>
-            <p class="text-xs text-slate-500 leading-relaxed">Calea Floreasca and the surrounding streets are home to some of Bucharest's most celebrated restaurants and cafés — from neighbourhood bakeries to top-rated fine dining.</p>
+            <p class="font-semibold text-slate-800 text-sm mb-1" data-i18n="neigh.rest_h">The best restaurants in the city</p>
+            <p class="text-xs text-slate-500 leading-relaxed" data-i18n="neigh.rest_p">Calea Floreasca and the surrounding streets are home to some of Bucharest's most celebrated restaurants and cafés — from neighbourhood bakeries to top-rated fine dining.</p>
           </div>
           <div class="bg-slate-50 rounded-xl p-4 border border-slate-100">
-            <p class="font-semibold text-slate-800 text-sm mb-1">Prestige without the noise</p>
-            <p class="text-xs text-slate-500 leading-relaxed">Unlike the city centre, Floreasca is genuinely quiet. Sector 1 has some of the best-kept streets in Romania — wide pavements, mature trees, and a residential calm that makes unwinding easy.</p>
+            <p class="font-semibold text-slate-800 text-sm mb-1" data-i18n="neigh.prestige_h">Prestige without the noise</p>
+            <p class="text-xs text-slate-500 leading-relaxed" data-i18n="neigh.prestige_p">Unlike the city centre, Floreasca is genuinely quiet. Sector 1 has some of the best-kept streets in Romania — wide pavements, mature trees, and a residential calm that makes unwinding easy.</p>
           </div>
           <div class="bg-slate-50 rounded-xl p-4 border border-slate-100">
-            <p class="font-semibold text-slate-800 text-sm mb-1">Everything within reach</p>
-            <p class="text-xs text-slate-500 leading-relaxed">Promenada Mall in 10 minutes on foot, Mega Image 24/7 around the corner, metro at Aurel Vlaicu or Ștefan cel Mare, and Old Town 15 minutes away by metro.</p>
+            <p class="font-semibold text-slate-800 text-sm mb-1" data-i18n="neigh.reach_h">Everything within reach</p>
+            <p class="text-xs text-slate-500 leading-relaxed" data-i18n="neigh.reach_p">Promenada Mall in 10 minutes on foot, Mega Image 24/7 around the corner, metro at Aurel Vlaicu or Ștefan cel Mare, and Old Town 15 minutes away by metro.</p>
           </div>
         </div>
 
         <!-- Proximity list -->
         <div class="bg-sea-50 border border-sea-100 rounded-2xl p-5">
-          <p class="text-xs font-semibold text-sea-600 uppercase tracking-wider mb-3">How far is everything?</p>
+          <p class="text-xs font-semibold text-sea-600 uppercase tracking-wider mb-3" data-i18n="dist.h">How far is everything?</p>
           <div class="grid grid-cols-1 sm:grid-cols-2 gap-2.5 text-sm text-slate-600">
             <div class="flex items-start gap-2">
               <svg class="w-4 h-4 text-sea-400 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"/></svg>
-              <span><strong class="text-slate-700">Floreasca Park &amp; Lake</strong> — 100 m</span>
+              <span data-i18n-html="dist.park"><strong class="text-slate-700">Floreasca Park &amp; Lake</strong> — 100 m</span>
             </div>
             <div class="flex items-start gap-2">
               <svg class="w-4 h-4 text-sea-400 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"/></svg>
-              <span><strong class="text-slate-700">Herăstrău Park</strong> — 15 min walk</span>
+              <span data-i18n-html="dist.herastrau"><strong class="text-slate-700">Herăstrău Park</strong> — 15 min walk</span>
             </div>
             <div class="flex items-start gap-2">
               <svg class="w-4 h-4 text-sea-400 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"/></svg>
-              <span><strong class="text-slate-700">Mega Image 24/7</strong> — 3 min walk</span>
+              <span data-i18n-html="dist.mega"><strong class="text-slate-700">Mega Image 24/7</strong> — 3 min walk</span>
             </div>
             <div class="flex items-start gap-2">
               <svg class="w-4 h-4 text-sea-400 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"/></svg>
-              <span><strong class="text-slate-700">Promenada Mall</strong> — 10 min walk</span>
+              <span data-i18n-html="dist.mall"><strong class="text-slate-700">Promenada Mall</strong> — 10 min walk</span>
             </div>
             <div class="flex items-start gap-2">
               <svg class="w-4 h-4 text-sea-400 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4"/></svg>
-              <span><strong class="text-slate-700">Metro</strong> — Aurel Vlaicu 15 min · Ștefan cel Mare 10 min</span>
+              <span data-i18n-html="dist.metro"><strong class="text-slate-700">Metro</strong> — Aurel Vlaicu 15 min · Ștefan cel Mare 10 min</span>
             </div>
             <div class="flex items-start gap-2">
               <svg class="w-4 h-4 text-sea-400 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2v10z"/></svg>
-              <span><strong class="text-slate-700">Old Town</strong> — 15 min by metro</span>
+              <span data-i18n-html="dist.old_town"><strong class="text-slate-700">Old Town</strong> — 15 min by metro</span>
             </div>
             <div class="flex items-start gap-2">
               <svg class="w-4 h-4 text-sea-400 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"/></svg>
-              <span><strong class="text-slate-700">Otopeni Airport</strong> — ~30 min taxi or Express 783</span>
+              <span data-i18n-html="dist.airport"><strong class="text-slate-700">Otopeni Airport</strong> — ~30 min taxi or Express 783</span>
             </div>
             <div class="flex items-start gap-2">
               <svg class="w-4 h-4 text-sea-400 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19V6l12-3v13M9 19c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zm12-3c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zM9 10l12-3"/></svg>
-              <span><strong class="text-slate-700">Dorobanți &amp; Victoriei</strong> — 10 min walk, great café scene</span>
+              <span data-i18n-html="dist.dorobanti"><strong class="text-slate-700">Dorobanți &amp; Victoriei</strong> — 10 min walk, great café scene</span>
             </div>
           </div>
-          <p class="text-xs text-slate-400 mt-4 pt-3 border-t border-sea-100">Exact address shared with confirmed guests only.</p>
+          <p class="text-xs text-slate-400 mt-4 pt-3 border-t border-sea-100" data-i18n="dist.address">Exact address shared with confirmed guests only.</p>
         </div>
       </section>
 

@@ -112,6 +112,27 @@ en: {
   'rules.extra_h':  'No Overnight Visitors Beyond 4 Guests',
   'rules.extra_p':  'Max <strong class="text-slate-700">4 guests</strong> total. Day visitors are welcome — just not staying overnight without prior approval.',
 
+  /* Welcome to */
+  'welcome.kitchen_h':   'Use the Kitchen Fully',
+  'welcome.kitchen_p':   'Cook, use the oven, microwave, and all appliances — just clean up and wash dishes before check-out.',
+  'welcome.visitors_h':  'Have Visitors During the Day',
+  'welcome.visitors_p':  'Friends and family are welcome to visit — just not to stay overnight without checking with Maria first.',
+  'welcome.checkout_h':  'Request Early Check-in or Late Check-out',
+  'welcome.checkout_p':  'Standard is <strong class="text-slate-700">check-in from 3 PM</strong>, <strong class="text-slate-700">check-out by 11 AM</strong>. Maria is flexible — just ask in advance.',
+  'welcome.amenities_h': 'Use All the Amenities',
+  'welcome.amenities_p': 'Netflix, WiFi, washer, air con, balcony — everything is there for you. Enjoy it.',
+
+  /* Keep in mind */
+  'keep.title':     'Please Keep in Mind',
+  'keep.lock_h':    'Lock Up When You Leave',
+  'keep.lock_p':    'Lock all doors and windows when going out. A key replacement fee applies if keys are lost.',
+  'keep.energy_h':  'Save Energy',
+  'keep.energy_p':  'Turn off lights, A/C, and taps when not in use. Small gestures go a long way.',
+  'keep.rubbish_h': 'Dispose of Rubbish Properly',
+  'keep.rubbish_p': 'Use the bins inside and outside the building. Recycling info is posted in the apartment.',
+  'keep.tidy_h':    'Leave It as You Found It',
+  'keep.tidy_p':    'Cleaning supplies are in the apartment. A tidy space means a smooth check-out for everyone.',
+
   /* FAQ */
   'faq.label': 'Common questions',
   'faq.title': 'Quick answers',
@@ -218,6 +239,27 @@ ro: {
   'rules.extra_h':  'Nicio vizită de noapte peste 4 oaspeți',
   'rules.extra_p':  'Maxim <strong class="text-slate-700">4 oaspeți</strong> total. Vizitele de zi sunt binevenite — doar nu rămân peste noapte fără aprobare prealabilă.',
 
+  /* Welcome to */
+  'welcome.kitchen_h':   'Folosiți Bucătăria Complet',
+  'welcome.kitchen_p':   'Gătiți, folosiți cuptorul, microundul și toate aparatele — doar curățați și spălați vasele înainte de check-out.',
+  'welcome.visitors_h':  'Primiți Vizitatori Ziua',
+  'welcome.visitors_p':  'Prietenii și familia sunt bineveniți să viziteze — doar să nu rămână peste noapte fără a verifica mai întâi cu Maria.',
+  'welcome.checkout_h':  'Solicitați Check-in Timpuriu sau Check-out Târziu',
+  'welcome.checkout_p':  'Standard este <strong class="text-slate-700">check-in de la ora 15:00</strong>, <strong class="text-slate-700">check-out până la ora 11:00</strong>. Maria este flexibilă — întrebați din timp.',
+  'welcome.amenities_h': 'Folosiți Toate Facilitățile',
+  'welcome.amenities_p': 'Netflix, WiFi, mașină de spălat, aer condiționat, balcon — totul este acolo pentru voi. Bucurați-vă.',
+
+  /* Keep in mind */
+  'keep.title':     'Vă rugăm să Rețineți',
+  'keep.lock_h':    'Încuiați Când Plecați',
+  'keep.lock_p':    'Încuiați toate ușile și ferestrele când ieșiți. Se aplică o taxă de înlocuire a cheii dacă aceasta este pierdută.',
+  'keep.energy_h':  'Economisiți Energia',
+  'keep.energy_p':  'Stingeți luminile, aerul condiționat și robinetele când nu le folosiți. Gesturile mici contează mult.',
+  'keep.rubbish_h': 'Aruncați Gunoiul Corect',
+  'keep.rubbish_p': 'Folosiți coșurile din interiorul și exteriorul clădirii. Informațiile despre reciclare sunt postate în apartament.',
+  'keep.tidy_h':    'Lăsați Totul cum L-ați Găsit',
+  'keep.tidy_p':    'Produsele de curățenie sunt în apartament. Un spațiu ordonat înseamnă un check-out fără probleme pentru toată lumea.',
+
   'faq.label': 'Întrebări frecvente',
   'faq.title': 'Răspunsuri rapide',
 },
@@ -322,6 +364,27 @@ it: {
   'rules.noise_p':  'Le ore di silenzio sono <strong class="text-slate-700">22:00 – 08:00</strong>. Si prega di rispettare i vicini.',
   'rules.extra_h':  'Nessun ospite notturno oltre 4 persone',
   'rules.extra_p':  'Max <strong class="text-slate-700">4 ospiti</strong> totali. Le visite diurne sono benvenute — non possono pernottare senza previa approvazione.',
+
+  /* Welcome to */
+  'welcome.kitchen_h':   'Usate la Cucina Liberamente',
+  'welcome.kitchen_p':   'Cucinate, usate il forno, il microonde e tutti gli elettrodomestici — pulite e lavate i piatti prima del check-out.',
+  'welcome.visitors_h':  'Ricevete Visitatori di Giorno',
+  'welcome.visitors_p':  'Amici e familiari sono benvenuti a fare visita — non possono però pernottare senza prima consultare Maria.',
+  'welcome.checkout_h':  'Richiedete Check-in Anticipato o Check-out Posticipato',
+  'welcome.checkout_p':  'Lo standard è <strong class="text-slate-700">check-in dalle 15:00</strong>, <strong class="text-slate-700">check-out entro le 11:00</strong>. Maria è flessibile — chiedete in anticipo.',
+  'welcome.amenities_h': 'Usate Tutti i Servizi',
+  'welcome.amenities_p': 'Netflix, WiFi, lavatrice, aria condizionata, balcone — tutto è lì per voi. Godetevelo.',
+
+  /* Keep in mind */
+  'keep.title':     'Tenete a Mente',
+  'keep.lock_h':    'Chiudete a Chiave Quando Uscite',
+  'keep.lock_p':    'Chiudete tutte le porte e le finestre quando uscite. Si applica un costo di sostituzione chiave se le chiavi vengono perse.',
+  'keep.energy_h':  'Risparmiate Energia',
+  'keep.energy_p':  'Spegnete luci, aria condizionata e rubinetti quando non li usate. I piccoli gesti fanno la differenza.',
+  'keep.rubbish_h': 'Smaltite i Rifiuti Correttamente',
+  'keep.rubbish_p': 'Utilizzate i bidoni all\'interno e all\'esterno dell\'edificio. Le informazioni sul riciclaggio sono affisse nell\'appartamento.',
+  'keep.tidy_h':    'Lasciate Tutto Come lo Avete Trovato',
+  'keep.tidy_p':    'I prodotti per la pulizia sono nell\'appartamento. Uno spazio ordinato significa un check-out senza problemi per tutti.',
 
   'faq.label': 'Domande comuni',
   'faq.title': 'Risposte rapide',
@@ -428,6 +491,27 @@ de: {
   'rules.extra_h':  'Keine Übernachtungsgäste über 4 Personen',
   'rules.extra_p':  'Max. <strong class="text-slate-700">4 Gäste</strong> insgesamt. Tagesbesucher sind willkommen — Übernachtungen nur mit vorheriger Genehmigung.',
 
+  /* Welcome to */
+  'welcome.kitchen_h':   'Die Küche Vollständig Nutzen',
+  'welcome.kitchen_p':   'Kochen, Backofen, Mikrowelle und alle Geräte nutzen — einfach aufräumen und Geschirr vor dem Check-out abwaschen.',
+  'welcome.visitors_h':  'Tagsüber Besucher Empfangen',
+  'welcome.visitors_p':  'Freunde und Familie sind willkommen — sie dürfen jedoch nicht ohne vorherige Absprache mit Maria übernachten.',
+  'welcome.checkout_h':  'Frühes Check-in oder Spätes Check-out Anfragen',
+  'welcome.checkout_p':  'Standard ist <strong class="text-slate-700">Check-in ab 15:00 Uhr</strong>, <strong class="text-slate-700">Check-out bis 11:00 Uhr</strong>. Maria ist flexibel — einfach im Voraus fragen.',
+  'welcome.amenities_h': 'Alle Annehmlichkeiten Nutzen',
+  'welcome.amenities_p': 'Netflix, WLAN, Waschmaschine, Klimaanlage, Balkon — alles steht Ihnen zur Verfügung. Genießen Sie es.',
+
+  /* Keep in mind */
+  'keep.title':     'Bitte Beachten',
+  'keep.lock_h':    'Abschließen Beim Verlassen',
+  'keep.lock_p':    'Alle Türen und Fenster beim Rausgehen abschließen. Eine Schlüsselersatzgebühr fällt an, wenn Schlüssel verloren gehen.',
+  'keep.energy_h':  'Energie Sparen',
+  'keep.energy_p':  'Lichter, Klimaanlage und Wasserhähne ausschalten, wenn sie nicht in Gebrauch sind. Kleine Gesten machen einen großen Unterschied.',
+  'keep.rubbish_h': 'Müll Richtig Entsorgen',
+  'keep.rubbish_p': 'Die Tonnen innerhalb und außerhalb des Gebäudes nutzen. Recycling-Informationen hängen in der Wohnung aus.',
+  'keep.tidy_h':    'Alles So Hinterlassen Wie Vorgefunden',
+  'keep.tidy_p':    'Reinigungsmittel sind in der Wohnung vorhanden. Ein ordentlicher Raum bedeutet einen reibungslosen Check-out für alle.',
+
   'faq.label': 'Häufige Fragen',
   'faq.title': 'Schnelle Antworten',
 },
@@ -533,6 +617,27 @@ fr: {
   'rules.extra_h':  'Pas de visiteurs nocturnes au-delà de 4 voyageurs',
   'rules.extra_p':  'Max <strong class="text-slate-700">4 voyageurs</strong> au total. Les visites de jour sont les bienvenues — pas de nuit sans approbation préalable.',
 
+  /* Welcome to */
+  'welcome.kitchen_h':   'Utilisez Pleinement la Cuisine',
+  'welcome.kitchen_p':   'Cuisinez, utilisez le four, le micro-ondes et tous les appareils — faites juste la vaisselle et nettoyez avant le check-out.',
+  'welcome.visitors_h':  'Recevez des Visiteurs dans la Journée',
+  'welcome.visitors_p':  'Amis et famille sont les bienvenus pour rendre visite — mais pas pour passer la nuit sans consulter Maria au préalable.',
+  'welcome.checkout_h':  'Demandez un Check-in Anticipé ou un Check-out Tardif',
+  'welcome.checkout_p':  'Le standard est <strong class="text-slate-700">check-in à partir de 15h</strong>, <strong class="text-slate-700">check-out avant 11h</strong>. Maria est flexible — demandez à l\'avance.',
+  'welcome.amenities_h': 'Profitez de Toutes les Commodités',
+  'welcome.amenities_p': 'Netflix, WiFi, lave-linge, climatisation, balcon — tout est là pour vous. Profitez-en.',
+
+  /* Keep in mind */
+  'keep.title':     'Quelques Points à Garder à l\'Esprit',
+  'keep.lock_h':    'Fermez à Clé en Partant',
+  'keep.lock_p':    'Fermez toutes les portes et fenêtres en sortant. Des frais de remplacement de clé s\'appliquent en cas de perte.',
+  'keep.energy_h':  'Économisez l\'Énergie',
+  'keep.energy_p':  'Éteignez les lumières, la climatisation et les robinets quand vous ne les utilisez pas. Les petits gestes comptent beaucoup.',
+  'keep.rubbish_h': 'Jetez les Ordures Correctement',
+  'keep.rubbish_p': 'Utilisez les poubelles à l\'intérieur et à l\'extérieur du bâtiment. Les informations sur le recyclage sont affichées dans l\'appartement.',
+  'keep.tidy_h':    'Laissez les Lieux Comme Vous les Avez Trouvés',
+  'keep.tidy_p':    'Les produits de nettoyage sont dans l\'appartement. Un espace bien rangé signifie un check-out sans problème pour tout le monde.',
+
   'faq.label': 'Questions fréquentes',
   'faq.title': 'Réponses rapides',
 },
@@ -637,6 +742,27 @@ uk: {
   'rules.noise_p':  'Тихий час — <strong class="text-slate-700">22:00 – 08:00</strong>. Будь ласка, поважайте сусідів.',
   'rules.extra_h':  'Жодних нічних гостей понад 4 особи',
   'rules.extra_p':  'Максимум <strong class="text-slate-700">4 гості</strong> загалом. Денні відвідувачі вітаються — нічувати без попереднього дозволу не можна.',
+
+  /* Welcome to */
+  'welcome.kitchen_h':   'Повністю Користуйтесь Кухнею',
+  'welcome.kitchen_p':   'Готуйте, користуйтесь духовкою, мікрохвильовою піччю та всіма приладами — лише приберіть та помийте посуд перед виїздом.',
+  'welcome.visitors_h':  'Приймайте Гостей Вдень',
+  'welcome.visitors_p':  'Друзі та родина можуть приходити в гості — але не залишатися ночувати без попереднього погодження з Марією.',
+  'welcome.checkout_h':  'Запросіть Ранній Заїзд або Пізній Виїзд',
+  'welcome.checkout_p':  'Стандартно — <strong class="text-slate-700">заїзд з 15:00</strong>, <strong class="text-slate-700">виїзд до 11:00</strong>. Марія гнучка — просто запитайте заздалегідь.',
+  'welcome.amenities_h': 'Користуйтесь Усіма Зручностями',
+  'welcome.amenities_p': 'Netflix, WiFi, пральна машина, кондиціонер, балкон — все це для вас. Насолоджуйтесь.',
+
+  /* Keep in mind */
+  'keep.title':     'Будь Ласка, Майте на Увазі',
+  'keep.lock_h':    'Зачиняйте на Ключ Виходячи',
+  'keep.lock_p':    'Зачиняйте всі двері та вікна, виходячи з квартири. При втраті ключів застосовується плата за заміну.',
+  'keep.energy_h':  'Економте Енергію',
+  'keep.energy_p':  'Вимикайте світло, кондиціонер і крани, коли не користуєтесь ними. Маленькі жести мають велике значення.',
+  'keep.rubbish_h': 'Правильно Утилізуйте Сміття',
+  'keep.rubbish_p': 'Використовуйте баки всередині та зовні будівлі. Інформація про сортування відходів розміщена в квартирі.',
+  'keep.tidy_h':    'Залиште Все Як Знайшли',
+  'keep.tidy_p':    'Засоби прибирання є в квартирі. Охайний простір означає безпроблемний виїзд для всіх.',
 
   'faq.label': 'Поширені запитання',
   'faq.title': 'Швидкі відповіді',
