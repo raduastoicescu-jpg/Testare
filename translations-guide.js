@@ -200,8 +200,8 @@ ro: {
   'kit.title': 'Bucătărie Complet Echipată',
   'kit.desc':  'Veți găsi tot ce aveți nevoie pentru a găti — oale, cratițe, tigăi, ustensile, farfurii, pahare și tocătoare — în sertare și dulapuri. Bucătăria are și un <strong class="text-slate-700">cuptor cu microunde</strong>, un <strong class="text-slate-700">frigider cu congelator</strong> și o <strong class="text-slate-700">cană filtrantă pentru apă</strong>. Serviți-vă și simțiți-vă ca acasă.',
 
-  'app.oven':      'Cuptor &amp; Aragaz cu gaz',
-  'app.oven_warn': 'Aparat pe gaz — apartamentul are alarmă de fum &amp; gaz pentru siguranța dumneavoastră',
+  'app.oven':      'Cuptor & Aragaz cu gaz',
+  'app.oven_warn': 'Aparat pe gaz — apartamentul are alarmă de fum & gaz pentru siguranța dumneavoastră',
   'app.hob':       'Aragaz (plita)',
   'app.gas':       'Cuptor pe gaz',
   'app.wash':      'Mașină de spălat',
@@ -215,7 +215,7 @@ ro: {
   'extra.title':    'Ce Altceva Veți Găsi',
   'extra.ironing':  'Călcat',
   'extra.ironing_desc': '<strong class="text-slate-600">Fierul de călcat</strong> se află în dulapul din living. <strong class="text-slate-600">Masa de călcat</strong> este în dormitor, în spatele perdelei.',
-  'extra.bathroom': 'Uscător de păr &amp; Toalete',
+  'extra.bathroom': 'Uscător de păr & Toalete',
   'extra.bathroom_desc': 'În baie veți găsi un <strong class="text-slate-600">uscător de păr</strong> și o selecție de <strong class="text-slate-600">produse de toaletă</strong> — aparate de ras, periuță de dinți, deodorant și altele. Ce folosiți, vă rugăm să aruncați, nu să puneți înapoi.',
   'extra.rule':     'După ce folosiți ceva — masă de călcat, uscător de păr, tigăi — vă rugăm să-l curățați rapid și să-l puneți la loc. Mulțumim!',
 
@@ -326,8 +326,8 @@ it: {
   'kit.title': 'Cucina Completamente Attrezzata',
   'kit.desc':  'Troverai tutto il necessario per cucinare — pentole, casseruole, padelle, utensili, piatti, bicchieri e taglieri — nei cassetti e negli armadi. La cucina ha anche un <strong class="text-slate-700">microonde</strong>, un <strong class="text-slate-700">frigorifero con congelatore</strong> e una <strong class="text-slate-700">caraffa filtrante</strong>. Serviti pure e sentiti a casa.',
 
-  'app.oven':      'Forno a gas &amp; Fornello',
-  'app.oven_warn': 'Apparecchio a gas — l\'appartamento ha un allarme fumo &amp; gas per la tua sicurezza',
+  'app.oven':      'Forno a gas & Fornello',
+  'app.oven_warn': 'Apparecchio a gas — l\'appartamento ha un allarme fumo & gas per la tua sicurezza',
   'app.hob':       'Fornello a gas (piano cottura)',
   'app.gas':       'Forno a gas',
   'app.wash':      'Lavatrice',
@@ -341,7 +341,7 @@ it: {
   'extra.title':    'Cos\'altro Troverai',
   'extra.ironing':  'Stiratura',
   'extra.ironing_desc': 'Il <strong class="text-slate-600">centro stiro</strong> è nell\'armadio del soggiorno. Il <strong class="text-slate-600">tavolo da stiro</strong> è in camera da letto, dietro la tenda.',
-  'extra.bathroom': 'Asciugacapelli &amp; Articoli da bagno',
+  'extra.bathroom': 'Asciugacapelli & Articoli da bagno',
   'extra.bathroom_desc': 'In bagno troverai un <strong class="text-slate-600">asciugacapelli</strong> e una selezione di <strong class="text-slate-600">articoli da bagno</strong> — rasoi, spazzolino, deodorante e altro. Quello che usi, gettalo via piuttosto che rimetterlo a posto.',
   'extra.rule':     'Dopo aver usato qualcosa — asse da stiro, asciugacapelli, padelle — puliscilo rapidamente e rimettilo dove l\'hai trovato. Grazie!',
 
@@ -452,8 +452,8 @@ de: {
   'kit.title': 'Voll ausgestattete Küche',
   'kit.desc':  'Sie finden alles zum Kochen — Töpfe, Pfannen, Bratpfannen, Utensilien, Teller, Gläser und Schneidbretter — in den Schubladen und Schränken. Die Küche hat auch eine <strong class="text-slate-700">Mikrowelle</strong>, einen <strong class="text-slate-700">Kühlschrank mit Gefrierfach</strong> und einen <strong class="text-slate-700">Wasserfilter-Krug</strong>. Bedienen Sie sich und fühlen Sie sich wie zu Hause.',
 
-  'app.oven':      'Gasherd &amp; -ofen',
-  'app.oven_warn': 'Gasgerät — die Wohnung hat einen Rauch- &amp; Gasalarm für Ihre Sicherheit',
+  'app.oven':      'Gasherd & -ofen',
+  'app.oven_warn': 'Gasgerät — die Wohnung hat einen Rauch- & Gasalarm für Ihre Sicherheit',
   'app.hob':       'Gaskochfeld',
   'app.gas':       'Gasbackofen',
   'app.wash':      'Waschmaschine',
@@ -467,7 +467,7 @@ de: {
   'extra.title':    'Was Sie noch Finden',
   'extra.ironing':  'Bügeln',
   'extra.ironing_desc': 'Die <strong class="text-slate-600">Bügelstation</strong> befindet sich im Wohnzimmerschrank. Das <strong class="text-slate-600">Bügelbrett</strong> ist im Schlafzimmer, hinter dem Vorhang.',
-  'extra.bathroom': 'Haartrockner &amp; Toilettenartikel',
+  'extra.bathroom': 'Haartrockner & Toilettenartikel',
   'extra.bathroom_desc': 'Im Badezimmer finden Sie einen <strong class="text-slate-600">Haartrockner</strong> und eine Auswahl an <strong class="text-slate-600">Toilettenartikeln</strong> — Rasierer, Zahnbürste, Deodorant und mehr. Was Sie benutzen, werfen Sie bitte weg, anstatt es zurückzulegen.',
   'extra.rule':     'Nach dem Benutzen von etwas — Bügelbrett, Haartrockner, Pfannen — bitte kurz reinigen und zurücklegen, wo Sie es gefunden haben. Danke!',
 
@@ -578,8 +578,8 @@ fr: {
   'kit.title': 'Cuisine Entièrement Équipée',
   'kit.desc':  'Vous trouverez tout le nécessaire pour cuisiner — casseroles, poêles, ustensiles, assiettes, verres et planches à découper — dans les tiroirs et les placards. La cuisine dispose également d\'un <strong class="text-slate-700">micro-ondes</strong>, d\'un <strong class="text-slate-700">réfrigérateur avec congélateur</strong> et d\'une <strong class="text-slate-700">carafe filtrante</strong>. Servez-vous et faites comme chez vous.',
 
-  'app.oven':      'Four à gaz &amp; Plaque',
-  'app.oven_warn': 'Appareil à gaz — l\'appartement a une alarme fumée &amp; gaz pour votre sécurité',
+  'app.oven':      'Four à gaz & Plaque',
+  'app.oven_warn': 'Appareil à gaz — l\'appartement a une alarme fumée & gaz pour votre sécurité',
   'app.hob':       'Plaque de cuisson à gaz',
   'app.gas':       'Four à gaz',
   'app.wash':      'Lave-linge',
@@ -593,7 +593,7 @@ fr: {
   'extra.title':    'Ce que Vous Trouverez d\'Autre',
   'extra.ironing':  'Repassage',
   'extra.ironing_desc': 'Le <strong class="text-slate-600">centre de repassage</strong> est dans le placard du salon. La <strong class="text-slate-600">planche à repasser</strong> est dans la chambre, derrière le rideau.',
-  'extra.bathroom': 'Sèche-cheveux &amp; Produits de toilette',
+  'extra.bathroom': 'Sèche-cheveux & Produits de toilette',
   'extra.bathroom_desc': 'Dans la salle de bain vous trouverez un <strong class="text-slate-600">sèche-cheveux</strong> et une sélection de <strong class="text-slate-600">produits de toilette</strong> — rasoirs, brosse à dents, déodorant et plus. Ce que vous utilisez, jetez-le plutôt que de le remettre.',
   'extra.rule':     'Après avoir utilisé quelque chose — planche à repasser, sèche-cheveux, poêles — nettoyez-le rapidement et remettez-le où vous l\'avez trouvé. Merci !',
 
