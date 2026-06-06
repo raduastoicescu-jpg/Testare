@@ -80,6 +80,7 @@
     .cal-range-start.cal-range-end { border-radius: 50% !important; }
     .cal-disabled { color: #CBD5E1; cursor: default; pointer-events: none; }
     .cal-today { font-weight: 700; color: #0369A1; }
+    .lang-active { font-weight: 700; color: #0369A1 !important; }
   </style>
 </head>
 
@@ -95,14 +96,30 @@
       <span id="nav-title" class="font-serif font-semibold text-lg text-white drop-shadow transition-colors duration-300">Lovely Condo Bucharest</span>
     </a>
     <div class="hidden md:flex items-center gap-7 text-sm font-medium">
-      <a href="#about"     id="nav-about"     class="text-white/90 hover:text-white transition-colors duration-200 drop-shadow cursor-pointer">About</a>
-      <a href="#amenities" id="nav-amenities" class="text-white/90 hover:text-white transition-colors duration-200 drop-shadow cursor-pointer">Amenities</a>
-      <a href="#reviews"   id="nav-reviews"   class="text-white/90 hover:text-white transition-colors duration-200 drop-shadow cursor-pointer">Reviews</a>
+      <a href="#about"     id="nav-about"     class="text-white/90 hover:text-white transition-colors duration-200 drop-shadow cursor-pointer" data-i18n="nav.about">About</a>
+      <a href="#amenities" id="nav-amenities" class="text-white/90 hover:text-white transition-colors duration-200 drop-shadow cursor-pointer" data-i18n="nav.amenities">Amenities</a>
+      <a href="#reviews"   id="nav-reviews"   class="text-white/90 hover:text-white transition-colors duration-200 drop-shadow cursor-pointer" data-i18n="nav.reviews">Reviews</a>
       <a id="nav-guide" href="guide.html" class="flex items-center gap-1.5 border border-white/40 text-white hover:bg-white/15 px-4 py-1.5 rounded-full text-sm font-semibold transition-all duration-200 cursor-pointer backdrop-blur-sm">
         <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 7a2 2 0 012 2m4 0a6 6 0 01-7.743 5.743L11 17H9v2H7v2H4a1 1 0 01-1-1v-2.586a1 1 0 01.293-.707l5.964-5.964A6 6 0 1121 9z"/></svg>
-        Guest Login
+        <span data-i18n="nav.guest_login">Guest Login</span>
       </a>
-      <a href="#book" class="bg-white text-sea-800 hover:bg-sea-50 px-5 py-2 rounded-full font-semibold transition-colors duration-200 cursor-pointer shadow-sm">Book Now</a>
+      <a href="#book" class="bg-white text-sea-800 hover:bg-sea-50 px-5 py-2 rounded-full font-semibold transition-colors duration-200 cursor-pointer shadow-sm" data-i18n="nav.book_now">Book Now</a>
+
+      <!-- Language switcher -->
+      <div class="relative" onclick="event.stopPropagation()">
+        <button id="lang-toggle" class="flex items-center gap-1 text-xs font-medium text-white/80 hover:text-white transition-colors px-2 py-1.5 rounded-lg cursor-pointer border border-white/20 hover:border-white/40 backdrop-blur-sm" aria-label="Change language">
+          <span id="lang-current">🇬🇧 EN</span>
+          <svg class="w-3 h-3 opacity-70" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+        </button>
+        <div id="lang-dropdown" class="hidden absolute top-full right-0 mt-1.5 bg-white rounded-xl shadow-xl border border-slate-100 py-1.5 z-[300] w-36">
+          <button class="lang-btn w-full text-left px-4 py-2 text-xs text-slate-700 hover:bg-sea-50 hover:text-sea-800 transition-colors" data-lang="en">🇬🇧 English</button>
+          <button class="lang-btn w-full text-left px-4 py-2 text-xs text-slate-700 hover:bg-sea-50 hover:text-sea-800 transition-colors" data-lang="ro">🇷🇴 Română</button>
+          <button class="lang-btn w-full text-left px-4 py-2 text-xs text-slate-700 hover:bg-sea-50 hover:text-sea-800 transition-colors" data-lang="it">🇮🇹 Italiano</button>
+          <button class="lang-btn w-full text-left px-4 py-2 text-xs text-slate-700 hover:bg-sea-50 hover:text-sea-800 transition-colors" data-lang="de">🇩🇪 Deutsch</button>
+          <button class="lang-btn w-full text-left px-4 py-2 text-xs text-slate-700 hover:bg-sea-50 hover:text-sea-800 transition-colors" data-lang="fr">🇫🇷 Français</button>
+          <button class="lang-btn w-full text-left px-4 py-2 text-xs text-slate-700 hover:bg-sea-50 hover:text-sea-800 transition-colors" data-lang="uk">🇺🇦 Українська</button>
+        </div>
+      </div>
     </div>
     <button id="nav-toggle" class="md:hidden p-2 rounded-lg cursor-pointer" aria-label="Menu">
       <svg id="menu-icon-open"  class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
@@ -135,8 +152,17 @@
       </a>
       <a href="#book" class="mobile-nav-link flex items-center gap-3 px-4 py-3 rounded-xl bg-sea-500 text-white hover:bg-sea-600 font-semibold text-sm transition-colors duration-200 cursor-pointer mt-1">
         <svg class="w-4 h-4 text-sea-100" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
-        Book Now
+        <span data-i18n="nav.book_now">Book Now</span>
       </a>
+      <div class="h-px bg-slate-100 my-1"></div>
+      <div class="flex flex-wrap gap-1.5 px-4 py-2">
+        <button class="lang-btn text-xs px-3 py-1.5 rounded-lg bg-slate-50 border border-slate-200 text-slate-700 hover:bg-sea-50 hover:border-sea-200 transition-colors" data-lang="en">🇬🇧 EN</button>
+        <button class="lang-btn text-xs px-3 py-1.5 rounded-lg bg-slate-50 border border-slate-200 text-slate-700 hover:bg-sea-50 hover:border-sea-200 transition-colors" data-lang="ro">🇷🇴 RO</button>
+        <button class="lang-btn text-xs px-3 py-1.5 rounded-lg bg-slate-50 border border-slate-200 text-slate-700 hover:bg-sea-50 hover:border-sea-200 transition-colors" data-lang="it">🇮🇹 IT</button>
+        <button class="lang-btn text-xs px-3 py-1.5 rounded-lg bg-slate-50 border border-slate-200 text-slate-700 hover:bg-sea-50 hover:border-sea-200 transition-colors" data-lang="de">🇩🇪 DE</button>
+        <button class="lang-btn text-xs px-3 py-1.5 rounded-lg bg-slate-50 border border-slate-200 text-slate-700 hover:bg-sea-50 hover:border-sea-200 transition-colors" data-lang="fr">🇫🇷 FR</button>
+        <button class="lang-btn text-xs px-3 py-1.5 rounded-lg bg-slate-50 border border-slate-200 text-slate-700 hover:bg-sea-50 hover:border-sea-200 transition-colors" data-lang="uk">🇺🇦 UA</button>
+      </div>
     </nav>
   </div>
 </div>
@@ -174,7 +200,7 @@
         <svg class="w-4 h-4 text-amber-400" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
           <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
         </svg>
-        <span>4.96 · Guest Favorite</span>
+        <span data-i18n="hero.rating">4.96 · Guest Favorite</span>
         <svg class="w-3 h-3 text-white/60" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
       </button>
       <!-- superhost chip -->
@@ -182,12 +208,11 @@
         <svg class="w-4 h-4 text-sea-300" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"/>
         </svg>
-        <span>Superhost</span>
+        <span data-i18n="hero.superhost">Superhost</span>
         <svg class="w-3 h-3 text-sea-300 opacity-70" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
       </button>
       <!-- CTA -->
-      <a href="#book" class="ml-0 md:ml-2 bg-sea-500 hover:bg-sea-600 text-white font-semibold px-7 py-2.5 rounded-full transition-colors duration-200 cursor-pointer shadow-lg">
-        Check Availability
+      <a href="#book" class="ml-0 md:ml-2 bg-sea-500 hover:bg-sea-600 text-white font-semibold px-7 py-2.5 rounded-full transition-colors duration-200 cursor-pointer shadow-lg" data-i18n="hero.cta">Check Availability
       </a>
     </div>
   </div>
@@ -205,7 +230,7 @@
       <section id="about">
         <!-- Type · location · rating — all inline, dots as separators -->
         <div class="flex items-center gap-1.5 text-sm text-slate-500 flex-wrap">
-          <span class="font-semibold text-sea-700 bg-sea-50 border border-sea-100 px-2.5 py-0.5 rounded-full text-xs whitespace-nowrap">Entire condo</span>
+          <span class="font-semibold text-sea-700 bg-sea-50 border border-sea-100 px-2.5 py-0.5 rounded-full text-xs whitespace-nowrap" data-i18n="about.type">Entire condo</span>
           <span class="text-slate-300">·</span>
           <a href="https://maps.google.com/?q=Floreasca,+Sector+1,+Bucharest,+Romania" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1 whitespace-nowrap hover:text-sea-600 transition-colors duration-200 cursor-pointer">
             <svg class="w-3 h-3 text-sea-400 flex-shrink-0" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
@@ -222,19 +247,19 @@
 
         <!-- Stat pills — no wrapping issues -->
         <div class="flex flex-wrap gap-2 mt-4">
-          <span class="inline-flex items-center gap-1.5 text-xs text-slate-600 bg-slate-50 border border-slate-200 px-3 py-1.5 rounded-full">
+          <span class="inline-flex items-center gap-1.5 text-xs text-slate-600 bg-slate-50 border border-slate-200 px-3 py-1.5 rounded-full" data-i18n="about.guests">
             <svg class="w-3.5 h-3.5 text-sea-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
             4 guests
           </span>
-          <span class="inline-flex items-center gap-1.5 text-xs text-slate-600 bg-slate-50 border border-slate-200 px-3 py-1.5 rounded-full">
+          <span class="inline-flex items-center gap-1.5 text-xs text-slate-600 bg-slate-50 border border-slate-200 px-3 py-1.5 rounded-full" data-i18n="about.beds">
             <svg class="w-3.5 h-3.5 text-sea-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/></svg>
             1 bedroom · 2 beds
           </span>
-          <span class="inline-flex items-center gap-1.5 text-xs text-slate-600 bg-slate-50 border border-slate-200 px-3 py-1.5 rounded-full">
+          <span class="inline-flex items-center gap-1.5 text-xs text-slate-600 bg-slate-50 border border-slate-200 px-3 py-1.5 rounded-full" data-i18n="about.bath">
             <svg class="w-3.5 h-3.5 text-sea-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7H5a2 2 0 00-2 2v9a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-3m-1 4l-3 3m0 0l-3-3m3 3V4"/></svg>
             1 bathroom
           </span>
-          <span class="inline-flex items-center gap-1.5 text-xs text-slate-600 bg-slate-50 border border-slate-200 px-3 py-1.5 rounded-full">
+          <span class="inline-flex items-center gap-1.5 text-xs text-slate-600 bg-slate-50 border border-slate-200 px-3 py-1.5 rounded-full" data-i18n="about.floor">
             <svg class="w-3.5 h-3.5 text-sea-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/></svg>
             4th floor · Balcony
           </span>
@@ -249,20 +274,20 @@
           <img src="images/maria-profile.jpg" alt="Maria" class="w-full h-full object-cover object-top">
         </button>
         <div>
-          <p class="font-semibold text-sea-950">Hosted by Maria</p>
-          <button onclick="openSuperhost()" class="text-sm text-slate-500 hover:text-sea-600 transition-colors cursor-pointer text-left">Superhost · 5 years hosting <span class="text-xs text-sea-400">(?)</span></button>
+          <p class="font-semibold text-sea-950" data-i18n="host.by">Hosted by Maria</p>
+          <button onclick="openSuperhost()" class="text-sm text-slate-500 hover:text-sea-600 transition-colors cursor-pointer text-left" data-i18n="host.sh">Superhost · 5 years hosting <span class="text-xs text-sea-400">(?)</span></button>
         </div>
         <div class="ml-auto flex items-center gap-2">
           <button onclick="openSuperhost()" class="inline-flex items-center gap-1.5 text-xs font-semibold text-sea-700 bg-sea-50 border border-sea-200 px-3 py-1.5 rounded-full hover:bg-sea-100 transition-colors cursor-pointer">
             <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
-            Verified Superhost
+            <span data-i18n="host.verified">Verified Superhost</span>
           </button>
         </div>
       </div>
       <div class="mt-3 flex flex-wrap gap-2">
         <a href="https://www.airbnb.com/guest/messages/2554464184" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 text-xs font-semibold text-white bg-sea-600 hover:bg-sea-700 px-3 py-1.5 rounded-full transition-colors cursor-pointer">
           <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/></svg>
-          Message Maria on Airbnb
+          <span data-i18n="host.message">Message Maria on Airbnb</span>
         </a>
       </div>
 
@@ -275,8 +300,8 @@
             <svg class="w-5 h-5 text-sea-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/></svg>
           </div>
           <div>
-            <p class="font-semibold text-sea-950 text-sm">Top 10% of homes</p>
-            <p class="text-xs text-slate-500 mt-0.5 leading-relaxed">Highly ranked for ratings, reviews &amp; reliability</p>
+            <p class="font-semibold text-sea-950 text-sm" data-i18n="hi.top10.t">Top 10% of homes</p>
+            <p class="text-xs text-slate-500 mt-0.5 leading-relaxed" data-i18n="hi.top10.d">Highly ranked for ratings, reviews &amp; reliability</p>
           </div>
         </div>
         <div class="flex items-start gap-3">
@@ -284,8 +309,8 @@
             <svg class="w-5 h-5 text-sea-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.111 16.404a5.5 5.5 0 017.778 0M12 20h.01m-7.08-7.071c3.904-3.905 10.236-3.905 14.141 0M1.394 9.393c5.857-5.857 15.355-5.857 21.213 0"/></svg>
           </div>
           <div>
-            <p class="font-semibold text-sea-950 text-sm">454 Mbps WiFi + workspace</p>
-            <p class="text-xs text-slate-500 mt-0.5 leading-relaxed">Ergonomic chair &amp; laptop stand — work from anywhere</p>
+            <p class="font-semibold text-sea-950 text-sm" data-i18n="hi.wifi.t">454 Mbps WiFi + workspace</p>
+            <p class="text-xs text-slate-500 mt-0.5 leading-relaxed" data-i18n="hi.wifi.d">Ergonomic chair &amp; laptop stand — work from anywhere</p>
           </div>
         </div>
         <div class="flex items-start gap-3">
@@ -293,8 +318,8 @@
             <svg class="w-5 h-5 text-sea-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/></svg>
           </div>
           <div>
-            <p class="font-semibold text-sea-950 text-sm">Self check-in, any time</p>
-            <p class="text-xs text-slate-500 mt-0.5 leading-relaxed">Lockbox entry — arrive early morning or late at night</p>
+            <p class="font-semibold text-sea-950 text-sm" data-i18n="hi.ci.t">Self check-in, any time</p>
+            <p class="text-xs text-slate-500 mt-0.5 leading-relaxed" data-i18n="hi.ci.d">Lockbox entry — arrive early morning or late at night</p>
           </div>
         </div>
         <div class="flex items-start gap-3">
@@ -302,8 +327,8 @@
             <svg class="w-5 h-5 text-sea-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
           </div>
           <div>
-            <p class="font-semibold text-sea-950 text-sm">Family-ready</p>
-            <p class="text-xs text-slate-500 mt-0.5 leading-relaxed">Cot, travel cot, board games &amp; children's tableware included</p>
+            <p class="font-semibold text-sea-950 text-sm" data-i18n="hi.fam.t">Family-ready</p>
+            <p class="text-xs text-slate-500 mt-0.5 leading-relaxed" data-i18n="hi.fam.d">Cot, travel cot, board games &amp; children's tableware included</p>
           </div>
         </div>
         <div class="flex items-start gap-3">
@@ -311,8 +336,8 @@
             <svg class="w-5 h-5 text-sea-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/></svg>
           </div>
           <div>
-            <p class="font-semibold text-sea-950 text-sm">City skyline view</p>
-            <p class="text-xs text-slate-500 mt-0.5 leading-relaxed">Private balcony — sip your morning coffee over Bucharest</p>
+            <p class="font-semibold text-sea-950 text-sm" data-i18n="hi.view.t">City skyline view</p>
+            <p class="text-xs text-slate-500 mt-0.5 leading-relaxed" data-i18n="hi.view.d">Private balcony — sip your morning coffee over Bucharest</p>
           </div>
         </div>
         <div class="flex items-start gap-3">
@@ -320,8 +345,8 @@
             <svg class="w-5 h-5 text-sea-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 18h.01M8 21h8a2 2 0 002-2v-2a2 2 0 00-2-2H8a2 2 0 00-2 2v2a2 2 0 002 2zM12 3v9m0 0l-3-3m3 3l3-3"/></svg>
           </div>
           <div>
-            <p class="font-semibold text-sea-950 text-sm">Pocket WiFi included</p>
-            <p class="text-xs text-slate-500 mt-0.5 leading-relaxed">Take connectivity with you on every city adventure</p>
+            <p class="font-semibold text-sea-950 text-sm" data-i18n="hi.pocket.t">Pocket WiFi included</p>
+            <p class="text-xs text-slate-500 mt-0.5 leading-relaxed" data-i18n="hi.pocket.d">Take connectivity with you on every city adventure</p>
           </div>
         </div>
       </div>
@@ -358,101 +383,101 @@
 
       <!-- Description -->
       <div>
-        <h3 class="font-serif text-2xl font-semibold text-sea-950 mb-4">About this space</h3>
-        <p class="text-slate-600 leading-relaxed">Charming and homey condo in Floreasca — one of Bucharest's most vibrant neighbourhoods, with fine restaurants, bars, parks and the beautiful Lake Floreasca just steps away. Despite its central placement, the surroundings remain serene and inviting.</p>
-        <p class="text-slate-600 leading-relaxed mt-3">Ideal for couples, solo explorers, work trips and families. The apartment comes fully furnished and equipped for short and long stays. Unwind on the spacious balcony after a day of culinary adventures and sightseeing — you have everything you need and more.</p>
-        <p class="text-slate-600 leading-relaxed mt-3">Situated 100m from parks and lakes on the 4th floor of a recently renovated building. Your host Maria is always a message away — guests consistently highlight her speed and warmth.</p>
+        <h3 class="font-serif text-2xl font-semibold text-sea-950 mb-4" data-i18n="desc.h">About this space</h3>
+        <p class="text-slate-600 leading-relaxed" data-i18n="desc.p1">Charming and homey condo in Floreasca — one of Bucharest's most vibrant neighbourhoods, with fine restaurants, bars, parks and the beautiful Lake Floreasca just steps away. Despite its central placement, the surroundings remain serene and inviting.</p>
+        <p class="text-slate-600 leading-relaxed mt-3" data-i18n="desc.p2">Ideal for couples, solo explorers, work trips and families. The apartment comes fully furnished and equipped for short and long stays. Unwind on the spacious balcony after a day of culinary adventures and sightseeing — you have everything you need and more.</p>
+        <p class="text-slate-600 leading-relaxed mt-3" data-i18n="desc.p3">Situated 100m from parks and lakes on the 4th floor of a recently renovated building. Your host Maria is always a message away — guests consistently highlight her speed and warmth.</p>
       </div>
 
       <hr class="my-5 md:my-8 border-slate-100" />
 
       <!-- Amenities -->
       <section id="amenities">
-        <h3 class="font-serif text-2xl font-semibold text-sea-950 mb-6">What this place offers</h3>
+        <h3 class="font-serif text-2xl font-semibold text-sea-950 mb-6" data-i18n="amen.h">What this place offers</h3>
 
         <!-- Preview: always visible top picks -->
         <div id="amenities-preview" class="grid grid-cols-2 gap-x-6 gap-y-4">
-          <div class="flex items-center gap-3"><svg class="w-5 h-5 text-sea-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.111 16.404a5.5 5.5 0 017.778 0M12 20h.01m-7.08-7.071c3.904-3.905 10.236-3.905 14.141 0M1.394 9.393c5.857-5.857 15.355-5.857 21.213 0"/></svg><span class="text-sm text-slate-700">Fast WiFi — 454 Mbps</span></div>
-          <div class="flex items-center gap-3"><svg class="w-5 h-5 text-sea-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg><span class="text-sm text-slate-700">Dedicated workspace</span></div>
-          <div class="flex items-center gap-3"><svg class="w-5 h-5 text-sea-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/></svg><span class="text-sm text-slate-700">City skyline view &amp; balcony</span></div>
-          <div class="flex items-center gap-3"><svg class="w-5 h-5 text-sea-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"/></svg><span class="text-sm text-slate-700">Zanussi gas cooker &amp; oven</span></div>
-          <div class="flex items-center gap-3"><svg class="w-5 h-5 text-sea-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9" stroke-width="2"/><circle cx="12" cy="12" r="4" stroke-width="2"/></svg><span class="text-sm text-slate-700">Washer (free, in-unit)</span></div>
-          <div class="flex items-center gap-3"><svg class="w-5 h-5 text-sea-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2" stroke-width="2"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 9h18"/></svg><span class="text-sm text-slate-700">Cot &amp; travel cot</span></div>
-          <div class="flex items-center gap-3"><svg class="w-5 h-5 text-sea-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg><span class="text-sm text-slate-700">Carbon monoxide alarm</span></div>
-          <div class="flex items-center gap-3"><svg class="w-5 h-5 text-sea-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 19h16M4 15h16a2 2 0 002-2V6a2 2 0 00-2-2H4a2 2 0 00-2 2v7a2 2 0 002 2z"/></svg><span class="text-sm text-slate-700">Bath</span></div>
+          <div class="flex items-center gap-3"><svg class="w-5 h-5 text-sea-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.111 16.404a5.5 5.5 0 017.778 0M12 20h.01m-7.08-7.071c3.904-3.905 10.236-3.905 14.141 0M1.394 9.393c5.857-5.857 15.355-5.857 21.213 0"/></svg><span class="text-sm text-slate-700" data-i18n="amen.wifi">Fast WiFi — 454 Mbps</span></div>
+          <div class="flex items-center gap-3"><svg class="w-5 h-5 text-sea-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg><span class="text-sm text-slate-700" data-i18n="amen.workspace">Dedicated workspace</span></div>
+          <div class="flex items-center gap-3"><svg class="w-5 h-5 text-sea-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/></svg><span class="text-sm text-slate-700" data-i18n="amen.view">City skyline view &amp; balcony</span></div>
+          <div class="flex items-center gap-3"><svg class="w-5 h-5 text-sea-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"/></svg><span class="text-sm text-slate-700" data-i18n="amen.cooker">Zanussi gas cooker &amp; oven</span></div>
+          <div class="flex items-center gap-3"><svg class="w-5 h-5 text-sea-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9" stroke-width="2"/><circle cx="12" cy="12" r="4" stroke-width="2"/></svg><span class="text-sm text-slate-700" data-i18n="amen.washer">Washer (free, in-unit)</span></div>
+          <div class="flex items-center gap-3"><svg class="w-5 h-5 text-sea-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2" stroke-width="2"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 9h18"/></svg><span class="text-sm text-slate-700" data-i18n="amen.cot">Cot &amp; travel cot</span></div>
+          <div class="flex items-center gap-3"><svg class="w-5 h-5 text-sea-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg><span class="text-sm text-slate-700" data-i18n="amen.co_alarm">Carbon monoxide alarm</span></div>
+          <div class="flex items-center gap-3"><svg class="w-5 h-5 text-sea-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 19h16M4 15h16a2 2 0 002-2V6a2 2 0 00-2-2H4a2 2 0 00-2 2v7a2 2 0 002 2z"/></svg><span class="text-sm text-slate-700" data-i18n="amen.bath">Bath</span></div>
         </div>
 
         <!-- Full expanded list -->
         <div id="amenities-full" class="hidden mt-6 space-y-6">
 
           <div>
-            <p class="text-xs font-semibold text-slate-400 uppercase tracking-widest mb-3">Internet &amp; workspace</p>
+            <p class="text-xs font-semibold text-slate-400 uppercase tracking-widest mb-3" data-i18n="amen.s.internet">Internet &amp; workspace</p>
             <div class="grid grid-cols-2 md:grid-cols-3 gap-x-6 gap-y-4">
-              <div class="flex items-center gap-3"><svg class="w-5 h-5 text-sea-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.111 16.404a5.5 5.5 0 017.778 0M12 20h.01m-7.08-7.071c3.904-3.905 10.236-3.905 14.141 0M1.394 9.393c5.857-5.857 15.355-5.857 21.213 0"/></svg><span class="text-sm text-slate-700">Fast WiFi — 454 Mbps</span></div>
-              <div class="flex items-center gap-3"><svg class="w-5 h-5 text-sea-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg><span class="text-sm text-slate-700">Dedicated workspace</span></div>
-              <div class="flex items-center gap-3"><svg class="w-5 h-5 text-sea-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 18h.01M8 21h8a2 2 0 002-2v-2a2 2 0 00-2-2H8a2 2 0 00-2 2v2a2 2 0 002 2zM12 3v9m0 0l-3-3m3 3l3-3"/></svg><span class="text-sm text-slate-700">Pocket WiFi</span></div>
+              <div class="flex items-center gap-3"><svg class="w-5 h-5 text-sea-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.111 16.404a5.5 5.5 0 017.778 0M12 20h.01m-7.08-7.071c3.904-3.905 10.236-3.905 14.141 0M1.394 9.393c5.857-5.857 15.355-5.857 21.213 0"/></svg><span class="text-sm text-slate-700" data-i18n="amen.wifi">Fast WiFi — 454 Mbps</span></div>
+              <div class="flex items-center gap-3"><svg class="w-5 h-5 text-sea-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg><span class="text-sm text-slate-700" data-i18n="amen.workspace">Dedicated workspace</span></div>
+              <div class="flex items-center gap-3"><svg class="w-5 h-5 text-sea-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 18h.01M8 21h8a2 2 0 002-2v-2a2 2 0 00-2-2H8a2 2 0 00-2 2v2a2 2 0 002 2zM12 3v9m0 0l-3-3m3 3l3-3"/></svg><span class="text-sm text-slate-700" data-i18n="amen.pocket_wifi">Pocket WiFi</span></div>
             </div>
           </div>
 
           <div>
-            <p class="text-xs font-semibold text-slate-400 uppercase tracking-widest mb-3">Kitchen &amp; dining</p>
+            <p class="text-xs font-semibold text-slate-400 uppercase tracking-widest mb-3" data-i18n="amen.s.kitchen">Kitchen &amp; dining</p>
             <div class="grid grid-cols-2 md:grid-cols-3 gap-x-6 gap-y-4">
-              <div class="flex items-center gap-3"><svg class="w-5 h-5 text-sea-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"/></svg><span class="text-sm text-slate-700">Zanussi gas cooker &amp; oven</span></div>
-              <div class="flex items-center gap-3"><svg class="w-5 h-5 text-sea-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="2" width="14" height="20" rx="2" stroke-width="2"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10h14"/></svg><span class="text-sm text-slate-700">Fridge &amp; freezer</span></div>
-              <div class="flex items-center gap-3"><svg class="w-5 h-5 text-sea-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="4" width="16" height="16" rx="2" stroke-width="2"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 4v4h8V4"/></svg><span class="text-sm text-slate-700">Microwave</span></div>
-              <div class="flex items-center gap-3"><svg class="w-5 h-5 text-sea-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21h10M12 3v10m-4-6c0 2.209 1.791 4 4 4s4-1.791 4-4"/></svg><span class="text-sm text-slate-700">Kettle &amp; coffee maker</span></div>
-              <div class="flex items-center gap-3"><svg class="w-5 h-5 text-sea-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17"/></svg><span class="text-sm text-slate-700">Cooking basics &amp; crockery</span></div>
+              <div class="flex items-center gap-3"><svg class="w-5 h-5 text-sea-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"/></svg><span class="text-sm text-slate-700" data-i18n="amen.cooker">Zanussi gas cooker &amp; oven</span></div>
+              <div class="flex items-center gap-3"><svg class="w-5 h-5 text-sea-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="2" width="14" height="20" rx="2" stroke-width="2"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10h14"/></svg><span class="text-sm text-slate-700" data-i18n="amen.fridge">Fridge &amp; freezer</span></div>
+              <div class="flex items-center gap-3"><svg class="w-5 h-5 text-sea-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="4" width="16" height="16" rx="2" stroke-width="2"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 4v4h8V4"/></svg><span class="text-sm text-slate-700" data-i18n="amen.microwave">Microwave</span></div>
+              <div class="flex items-center gap-3"><svg class="w-5 h-5 text-sea-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21h10M12 3v10m-4-6c0 2.209 1.791 4 4 4s4-1.791 4-4"/></svg><span class="text-sm text-slate-700" data-i18n="amen.kettle">Kettle &amp; coffee maker</span></div>
+              <div class="flex items-center gap-3"><svg class="w-5 h-5 text-sea-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17"/></svg><span class="text-sm text-slate-700" data-i18n="amen.cooking">Cooking basics &amp; crockery</span></div>
             </div>
           </div>
 
           <div>
-            <p class="text-xs font-semibold text-slate-400 uppercase tracking-widest mb-3">Bedroom &amp; laundry</p>
+            <p class="text-xs font-semibold text-slate-400 uppercase tracking-widest mb-3" data-i18n="amen.s.bedroom">Bedroom &amp; laundry</p>
             <div class="grid grid-cols-2 md:grid-cols-3 gap-x-6 gap-y-4">
-              <div class="flex items-center gap-3"><svg class="w-5 h-5 text-sea-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9" stroke-width="2"/><circle cx="12" cy="12" r="4" stroke-width="2"/></svg><span class="text-sm text-slate-700">Washer (free, in-unit)</span></div>
-              <div class="flex items-center gap-3"><svg class="w-5 h-5 text-sea-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"/></svg><span class="text-sm text-slate-700">Bed linen &amp; towels</span></div>
-              <div class="flex items-center gap-3"><svg class="w-5 h-5 text-sea-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h18M3 14h18M10 4v16M14 4v16"/></svg><span class="text-sm text-slate-700">Room-darkening blinds</span></div>
-              <div class="flex items-center gap-3"><svg class="w-5 h-5 text-sea-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 17V7m0 10a2 2 0 01-2 2H5a2 2 0 01-2-2V7a2 2 0 012-2h2a2 2 0 012 2m0 10a2 2 0 002 2h2a2 2 0 002-2M9 7a2 2 0 012-2h2a2 2 0 012 2m0 10V7"/></svg><span class="text-sm text-slate-700">Iron &amp; drying rack</span></div>
-              <div class="flex items-center gap-3"><svg class="w-5 h-5 text-sea-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16V4m0 0L3 8m4-4l4 4M17 8v12m0 0l4-4m-4 4l-4-4"/></svg><span class="text-sm text-slate-700">Extra pillows &amp; blankets</span></div>
-              <div class="flex items-center gap-3"><svg class="w-5 h-5 text-sea-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7h.01M12 7h.01M16 7h.01M3 11h18M3 15h18M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg><span class="text-sm text-slate-700">Mosquito net</span></div>
+              <div class="flex items-center gap-3"><svg class="w-5 h-5 text-sea-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9" stroke-width="2"/><circle cx="12" cy="12" r="4" stroke-width="2"/></svg><span class="text-sm text-slate-700" data-i18n="amen.washer">Washer (free, in-unit)</span></div>
+              <div class="flex items-center gap-3"><svg class="w-5 h-5 text-sea-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"/></svg><span class="text-sm text-slate-700" data-i18n="amen.linen">Bed linen &amp; towels</span></div>
+              <div class="flex items-center gap-3"><svg class="w-5 h-5 text-sea-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h18M3 14h18M10 4v16M14 4v16"/></svg><span class="text-sm text-slate-700" data-i18n="amen.blinds">Room-darkening blinds</span></div>
+              <div class="flex items-center gap-3"><svg class="w-5 h-5 text-sea-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 17V7m0 10a2 2 0 01-2 2H5a2 2 0 01-2-2V7a2 2 0 012-2h2a2 2 0 012 2m0 10a2 2 0 002 2h2a2 2 0 002-2M9 7a2 2 0 012-2h2a2 2 0 012 2m0 10V7"/></svg><span class="text-sm text-slate-700" data-i18n="amen.iron">Iron &amp; drying rack</span></div>
+              <div class="flex items-center gap-3"><svg class="w-5 h-5 text-sea-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16V4m0 0L3 8m4-4l4 4M17 8v12m0 0l4-4m-4 4l-4-4"/></svg><span class="text-sm text-slate-700" data-i18n="amen.pillows">Extra pillows &amp; blankets</span></div>
+              <div class="flex items-center gap-3"><svg class="w-5 h-5 text-sea-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7h.01M12 7h.01M16 7h.01M3 11h18M3 15h18M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg><span class="text-sm text-slate-700" data-i18n="amen.mosquito">Mosquito net</span></div>
             </div>
           </div>
 
           <div>
-            <p class="text-xs font-semibold text-slate-400 uppercase tracking-widest mb-3">Bathroom</p>
+            <p class="text-xs font-semibold text-slate-400 uppercase tracking-widest mb-3" data-i18n="amen.s.bathroom">Bathroom</p>
             <div class="grid grid-cols-2 md:grid-cols-3 gap-x-6 gap-y-4">
-              <div class="flex items-center gap-3"><svg class="w-5 h-5 text-sea-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 19h16M4 15h16a2 2 0 002-2V6a2 2 0 00-2-2H4a2 2 0 00-2 2v7a2 2 0 002 2z"/></svg><span class="text-sm text-slate-700">Bath</span></div>
-              <div class="flex items-center gap-3"><svg class="w-5 h-5 text-sea-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 3H5a2 2 0 00-2 2v4m6-6h10a2 2 0 012 2v4M9 3v18m0 0h10a2 2 0 002-2V9M9 21H5a2 2 0 01-2-2V9m0 0h18"/></svg><span class="text-sm text-slate-700">Hairdryer</span></div>
-              <div class="flex items-center gap-3"><svg class="w-5 h-5 text-sea-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"/></svg><span class="text-sm text-slate-700">Shampoo &amp; conditioner</span></div>
-              <div class="flex items-center gap-3"><svg class="w-5 h-5 text-sea-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1M4.22 4.22l.707.707m12.728 12.728l.707.707M3 12H2m20 0h-1M4.22 19.78l.707-.707M18.364 5.636l.707-.707"/></svg><span class="text-sm text-slate-700">Body soap &amp; shower gel</span></div>
-              <div class="flex items-center gap-3"><svg class="w-5 h-5 text-sea-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg><span class="text-sm text-slate-700">Hot water</span></div>
+              <div class="flex items-center gap-3"><svg class="w-5 h-5 text-sea-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 19h16M4 15h16a2 2 0 002-2V6a2 2 0 00-2-2H4a2 2 0 00-2 2v7a2 2 0 002 2z"/></svg><span class="text-sm text-slate-700" data-i18n="amen.bath">Bath</span></div>
+              <div class="flex items-center gap-3"><svg class="w-5 h-5 text-sea-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 3H5a2 2 0 00-2 2v4m6-6h10a2 2 0 012 2v4M9 3v18m0 0h10a2 2 0 002-2V9M9 21H5a2 2 0 01-2-2V9m0 0h18"/></svg><span class="text-sm text-slate-700" data-i18n="amen.hairdryer">Hairdryer</span></div>
+              <div class="flex items-center gap-3"><svg class="w-5 h-5 text-sea-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"/></svg><span class="text-sm text-slate-700" data-i18n="amen.shampoo">Shampoo &amp; conditioner</span></div>
+              <div class="flex items-center gap-3"><svg class="w-5 h-5 text-sea-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1M4.22 4.22l.707.707m12.728 12.728l.707.707M3 12H2m20 0h-1M4.22 19.78l.707-.707M18.364 5.636l.707-.707"/></svg><span class="text-sm text-slate-700" data-i18n="amen.soap">Body soap &amp; shower gel</span></div>
+              <div class="flex items-center gap-3"><svg class="w-5 h-5 text-sea-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg><span class="text-sm text-slate-700" data-i18n="amen.hot_water">Hot water</span></div>
             </div>
           </div>
 
           <div>
-            <p class="text-xs font-semibold text-slate-400 uppercase tracking-widest mb-3">Family</p>
+            <p class="text-xs font-semibold text-slate-400 uppercase tracking-widest mb-3" data-i18n="amen.s.family">Family</p>
             <div class="grid grid-cols-2 md:grid-cols-3 gap-x-6 gap-y-4">
-              <div class="flex items-center gap-3"><svg class="w-5 h-5 text-sea-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2" stroke-width="2"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 9h18"/></svg><span class="text-sm text-slate-700">Cot &amp; travel cot</span></div>
-              <div class="flex items-center gap-3"><svg class="w-5 h-5 text-sea-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/></svg><span class="text-sm text-slate-700">Children's books &amp; toys</span></div>
-              <div class="flex items-center gap-3"><svg class="w-5 h-5 text-sea-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z"/></svg><span class="text-sm text-slate-700">Children's tableware</span></div>
-              <div class="flex items-center gap-3"><svg class="w-5 h-5 text-sea-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 10l-2 1m0 0l-2-1m2 1v2.5M20 7l-2 1m2-1l-2-1m2 1v2.5M14 4l-2-1-2 1M4 7l2-1M4 7l2 1M4 7v2.5M12 21l-2-1m2 1l2-1m-2 1v-2.5M6 18l-2-1v-2.5M18 18l2-1v-2.5"/></svg><span class="text-sm text-slate-700">Board games</span></div>
+              <div class="flex items-center gap-3"><svg class="w-5 h-5 text-sea-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2" stroke-width="2"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 9h18"/></svg><span class="text-sm text-slate-700" data-i18n="amen.cot">Cot &amp; travel cot</span></div>
+              <div class="flex items-center gap-3"><svg class="w-5 h-5 text-sea-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/></svg><span class="text-sm text-slate-700" data-i18n="amen.kids_books">Children's books &amp; toys</span></div>
+              <div class="flex items-center gap-3"><svg class="w-5 h-5 text-sea-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z"/></svg><span class="text-sm text-slate-700" data-i18n="amen.kids_tableware">Children's tableware</span></div>
+              <div class="flex items-center gap-3"><svg class="w-5 h-5 text-sea-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 10l-2 1m0 0l-2-1m2 1v2.5M20 7l-2 1m2-1l-2-1m2 1v2.5M14 4l-2-1-2 1M4 7l2-1M4 7l2 1M4 7v2.5M12 21l-2-1m2 1l2-1m-2 1v-2.5M6 18l-2-1v-2.5M18 18l2-1v-2.5"/></svg><span class="text-sm text-slate-700" data-i18n="amen.board_games">Board games</span></div>
             </div>
           </div>
 
           <div>
-            <p class="text-xs font-semibold text-slate-400 uppercase tracking-widest mb-3">Safety &amp; comfort</p>
+            <p class="text-xs font-semibold text-slate-400 uppercase tracking-widest mb-3" data-i18n="amen.s.safety">Safety &amp; comfort</p>
             <div class="grid grid-cols-2 md:grid-cols-3 gap-x-6 gap-y-4">
-              <div class="flex items-center gap-3"><svg class="w-5 h-5 text-sea-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"/></svg><span class="text-sm text-slate-700">Smoke alarm</span></div>
-              <div class="flex items-center gap-3"><svg class="w-5 h-5 text-sea-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg><span class="text-sm text-slate-700">Carbon monoxide alarm</span></div>
-              <div class="flex items-center gap-3"><svg class="w-5 h-5 text-sea-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10"/></svg><span class="text-sm text-slate-700">Fire extinguisher</span></div>
-              <div class="flex items-center gap-3"><svg class="w-5 h-5 text-sea-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"/></svg><span class="text-sm text-slate-700">First aid kit</span></div>
-              <div class="flex items-center gap-3"><svg class="w-5 h-5 text-sea-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg><span class="text-sm text-slate-700">AC unit &amp; heating</span></div>
+              <div class="flex items-center gap-3"><svg class="w-5 h-5 text-sea-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"/></svg><span class="text-sm text-slate-700" data-i18n="amen.smoke_alarm">Smoke alarm</span></div>
+              <div class="flex items-center gap-3"><svg class="w-5 h-5 text-sea-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg><span class="text-sm text-slate-700" data-i18n="amen.co_alarm">Carbon monoxide alarm</span></div>
+              <div class="flex items-center gap-3"><svg class="w-5 h-5 text-sea-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10"/></svg><span class="text-sm text-slate-700" data-i18n="amen.extinguisher">Fire extinguisher</span></div>
+              <div class="flex items-center gap-3"><svg class="w-5 h-5 text-sea-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"/></svg><span class="text-sm text-slate-700" data-i18n="amen.first_aid">First aid kit</span></div>
+              <div class="flex items-center gap-3"><svg class="w-5 h-5 text-sea-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg><span class="text-sm text-slate-700" data-i18n="amen.ac">AC unit &amp; heating</span></div>
             </div>
           </div>
         </div>
 
         <!-- Toggle button -->
         <button id="amenities-toggle" class="mt-6 w-full border border-slate-300 rounded-xl py-3 flex items-center justify-center gap-2 text-sm font-semibold text-slate-700 hover:border-slate-400 hover:bg-slate-50 transition-colors duration-200 cursor-pointer">
-          <span id="amenities-toggle-label">Show all 62 amenities</span>
+          <span id="amenities-toggle-label" data-i18n="amen.show_more">Show all 62 amenities</span>
           <svg id="amenities-toggle-icon" class="w-4 h-4 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
         </button>
       </section>
@@ -467,25 +492,25 @@
 
       <!-- ── Availability / Booking Section ─────────────────── -->
       <section id="book">
-        <h3 class="font-serif text-2xl font-semibold text-sea-950 mb-2">Check availability</h3>
-        <p class="text-slate-500 text-sm mb-6">Select dates below — clicking <strong>Book on Airbnb</strong> will open the listing with your dates pre-filled so you see live availability instantly.</p>
+        <h3 class="font-serif text-2xl font-semibold text-sea-950 mb-2" data-i18n="book.h">Check availability</h3>
+        <p class="text-slate-500 text-sm mb-6" data-i18n-html="book.sub">Select dates below — clicking <strong>Book on Airbnb</strong> will open the listing with your dates pre-filled so you see live availability instantly.</p>
 
         <div class="bg-sea-50 border border-sea-100 rounded-2xl p-6">
           <!-- Date + guests row -->
           <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 mb-5">
             <!-- Check-in -->
             <div>
-              <label class="block text-xs font-semibold text-sea-800 uppercase tracking-wide mb-1.5">Check-in</label>
+              <label class="block text-xs font-semibold text-sea-800 uppercase tracking-wide mb-1.5" data-i18n="book.checkin">Check-in</label>
               <input type="date" id="checkin-inline" min="" class="w-full bg-white border border-sea-200 text-slate-700 rounded-xl px-3 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-sea-400 cursor-pointer" />
             </div>
             <!-- Check-out -->
             <div>
-              <label class="block text-xs font-semibold text-sea-800 uppercase tracking-wide mb-1.5">Check-out</label>
+              <label class="block text-xs font-semibold text-sea-800 uppercase tracking-wide mb-1.5" data-i18n="book.checkout">Check-out</label>
               <input type="date" id="checkout-inline" min="" class="w-full bg-white border border-sea-200 text-slate-700 rounded-xl px-3 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-sea-400 cursor-pointer" />
             </div>
             <!-- Guests -->
             <div>
-              <label class="block text-xs font-semibold text-sea-800 uppercase tracking-wide mb-1.5">Guests</label>
+              <label class="block text-xs font-semibold text-sea-800 uppercase tracking-wide mb-1.5" data-i18n="book.guests">Guests</label>
               <div class="flex items-center bg-white border border-sea-200 rounded-xl overflow-hidden">
                 <button id="guest-dec-inline" class="px-3 py-2.5 text-sea-600 hover:bg-sea-50 text-lg font-light transition-colors duration-200 cursor-pointer" aria-label="Decrease guests">−</button>
                 <span id="guest-count-inline" class="flex-1 text-center text-sm font-medium text-slate-700">2</span>
@@ -500,9 +525,9 @@
             <svg class="w-5 h-5" viewBox="0 0 32 32" fill="currentColor" aria-hidden="true">
               <path d="M16 1C7.716 1 1 7.716 1 16s6.716 15 15 15 15-6.716 15-15S24.284 1 16 1zm6.781 21.733c-.234.547-.703.89-1.297.89-.313 0-.641-.094-.953-.281-1.234-.703-2.453-1.422-3.531-2.297-1.078.875-2.297 1.594-3.531 2.297-.313.188-.641.281-.953.281-.594 0-1.063-.344-1.297-.89-.422-.984.109-2.016 1.063-2.438.297-.125.594-.25.891-.375.531-.219 1.063-.453 1.578-.703-.297-.547-.594-1.078-.875-1.594-.578-1.047-1.078-2.156-1.453-3.313-.547-1.703-.344-3.375.563-4.625.922-1.266 2.438-1.969 4.016-1.969s3.094.703 4.016 1.969c.906 1.25 1.109 2.922.563 4.625-.375 1.156-.875 2.266-1.453 3.313-.281.516-.578 1.047-.875 1.594.516.25 1.047.484 1.578.703.297.125.594.25.891.375.953.422 1.484 1.453 1.063 2.438z"/>
             </svg>
-            Book on Airbnb
+            <span data-i18n="book.cta">Book on Airbnb</span>
           </a>
-          <p class="text-center text-xs text-slate-400 mt-2">Live availability and secure payment handled by Airbnb</p>
+          <p class="text-center text-xs text-slate-400 mt-2" data-i18n="book.disclaimer">Live availability and secure payment handled by Airbnb</p>
         </div>
       </section>
 
@@ -512,21 +537,21 @@
       <section id="reviews">
         <div class="flex items-center gap-3 mb-5">
           <svg class="w-5 h-5 text-amber-400" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-          <h3 class="font-serif text-2xl font-semibold text-sea-950">4.96 · Guest Favourite</h3>
+          <h3 class="font-serif text-2xl font-semibold text-sea-950" data-i18n="rev.h">4.96 · Guest Favourite</h3>
         </div>
 
         <!-- Rating bars — corrected scores -->
         <div class="grid grid-cols-2 gap-x-10 gap-y-3 text-sm mb-6">
-          <div class="flex items-center gap-3"><span class="text-slate-500 w-28 flex-shrink-0">Cleanliness</span><div class="flex-1 h-1.5 bg-slate-100 rounded-full overflow-hidden"><div class="h-1.5 bg-sea-500 rounded-full" style="width:100%"></div></div><span class="font-semibold text-sea-900 w-8 text-right">5.0</span></div>
-          <div class="flex items-center gap-3"><span class="text-slate-500 w-28 flex-shrink-0">Accuracy</span><div class="flex-1 h-1.5 bg-slate-100 rounded-full overflow-hidden"><div class="h-1.5 bg-sea-500 rounded-full" style="width:98%"></div></div><span class="font-semibold text-sea-900 w-8 text-right">4.9</span></div>
-          <div class="flex items-center gap-3"><span class="text-slate-500 w-28 flex-shrink-0">Check-in</span><div class="flex-1 h-1.5 bg-slate-100 rounded-full overflow-hidden"><div class="h-1.5 bg-sea-500 rounded-full" style="width:100%"></div></div><span class="font-semibold text-sea-900 w-8 text-right">5.0</span></div>
-          <div class="flex items-center gap-3"><span class="text-slate-500 w-28 flex-shrink-0">Communication</span><div class="flex-1 h-1.5 bg-slate-100 rounded-full overflow-hidden"><div class="h-1.5 bg-sea-500 rounded-full" style="width:100%"></div></div><span class="font-semibold text-sea-900 w-8 text-right">5.0</span></div>
-          <div class="flex items-center gap-3"><span class="text-slate-500 w-28 flex-shrink-0">Location</span><div class="flex-1 h-1.5 bg-slate-100 rounded-full overflow-hidden"><div class="h-1.5 bg-sea-500 rounded-full" style="width:98%"></div></div><span class="font-semibold text-sea-900 w-8 text-right">4.9</span></div>
-          <div class="flex items-center gap-3"><span class="text-slate-500 w-28 flex-shrink-0">Value</span><div class="flex-1 h-1.5 bg-slate-100 rounded-full overflow-hidden"><div class="h-1.5 bg-sea-500 rounded-full" style="width:100%"></div></div><span class="font-semibold text-sea-900 w-8 text-right">5.0</span></div>
+          <div class="flex items-center gap-3"><span class="text-slate-500 w-28 flex-shrink-0" data-i18n="rev.cleanliness">Cleanliness</span><div class="flex-1 h-1.5 bg-slate-100 rounded-full overflow-hidden"><div class="h-1.5 bg-sea-500 rounded-full" style="width:100%"></div></div><span class="font-semibold text-sea-900 w-8 text-right">5.0</span></div>
+          <div class="flex items-center gap-3"><span class="text-slate-500 w-28 flex-shrink-0" data-i18n="rev.accuracy">Accuracy</span><div class="flex-1 h-1.5 bg-slate-100 rounded-full overflow-hidden"><div class="h-1.5 bg-sea-500 rounded-full" style="width:98%"></div></div><span class="font-semibold text-sea-900 w-8 text-right">4.9</span></div>
+          <div class="flex items-center gap-3"><span class="text-slate-500 w-28 flex-shrink-0" data-i18n="rev.checkin">Check-in</span><div class="flex-1 h-1.5 bg-slate-100 rounded-full overflow-hidden"><div class="h-1.5 bg-sea-500 rounded-full" style="width:100%"></div></div><span class="font-semibold text-sea-900 w-8 text-right">5.0</span></div>
+          <div class="flex items-center gap-3"><span class="text-slate-500 w-28 flex-shrink-0" data-i18n="rev.communication">Communication</span><div class="flex-1 h-1.5 bg-slate-100 rounded-full overflow-hidden"><div class="h-1.5 bg-sea-500 rounded-full" style="width:100%"></div></div><span class="font-semibold text-sea-900 w-8 text-right">5.0</span></div>
+          <div class="flex items-center gap-3"><span class="text-slate-500 w-28 flex-shrink-0" data-i18n="rev.location">Location</span><div class="flex-1 h-1.5 bg-slate-100 rounded-full overflow-hidden"><div class="h-1.5 bg-sea-500 rounded-full" style="width:98%"></div></div><span class="font-semibold text-sea-900 w-8 text-right">4.9</span></div>
+          <div class="flex items-center gap-3"><span class="text-slate-500 w-28 flex-shrink-0" data-i18n="rev.value">Value</span><div class="flex-1 h-1.5 bg-slate-100 rounded-full overflow-hidden"><div class="h-1.5 bg-sea-500 rounded-full" style="width:100%"></div></div><span class="font-semibold text-sea-900 w-8 text-right">5.0</span></div>
         </div>
 
         <!-- Guest review topic tags (from Airbnb) -->
-        <p class="text-xs font-semibold text-slate-500 uppercase tracking-widest mb-2">Guests often mention</p>
+        <p class="text-xs font-semibold text-slate-500 uppercase tracking-widest mb-2" data-i18n="rev.mention">Guests often mention</p>
         <div class="flex gap-2 overflow-x-auto pb-3 mb-6 -mx-1 px-1" style="scrollbar-width:none">
           <span class="inline-flex items-center gap-1.5 flex-shrink-0 text-xs text-slate-700 bg-white border border-slate-200 px-3 py-2 rounded-xl">🌿 Parks</span>
           <span class="inline-flex items-center gap-1.5 flex-shrink-0 text-xs text-slate-700 bg-white border border-slate-200 px-3 py-2 rounded-xl">🎁 Hospitality</span>
@@ -729,7 +754,7 @@
           <div class="bg-sea-700 px-6 py-5">
             <div class="flex items-center justify-between mb-1">
               <div>
-                <span class="font-serif text-2xl font-bold text-white">Best rates in area</span>
+                <span class="font-serif text-2xl font-bold text-white" data-i18n="sticky.best_rates">Best rates in area</span>
               </div>
               <div class="flex items-center gap-1.5 bg-sea-800/50 px-3 py-1.5 rounded-full">
                 <svg class="w-4 h-4 text-amber-400" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
@@ -745,17 +770,17 @@
             <div class="border border-slate-200 rounded-xl overflow-hidden mb-3">
               <div class="grid grid-cols-2 divide-x divide-slate-200">
                 <div class="p-3 hover:bg-slate-50 cursor-pointer transition-colors duration-200">
-                  <p class="text-xs font-semibold text-slate-500 uppercase tracking-wide">Check-in</p>
+                  <p class="text-xs font-semibold text-slate-500 uppercase tracking-wide" data-i18n="book.checkin">Check-in</p>
                   <input type="date" id="checkin-widget" class="mt-0.5 w-full text-sm text-slate-700 bg-transparent focus:outline-none cursor-pointer" />
                 </div>
                 <div class="p-3 hover:bg-slate-50 cursor-pointer transition-colors duration-200">
-                  <p class="text-xs font-semibold text-slate-500 uppercase tracking-wide">Check-out</p>
+                  <p class="text-xs font-semibold text-slate-500 uppercase tracking-wide" data-i18n="book.checkout">Check-out</p>
                   <input type="date" id="checkout-widget" class="mt-0.5 w-full text-sm text-slate-700 bg-transparent focus:outline-none cursor-pointer" />
                 </div>
               </div>
               <div class="border-t border-slate-200 p-3 flex items-center justify-between">
                 <div>
-                  <p class="text-xs font-semibold text-slate-500 uppercase tracking-wide">Guests</p>
+                  <p class="text-xs font-semibold text-slate-500 uppercase tracking-wide" data-i18n="book.guests">Guests</p>
                   <span id="guest-label-widget" class="text-sm text-slate-700 mt-0.5 block">2 guests</span>
                 </div>
                 <div class="flex items-center gap-2">
@@ -772,7 +797,7 @@
               <svg class="w-5 h-5" viewBox="0 0 32 32" fill="currentColor" aria-hidden="true">
                 <path d="M16 1C7.716 1 1 7.716 1 16s6.716 15 15 15 15-6.716 15-15S24.284 1 16 1zm6.781 21.733c-.234.547-.703.89-1.297.89-.313 0-.641-.094-.953-.281-1.234-.703-2.453-1.422-3.531-2.297-1.078.875-2.297 1.594-3.531 2.297-.313.188-.641.281-.953.281-.594 0-1.063-.344-1.297-.89-.422-.984.109-2.016 1.063-2.438.297-.125.594-.25.891-.375.531-.219 1.063-.453 1.578-.703-.297-.547-.594-1.078-.875-1.594-.578-1.047-1.078-2.156-1.453-3.313-.547-1.703-.344-3.375.563-4.625.922-1.266 2.438-1.969 4.016-1.969s3.094.703 4.016 1.969c.906 1.25 1.109 2.922.563 4.625-.375 1.156-.875 2.266-1.453 3.313-.281.516-.578 1.047-.875 1.594.516.25 1.047.484 1.578.703.297.125.594.25.891.375.953.422 1.484 1.453 1.063 2.438z"/>
               </svg>
-              Book on Airbnb
+              <span data-i18n="book.cta">Book on Airbnb</span>
             </a>
             <p class="text-center text-xs text-slate-400">You won't be charged yet</p>
 
@@ -802,16 +827,16 @@
 <!-- ── Mobile Sticky CTA ─────────────────────────────────────── -->
 <div class="lg:hidden fixed bottom-0 left-0 right-0 z-40 bg-white border-t border-slate-200 px-4 py-3 flex items-center justify-between shadow-lg">
   <div>
-    <div class="font-serif font-bold text-base text-sea-900 leading-tight">Best rates in area</div>
+    <div class="font-serif font-bold text-base text-sea-900 leading-tight" data-i18n="sticky.best_rates">Best rates in area</div>
     <div class="flex items-center gap-1 mt-0.5">
       <svg class="w-3.5 h-3.5 text-amber-400" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-      <span class="text-xs font-semibold text-slate-600">4.96 · 50+ reviews</span>
+      <span class="text-xs font-semibold text-slate-600" data-i18n="sticky.rating">4.96 · 50+ reviews</span>
     </div>
   </div>
   <a id="mobile-cta" href="https://www.airbnb.co.uk/rooms/53208110" target="_blank" rel="noopener noreferrer"
     class="bg-sea-600 hover:bg-sea-700 text-white font-semibold px-6 py-3 rounded-xl transition-colors duration-200 cursor-pointer text-sm flex items-center gap-2">
     <svg class="w-4 h-4" viewBox="0 0 32 32" fill="currentColor" aria-hidden="true"><path d="M16 1C7.716 1 1 7.716 1 16s6.716 15 15 15 15-6.716 15-15S24.284 1 16 1zm6.781 21.733c-.234.547-.703.89-1.297.89-.313 0-.641-.094-.953-.281-1.234-.703-2.453-1.422-3.531-2.297-1.078.875-2.297 1.594-3.531 2.297-.313.188-.641.281-.953.281-.594 0-1.063-.344-1.297-.89-.422-.984.109-2.016 1.063-2.438.297-.125.594-.25.891-.375.531-.219 1.063-.453 1.578-.703-.297-.547-.594-1.078-.875-1.594-.578-1.047-1.078-2.156-1.453-3.313-.547-1.703-.344-3.375.563-4.625.922-1.266 2.438-1.969 4.016-1.969s3.094.703 4.016 1.969c.906 1.25 1.109 2.922.563 4.625-.375 1.156-.875 2.266-1.453 3.313-.281.516-.578 1.047-.875 1.594.516.25 1.047.484 1.578.703.297.125.594.25.891.375.953.422 1.484 1.453 1.063 2.438z"/></svg>
-    Book Now
+    <span data-i18n="sticky.book_now">Book Now</span>
   </a>
 </div>
 
@@ -824,19 +849,19 @@
         <span class="font-serif text-white font-semibold">Lovely Condo Bucharest</span>
       </div>
       <nav class="flex flex-wrap justify-center items-center gap-x-6 gap-y-2 text-sm text-sea-300" aria-label="Footer">
-        <a href="#about"     class="hover:text-white transition-colors duration-200 cursor-pointer whitespace-nowrap">About</a>
-        <a href="#amenities" class="hover:text-white transition-colors duration-200 cursor-pointer whitespace-nowrap">Amenities</a>
-        <a href="#reviews"   class="hover:text-white transition-colors duration-200 cursor-pointer whitespace-nowrap">Reviews</a>
+        <a href="#about"     class="hover:text-white transition-colors duration-200 cursor-pointer whitespace-nowrap" data-i18n="nav.about">About</a>
+        <a href="#amenities" class="hover:text-white transition-colors duration-200 cursor-pointer whitespace-nowrap" data-i18n="nav.amenities">Amenities</a>
+        <a href="#reviews"   class="hover:text-white transition-colors duration-200 cursor-pointer whitespace-nowrap" data-i18n="nav.reviews">Reviews</a>
         <a href="guide.html" class="text-sea-300 hover:text-white transition-colors duration-200 cursor-pointer flex items-center gap-1 whitespace-nowrap">
           <svg class="w-3 h-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 7a2 2 0 012 2m4 0a6 6 0 01-7.743 5.743L11 17H9v2H7v2H4a1 1 0 01-1-1v-2.586a1 1 0 01.293-.707l5.964-5.964A6 6 0 1121 9z"/></svg>
-          Guest Login
+          <span data-i18n="nav.guest_login">Guest Login</span>
         </a>
         <a href="https://www.airbnb.co.uk/rooms/53208110" target="_blank" rel="noopener noreferrer" class="text-sea-400 hover:text-white transition-colors duration-200 cursor-pointer flex items-center gap-1 whitespace-nowrap">
           Airbnb
           <svg class="w-3 h-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
         </a>
       </nav>
-      <p class="text-xs text-sea-600">© 2025 · All rights reserved</p>
+      <p class="text-xs text-sea-600" data-i18n="footer.copy">© 2025 · All rights reserved</p>
     </div>
   </div>
 </footer>
@@ -853,28 +878,28 @@
         <svg class="w-6 h-6 text-amber-500" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
       </div>
       <div>
-        <h3 class="font-serif text-xl font-bold text-sea-950">What is Guest Favorite?</h3>
-        <p class="text-xs text-slate-400 mt-0.5">One of Airbnb's most loved homes</p>
+        <h3 class="font-serif text-xl font-bold text-sea-950" data-i18n="gf.title">What is Guest Favorite?</h3>
+        <p class="text-xs text-slate-400 mt-0.5" data-i18n="gf.subtitle">One of Airbnb's most loved homes</p>
       </div>
     </div>
-    <p class="text-sm text-slate-600 leading-relaxed mb-5">Guest Favorite is Airbnb's recognition for homes that consistently delight guests. It's awarded based on <strong class="text-slate-800">ratings, reviews, and reliability</strong> — and only the top-rated listings earn it.</p>
+    <p class="text-sm text-slate-600 leading-relaxed mb-5" data-i18n-html="gf.body">Guest Favorite is Airbnb's recognition for homes that consistently delight guests. It's awarded based on <strong class="text-slate-800">ratings, reviews, and reliability</strong> — and only the top-rated listings earn it.</p>
     <div class="space-y-3 mb-5">
       <div class="flex items-start gap-3">
         <svg class="w-4 h-4 text-amber-400 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-        <p class="text-xs text-slate-600"><strong class="text-slate-800">4.96 overall rating</strong> — one of the highest scores among all Airbnb listings worldwide</p>
+        <p class="text-xs text-slate-600" data-i18n-html="gf.s1"><strong class="text-slate-800">4.96 overall rating</strong> — one of the highest scores among all Airbnb listings worldwide</p>
       </div>
       <div class="flex items-start gap-3">
         <svg class="w-4 h-4 text-sea-500 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
-        <p class="text-xs text-slate-600"><strong class="text-slate-800">50+ five-star reviews</strong> — real guests, real stays, consistently great experiences</p>
+        <p class="text-xs text-slate-600" data-i18n-html="gf.s2"><strong class="text-slate-800">50+ five-star reviews</strong> — real guests, real stays, consistently great experiences</p>
       </div>
       <div class="flex items-start gap-3">
         <svg class="w-4 h-4 text-green-500 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
-        <p class="text-xs text-slate-600"><strong class="text-slate-800">Top 10% of listings</strong> — awarded to a small fraction of all homes on Airbnb globally</p>
+        <p class="text-xs text-slate-600" data-i18n-html="gf.s3"><strong class="text-slate-800">Top 10% of listings</strong> — awarded to a small fraction of all homes on Airbnb globally</p>
       </div>
     </div>
     <div class="flex gap-2">
-      <button onclick="closeGuestFavorite()" class="flex-1 text-xs font-semibold text-slate-600 bg-slate-100 px-3 py-2.5 rounded-xl hover:bg-slate-200 transition-colors cursor-pointer">Got it</button>
-      <a href="https://www.airbnb.co.uk/rooms/53208110" target="_blank" rel="noopener noreferrer" onclick="closeGuestFavorite()" class="flex-1 text-xs font-semibold text-white bg-sea-600 px-3 py-2.5 rounded-xl hover:bg-sea-700 transition-colors cursor-pointer text-center">Book Now</a>
+      <button onclick="closeGuestFavorite()" class="flex-1 text-xs font-semibold text-slate-600 bg-slate-100 px-3 py-2.5 rounded-xl hover:bg-slate-200 transition-colors cursor-pointer" data-i18n="gf.got_it">Got it</button>
+      <a href="https://www.airbnb.co.uk/rooms/53208110" target="_blank" rel="noopener noreferrer" onclick="closeGuestFavorite()" class="flex-1 text-xs font-semibold text-white bg-sea-600 px-3 py-2.5 rounded-xl hover:bg-sea-700 transition-colors cursor-pointer text-center" data-i18n="gf.book">Book Now</a>
     </div>
   </div>
 </div>
@@ -891,32 +916,32 @@
         <svg class="w-6 h-6 text-sea-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"/></svg>
       </div>
       <div>
-        <h3 class="font-serif text-xl font-bold text-sea-950">What is a Superhost?</h3>
-        <p class="text-xs text-slate-400 mt-0.5">Airbnb's highest host recognition</p>
+        <h3 class="font-serif text-xl font-bold text-sea-950" data-i18n="sh.title">What is a Superhost?</h3>
+        <p class="text-xs text-slate-400 mt-0.5" data-i18n="sh.subtitle">Airbnb's highest host recognition</p>
       </div>
     </div>
-    <p class="text-sm text-slate-600 leading-relaxed mb-5">Superhosts are experienced, highly rated hosts committed to exceptional guest experiences. Airbnb awards this status to the <strong class="text-slate-800">top 1% of hosts</strong> — and it must be re-earned every 12 months to keep it.</p>
+    <p class="text-sm text-slate-600 leading-relaxed mb-5" data-i18n-html="sh.body">Superhosts are experienced, highly rated hosts committed to exceptional guest experiences. Airbnb awards this status to the <strong class="text-slate-800">top 1% of hosts</strong> — and it must be re-earned every 12 months to keep it.</p>
     <div class="space-y-3">
       <div class="flex items-start gap-3">
         <svg class="w-4 h-4 text-amber-400 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-        <p class="text-xs text-slate-600"><strong class="text-slate-800">4.8+ overall rating</strong> — maintained consistently across all recent stays</p>
+        <p class="text-xs text-slate-600" data-i18n-html="sh.s1"><strong class="text-slate-800">4.8+ overall rating</strong> — maintained consistently across all recent stays</p>
       </div>
       <div class="flex items-start gap-3">
         <svg class="w-4 h-4 text-sea-500 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/></svg>
-        <p class="text-xs text-slate-600"><strong class="text-slate-800">&lt;1 hour response time</strong> — messages answered quickly, any time</p>
+        <p class="text-xs text-slate-600" data-i18n-html="sh.s2"><strong class="text-slate-800">&lt;1 hour response time</strong> — messages answered quickly, any time</p>
       </div>
       <div class="flex items-start gap-3">
         <svg class="w-4 h-4 text-green-500 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
-        <p class="text-xs text-slate-600"><strong class="text-slate-800">Near-zero cancellations</strong> — reliable bookings, no last-minute surprises</p>
+        <p class="text-xs text-slate-600" data-i18n-html="sh.s3"><strong class="text-slate-800">Near-zero cancellations</strong> — reliable bookings, no last-minute surprises</p>
       </div>
       <div class="flex items-start gap-3">
         <svg class="w-4 h-4 text-sea-500 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
-        <p class="text-xs text-slate-600"><strong class="text-slate-800">50+ five-star reviews</strong> — proven track record with guests worldwide</p>
+        <p class="text-xs text-slate-600" data-i18n-html="sh.s4"><strong class="text-slate-800">50+ five-star reviews</strong> — proven track record with guests worldwide</p>
       </div>
     </div>
     <div class="mt-5 pt-4 border-t border-slate-100 flex gap-2">
-      <button onclick="openProfile(); closeSuperhost();" class="flex-1 text-xs font-semibold text-sea-700 bg-sea-50 border border-sea-200 px-3 py-2.5 rounded-xl hover:bg-sea-100 transition-colors cursor-pointer">View Maria's profile</button>
-      <button onclick="closeSuperhost()" class="flex-1 text-xs font-semibold text-white bg-sea-600 px-3 py-2.5 rounded-xl hover:bg-sea-700 transition-colors cursor-pointer">Got it</button>
+      <button onclick="openProfile(); closeSuperhost();" class="flex-1 text-xs font-semibold text-sea-700 bg-sea-50 border border-sea-200 px-3 py-2.5 rounded-xl hover:bg-sea-100 transition-colors cursor-pointer" data-i18n="sh.profile">View Maria's profile</button>
+      <button onclick="closeSuperhost()" class="flex-1 text-xs font-semibold text-white bg-sea-600 px-3 py-2.5 rounded-xl hover:bg-sea-700 transition-colors cursor-pointer" data-i18n="sh.got_it">Got it</button>
     </div>
   </div>
 </div>
@@ -932,13 +957,13 @@
           <img src="images/maria-profile.jpg" alt="Maria" class="w-full h-full object-cover object-top">
         </div>
         <div>
-          <p class="font-semibold text-slate-800 text-sm">Maria · Host Profile</p>
-          <p class="text-xs text-slate-400">Superhost · Floreasca, Bucharest</p>
+          <p class="font-semibold text-slate-800 text-sm" data-i18n="prof.title">Maria · Host Profile</p>
+          <p class="text-xs text-slate-400" data-i18n="prof.sub">Superhost · Floreasca, Bucharest</p>
         </div>
       </div>
       <div class="flex items-center gap-2">
         <a href="https://www.airbnb.com/users/profile/1468183323797269643?previous_page_name=PdpHomeMarketplace" target="_blank" rel="noopener noreferrer" class="hidden sm:flex items-center gap-1 text-xs font-medium text-sea-600 hover:text-sea-800 transition-colors">
-          Open on Airbnb
+          <span data-i18n="prof.open">Open on Airbnb</span>
           <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
         </a>
         <button onclick="closeProfile()" class="w-8 h-8 rounded-full bg-slate-100 hover:bg-slate-200 flex items-center justify-center transition-colors cursor-pointer" aria-label="Close">
@@ -963,14 +988,14 @@
             <span class="text-xs text-slate-400">overall rating</span>
           </div>
         </div>
-        <p class="text-sm text-slate-500 max-w-xs leading-relaxed">Airbnb doesn't allow embedding profiles directly. Open Maria's full profile in a new tab to see all reviews and host details.</p>
+        <p class="text-sm text-slate-500 max-w-xs leading-relaxed" data-i18n="prof.info">Airbnb doesn't allow embedding profiles directly. Open Maria's full profile in a new tab to see all reviews and host details.</p>
         <a href="https://www.airbnb.com/users/profile/1468183323797269643?previous_page_name=PdpHomeMarketplace" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 bg-sea-600 hover:bg-sea-700 text-white font-semibold px-6 py-3 rounded-xl transition-colors cursor-pointer text-sm">
           <svg class="w-4 h-4" viewBox="0 0 32 32" fill="currentColor"><path d="M16 1C7.716 1 1 7.716 1 16s6.716 15 15 15 15-6.716 15-15S24.284 1 16 1zm6.781 21.733c-.234.547-.703.89-1.297.89-.313 0-.641-.094-.953-.281-1.234-.703-2.453-1.422-3.531-2.297-1.078.875-2.297 1.594-3.531 2.297-.313.188-.641.281-.953.281-.594 0-1.063-.344-1.297-.89-.422-.984.109-2.016 1.063-2.438.297-.125.594-.25.891-.375.531-.219 1.063-.453 1.578-.703-.297-.547-.594-1.078-.875-1.594-.578-1.047-1.078-2.156-1.453-3.313-.547-1.703-.344-3.375.563-4.625.922-1.266 2.438-1.969 4.016-1.969s3.094.703 4.016 1.969c.906 1.25 1.109 2.922.563 4.625-.375 1.156-.875 2.266-1.453 3.313-.281.516-.578 1.047-.875 1.594.516.25 1.047.484 1.578.703.297.125.594.25.891.375.953.422 1.484 1.453 1.063 2.438z"/></svg>
-          View profile on Airbnb
+          <span data-i18n="prof.fb_btn">View profile on Airbnb</span>
         </a>
         <a href="https://www.airbnb.com/guest/messages/2554464184" target="_blank" rel="noopener noreferrer" class="text-sm text-sea-600 hover:text-sea-800 font-medium flex items-center gap-1">
           <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/></svg>
-          Message Maria on Airbnb
+          <span data-i18n="prof.msg_btn">Message Maria on Airbnb</span>
         </a>
       </div>
     </div>
@@ -1205,5 +1230,7 @@
   });
 </script>
 
+<script src="translations-index.js"></script>
+<script src="i18n.js"></script>
 </body>
 </html>
