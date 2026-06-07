@@ -278,6 +278,7 @@ en: {
   'food.trans_sub':  'Transport from the apartment',
   'food.todo_h':     'Things to Do',
   'food.todo_sub':   'Floreasca, Bucharest & beyond',
+  'addr.lbl':        'Delivery address',
 
   'food.tag_spec':    'Specialty',
   'food.tag_spec_br': 'Specialty + Brunch',
@@ -574,6 +575,7 @@ ro: {
   'food.trans_sub':  'Transport din apartament',
   'food.todo_h':     'Ce poți face',
   'food.todo_sub':   'Floreasca, București & împrejurimi',
+  'addr.lbl':        'Adresă de livrare',
 
   'food.tag_spec':    'Specialitate',
   'food.tag_spec_br': 'Specialitate + Brunch',
@@ -870,6 +872,7 @@ it: {
   'food.trans_sub':  'Trasporti dall\'appartamento',
   'food.todo_h':     'Cosa fare',
   'food.todo_sub':   'Floreasca, Bucarest & dintorni',
+  'addr.lbl':        'Indirizzo di consegna',
 
   'food.tag_spec':    'Specialty',
   'food.tag_spec_br': 'Specialty + Brunch',
@@ -1166,6 +1169,7 @@ de: {
   'food.trans_sub':  'Transport von der Wohnung',
   'food.todo_h':     'Sehenswürdigkeiten & Aktivitäten',
   'food.todo_sub':   'Floreasca, Bukarest & Umgebung',
+  'addr.lbl':        'Lieferadresse',
 
   'food.tag_spec':    'Specialty',
   'food.tag_spec_br': 'Specialty + Brunch',
@@ -1462,6 +1466,7 @@ fr: {
   'food.trans_sub':  'Transports depuis l\'appartement',
   'food.todo_h':     'Que faire',
   'food.todo_sub':   'Floreasca, Bucarest & alentours',
+  'addr.lbl':        'Adresse de livraison',
 
   'food.tag_spec':    'Specialty',
   'food.tag_spec_br': 'Specialty + Brunch',
@@ -1762,6 +1767,7 @@ uk: {
   'food.trans_sub':  'Транспорт від квартири',
   'food.todo_h':     'Що подивитися',
   'food.todo_sub':   'Флоряска, Бухарест & околиці',
+  'addr.lbl':        'Адреса доставки',
 
   'food.tag_spec':    'Спеціалті',
   'food.tag_spec_br': 'Спеціалті + Бранч',
