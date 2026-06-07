@@ -1935,7 +1935,7 @@
       } else {
         setTimeout(function() {
           foodMap.invalidateSize();
-          if (foodMapBounds) foodMap.fitBounds(foodMapBounds, { padding: [30, 30] });
+          foodMap.setView([44.4614, 26.0999], 14);
         }, 50);
       }
     } else {
@@ -1976,7 +1976,9 @@
       });
 
       foodMapBounds = bounds;
-      foodMap.fitBounds(bounds, { padding: [30, 30] });
+      // Center on apartment with neighbourhood zoom — fitBounds zooms out too far
+      // when distant pins (Dose Café, Tucano, Metro Ștefan) are included
+      foodMap.setView([44.4614, 26.0999], 14);
 
       foodMap.once('tileload', function() {
         var loader = document.getElementById('map-loader');
