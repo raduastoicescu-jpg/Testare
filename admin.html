@@ -145,9 +145,7 @@
 
   // ── Load current config ───────────────────────────────────────
   function loadCurrentStatus() {
-    fetch('https://api.github.com/repos/raduastoicescu-jpg/Testare/contents/config.json', {
-      headers: { Accept: 'application/vnd.github.v3.raw', 'Cache-Control': 'no-cache' }
-    })
+    fetch('/.netlify/functions/get-config')
       .then(function(r) { return r.ok ? r.json() : {}; })
       .then(function(cfg) { renderStatus(cfg); })
       .catch(function() { renderStatus({}); });
