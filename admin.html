@@ -12,6 +12,8 @@
     body { font-family: 'Inter', sans-serif; }
     .spin { animation: spin 0.8s linear infinite; }
     @keyframes spin { to { transform: rotate(360deg); } }
+    .lang-btn { background: #f8fafc; border-color: #e2e8f0; color: #64748b; }
+    .lang-btn.active { background: #1e293b; border-color: #1e293b; color: #fff; }
   </style>
 </head>
 <body class="min-h-screen bg-slate-50">
@@ -83,6 +85,16 @@
           <span class="text-xs text-slate-400 ml-auto" id="deploy-timer">Site se actualizează…</span>
         </div>
 
+        <!-- Language selector -->
+        <div class="flex gap-1.5 flex-wrap mb-3">
+          <button onclick="setLang('en')" id="lang-en" class="lang-btn active px-2.5 py-1 rounded-lg text-xs font-semibold border transition-colors">🇬🇧 EN</button>
+          <button onclick="setLang('ro')" id="lang-ro" class="lang-btn px-2.5 py-1 rounded-lg text-xs font-semibold border transition-colors">🇷🇴 RO</button>
+          <button onclick="setLang('it')" id="lang-it" class="lang-btn px-2.5 py-1 rounded-lg text-xs font-semibold border transition-colors">🇮🇹 IT</button>
+          <button onclick="setLang('de')" id="lang-de" class="lang-btn px-2.5 py-1 rounded-lg text-xs font-semibold border transition-colors">🇩🇪 DE</button>
+          <button onclick="setLang('fr')" id="lang-fr" class="lang-btn px-2.5 py-1 rounded-lg text-xs font-semibold border transition-colors">🇫🇷 FR</button>
+          <button onclick="setLang('uk')" id="lang-uk" class="lang-btn px-2.5 py-1 rounded-lg text-xs font-semibold border transition-colors">🇺🇦 UK</button>
+        </div>
+
         <!-- Message preview -->
         <div class="bg-slate-50 rounded-xl p-4 mb-4 text-sm text-slate-700 leading-relaxed whitespace-pre-line" id="msg-preview"></div>
 
@@ -92,14 +104,14 @@
             <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
               <rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/>
             </svg>
-            <span id="copy-pwd-label">Copiază parola</span>
+            <span id="copy-pwd-label">Copy password</span>
           </button>
           <button onclick="copyMessage()"
             class="flex items-center justify-center gap-1.5 bg-blue-50 hover:bg-blue-100 text-blue-700 py-3 rounded-xl text-xs font-semibold transition-colors">
             <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
               <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
             </svg>
-            <span id="copy-msg-label">Copiază mesaj</span>
+            <span id="copy-msg-label">Copy message</span>
           </button>
         </div>
       </div>
@@ -126,6 +138,16 @@
 <script>
   var currentCode = '';
   var currentDate = '';
+  var currentLang = 'en';
+
+  var MSG = {
+    en: { greeting: 'Welcome to Lovely Condo Floreasca! 🏠', guide: 'Your apartment guide with everything you need:', pwd: 'Password', valid: 'Valid until', locale: 'en-GB' },
+    ro: { greeting: 'Bun venit la Lovely Condo Floreasca! 🏠', guide: 'Ghidul apartamentului cu tot ce ai nevoie:', pwd: 'Parolă', valid: 'Valabil până pe', locale: 'ro-RO' },
+    it: { greeting: 'Benvenuto a Lovely Condo Floreasca! 🏠', guide: 'La guida del tuo appartamento con tutto il necessario:', pwd: 'Password', valid: 'Valida fino al', locale: 'it-IT' },
+    de: { greeting: 'Willkommen im Lovely Condo Floreasca! 🏠', guide: 'Dein Apartment-Führer mit allem was du brauchst:', pwd: 'Passwort', valid: 'Gültig bis', locale: 'de-DE' },
+    fr: { greeting: 'Bienvenue au Lovely Condo Floreasca! 🏠', guide: 'Le guide de votre appartement avec tout ce dont vous avez besoin:', pwd: 'Mot de passe', valid: "Valable jusqu'au", locale: 'fr-FR' },
+    uk: { greeting: 'Ласкаво просимо до Lovely Condo Floreasca! 🏠', guide: 'Путівник по апартаментах з усім необхідним:', pwd: 'Пароль', valid: 'Дійсний до', locale: 'uk-UA' }
+  };
 
   var ADMIN_PASSWORD = 'floreasca2025';
 
@@ -222,16 +244,24 @@
   }
 
   // ── Copy helpers ──────────────────────────────────────────────
-  function buildMessage(code, date) {
+  function buildMessage(code, date, lang) {
+    var t = MSG[lang] || MSG.en;
     var d = new Date(date + 'T00:00:00');
-    var dateStr = d.toLocaleDateString('ro-RO', { day: 'numeric', month: 'long', year: 'numeric' });
-    return 'Bun venit la Lovely Condo Floreasca! 🏠\n\nGhidul apartamentului cu tot ce ai nevoie:\n👉 lovelycondo.netlify.app/guide.html\n\nParolă: ' + code + '\n(Valabil până pe ' + dateStr + ')';
+    var dateStr = d.toLocaleDateString(t.locale, { day: 'numeric', month: 'long', year: 'numeric' });
+    return t.greeting + '\n\n' + t.guide + '\n👉 lovelycondo.netlify.app/guide.html\n\n' + t.pwd + ': ' + code + '\n(' + t.valid + ' ' + dateStr + ')';
+  }
+
+  function setLang(lang) {
+    currentLang = lang;
+    document.querySelectorAll('.lang-btn').forEach(function(b) { b.classList.remove('active'); });
+    document.getElementById('lang-' + lang).classList.add('active');
+    if (currentCode) document.getElementById('msg-preview').textContent = buildMessage(currentCode, currentDate, lang);
   }
 
   function showSuccess(code, date) {
     var section = document.getElementById('copy-section');
     section.classList.remove('hidden');
-    document.getElementById('msg-preview').textContent = buildMessage(code, date);
+    document.getElementById('msg-preview').textContent = buildMessage(code, date, currentLang);
     var timer = document.getElementById('deploy-timer');
     timer.textContent = '✅ Parola e activă!';
     timer.classList.add('text-green-500');
@@ -240,14 +270,14 @@
 
   function copyPassword() {
     navigator.clipboard.writeText(currentCode).then(function() {
-      flash('copy-pwd-label', 'Copiată ✓', 'Copiază parola');
+      flash('copy-pwd-label', 'Copied ✓', 'Copy password');
     });
   }
 
   function copyMessage() {
-    var msg = buildMessage(currentCode, currentDate);
+    var msg = buildMessage(currentCode, currentDate, currentLang);
     navigator.clipboard.writeText(msg).then(function() {
-      flash('copy-msg-label', 'Copiat ✓', 'Copiază mesaj');
+      flash('copy-msg-label', 'Copied ✓', 'Copy message');
     });
   }
 
