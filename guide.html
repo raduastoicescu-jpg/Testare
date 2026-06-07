@@ -1778,10 +1778,20 @@
 <script>
   // ── Copy to clipboard ────────────────────────────────────────
   function copyText(btn, text) {
+    var orig = btn.innerHTML;
     navigator.clipboard.writeText(text).then(function () {
-      var orig = btn.innerHTML;
       btn.innerHTML = '<svg class="w-3.5 h-3.5 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>';
-      setTimeout(function () { btn.innerHTML = orig; }, 2000);
+      setTimeout(function () {
+        btn.innerHTML = orig;
+        var lang = localStorage.getItem('lang') || 'en';
+        var T = window.TRANS && (window.TRANS[lang] || window.TRANS['en']) || {};
+        btn.querySelectorAll('[data-i18n]').forEach(function (el) {
+          var k = el.getAttribute('data-i18n');
+          if (T[k] != null) el.textContent = T[k];
+        });
+      }, 2000);
+    }).catch(function () {
+      btn.innerHTML = orig;
     });
   }
 
