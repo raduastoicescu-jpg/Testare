@@ -1006,6 +1006,7 @@
   const menuIconOpen  = document.getElementById('menu-icon-open');
   const menuIconClose = document.getElementById('menu-icon-close');
   const navBookBtn    = navbar.querySelector('a[href="#book"]');
+  const langToggle    = document.getElementById('lang-toggle');
 
   const heroEl = document.getElementById('hero');
   window.addEventListener('scroll', () => {
@@ -1035,6 +1036,11 @@
     if (menuIconClose) menuIconClose.style.color = scrolled ? '#0C4A6E' : '';
     const navPin = navbar.querySelector('a svg');
     if (navPin) navPin.style.color = scrolled ? '#0EA5E9' : '';
+    if (langToggle) {
+      langToggle.style.color       = scrolled ? '#0C4A6E' : '';
+      langToggle.style.borderColor = scrolled ? '#BAE6FD' : '';
+      langToggle.style.backdropFilter = scrolled ? 'none' : '';
+    }
   }, { passive: true });
 
   // ── Mobile menu toggle ────────────────────────────────────────
