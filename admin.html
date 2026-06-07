@@ -236,18 +236,9 @@
     section.classList.remove('hidden');
     document.getElementById('msg-preview').textContent = buildMessage(code, date);
     var timer = document.getElementById('deploy-timer');
-    var secs = 60;
-    var iv = setInterval(function() {
-      secs--;
-      if (secs <= 0) {
-        clearInterval(iv);
-        timer.textContent = '✅ Live — parola e activă!';
-        timer.classList.add('text-green-500');
-        loadCurrentStatus();
-      } else {
-        timer.textContent = 'Se actualizează… ' + secs + 's';
-      }
-    }, 1000);
+    timer.textContent = '✅ Parola e activă!';
+    timer.classList.add('text-green-500');
+    loadCurrentStatus();
   }
 
   function copyPassword() {
