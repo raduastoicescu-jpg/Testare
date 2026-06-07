@@ -177,6 +177,7 @@
     var el = document.getElementById('status-body');
     if (!cfg.guestCode) {
       el.innerHTML = '<span class="text-slate-400 italic">Nicio rezervare activă</span>';
+      document.getElementById('copy-section').classList.add('hidden');
       return;
     }
     var today = new Date();
@@ -187,6 +188,15 @@
     el.innerHTML = isActive
       ? '<div class="flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-green-400 inline-block"></span><span class="font-mono font-semibold text-slate-800">' + cfg.guestCode + '</span><span class="text-slate-400">· checkout ' + dateStr + '</span></div>'
       : '<div class="flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-slate-300 inline-block"></span><span class="font-mono text-slate-400 line-through">' + cfg.guestCode + '</span><span class="text-slate-400">· expirat ' + dateStr + '</span></div>';
+    if (isActive) {
+      currentCode = cfg.guestCode;
+      currentDate = cfg.checkoutDate;
+      var section = document.getElementById('copy-section');
+      section.classList.remove('hidden');
+      document.getElementById('msg-preview').textContent = buildMessage(cfg.guestCode, cfg.checkoutDate, currentLang);
+      var timer = document.getElementById('deploy-timer');
+      timer.textContent = '';
+    }
   }
 
   // ── Activate ──────────────────────────────────────────────────
