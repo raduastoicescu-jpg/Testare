@@ -181,13 +181,8 @@
     .then(function(res) {
       setActivateLoading(false);
       if (!res.ok) {
-        if (res.data.error === 'Parolă incorectă') {
-          document.getElementById('gate').classList.remove('hidden');
-          document.getElementById('panel').classList.add('hidden');
-          document.getElementById('gate-error').classList.remove('hidden');
-        } else {
-          showActivateError(res.data.error || 'Eroare necunoscută');
-        }
+        var debugInfo = res.data.debug ? ' [' + res.data.debug + ']' : '';
+        showActivateError((res.data.error || 'Eroare necunoscută') + debugInfo);
         return;
       }
       currentCode = code;
