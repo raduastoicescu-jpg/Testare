@@ -1876,6 +1876,7 @@
   // ── Food Map (Leaflet) ───────────────────────────────────────
   var foodMapInit = false;
   var foodMap = null;
+  var foodMapBounds = null;
 
   var FOOD_PLACES = [
     // Apartment
@@ -1921,8 +1922,14 @@
       mapView.classList.remove('hidden');
       listBtn.className = 'flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold transition-all duration-200 text-slate-500 hover:text-slate-700';
       mapBtn.className  = 'flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold transition-all duration-200 bg-white text-sea-700 shadow-sm';
-      if (!foodMapInit) initFoodMap();
-      setTimeout(function() { if (foodMap) foodMap.invalidateSize(); }, 50);
+      if (!foodMapInit) {
+        initFoodMap();
+      } else {
+        setTimeout(function() {
+          foodMap.invalidateSize();
+          if (foodMapBounds) foodMap.fitBounds(foodMapBounds, { padding: [30, 30] });
+        }, 50);
+      }
     } else {
       mapView.classList.add('hidden');
       listView.classList.remove('hidden');
@@ -1933,34 +1940,36 @@
 
   function initFoodMap() {
     foodMapInit = true;
-    foodMap = L.map('leaflet-map', { zoomControl: true, scrollWheelZoom: false });
-    var map = foodMap;
-    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-      attribution: '© <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>',
-      maxZoom: 19
-    }).addTo(map);
+    setTimeout(function() {
+      foodMap = L.map('leaflet-map', { zoomControl: true, scrollWheelZoom: false });
+      L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: '© <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>',
+        maxZoom: 19
+      }).addTo(foodMap);
 
-    var bounds = [];
-    FOOD_PLACES.forEach(function(p) {
-      var isHome = p.cat === 'home';
-      var marker = L.circleMarker([p.lat, p.lng], {
-        radius: isHome ? 10 : 8,
-        fillColor: p.color,
-        color: '#fff',
-        weight: 2,
-        opacity: 1,
-        fillOpacity: isHome ? 1 : 0.85
-      }).addTo(map);
+      var bounds = [];
+      FOOD_PLACES.forEach(function(p) {
+        var isHome = p.cat === 'home';
+        var marker = L.circleMarker([p.lat, p.lng], {
+          radius: isHome ? 10 : 8,
+          fillColor: p.color,
+          color: '#fff',
+          weight: 2,
+          opacity: 1,
+          fillOpacity: isHome ? 1 : 0.85
+        }).addTo(foodMap);
 
-      var popupContent = '<div style="font-family:sans-serif;min-width:120px">'
-        + '<div style="font-size:14px;font-weight:700;color:#1e293b;margin-bottom:2px">' + p.emoji + ' ' + p.name + '</div>'
-        + (p.dist ? '<div style="font-size:11px;color:#64748b">' + p.dist + '</div>' : '')
-        + '</div>';
-      marker.bindPopup(popupContent, { maxWidth: 200, closeButton: false });
-      bounds.push([p.lat, p.lng]);
-    });
+        var popupContent = '<div style="font-family:sans-serif;min-width:120px">'
+          + '<div style="font-size:14px;font-weight:700;color:#1e293b;margin-bottom:2px">' + p.emoji + ' ' + p.name + '</div>'
+          + (p.dist ? '<div style="font-size:11px;color:#64748b">' + p.dist + '</div>' : '')
+          + '</div>';
+        marker.bindPopup(popupContent, { maxWidth: 200, closeButton: false });
+        bounds.push([p.lat, p.lng]);
+      });
 
-    map.fitBounds(bounds, { padding: [30, 30] });
+      foodMapBounds = bounds;
+      foodMap.fitBounds(bounds, { padding: [30, 30] });
+    }, 100);
   }
 
   // ── Tabs ────────────────────────────────────────────────────
