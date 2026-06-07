@@ -1875,6 +1875,7 @@
 
   // ── Food Map (Leaflet) ───────────────────────────────────────
   var foodMapInit = false;
+  var foodMap = null;
 
   var FOOD_PLACES = [
     // Apartment
@@ -1921,6 +1922,7 @@
       listBtn.className = 'flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold transition-all duration-200 text-slate-500 hover:text-slate-700';
       mapBtn.className  = 'flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold transition-all duration-200 bg-white text-sea-700 shadow-sm';
       if (!foodMapInit) initFoodMap();
+      setTimeout(function() { if (foodMap) foodMap.invalidateSize(); }, 50);
     } else {
       mapView.classList.add('hidden');
       listView.classList.remove('hidden');
@@ -1931,7 +1933,8 @@
 
   function initFoodMap() {
     foodMapInit = true;
-    var map = L.map('leaflet-map', { zoomControl: true, scrollWheelZoom: false });
+    foodMap = L.map('leaflet-map', { zoomControl: true, scrollWheelZoom: false });
+    var map = foodMap;
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
       attribution: '© <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>',
       maxZoom: 19
