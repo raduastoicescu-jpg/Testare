@@ -207,7 +207,7 @@
     fetch('/.netlify/functions/update-config', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ adminPassword: adminPassword, guestCode: '', checkoutDate: '' })
+      body: JSON.stringify({ guestCode: '', checkoutDate: '' })
     })
     .then(function(r) { return r.json().then(function(d) { return { ok: r.ok, data: d }; }); })
     .then(function(res) {
