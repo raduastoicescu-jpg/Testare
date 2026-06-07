@@ -124,15 +124,20 @@
   </div>
 
 <script>
-  var adminPassword = '';
   var currentCode = '';
   var currentDate = '';
+
+  var ADMIN_PASSWORD = 'floreasca2025';
 
   // ── Gate ──────────────────────────────────────────────────────
   function enterAdmin() {
     var pwd = document.getElementById('admin-pwd-input').value.trim();
     if (!pwd) return;
-    adminPassword = pwd;
+    if (pwd !== ADMIN_PASSWORD) {
+      document.getElementById('gate-error').classList.remove('hidden');
+      return;
+    }
+    document.getElementById('gate-error').classList.add('hidden');
     document.getElementById('gate').classList.add('hidden');
     document.getElementById('panel').classList.remove('hidden');
     loadCurrentStatus();
@@ -175,7 +180,7 @@
     fetch('/.netlify/functions/update-config', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ adminPassword: adminPassword, guestCode: code, checkoutDate: date })
+      body: JSON.stringify({ guestCode: code, checkoutDate: date })
     })
     .then(function(r) { return r.json().then(function(d) { return { ok: r.ok, data: d }; }); })
     .then(function(res) {

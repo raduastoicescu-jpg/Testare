@@ -19,13 +19,7 @@ exports.handler = async (event) => {
     return { statusCode: 400, headers: corsHeaders, body: JSON.stringify({ error: 'Invalid JSON' }) };
   }
 
-  const { adminPassword, guestCode, checkoutDate } = body;
-
-  const envPwd = (process.env.ADMIN_PASSWORD || '').trim();
-  const inPwd  = (adminPassword || '').trim();
-  if (!envPwd || inPwd !== envPwd) {
-    return { statusCode: 401, headers: corsHeaders, body: JSON.stringify({ error: 'Parolă incorectă', debug: !envPwd ? 'env_not_set' : 'wrong_password' }) };
-  }
+  const { guestCode, checkoutDate } = body;
 
   const token = process.env.GITHUB_TOKEN;
   const owner = 'raduastoicescu-jpg';
