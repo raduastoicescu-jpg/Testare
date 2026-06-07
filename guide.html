@@ -1887,36 +1887,36 @@
   var foodMapBounds = null;
 
   var FOOD_PLACES = [
-    // Apartment
-    { lat: 44.4678, lng: 26.0885, name: 'Apartament', cat: 'home', color: '#0369A1', emoji: '🏠', dist: '' },
+    // Apartment — Str. Banul Antonache 52-60 (confirmed via Google Maps #59)
+    { lat: 44.4614, lng: 26.0999, name: 'Apartament', cat: 'home', color: '#0369A1', emoji: '🏠', dist: '' },
     // Supermarkets
-    { lat: 44.4666, lng: 26.0893, name: 'Mega Image', cat: 'shop', color: '#16a34a', emoji: '🛒', dist: '3 min walk' },
-    { lat: 44.4735, lng: 26.1048, name: 'Kaufland București-Tei', cat: 'shop', color: '#16a34a', emoji: '🛒', dist: '~12 min' },
-    { lat: 44.4712, lng: 26.0978, name: 'Promenada Mall', cat: 'shop', color: '#16a34a', emoji: '🛒', dist: '~22 min walk' },
+    { lat: 44.4603, lng: 26.0999, name: 'Mega Image', cat: 'shop', color: '#16a34a', emoji: '🛒', dist: '3 min walk' },
+    { lat: 44.4699, lng: 26.1098, name: 'Kaufland București-Tei', cat: 'shop', color: '#16a34a', emoji: '🛒', dist: '~12 min' },
+    { lat: 44.4778, lng: 26.1035, name: 'Promenada Mall', cat: 'shop', color: '#16a34a', emoji: '🛒', dist: '~22 min walk' },
     // Coffee
-    { lat: 44.4676, lng: 26.0872, name: 'Two Minutes', cat: 'coffee', color: '#d97706', emoji: '☕', dist: '~5 min walk' },
-    { lat: 44.4617, lng: 26.0871, name: 'Origo Dorobanți', cat: 'coffee', color: '#d97706', emoji: '☕', dist: '~12 min walk' },
-    { lat: 44.4512, lng: 26.0893, name: 'Dose Café', cat: 'coffee', color: '#d97706', emoji: '☕', dist: '~20 min' },
-    { lat: 44.4609, lng: 26.0878, name: 'Tucano Coffee', cat: 'coffee', color: '#d97706', emoji: '☕', dist: '~13 min walk' },
+    { lat: 44.4638, lng: 26.0929, name: 'Two Minutes', cat: 'coffee', color: '#d97706', emoji: '☕', dist: '~5 min walk' },
+    { lat: 44.4613, lng: 26.0937, name: 'Origo Dorobanți', cat: 'coffee', color: '#d97706', emoji: '☕', dist: '~12 min walk' },
+    { lat: 44.4430, lng: 26.1030, name: 'Dose Café', cat: 'coffee', color: '#d97706', emoji: '☕', dist: '~20 min' },
+    { lat: 44.4473, lng: 26.0939, name: 'Tucano Coffee', cat: 'coffee', color: '#d97706', emoji: '☕', dist: '~13 min walk' },
     // Bakeries
-    { lat: 44.4674, lng: 26.0898, name: 'Patiseria Comteia', cat: 'bakery', color: '#ea580c', emoji: '🥐', dist: '~5 min walk' },
-    { lat: 44.4668, lng: 26.0910, name: 'Pain Plaisir Floreasca', cat: 'bakery', color: '#ea580c', emoji: '🥐', dist: '~6 min walk' },
-    { lat: 44.4670, lng: 26.0905, name: 'Patiseria Andreea F', cat: 'bakery', color: '#ea580c', emoji: '🥐', dist: '~6 min walk' },
-    { lat: 44.4614, lng: 26.0875, name: 'Cuptorul Brâncovenesc', cat: 'bakery', color: '#ea580c', emoji: '🥐', dist: '~12 min walk' },
-    { lat: 44.4663, lng: 26.0917, name: 'Baguette Beller', cat: 'bakery', color: '#ea580c', emoji: '🥐', dist: '~8 min walk' },
-    { lat: 44.4661, lng: 26.0920, name: 'Ana Pan Beller', cat: 'bakery', color: '#ea580c', emoji: '🥐', dist: '~8 min walk' },
+    { lat: 44.4490, lng: 26.0866, name: 'Patiseria Comteia', cat: 'bakery', color: '#ea580c', emoji: '🥐', dist: '~5 min walk' },
+    { lat: 44.4614, lng: 26.0996, name: 'Pain Plaisir Floreasca', cat: 'bakery', color: '#ea580c', emoji: '🥐', dist: '~6 min walk' },
+    { lat: 44.4622, lng: 26.0998, name: 'Patiseria Andreea F', cat: 'bakery', color: '#ea580c', emoji: '🥐', dist: '~6 min walk' },
+    { lat: 44.4640, lng: 26.0935, name: 'Cuptorul Brâncovenesc', cat: 'bakery', color: '#ea580c', emoji: '🥐', dist: '~12 min walk' },
+    { lat: 44.4625, lng: 26.0956, name: 'Baguette Beller', cat: 'bakery', color: '#ea580c', emoji: '🥐', dist: '~8 min walk' },
+    { lat: 44.4618, lng: 26.0951, name: 'Ana Pan Beller', cat: 'bakery', color: '#ea580c', emoji: '🥐', dist: '~8 min walk' },
     // Restaurants
-    { lat: 44.4679, lng: 26.0882, name: 'Yoshi Sushi & Teppanyaki', cat: 'restaurant', color: '#0284c7', emoji: '🍽️', dist: '~3 min walk' },
-    { lat: 44.4701, lng: 26.0953, name: 'POT.stories', cat: 'restaurant', color: '#0284c7', emoji: '🍽️', dist: '~10 min walk' },
-    { lat: 44.4683, lng: 26.0930, name: 'BistroMar', cat: 'restaurant', color: '#0284c7', emoji: '🍽️', dist: '~7 min walk' },
+    { lat: 44.4604, lng: 26.1001, name: 'Yoshi Sushi & Teppanyaki', cat: 'restaurant', color: '#0284c7', emoji: '🍽️', dist: '~3 min walk' },
+    { lat: 44.4609, lng: 26.1005, name: 'POT.stories', cat: 'restaurant', color: '#0284c7', emoji: '🍽️', dist: '~10 min walk' },
+    { lat: 44.4603, lng: 26.0999, name: 'BistroMar', cat: 'restaurant', color: '#0284c7', emoji: '🍽️', dist: '~7 min walk' },
     // Fitness
-    { lat: 44.4659, lng: 26.0873, name: 'BEAT45 Fitness Studio', cat: 'fitness', color: '#7c3aed', emoji: '🏋️', dist: '~10 min walk' },
-    { lat: 44.4657, lng: 26.0868, name: 'FS Studio — Yoga', cat: 'fitness', color: '#7c3aed', emoji: '🧘', dist: '~10 min walk' },
-    { lat: 44.4610, lng: 26.0871, name: 'Stay Fit Gym Dorobanți', cat: 'fitness', color: '#7c3aed', emoji: '🏋️', dist: '~12 min walk' },
-    { lat: 44.4702, lng: 26.0860, name: 'Floreasca Park & Lake', cat: 'fitness', color: '#7c3aed', emoji: '🌿', dist: '~2 min walk' },
+    { lat: 44.4609, lng: 26.1005, name: 'BEAT45 Fitness Studio', cat: 'fitness', color: '#7c3aed', emoji: '🏋️', dist: '~10 min walk' },
+    { lat: 44.4612, lng: 26.0979, name: 'FS Studio — Yoga', cat: 'fitness', color: '#7c3aed', emoji: '🧘', dist: '~10 min walk' },
+    { lat: 44.4617, lng: 26.0951, name: 'Stay Fit Gym Dorobanți', cat: 'fitness', color: '#7c3aed', emoji: '🏋️', dist: '~12 min walk' },
+    { lat: 44.4705, lng: 26.0885, name: 'Floreasca Park & Lake', cat: 'fitness', color: '#7c3aed', emoji: '🌿', dist: '~2 min walk' },
     // Transport
-    { lat: 44.4616, lng: 26.0950, name: 'Metro Aurel Vlaicu', cat: 'transport', color: '#475569', emoji: '🚇', dist: '~15 min walk' },
-    { lat: 44.4578, lng: 26.0888, name: 'Metro Ștefan cel Mare', cat: 'transport', color: '#475569', emoji: '🚇', dist: '~10 min walk' },
+    { lat: 44.4792, lng: 26.1002, name: 'Metro Aurel Vlaicu', cat: 'transport', color: '#475569', emoji: '🚇', dist: '~15 min walk' },
+    { lat: 44.4527, lng: 26.1053, name: 'Metro Ștefan cel Mare', cat: 'transport', color: '#475569', emoji: '🚇', dist: '~10 min walk' },
   ];
 
   function switchFoodView(view) {
