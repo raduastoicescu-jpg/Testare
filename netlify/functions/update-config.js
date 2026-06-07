@@ -21,8 +21,10 @@ exports.handler = async (event) => {
 
   const { adminPassword, guestCode, checkoutDate } = body;
 
-  if (!process.env.ADMIN_PASSWORD || adminPassword !== process.env.ADMIN_PASSWORD) {
-    return { statusCode: 401, headers: corsHeaders, body: JSON.stringify({ error: 'Parolă incorectă' }) };
+  const envPwd = (process.env.ADMIN_PASSWORD || '').trim();
+  const inPwd  = (adminPassword || '').trim();
+  if (!envPwd || inPwd !== envPwd) {
+    return { statusCode: 401, headers: corsHeaders, body: JSON.stringify({ error: 'Parolă incorectă', debug: !envPwd ? 'env_not_set' : 'wrong_password' }) };
   }
 
   const token = process.env.GITHUB_TOKEN;
