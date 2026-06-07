@@ -156,7 +156,8 @@ en: {
   /* Check-in steps */
   'ci.s1_h': 'Arrive at the building',
   'ci.s1_p': 'Strada Banul Antonache 52-60, Floreasca. Look for <strong class="text-slate-700">Building C — the middle one</strong>, easily identified by the <strong class="text-slate-700">yellow stripe</strong> on the facade.',
-  'ci.map':   'Get directions in Google Maps',
+  'ci.map':        'Get directions in Google Maps',
+  'ci.copy_addr':  'Copy address',
   'ci.s2_h': 'Find the lockbox — left side of the entrance',
   'ci.s2_p': 'Before entering the building, look to the <strong class="text-slate-700">left of the front door</strong>. The lockbox is mounted there. Enter the code to open it and retrieve your keys.',
   'ci.s3_h': 'Lockbox code',
@@ -460,7 +461,8 @@ ro: {
 
   'ci.s1_h': 'Ajungeți la bloc',
   'ci.s1_p': 'Strada Banul Antonache 52-60, Floreasca. Căutați <strong class="text-slate-700">Blocul C — cel din mijloc</strong>, ușor de identificat după <strong class="text-slate-700">dungă galbenă</strong> de pe fațadă.',
-  'ci.map':   'Indicații în Google Maps',
+  'ci.map':        'Indicații în Google Maps',
+  'ci.copy_addr':  'Copiază adresa',
   'ci.s2_h': 'Găsiți cutia cu chei — stânga intrării',
   'ci.s2_p': 'Înainte de a intra în clădire, uitați-vă la <strong class="text-slate-700">stânga ușii principale</strong>. Cutia cu chei este montată acolo. Introduceți codul pentru a o deschide și luați cheile.',
   'ci.s3_h': 'Codul cutiei cu chei',
@@ -757,7 +759,8 @@ it: {
 
   'ci.s1_h': 'Arrivate all\'edificio',
   'ci.s1_p': 'Strada Banul Antonache 52-60, Floreasca. Cercate il <strong class="text-slate-700">Blocco C — quello centrale</strong>, facilmente identificabile dalla <strong class="text-slate-700">striscia gialla</strong> sulla facciata.',
-  'ci.map':   'Ottieni indicazioni in Google Maps',
+  'ci.map':        'Ottieni indicazioni in Google Maps',
+  'ci.copy_addr':  'Copia indirizzo',
   'ci.s2_h': 'Trovate la cassetta delle chiavi — lato sinistro dell\'ingresso',
   'ci.s2_p': 'Prima di entrare nell\'edificio, guardate a <strong class="text-slate-700">sinistra della porta principale</strong>. La cassetta delle chiavi è montata lì. Inserite il codice per aprirla e prendere le chiavi.',
   'ci.s3_h': 'Codice della cassetta delle chiavi',
@@ -1054,7 +1057,8 @@ de: {
 
   'ci.s1_h': 'Ankommen am Gebäude',
   'ci.s1_p': 'Strada Banul Antonache 52-60, Floreasca. Suchen Sie nach <strong class="text-slate-700">Gebäude C — das mittlere</strong>, leicht erkennbar am <strong class="text-slate-700">gelben Streifen</strong> an der Fassade.',
-  'ci.map':   'Wegbeschreibung in Google Maps',
+  'ci.map':        'Wegbeschreibung in Google Maps',
+  'ci.copy_addr':  'Adresse kopieren',
   'ci.s2_h': 'Schlüsselbox finden — linke Seite des Eingangs',
   'ci.s2_p': 'Bevor Sie das Gebäude betreten, schauen Sie <strong class="text-slate-700">links von der Eingangstür</strong>. Die Schlüsselbox ist dort montiert. Den Code eingeben, um sie zu öffnen und die Schlüssel zu entnehmen.',
   'ci.s3_h': 'Schlüsselbox-Code',
@@ -1351,7 +1355,8 @@ fr: {
 
   'ci.s1_h': 'Arriver à l\'immeuble',
   'ci.s1_p': 'Strada Banul Antonache 52-60, Floreasca. Cherchez le <strong class="text-slate-700">Bâtiment C — celui du milieu</strong>, facilement identifiable par la <strong class="text-slate-700">bande jaune</strong> sur la façade.',
-  'ci.map':   'Itinéraire dans Google Maps',
+  'ci.map':        'Itinéraire dans Google Maps',
+  'ci.copy_addr':  'Copier l\'adresse',
   'ci.s2_h': 'Trouver la boîte à clés — côté gauche de l\'entrée',
   'ci.s2_p': 'Avant d\'entrer dans l\'immeuble, regardez à <strong class="text-slate-700">gauche de la porte principale</strong>. La boîte à clés y est fixée. Entrez le code pour l\'ouvrir et récupérer vos clés.',
   'ci.s3_h': 'Code de la boîte à clés',
@@ -1649,7 +1654,8 @@ uk: {
 
   'ci.s1_h': 'Прибуття до будинку',
   'ci.s1_p': 'Strada Banul Antonache 52-60, Floreasca. Шукайте <strong class="text-slate-700">Корпус C — середній</strong>, який легко впізнати завдяки <strong class="text-slate-700">жовтій смузі</strong> на фасаді.',
-  'ci.map': 'Відкрити на Google Maps',
+  'ci.map':       'Відкрити на Google Maps',
+  'ci.copy_addr': 'Скопіювати адресу',
   'ci.s2_h': 'Відкрити вхідні ворота',
   'ci.s2_p': 'Натисніть кнопку домофону або введіть код воріт на панелі. Ворота відчиняться автоматично.',
   'ci.s3_h': 'Увійдіть у будівлю',
