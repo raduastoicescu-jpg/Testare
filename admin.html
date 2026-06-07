@@ -239,8 +239,9 @@
       secs--;
       if (secs <= 0) {
         clearInterval(iv);
-        timer.textContent = '✅ Live';
+        timer.textContent = '✅ Live — parola e activă!';
         timer.classList.add('text-green-500');
+        loadCurrentStatus();
       } else {
         timer.textContent = 'Se actualizează… ' + secs + 's';
       }
