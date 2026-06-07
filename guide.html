@@ -1858,9 +1858,11 @@
     document.getElementById('pwd-error').classList.add('hidden');
   }
 
-  // Load dynamic guest config (reservation code + expiry date)
+  // Load dynamic guest config directly from GitHub (instant after admin saves — no Netlify deploy needed)
   let guestConfig = { guestCode: '', checkoutDate: '' };
-  fetch('/config.json?_=' + Date.now())
+  fetch('https://api.github.com/repos/raduastoicescu-jpg/Testare/contents/config.json', {
+    headers: { Accept: 'application/vnd.github.v3.raw', 'Cache-Control': 'no-cache' }
+  })
     .then(r => r.ok ? r.json() : {})
     .then(cfg => { if (cfg) guestConfig = cfg; })
     .catch(() => {});
