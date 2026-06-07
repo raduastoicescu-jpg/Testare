@@ -216,7 +216,7 @@
       setActivateLoading(false);
       if (res.ok) {
         document.getElementById('copy-section').classList.add('hidden');
-        setTimeout(loadCurrentStatus, 1500);
+        renderStatus({});
       } else {
         showActivateError(res.data.error || 'Eroare');
       }
@@ -238,7 +238,7 @@
     var timer = document.getElementById('deploy-timer');
     timer.textContent = '✅ Parola e activă!';
     timer.classList.add('text-green-500');
-    setTimeout(loadCurrentStatus, 1500);
+    renderStatus({ guestCode: code, checkoutDate: date });
   }
 
   function copyPassword() {
