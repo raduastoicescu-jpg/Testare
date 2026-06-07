@@ -248,7 +248,7 @@
     var t = MSG[lang] || MSG.en;
     var d = new Date(date + 'T00:00:00');
     var dateStr = d.toLocaleDateString(t.locale, { day: 'numeric', month: 'long', year: 'numeric' });
-    return t.greeting + '\n\n' + t.guide + '\n👉 lovelycondo.netlify.app/guide.html\n\n' + t.pwd + ': ' + code + '\n(' + t.valid + ' ' + dateStr + ')';
+    return t.greeting + '\n\n' + t.guide + '\n👉 https://lovelycondo.netlify.app/guide.html\n\n' + t.pwd + ': ' + code + '\n(' + t.valid + ' ' + dateStr + ')';
   }
 
   function setLang(lang) {
