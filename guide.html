@@ -12,9 +12,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garant:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
 
   <script>
-    // ── Change the guest password here (one line) ─────────────
-    const GUEST_PASSWORD = "floreasca2025";
-    // ─────────────────────────────────────────────────────────
+    const GUEST_PASSWORD = "floreasca2025"; // master password — always valid
   </script>
 
   <script>
@@ -1860,12 +1858,27 @@
     document.getElementById('pwd-error').classList.add('hidden');
   }
 
+  // Load dynamic guest config (reservation code + expiry date)
+  let guestConfig = { guestCode: '', checkoutDate: '' };
+  fetch('/config.json?_=' + Date.now())
+    .then(r => r.ok ? r.json() : {})
+    .then(cfg => { if (cfg) guestConfig = cfg; })
+    .catch(() => {});
+
+  function isGuestCodeValid(val) {
+    if (!guestConfig.guestCode || !guestConfig.checkoutDate) return false;
+    if (val !== guestConfig.guestCode) return false;
+    const today = new Date(); today.setHours(0, 0, 0, 0);
+    const checkout = new Date(guestConfig.checkoutDate + 'T00:00:00');
+    return checkout >= today;
+  }
+
   // Check if already unlocked
   if (localStorage.getItem(STORAGE_KEY) === '1') unlock();
 
   document.getElementById('unlock-btn').addEventListener('click', () => {
     const val = document.getElementById('pwd-input').value.trim();
-    if (val === GUEST_PASSWORD) {
+    if (val === GUEST_PASSWORD || isGuestCodeValid(val)) {
       unlock();
     } else {
       const err = document.getElementById('pwd-error');
