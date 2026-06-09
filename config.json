@@ -1,5 +1,4 @@
 {
-  "reservations": [
-    { "guestCode": "HME5APBCX4", "checkoutDate": "2026-06-15" }
-  ]
+  "guestCode": "HME5APBCX4",
+  "checkoutDate": "2026-06-15"
 }
