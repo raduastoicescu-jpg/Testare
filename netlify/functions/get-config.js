@@ -20,8 +20,17 @@ exports.handler = async () => {
 
     if (!res.ok) throw new Error(`GitHub GET failed: ${res.status}`);
     const config = await res.json();
-    return { statusCode: 200, headers, body: JSON.stringify(config) };
+
+    // Handle old single-reservation format
+    let reservations = config.reservations ||
+      (config.guestCode ? [{ guestCode: config.guestCode, checkoutDate: config.checkoutDate }] : []);
+
+    // Return only non-expired reservations
+    const today = new Date(); today.setHours(0, 0, 0, 0);
+    reservations = reservations.filter(r => r.checkoutDate && new Date(r.checkoutDate + 'T00:00:00') >= today);
+
+    return { statusCode: 200, headers, body: JSON.stringify({ reservations }) };
   } catch {
-    return { statusCode: 200, headers, body: JSON.stringify({ guestCode: '', checkoutDate: '' }) };
+    return { statusCode: 200, headers, body: JSON.stringify({ reservations: [] }) };
   }
 };

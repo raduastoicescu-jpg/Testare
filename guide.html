@@ -1864,18 +1864,18 @@
     document.getElementById('pwd-error').classList.add('hidden');
   }
 
-  let guestConfig = { guestCode: '', checkoutDate: '' };
+  let guestConfig = { reservations: [] };
   fetch('/.netlify/functions/get-config')
     .then(r => r.ok ? r.json() : {})
     .then(cfg => { if (cfg) guestConfig = cfg; })
     .catch(() => {});
 
   function isGuestCodeValid(val) {
-    if (!guestConfig.guestCode || !guestConfig.checkoutDate) return false;
-    if (val !== guestConfig.guestCode) return false;
     const today = new Date(); today.setHours(0, 0, 0, 0);
-    const checkout = new Date(guestConfig.checkoutDate + 'T00:00:00');
-    return checkout >= today;
+    return (guestConfig.reservations || []).some(function(r) {
+      if (val !== r.guestCode) return false;
+      return new Date(r.checkoutDate + 'T00:00:00') >= today;
+    });
   }
 
   // Check if already unlocked

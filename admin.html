@@ -51,10 +51,23 @@
           class="text-xs text-slate-400 hover:text-slate-600">Ieși</button>
       </div>
 
-      <!-- Status Card -->
-      <div id="status-card" class="bg-white rounded-2xl border border-slate-100 shadow-sm p-5">
-        <p class="text-xs font-semibold text-slate-400 uppercase tracking-wide mb-3">Rezervare activă</p>
-        <div id="status-body" class="text-sm text-slate-400 italic">Se încarcă...</div>
+      <!-- Active Reservations -->
+      <div class="bg-white rounded-2xl border border-slate-100 shadow-sm p-5">
+        <div class="flex items-center justify-between mb-4">
+          <p class="text-xs font-semibold text-slate-400 uppercase tracking-wide">Rezervări active</p>
+          <!-- Global language selector -->
+          <div class="flex gap-1">
+            <button onclick="setLang('en')" id="lang-en" class="lang-btn active px-2 py-0.5 rounded text-xs font-semibold border transition-colors">🇬🇧</button>
+            <button onclick="setLang('ro')" id="lang-ro" class="lang-btn px-2 py-0.5 rounded text-xs font-semibold border transition-colors">🇷🇴</button>
+            <button onclick="setLang('it')" id="lang-it" class="lang-btn px-2 py-0.5 rounded text-xs font-semibold border transition-colors">🇮🇹</button>
+            <button onclick="setLang('de')" id="lang-de" class="lang-btn px-2 py-0.5 rounded text-xs font-semibold border transition-colors">🇩🇪</button>
+            <button onclick="setLang('fr')" id="lang-fr" class="lang-btn px-2 py-0.5 rounded text-xs font-semibold border transition-colors">🇫🇷</button>
+            <button onclick="setLang('uk')" id="lang-uk" class="lang-btn px-2 py-0.5 rounded text-xs font-semibold border transition-colors">🇺🇦</button>
+          </div>
+        </div>
+        <div id="reservations-list">
+          <p class="text-sm text-slate-400 italic">Se încarcă...</p>
+        </div>
       </div>
 
       <!-- Form Card -->
@@ -77,45 +90,6 @@
         <p id="activate-error" class="hidden text-xs text-red-500 text-center mt-2"></p>
       </div>
 
-      <!-- Copy Section (shown after success) -->
-      <div id="copy-section" class="hidden bg-white rounded-2xl border border-slate-100 shadow-sm p-5">
-        <div class="flex items-center gap-2 mb-4">
-          <span class="text-green-500">✅</span>
-          <p class="text-sm font-semibold text-slate-700">Rezervare activată!</p>
-          <span class="text-xs text-slate-400 ml-auto" id="deploy-timer">Site se actualizează…</span>
-        </div>
-
-        <!-- Language selector -->
-        <div class="flex gap-1.5 flex-wrap mb-3">
-          <button onclick="setLang('en')" id="lang-en" class="lang-btn active px-2.5 py-1 rounded-lg text-xs font-semibold border transition-colors">🇬🇧 EN</button>
-          <button onclick="setLang('ro')" id="lang-ro" class="lang-btn px-2.5 py-1 rounded-lg text-xs font-semibold border transition-colors">🇷🇴 RO</button>
-          <button onclick="setLang('it')" id="lang-it" class="lang-btn px-2.5 py-1 rounded-lg text-xs font-semibold border transition-colors">🇮🇹 IT</button>
-          <button onclick="setLang('de')" id="lang-de" class="lang-btn px-2.5 py-1 rounded-lg text-xs font-semibold border transition-colors">🇩🇪 DE</button>
-          <button onclick="setLang('fr')" id="lang-fr" class="lang-btn px-2.5 py-1 rounded-lg text-xs font-semibold border transition-colors">🇫🇷 FR</button>
-          <button onclick="setLang('uk')" id="lang-uk" class="lang-btn px-2.5 py-1 rounded-lg text-xs font-semibold border transition-colors">🇺🇦 UK</button>
-        </div>
-
-        <!-- Message preview -->
-        <div class="bg-slate-50 rounded-xl p-4 mb-4 text-sm text-slate-700 leading-relaxed whitespace-pre-line" id="msg-preview"></div>
-
-        <div class="grid grid-cols-2 gap-3">
-          <button onclick="copyPassword()"
-            class="flex items-center justify-center gap-1.5 bg-slate-100 hover:bg-slate-200 text-slate-700 py-3 rounded-xl text-xs font-semibold transition-colors">
-            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-              <rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/>
-            </svg>
-            <span id="copy-pwd-label">Copy password</span>
-          </button>
-          <button onclick="copyMessage()"
-            class="flex items-center justify-center gap-1.5 bg-blue-50 hover:bg-blue-100 text-blue-700 py-3 rounded-xl text-xs font-semibold transition-colors">
-            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-              <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
-            </svg>
-            <span id="copy-msg-label">Copy message</span>
-          </button>
-        </div>
-      </div>
-
       <!-- Instructions -->
       <div class="bg-amber-50 rounded-2xl border border-amber-100 p-5">
         <p class="text-xs font-semibold text-amber-700 uppercase tracking-wide mb-3">📖 Cum accesează oaspetele ghidul</p>
@@ -126,18 +100,10 @@
         </ol>
       </div>
 
-      <!-- Deactivate -->
-      <button onclick="deactivateReservation()"
-        class="w-full border border-red-200 text-red-400 hover:bg-red-50 py-3 rounded-xl text-sm font-medium transition-colors">
-        Dezactivează rezervarea curentă
-      </button>
-
     </div>
   </div>
 
 <script>
-  var currentCode = '';
-  var currentDate = '';
   var currentLang = 'en';
 
   var MSG = {
@@ -150,6 +116,7 @@
   };
 
   var ADMIN_PASSWORD = 'floreasca2025';
+  var activeReservations = [];
 
   // ── Gate ──────────────────────────────────────────────────────
   function enterAdmin() {
@@ -168,35 +135,57 @@
   // ── Load current config ───────────────────────────────────────
   function loadCurrentStatus() {
     fetch('/.netlify/functions/get-config')
-      .then(function(r) { return r.ok ? r.json() : {}; })
-      .then(function(cfg) { renderStatus(cfg); })
-      .catch(function() { renderStatus({}); });
+      .then(function(r) { return r.ok ? r.json() : { reservations: [] }; })
+      .then(function(cfg) { renderReservations(cfg.reservations || []); })
+      .catch(function() { renderReservations([]); });
   }
 
-  function renderStatus(cfg) {
-    var el = document.getElementById('status-body');
-    if (!cfg.guestCode) {
-      el.innerHTML = '<span class="text-slate-400 italic">Nicio rezervare activă</span>';
-      document.getElementById('copy-section').classList.add('hidden');
+  // ── Render reservations list ──────────────────────────────────
+  function renderReservations(reservations) {
+    activeReservations = reservations;
+    var el = document.getElementById('reservations-list');
+
+    if (!reservations.length) {
+      el.innerHTML = '<p class="text-sm text-slate-400 italic">Nicio rezervare activă</p>';
       return;
     }
-    var today = new Date();
-    today.setHours(0,0,0,0);
-    var checkout = new Date(cfg.checkoutDate + 'T00:00:00');
-    var isActive = checkout >= today;
-    var dateStr = checkout.toLocaleDateString('ro-RO', { day: 'numeric', month: 'long', year: 'numeric' });
-    el.innerHTML = isActive
-      ? '<div class="flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-green-400 inline-block"></span><span class="font-mono font-semibold text-slate-800">' + cfg.guestCode + '</span><span class="text-slate-400">· checkout ' + dateStr + '</span></div>'
-      : '<div class="flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-slate-300 inline-block"></span><span class="font-mono text-slate-400 line-through">' + cfg.guestCode + '</span><span class="text-slate-400">· expirat ' + dateStr + '</span></div>';
-    if (isActive) {
-      currentCode = cfg.guestCode;
-      currentDate = cfg.checkoutDate;
-      var section = document.getElementById('copy-section');
-      section.classList.remove('hidden');
-      document.getElementById('msg-preview').textContent = buildMessage(cfg.guestCode, cfg.checkoutDate, currentLang);
-      var timer = document.getElementById('deploy-timer');
-      timer.textContent = '';
-    }
+
+    el.innerHTML = reservations.map(function(r, i) {
+      var d = new Date(r.checkoutDate + 'T00:00:00');
+      var dateStr = d.toLocaleDateString('ro-RO', { day: 'numeric', month: 'long', year: 'numeric' });
+      return '<div class="reservation-card border border-slate-100 rounded-xl p-4 mb-3 last:mb-0" data-index="' + i + '">' +
+        '<div class="flex items-center gap-2 mb-3">' +
+          '<span class="w-2 h-2 rounded-full bg-green-400 inline-block flex-shrink-0"></span>' +
+          '<span class="font-mono font-semibold text-slate-800 text-sm">' + r.guestCode + '</span>' +
+          '<span class="text-xs text-slate-400 ml-1">· checkout ' + dateStr + '</span>' +
+          '<button onclick="removeReservation(\'' + r.guestCode + '\')" class="ml-auto text-red-300 hover:text-red-500 transition-colors" title="Dezactivează">' +
+            '<svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M3 6h18M8 6V4h8v2M19 6l-1 14H6L5 6"/></svg>' +
+          '</button>' +
+        '</div>' +
+        '<div class="bg-slate-50 rounded-lg p-3 text-xs text-slate-600 leading-relaxed whitespace-pre-line mb-3 msg-text">' + buildMessage(r.guestCode, r.checkoutDate, currentLang) + '</div>' +
+        '<div class="grid grid-cols-2 gap-2">' +
+          '<button onclick="copyPwd(\'' + r.guestCode + '\', this)" class="flex items-center justify-center gap-1 bg-slate-100 hover:bg-slate-200 text-slate-700 py-2 rounded-lg text-xs font-semibold transition-colors">' +
+            '<svg class="w-3 h-3" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>' +
+            'Copy password' +
+          '</button>' +
+          '<button onclick="copyMsg(\'' + r.guestCode + '\', \'' + r.checkoutDate + '\', this)" class="flex items-center justify-center gap-1 bg-blue-50 hover:bg-blue-100 text-blue-700 py-2 rounded-lg text-xs font-semibold transition-colors">' +
+            '<svg class="w-3 h-3" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>' +
+            'Copy message' +
+          '</button>' +
+        '</div>' +
+      '</div>';
+    }).join('');
+  }
+
+  // ── Language ──────────────────────────────────────────────────
+  function setLang(lang) {
+    currentLang = lang;
+    document.querySelectorAll('.lang-btn').forEach(function(b) { b.classList.remove('active'); });
+    document.getElementById('lang-' + lang).classList.add('active');
+    document.querySelectorAll('.reservation-card').forEach(function(card, i) {
+      var r = activeReservations[i];
+      if (r) card.querySelector('.msg-text').textContent = buildMessage(r.guestCode, r.checkoutDate, lang);
+    });
   }
 
   // ── Activate ──────────────────────────────────────────────────
@@ -212,19 +201,20 @@
     fetch('/.netlify/functions/update-config', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ guestCode: code, checkoutDate: date })
+      body: JSON.stringify({ action: 'add', guestCode: code, checkoutDate: date })
     })
     .then(function(r) { return r.json().then(function(d) { return { ok: r.ok, data: d }; }); })
     .then(function(res) {
       setActivateLoading(false);
       if (!res.ok) {
-        var debugInfo = res.data.debug ? ' [' + res.data.debug + ']' : '';
-        showActivateError((res.data.error || 'Eroare necunoscută') + debugInfo);
+        showActivateError((res.data.error || 'Eroare necunoscută'));
         return;
       }
-      currentCode = code;
-      currentDate = date;
-      showSuccess(code, date);
+      document.getElementById('guest-code').value = '';
+      document.getElementById('checkout-date').value = '';
+      var updated = activeReservations.filter(function(r) { return r.guestCode !== code; });
+      updated.push({ guestCode: code, checkoutDate: date });
+      renderReservations(updated);
     })
     .catch(function(err) {
       setActivateLoading(false);
@@ -232,25 +222,22 @@
     });
   }
 
-  function deactivateReservation() {
-    if (!confirm('Dezactivezi rezervarea curentă? Oaspeții cu codul rezervării nu vor mai putea accesa ghidul.')) return;
-    setActivateLoading(true);
+  // ── Remove ────────────────────────────────────────────────────
+  function removeReservation(code) {
+    if (!confirm('Dezactivezi rezervarea ' + code + '? Oaspetele nu va mai putea accesa ghidul.')) return;
+
     fetch('/.netlify/functions/update-config', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ guestCode: '', checkoutDate: '' })
+      body: JSON.stringify({ action: 'remove', guestCode: code })
     })
     .then(function(r) { return r.json().then(function(d) { return { ok: r.ok, data: d }; }); })
     .then(function(res) {
-      setActivateLoading(false);
       if (res.ok) {
-        document.getElementById('copy-section').classList.add('hidden');
-        renderStatus({});
-      } else {
-        showActivateError(res.data.error || 'Eroare');
+        renderReservations(activeReservations.filter(function(r) { return r.guestCode !== code; }));
       }
     })
-    .catch(function() { setActivateLoading(false); });
+    .catch(function() {});
   }
 
   // ── Copy helpers ──────────────────────────────────────────────
@@ -261,40 +248,20 @@
     return t.greeting + '\n\n' + t.guide + '\n👉 https://lovelycondo.netlify.app/guide.html\n\n' + t.pwd + ': ' + code + '\n(' + t.valid + ' ' + dateStr + ')';
   }
 
-  function setLang(lang) {
-    currentLang = lang;
-    document.querySelectorAll('.lang-btn').forEach(function(b) { b.classList.remove('active'); });
-    document.getElementById('lang-' + lang).classList.add('active');
-    if (currentCode) document.getElementById('msg-preview').textContent = buildMessage(currentCode, currentDate, lang);
-  }
-
-  function showSuccess(code, date) {
-    var section = document.getElementById('copy-section');
-    section.classList.remove('hidden');
-    document.getElementById('msg-preview').textContent = buildMessage(code, date, currentLang);
-    var timer = document.getElementById('deploy-timer');
-    timer.textContent = '✅ Parola e activă!';
-    timer.classList.add('text-green-500');
-    renderStatus({ guestCode: code, checkoutDate: date });
-  }
-
-  function copyPassword() {
-    navigator.clipboard.writeText(currentCode).then(function() {
-      flash('copy-pwd-label', 'Copied ✓', 'Copy password');
+  function copyPwd(code, btn) {
+    navigator.clipboard.writeText(code).then(function() {
+      var orig = btn.textContent;
+      btn.textContent = 'Copied ✓';
+      setTimeout(function() { btn.textContent = orig; }, 2000);
     });
   }
 
-  function copyMessage() {
-    var msg = buildMessage(currentCode, currentDate, currentLang);
-    navigator.clipboard.writeText(msg).then(function() {
-      flash('copy-msg-label', 'Copied ✓', 'Copy message');
+  function copyMsg(code, date, btn) {
+    navigator.clipboard.writeText(buildMessage(code, date, currentLang)).then(function() {
+      var orig = btn.textContent;
+      btn.textContent = 'Copied ✓';
+      setTimeout(function() { btn.textContent = orig; }, 2000);
     });
-  }
-
-  function flash(id, success, original) {
-    var el = document.getElementById(id);
-    el.textContent = success;
-    setTimeout(function() { el.textContent = original; }, 2000);
   }
 
   // ── UI helpers ────────────────────────────────────────────────
@@ -302,11 +269,9 @@
     var btn = document.getElementById('activate-btn');
     var lbl = document.getElementById('activate-label');
     btn.disabled = loading;
-    if (loading) {
-      lbl.innerHTML = '<svg class="w-4 h-4 spin" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/></svg> Se procesează…';
-    } else {
-      lbl.textContent = 'Activează rezervarea';
-    }
+    lbl.innerHTML = loading
+      ? '<svg class="w-4 h-4 spin inline" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/></svg> Se procesează…'
+      : 'Activează rezervarea';
     document.getElementById('activate-error').classList.add('hidden');
   }
 

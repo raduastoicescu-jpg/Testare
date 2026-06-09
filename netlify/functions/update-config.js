@@ -13,14 +13,10 @@ exports.handler = async (event) => {
   }
 
   let body;
-  try {
-    body = JSON.parse(event.body);
-  } catch {
-    return { statusCode: 400, headers: corsHeaders, body: JSON.stringify({ error: 'Invalid JSON' }) };
-  }
+  try { body = JSON.parse(event.body); }
+  catch { return { statusCode: 400, headers: corsHeaders, body: JSON.stringify({ error: 'Invalid JSON' }) }; }
 
-  const { guestCode, checkoutDate } = body;
-
+  const { action, guestCode, checkoutDate } = body;
   const token = process.env.GITHUB_TOKEN;
   const owner = 'raduastoicescu-jpg';
   const repo = 'Testare';
@@ -36,13 +32,29 @@ exports.handler = async (event) => {
     });
 
     if (!getRes.ok) throw new Error(`GitHub GET failed: ${getRes.status}`);
-    const { sha } = await getRes.json();
+    const { sha, content: encodedContent } = await getRes.json();
+    const currentConfig = JSON.parse(Buffer.from(encodedContent.replace(/\n/g, ''), 'base64').toString());
 
-    const newConfig = { guestCode: guestCode || '', checkoutDate: checkoutDate || '' };
+    // Handle old single-reservation format
+    let reservations = currentConfig.reservations ||
+      (currentConfig.guestCode ? [{ guestCode: currentConfig.guestCode, checkoutDate: currentConfig.checkoutDate }] : []);
+
+    // Auto-clean expired reservations
+    const today = new Date(); today.setHours(0, 0, 0, 0);
+    reservations = reservations.filter(r => r.checkoutDate && new Date(r.checkoutDate + 'T00:00:00') >= today);
+
+    if (action === 'add') {
+      reservations = reservations.filter(r => r.guestCode !== guestCode);
+      reservations.push({ guestCode, checkoutDate });
+    } else if (action === 'remove') {
+      reservations = reservations.filter(r => r.guestCode !== guestCode);
+    }
+
+    const newConfig = { reservations };
     const content = Buffer.from(JSON.stringify(newConfig, null, 2)).toString('base64');
-    const commitMsg = guestCode
+    const commitMsg = action === 'add'
       ? `Activate reservation ${guestCode} until ${checkoutDate}`
-      : 'Clear guest reservation';
+      : action === 'remove' ? `Remove reservation ${guestCode}` : 'Update reservations';
 
     const putRes = await fetch(`https://api.github.com/repos/${owner}/${repo}/contents/${filePath}`, {
       method: 'PUT',
