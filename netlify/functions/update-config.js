@@ -16,7 +16,10 @@ exports.handler = async (event) => {
   try { body = JSON.parse(event.body); }
   catch { return { statusCode: 400, headers: corsHeaders, body: JSON.stringify({ error: 'Invalid JSON' }) }; }
 
-  const { action, guestCode, checkoutDate } = body;
+  // Support both old format {guestCode, checkoutDate} and new {action, guestCode, checkoutDate}
+  const guestCode = body.guestCode;
+  const checkoutDate = body.checkoutDate;
+  const action = body.action || (guestCode ? 'add' : 'clear');
   const token = process.env.GITHUB_TOKEN;
   const owner = 'raduastoicescu-jpg';
   const repo = 'Testare';
@@ -43,11 +46,13 @@ exports.handler = async (event) => {
     const today = new Date(); today.setHours(0, 0, 0, 0);
     reservations = reservations.filter(r => r.checkoutDate && new Date(r.checkoutDate + 'T00:00:00') >= today);
 
-    if (action === 'add') {
+    if (action === 'add' && guestCode) {
       reservations = reservations.filter(r => r.guestCode !== guestCode);
       reservations.push({ guestCode, checkoutDate });
-    } else if (action === 'remove') {
+    } else if (action === 'remove' && guestCode) {
       reservations = reservations.filter(r => r.guestCode !== guestCode);
+    } else if (action === 'clear') {
+      reservations = [];
     }
 
     const newConfig = { reservations };
