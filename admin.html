@@ -45,7 +45,7 @@
       <div class="flex items-center justify-between mb-2">
         <div>
           <h1 class="text-xl font-semibold text-slate-900">Admin Panel</h1>
-          <p class="text-xs text-slate-400">Lovely Condo · <a href="/" class="underline">lovelycondo.netlify.app</a></p>
+          <p class="text-xs text-slate-400">Lovely Condo · <a href="/" class="underline">lovelycondo.vercel.app</a></p>
         </div>
         <button onclick="document.getElementById('gate').classList.remove('hidden');document.getElementById('panel').classList.add('hidden')"
           class="text-xs text-slate-400 hover:text-slate-600">Ieși</button>
@@ -94,7 +94,7 @@
       <div class="bg-amber-50 rounded-2xl border border-amber-100 p-5">
         <p class="text-xs font-semibold text-amber-700 uppercase tracking-wide mb-3">📖 Cum accesează oaspetele ghidul</p>
         <ol class="space-y-1.5 text-sm text-amber-800">
-          <li><span class="font-semibold">1.</span> Deschide <span class="font-mono text-xs bg-amber-100 px-1.5 py-0.5 rounded">lovelycondo.netlify.app/guide.html</span></li>
+          <li><span class="font-semibold">1.</span> Deschide <span class="font-mono text-xs bg-amber-100 px-1.5 py-0.5 rounded">lovelycondo.vercel.app/guide.html</span></li>
           <li><span class="font-semibold">2.</span> Introduce codul rezervării Airbnb ca parolă</li>
           <li><span class="font-semibold">3.</span> Navighează prin ghid — parola expiră automat la checkout</li>
         </ol>
@@ -245,7 +245,7 @@
     var t = MSG[lang] || MSG.en;
     var d = new Date(date + 'T00:00:00');
     var dateStr = d.toLocaleDateString(t.locale, { day: 'numeric', month: 'long', year: 'numeric' });
-    return t.greeting + '\n\n' + t.guide + '\n👉 https://lovelycondo.netlify.app/guide.html\n\n' + t.pwd + ': ' + code + '\n(' + t.valid + ' ' + dateStr + ')';
+    return t.greeting + '\n\n' + t.guide + '\n👉 https://lovelycondo.vercel.app/guide.html\n\n' + t.pwd + ': ' + code + '\n(' + t.valid + ' ' + dateStr + ')';
   }
 
   function copyPwd(code, btn) {
@@ -282,5 +282,6 @@
   }
 </script>
 <!-- Cloudflare Web Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "c3d82bb75ace4ddb9f0f5d57e9dce90a"}'></script><!-- End Cloudflare Web Analytics -->
+<script defer src="/_vercel/insights/script.js"></script>
 </body>
 </html>
