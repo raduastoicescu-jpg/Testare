@@ -1865,7 +1865,7 @@
   }
 
   let guestConfig = { reservations: [] };
-  fetch('/.netlify/functions/get-config')
+  fetch('/api/get-config')
     .then(r => r.ok ? r.json() : {})
     .then(cfg => { if (cfg) guestConfig = cfg; })
     .catch(() => {});

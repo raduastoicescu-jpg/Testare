@@ -134,7 +134,7 @@
 
   // ── Load current config ───────────────────────────────────────
   function loadCurrentStatus() {
-    fetch('/.netlify/functions/get-config')
+    fetch('/api/get-config')
       .then(function(r) { return r.ok ? r.json() : { reservations: [] }; })
       .then(function(cfg) { renderReservations(cfg.reservations || []); })
       .catch(function() { renderReservations([]); });
@@ -198,7 +198,7 @@
 
     setActivateLoading(true);
 
-    fetch('/.netlify/functions/update-config', {
+    fetch('/api/update-config', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ action: 'add', guestCode: code, checkoutDate: date })
@@ -226,7 +226,7 @@
   function removeReservation(code) {
     if (!confirm('Dezactivezi rezervarea ' + code + '? Oaspetele nu va mai putea accesa ghidul.')) return;
 
-    fetch('/.netlify/functions/update-config', {
+    fetch('/api/update-config', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ action: 'remove', guestCode: code })
