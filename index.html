@@ -510,6 +510,9 @@
             </div>
           </div>
 
+          <!-- Availability status -->
+          <div id="avail-status-inline" class="hidden mb-4 px-4 py-3 rounded-xl text-sm font-medium flex items-center gap-2"></div>
+
           <!-- CTA -->
           <a id="airbnb-cta-inline" href="https://www.airbnb.co.uk/rooms/53208110" target="_blank" rel="noopener noreferrer"
             class="flex items-center justify-center gap-2 w-full bg-sea-600 hover:bg-sea-700 text-white font-semibold py-3.5 rounded-xl transition-colors duration-200 cursor-pointer text-sm">
@@ -781,6 +784,9 @@
                 </div>
               </div>
             </div>
+
+            <!-- Availability status -->
+            <div id="avail-status-widget" class="hidden mb-3 px-3 py-2 rounded-xl text-xs font-medium flex items-center gap-2"></div>
 
             <!-- Book CTA -->
             <a id="airbnb-cta-widget" href="https://www.airbnb.co.uk/rooms/53208110" target="_blank" rel="noopener noreferrer"
@@ -1064,6 +1070,14 @@
     });
   });
 
+  // ── Availability data ─────────────────────────────────────────
+  let blockedRanges = [];
+  let availabilityLoaded = false;
+  fetch('/api/get-availability')
+    .then(r => r.ok ? r.json() : null)
+    .then(data => { if (data) { blockedRanges = data.blockedRanges || []; availabilityLoaded = true; } })
+    .catch(() => {});
+
   // ── Set date minimums ─────────────────────────────────────────
   const today = new Date().toISOString().split('T')[0];
   ['checkin-inline','checkin-widget','checkout-inline','checkout-widget'].forEach(id => {
@@ -1090,8 +1104,8 @@
     const src = document.getElementById(sourceId);
     const tgt = document.getElementById(targetId);
     if (!src || !tgt) return;
-    src.addEventListener('change', () => { tgt.value = src.value; updateAirbnbLinks(); });
-    tgt.addEventListener('change', () => { src.value = tgt.value; updateAirbnbLinks(); });
+    src.addEventListener('change', () => { tgt.value = src.value; updateAirbnbLinks(); checkAvailability(); });
+    tgt.addEventListener('change', () => { src.value = tgt.value; updateAirbnbLinks(); checkAvailability(); });
   }
   syncDates('checkin-inline',  'checkin-widget');
   syncDates('checkout-inline', 'checkout-widget');
@@ -1114,6 +1128,46 @@
     });
   }
 
+  // ── Availability check ────────────────────────────────────────
+  function checkAvailability() {
+    const ci = document.getElementById('checkin-inline').value;
+    const co = document.getElementById('checkout-inline').value;
+    const inlineEl = document.getElementById('avail-status-inline');
+    const widgetEl = document.getElementById('avail-status-widget');
+    const ctas = ['airbnb-cta-inline','airbnb-cta-widget','mobile-cta'].map(id => document.getElementById(id)).filter(Boolean);
+
+    if (!ci || !co || !availabilityLoaded) {
+      [inlineEl, widgetEl].forEach(el => { if (el) el.classList.add('hidden'); });
+      ctas.forEach(el => { el.style.opacity = ''; el.style.pointerEvents = ''; });
+      return;
+    }
+
+    const checkin  = new Date(ci + 'T00:00:00');
+    const checkout = new Date(co + 'T00:00:00');
+    const blocked  = blockedRanges.some(b =>
+      checkin < new Date(b.checkout + 'T00:00:00') && checkout > new Date(b.checkin + 'T00:00:00')
+    );
+
+    const checkSvg = '<svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M8 12l3 3 5-5"/></svg>';
+    const xSvg     = '<svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M15 9l-6 6M9 9l6 6"/></svg>';
+
+    if (blocked) {
+      [inlineEl, widgetEl].forEach(el => {
+        if (!el) return;
+        el.innerHTML = xSvg + ' Not available — please try different dates';
+        el.className = 'mb-4 px-4 py-3 rounded-xl text-sm font-medium flex items-center gap-2 bg-red-50 text-red-700';
+      });
+      ctas.forEach(el => { el.style.opacity = '0.35'; el.style.pointerEvents = 'none'; });
+    } else {
+      [inlineEl, widgetEl].forEach(el => {
+        if (!el) return;
+        el.innerHTML = checkSvg + ' Available — book now on Airbnb';
+        el.className = 'mb-4 px-4 py-3 rounded-xl text-sm font-medium flex items-center gap-2 bg-green-50 text-green-700';
+      });
+      ctas.forEach(el => { el.style.opacity = ''; el.style.pointerEvents = ''; });
+    }
+  }
+
   // ── Checkout min = day after checkin ─────────────────────────
   document.getElementById('checkin-inline').addEventListener('change', function () {
     const nextDay = new Date(this.value);
@@ -1124,6 +1178,7 @@
       if (el) { el.min = min; if (el.value && el.value < min) el.value = ''; }
     });
     updateAirbnbLinks();
+    checkAvailability();
   });
 
   // ── Amenities expand / collapse ───────────────────────────────

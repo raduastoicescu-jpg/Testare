@@ -70,6 +70,23 @@
         </div>
       </div>
 
+      <!-- Airbnb Sync -->
+      <div class="bg-white rounded-2xl border border-slate-100 shadow-sm p-5">
+        <div class="flex items-center justify-between mb-4">
+          <p class="text-xs font-semibold text-slate-400 uppercase tracking-wide">Rezervări Airbnb</p>
+          <button onclick="loadAirbnbReservations()" id="sync-btn"
+            class="flex items-center gap-1.5 text-xs font-semibold text-blue-600 hover:text-blue-800 transition-colors disabled:opacity-40">
+            <svg id="sync-icon" class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <path d="M23 4v6h-6M1 20v-6h6"/><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"/>
+            </svg>
+            Sincronizează
+          </button>
+        </div>
+        <div id="airbnb-list">
+          <p class="text-sm text-slate-400 italic">Apasă Sincronizează pentru a aduce rezervările din Airbnb.</p>
+        </div>
+      </div>
+
       <!-- Form Card -->
       <div class="bg-white rounded-2xl border border-slate-100 shadow-sm p-5">
         <p class="text-xs font-semibold text-slate-400 uppercase tracking-wide mb-4">Rezervare nouă</p>
@@ -117,6 +134,7 @@
 
   var ADMIN_PASSWORD = 'floreasca2025';
   var activeReservations = [];
+  var airbnbReservations = [];
 
   // ── Gate ──────────────────────────────────────────────────────
   function enterAdmin() {
@@ -130,6 +148,7 @@
     document.getElementById('gate').classList.add('hidden');
     document.getElementById('panel').classList.remove('hidden');
     loadCurrentStatus();
+    loadAirbnbReservations();
   }
 
   // ── Load current config ───────────────────────────────────────
@@ -185,6 +204,83 @@
     document.querySelectorAll('.reservation-card').forEach(function(card, i) {
       var r = activeReservations[i];
       if (r) card.querySelector('.msg-text').textContent = buildMessage(r.guestCode, r.checkoutDate, lang);
+    });
+  }
+
+  // ── Airbnb Sync ───────────────────────────────────────────────
+  function loadAirbnbReservations() {
+    var icon = document.getElementById('sync-icon');
+    var btn = document.getElementById('sync-btn');
+    icon.classList.add('spin');
+    btn.disabled = true;
+
+    fetch('/api/get-airbnb')
+      .then(function(r) { return r.ok ? r.json() : { reservations: [] }; })
+      .then(function(data) {
+        icon.classList.remove('spin');
+        btn.disabled = false;
+        airbnbReservations = data.reservations || [];
+        renderAirbnbList();
+      })
+      .catch(function() {
+        icon.classList.remove('spin');
+        btn.disabled = false;
+        document.getElementById('airbnb-list').innerHTML = '<p class="text-sm text-red-400">Eroare la încărcare.</p>';
+      });
+  }
+
+  function renderAirbnbList() {
+    var el = document.getElementById('airbnb-list');
+    if (!airbnbReservations.length) {
+      el.innerHTML = '<p class="text-sm text-slate-400 italic">Nu există rezervări viitoare în Airbnb.</p>';
+      return;
+    }
+    var activeCodes = activeReservations.map(function(r) { return r.guestCode; });
+    el.innerHTML = airbnbReservations.map(function(r) {
+      var isActive = activeCodes.indexOf(r.guestCode) !== -1;
+      var cin = new Date(r.checkinDate + 'T00:00:00').toLocaleDateString('ro-RO', { day: 'numeric', month: 'short' });
+      var cout = new Date(r.checkoutDate + 'T00:00:00').toLocaleDateString('ro-RO', { day: 'numeric', month: 'short', year: 'numeric' });
+      return '<div class="flex items-center gap-3 py-2.5 border-b border-slate-50 last:border-0">' +
+        '<div class="flex-1 min-w-0">' +
+          '<span class="font-mono text-sm font-semibold text-slate-800">' + r.guestCode + '</span>' +
+          '<span class="text-xs text-slate-400 ml-2">' + cin + ' → ' + cout + '</span>' +
+        '</div>' +
+        (isActive
+          ? '<span class="text-xs font-semibold text-green-600 flex items-center gap-1">' +
+              '<svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>Activă' +
+            '</span>'
+          : '<button onclick="quickActivate(\'' + r.guestCode + '\',\'' + r.checkoutDate + '\',this)" ' +
+              'class="text-xs font-semibold text-blue-600 hover:text-blue-800 border border-blue-200 hover:border-blue-400 px-2.5 py-1 rounded-lg transition-colors">' +
+              'Activează' +
+            '</button>'
+        ) +
+      '</div>';
+    }).join('');
+  }
+
+  function quickActivate(code, checkoutDate, btn) {
+    btn.disabled = true;
+    btn.textContent = '...';
+    fetch('/api/update-config', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ action: 'add', guestCode: code, checkoutDate: checkoutDate })
+    })
+    .then(function(r) { return r.json().then(function(d) { return { ok: r.ok, data: d }; }); })
+    .then(function(res) {
+      if (res.ok && res.data.success) {
+        var updated = activeReservations.filter(function(r) { return r.guestCode !== code; });
+        updated.push({ guestCode: code, checkoutDate: checkoutDate });
+        renderReservations(updated);
+        renderAirbnbList();
+      } else {
+        btn.disabled = false;
+        btn.textContent = 'Activează';
+      }
+    })
+    .catch(function() {
+      btn.disabled = false;
+      btn.textContent = 'Activează';
     });
   }
 
