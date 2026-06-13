@@ -33,10 +33,10 @@
   }
 
   function updateUI(lang) {
-    var flags  = { en: '🇬🇧', ro: '🇷🇴', it: '🇮🇹', de: '🇩🇪', fr: '🇫🇷', uk: '🇺🇦' };
-    var labels = { en: 'EN',   ro: 'RO',   it: 'IT',   de: 'DE',   fr: 'FR',   uk: 'UA' };
+    var flags  = { en: 'gb', ro: 'ro', it: 'it', de: 'de', fr: 'fr', uk: 'ua' };
+    var labels = { en: 'EN', ro: 'RO', it: 'IT', de: 'DE', fr: 'FR', uk: 'UA' };
     var el = document.getElementById('lang-current');
-    if (el) el.textContent = (flags[lang] || '') + ' ' + (labels[lang] || lang.toUpperCase());
+    if (el) el.innerHTML = '<span class="fi fi-' + (flags[lang] || lang) + '"></span> ' + (labels[lang] || lang.toUpperCase());
     document.querySelectorAll('.lang-btn').forEach(function (btn) {
       btn.classList.toggle('lang-active', btn.getAttribute('data-lang') === lang);
     });

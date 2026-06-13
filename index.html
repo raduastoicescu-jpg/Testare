@@ -6,6 +6,7 @@
   <title>Lovely Condo Bucharest — Perfect for Couples &amp; Families</title>
   <meta name="description" content="Charming condo in Floreasca, Bucharest. 1 bedroom · 2 beds · up to 4 guests. Balcony with city view. Rated 4.96 ★ — Guest Favorite. Book on Airbnb." />
 
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flag-icons@7.2.3/css/flag-icons.min.css" />
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -109,16 +110,16 @@
     <!-- Language switcher — always visible -->
     <div class="relative" onclick="event.stopPropagation()">
       <button id="lang-toggle" class="flex items-center gap-1 text-xs font-medium text-white/80 hover:text-white transition-colors px-2 py-1.5 rounded-lg cursor-pointer border border-white/20 hover:border-white/40 backdrop-blur-sm" aria-label="Change language">
-        <span id="lang-current">🇬🇧 EN</span>
+        <span id="lang-current"><span class="fi fi-gb"></span> EN</span>
         <svg class="w-3 h-3 opacity-70" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
       </button>
       <div id="lang-dropdown" class="hidden absolute top-full right-0 mt-1.5 bg-white rounded-xl shadow-xl border border-slate-100 py-1.5 z-[300] w-36">
-        <button class="lang-btn w-full text-left px-4 py-2 text-xs text-slate-700 hover:bg-sea-50 hover:text-sea-800 transition-colors" data-lang="en">🇬🇧 English</button>
-        <button class="lang-btn w-full text-left px-4 py-2 text-xs text-slate-700 hover:bg-sea-50 hover:text-sea-800 transition-colors" data-lang="ro">🇷🇴 Română</button>
-        <button class="lang-btn w-full text-left px-4 py-2 text-xs text-slate-700 hover:bg-sea-50 hover:text-sea-800 transition-colors" data-lang="it">🇮🇹 Italiano</button>
-        <button class="lang-btn w-full text-left px-4 py-2 text-xs text-slate-700 hover:bg-sea-50 hover:text-sea-800 transition-colors" data-lang="de">🇩🇪 Deutsch</button>
-        <button class="lang-btn w-full text-left px-4 py-2 text-xs text-slate-700 hover:bg-sea-50 hover:text-sea-800 transition-colors" data-lang="fr">🇫🇷 Français</button>
-        <button class="lang-btn w-full text-left px-4 py-2 text-xs text-slate-700 hover:bg-sea-50 hover:text-sea-800 transition-colors" data-lang="uk">🇺🇦 Українська</button>
+        <button class="lang-btn w-full text-left px-4 py-2 text-xs text-slate-700 hover:bg-sea-50 hover:text-sea-800 transition-colors" data-lang="en"><span class="fi fi-gb"></span> English</button>
+        <button class="lang-btn w-full text-left px-4 py-2 text-xs text-slate-700 hover:bg-sea-50 hover:text-sea-800 transition-colors" data-lang="ro"><span class="fi fi-ro"></span> Română</button>
+        <button class="lang-btn w-full text-left px-4 py-2 text-xs text-slate-700 hover:bg-sea-50 hover:text-sea-800 transition-colors" data-lang="it"><span class="fi fi-it"></span> Italiano</button>
+        <button class="lang-btn w-full text-left px-4 py-2 text-xs text-slate-700 hover:bg-sea-50 hover:text-sea-800 transition-colors" data-lang="de"><span class="fi fi-de"></span> Deutsch</button>
+        <button class="lang-btn w-full text-left px-4 py-2 text-xs text-slate-700 hover:bg-sea-50 hover:text-sea-800 transition-colors" data-lang="fr"><span class="fi fi-fr"></span> Français</button>
+        <button class="lang-btn w-full text-left px-4 py-2 text-xs text-slate-700 hover:bg-sea-50 hover:text-sea-800 transition-colors" data-lang="uk"><span class="fi fi-ua"></span> Українська</button>
       </div>
     </div>
 
@@ -157,12 +158,12 @@
       </a>
       <div class="h-px bg-slate-100 my-1"></div>
       <div class="flex flex-wrap gap-1.5 px-4 py-2">
-        <button class="lang-btn text-xs px-3 py-1.5 rounded-lg bg-slate-50 border border-slate-200 text-slate-700 hover:bg-sea-50 hover:border-sea-200 transition-colors" data-lang="en">🇬🇧 EN</button>
-        <button class="lang-btn text-xs px-3 py-1.5 rounded-lg bg-slate-50 border border-slate-200 text-slate-700 hover:bg-sea-50 hover:border-sea-200 transition-colors" data-lang="ro">🇷🇴 RO</button>
-        <button class="lang-btn text-xs px-3 py-1.5 rounded-lg bg-slate-50 border border-slate-200 text-slate-700 hover:bg-sea-50 hover:border-sea-200 transition-colors" data-lang="it">🇮🇹 IT</button>
-        <button class="lang-btn text-xs px-3 py-1.5 rounded-lg bg-slate-50 border border-slate-200 text-slate-700 hover:bg-sea-50 hover:border-sea-200 transition-colors" data-lang="de">🇩🇪 DE</button>
-        <button class="lang-btn text-xs px-3 py-1.5 rounded-lg bg-slate-50 border border-slate-200 text-slate-700 hover:bg-sea-50 hover:border-sea-200 transition-colors" data-lang="fr">🇫🇷 FR</button>
-        <button class="lang-btn text-xs px-3 py-1.5 rounded-lg bg-slate-50 border border-slate-200 text-slate-700 hover:bg-sea-50 hover:border-sea-200 transition-colors" data-lang="uk">🇺🇦 UA</button>
+        <button class="lang-btn text-xs px-3 py-1.5 rounded-lg bg-slate-50 border border-slate-200 text-slate-700 hover:bg-sea-50 hover:border-sea-200 transition-colors" data-lang="en"><span class="fi fi-gb"></span> EN</button>
+        <button class="lang-btn text-xs px-3 py-1.5 rounded-lg bg-slate-50 border border-slate-200 text-slate-700 hover:bg-sea-50 hover:border-sea-200 transition-colors" data-lang="ro"><span class="fi fi-ro"></span> RO</button>
+        <button class="lang-btn text-xs px-3 py-1.5 rounded-lg bg-slate-50 border border-slate-200 text-slate-700 hover:bg-sea-50 hover:border-sea-200 transition-colors" data-lang="it"><span class="fi fi-it"></span> IT</button>
+        <button class="lang-btn text-xs px-3 py-1.5 rounded-lg bg-slate-50 border border-slate-200 text-slate-700 hover:bg-sea-50 hover:border-sea-200 transition-colors" data-lang="de"><span class="fi fi-de"></span> DE</button>
+        <button class="lang-btn text-xs px-3 py-1.5 rounded-lg bg-slate-50 border border-slate-200 text-slate-700 hover:bg-sea-50 hover:border-sea-200 transition-colors" data-lang="fr"><span class="fi fi-fr"></span> FR</button>
+        <button class="lang-btn text-xs px-3 py-1.5 rounded-lg bg-slate-50 border border-slate-200 text-slate-700 hover:bg-sea-50 hover:border-sea-200 transition-colors" data-lang="uk"><span class="fi fi-ua"></span> UA</button>
       </div>
     </nav>
   </div>
