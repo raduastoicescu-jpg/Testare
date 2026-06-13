@@ -145,6 +145,12 @@
       "skillPath": "skills/free-tools/SKILL.md",
       "computedHash": "3fd8ab504b9b6d791b307baed7a87f49b455fc084ff367772c7418b8a57ce56d"
     },
+    "frontend-design": {
+      "source": "anthropics/claude-code",
+      "sourceType": "github",
+      "skillPath": "plugins/frontend-design/skills/frontend-design/SKILL.md",
+      "computedHash": "e8118284a6365753790d44bb2758a6032b3af27fa84696428d9233f2be0f4e78"
+    },
     "image": {
       "source": "coreyhaines31/marketingskills",
       "sourceType": "github",
