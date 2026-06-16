@@ -18,9 +18,6 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garant:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
 
-  <script>
-    const GUEST_PASSWORD = "floreasca2025"; // master password — always valid
-  </script>
 
   <script>
     tailwind.config = {
@@ -1865,32 +1862,40 @@
     document.getElementById('pwd-error').classList.add('hidden');
   }
 
-  let guestConfig = { reservations: [] };
-  fetch('/api/get-config')
-    .then(r => r.ok ? r.json() : {})
-    .then(cfg => { if (cfg) guestConfig = cfg; })
-    .catch(() => {});
-
-  function isGuestCodeValid(val) {
-    const today = new Date(); today.setHours(0, 0, 0, 0);
-    return (guestConfig.reservations || []).some(function(r) {
-      if (val !== r.guestCode) return false;
-      return new Date(r.checkoutDate + 'T00:00:00') >= today;
-    });
-  }
-
   // Check if already unlocked
   if (localStorage.getItem(STORAGE_KEY) === '1') unlock();
 
-  document.getElementById('unlock-btn').addEventListener('click', () => {
-    const val = document.getElementById('pwd-input').value.trim();
-    if (val === GUEST_PASSWORD || isGuestCodeValid(val)) {
-      unlock();
-    } else {
+  document.getElementById('unlock-btn').addEventListener('click', async () => {
+    const val = document.getElementById('pwd-input').value.trim().toUpperCase();
+    if (!val) return;
+
+    const btn = document.getElementById('unlock-btn');
+    const btnLabel = btn.querySelector('span') || btn;
+    const origText = btnLabel.textContent;
+    btn.disabled = true;
+    btnLabel.textContent = '...';
+
+    try {
+      const res = await fetch('/api/validate-guest', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ code: val }),
+      });
+      const data = await res.json();
+      if (data.valid) {
+        unlock();
+      } else {
+        const err = document.getElementById('pwd-error');
+        err.classList.remove('hidden');
+        document.getElementById('pwd-input').classList.add('border-red-300');
+        setTimeout(() => document.getElementById('pwd-input').classList.remove('border-red-300'), 1500);
+      }
+    } catch {
       const err = document.getElementById('pwd-error');
       err.classList.remove('hidden');
-      document.getElementById('pwd-input').classList.add('border-red-300');
-      setTimeout(() => document.getElementById('pwd-input').classList.remove('border-red-300'), 1500);
+    } finally {
+      btn.disabled = false;
+      btnLabel.textContent = origText;
     }
   });
 

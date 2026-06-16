@@ -133,7 +133,6 @@
     uk: { greeting: 'Ласкаво просимо до Lovely Condo Floreasca! 🏠', guide: 'Путівник по апартаментах з усім необхідним:', pwd: 'Пароль', valid: 'Дійсний до', locale: 'uk-UA' }
   };
 
-  var ADMIN_PASSWORD = 'floreasca2025';
   var activeReservations = [];
   var airbnbReservations = [];
 
@@ -141,15 +140,32 @@
   function enterAdmin() {
     var pwd = document.getElementById('admin-pwd-input').value.trim();
     if (!pwd) return;
-    if (pwd !== ADMIN_PASSWORD) {
+
+    var btn = document.querySelector('#gate button[onclick]');
+    if (btn) { btn.disabled = true; btn.textContent = '...'; }
+
+    fetch('/api/admin-auth', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ password: pwd }),
+    })
+    .then(function(r) { return r.json(); })
+    .then(function(data) {
+      if (btn) { btn.disabled = false; btn.textContent = 'Intră'; }
+      if (data.valid) {
+        document.getElementById('gate-error').classList.add('hidden');
+        document.getElementById('gate').classList.add('hidden');
+        document.getElementById('panel').classList.remove('hidden');
+        loadCurrentStatus();
+        loadAirbnbReservations();
+      } else {
+        document.getElementById('gate-error').classList.remove('hidden');
+      }
+    })
+    .catch(function() {
+      if (btn) { btn.disabled = false; btn.textContent = 'Intră'; }
       document.getElementById('gate-error').classList.remove('hidden');
-      return;
-    }
-    document.getElementById('gate-error').classList.add('hidden');
-    document.getElementById('gate').classList.add('hidden');
-    document.getElementById('panel').classList.remove('hidden');
-    loadCurrentStatus();
-    loadAirbnbReservations();
+    });
   }
 
   // ── Load current config ───────────────────────────────────────
