@@ -1,12 +1,12 @@
 {
   "reservations": [
     {
-      "guestCode": "HME5APBCX4",
-      "checkoutDate": "2026-06-15"
-    },
-    {
       "guestCode": "HMFT58342Y",
       "checkoutDate": "2026-07-07"
+    },
+    {
+      "guestCode": "HMQFRRZS4Y",
+      "checkoutDate": "2026-06-22"
     }
   ]
 }
