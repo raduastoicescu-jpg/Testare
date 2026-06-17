@@ -1,11 +1,13 @@
 User-agent: *
-Allow: /$
-Allow: /sitemap.xml
-
 Disallow: /admin
 Disallow: /admin.html
 Disallow: /guide
 Disallow: /guide.html
-Disallow: /api/
+Disallow: /api/admin-auth
+Disallow: /api/update-config
+Disallow: /api/get-config
+Disallow: /api/validate-guest
+Disallow: /api/get-airbnb
+Disallow: /api/debug-ical
 
 Sitemap: https://lovelycondo.vercel.app/sitemap.xml
