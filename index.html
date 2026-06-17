@@ -1266,10 +1266,7 @@
   function openProfile() {
     document.getElementById('profile-modal').classList.remove('hidden');
     document.body.style.overflow = 'hidden';
-    document.getElementById('profile-iframe').src = 'https://www.airbnb.com/users/profile/1468183323797269643?previous_page_name=PdpHomeMarketplace';
-    setTimeout(() => {
-      document.getElementById('profile-fallback').classList.remove('hidden');
-    }, 2500);
+    document.getElementById('profile-fallback').classList.remove('hidden');
   }
   function closeProfile() {
     document.getElementById('profile-modal').classList.add('hidden');
