@@ -10,4 +10,4 @@ Disallow: /api/validate-guest
 Disallow: /api/get-airbnb
 Disallow: /api/debug-ical
 
-Sitemap: https://lovelycondo.vercel.app/sitemap.xml
+Sitemap: https://lovelycondo.vercel.app/api/sitemap
