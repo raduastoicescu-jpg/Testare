@@ -1,0 +1,11 @@
+User-agent: *
+Allow: /$
+Allow: /sitemap.xml
+
+Disallow: /admin
+Disallow: /admin.html
+Disallow: /guide
+Disallow: /guide.html
+Disallow: /api/
+
+Sitemap: https://lovelycondo.vercel.app/sitemap.xml

@@ -3,8 +3,82 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Lovely Condo Bucharest — Perfect for Couples &amp; Families</title>
-  <meta name="description" content="Charming condo in Floreasca, Bucharest. 1 bedroom · 2 beds · up to 4 guests. Balcony with city view. Rated 4.96 ★ — Guest Favorite. Book on Airbnb." />
+  <title>Lovely Condo Floreasca Bucharest — Apartment for Rent · 4.96★ Guest Favourite</title>
+  <meta name="description" content="Charming 1-bedroom apartment in Floreasca, Bucharest. Balcony with city view, fully equipped kitchen, self check-in. Up to 4 guests. Rated 4.96 ★ Guest Favourite on Airbnb. Book now." />
+  <link rel="canonical" href="https://lovelycondo.vercel.app/" />
+
+  <!-- Open Graph -->
+  <meta property="og:type"        content="website" />
+  <meta property="og:url"         content="https://lovelycondo.vercel.app/" />
+  <meta property="og:title"       content="Lovely Condo Floreasca Bucharest — 4.96★ Guest Favourite" />
+  <meta property="og:description" content="1-bedroom apartment in Floreasca, Bucharest. Balcony, fully equipped kitchen, self check-in. Up to 4 guests. Book on Airbnb." />
+  <meta property="og:image"       content="https://lovelycondo.vercel.app/og-image.jpg" />
+  <meta property="og:locale"      content="en_GB" />
+  <meta property="og:site_name"   content="Lovely Condo Bucharest" />
+
+  <!-- Twitter / X -->
+  <meta name="twitter:card"        content="summary_large_image" />
+  <meta name="twitter:title"       content="Lovely Condo Floreasca Bucharest — 4.96★ Guest Favourite" />
+  <meta name="twitter:description" content="1-bedroom apartment in Floreasca, Bucharest. Balcony, self check-in, up to 4 guests." />
+  <meta name="twitter:image"       content="https://lovelycondo.vercel.app/og-image.jpg" />
+
+  <!-- hreflang -->
+  <link rel="alternate" hreflang="en"       href="https://lovelycondo.vercel.app/" />
+  <link rel="alternate" hreflang="ro"       href="https://lovelycondo.vercel.app/" />
+  <link rel="alternate" hreflang="it"       href="https://lovelycondo.vercel.app/" />
+  <link rel="alternate" hreflang="de"       href="https://lovelycondo.vercel.app/" />
+  <link rel="alternate" hreflang="fr"       href="https://lovelycondo.vercel.app/" />
+  <link rel="alternate" hreflang="uk"       href="https://lovelycondo.vercel.app/" />
+  <link rel="alternate" hreflang="x-default" href="https://lovelycondo.vercel.app/" />
+
+  <!-- Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "LodgingBusiness",
+    "name": "Lovely Condo Floreasca",
+    "description": "Charming 1-bedroom apartment in the Floreasca neighbourhood of Bucharest. Balcony with city view, fully equipped kitchen, self check-in, up to 4 guests.",
+    "url": "https://lovelycondo.vercel.app/",
+    "image": "https://lovelycondo.vercel.app/og-image.jpg",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Bucharest",
+      "addressRegion": "Sector 1",
+      "addressCountry": "RO",
+      "streetAddress": "Floreasca"
+    },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": 44.4716,
+      "longitude": 26.0994
+    },
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "4.96",
+      "reviewCount": "50",
+      "bestRating": "5",
+      "worstRating": "1"
+    },
+    "amenityFeature": [
+      { "@type": "LocationFeatureSpecification", "name": "WiFi",            "value": true },
+      { "@type": "LocationFeatureSpecification", "name": "Kitchen",         "value": true },
+      { "@type": "LocationFeatureSpecification", "name": "Balcony",         "value": true },
+      { "@type": "LocationFeatureSpecification", "name": "Air conditioning","value": true },
+      { "@type": "LocationFeatureSpecification", "name": "Washer",          "value": true },
+      { "@type": "LocationFeatureSpecification", "name": "Self check-in",   "value": true }
+    ],
+    "numberOfRooms": 1,
+    "occupancy": {
+      "@type": "QuantitativeValue",
+      "maxValue": 4
+    },
+    "checkinTime": "15:00",
+    "checkoutTime": "11:00",
+    "priceRange": "$$",
+    "currenciesAccepted": "USD, EUR, RON",
+    "sameAs": "https://www.airbnb.co.uk/rooms/53208110"
+  }
+  </script>
 
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flag-icons@7.2.3/css/flag-icons.min.css" />
   <script src="https://cdn.tailwindcss.com"></script>
@@ -273,7 +347,7 @@
       <!-- Host -->
       <div class="flex items-center gap-4">
         <button onclick="openProfile()" class="w-14 h-14 rounded-full overflow-hidden flex-shrink-0 ring-2 ring-sea-200 hover:ring-sea-400 transition-colors cursor-pointer" aria-label="View Maria's profile">
-          <img src="images/maria-profile.jpg" alt="Maria" class="w-full h-full object-cover object-top">
+          <img src="images/maria-profile.jpg" alt="Maria" class="w-full h-full object-cover object-top" loading="lazy">
         </button>
         <div>
           <p class="font-semibold text-sea-950" data-i18n="host.by">Hosted by Maria</p>
@@ -952,7 +1026,7 @@
     <div class="flex items-center justify-between px-5 py-4 border-b border-slate-100 flex-shrink-0">
       <div class="flex items-center gap-3">
         <div class="w-9 h-9 rounded-full overflow-hidden flex-shrink-0">
-          <img src="images/maria-profile.jpg" alt="Maria" class="w-full h-full object-cover object-top">
+          <img src="images/maria-profile.jpg" alt="Maria" class="w-full h-full object-cover object-top" loading="lazy">
         </div>
         <div>
           <p class="font-semibold text-slate-800 text-sm" data-i18n="prof.title">Maria · Host Profile</p>
@@ -975,7 +1049,7 @@
       <!-- Fallback (shown if iframe blocked) -->
       <div id="profile-fallback" class="hidden absolute inset-0 flex flex-col items-center justify-center bg-white px-8 text-center gap-5">
         <div class="w-16 h-16 rounded-full overflow-hidden">
-          <img src="images/maria-profile.jpg" alt="Maria" class="w-full h-full object-cover object-top">
+          <img src="images/maria-profile.jpg" alt="Maria" class="w-full h-full object-cover object-top" loading="lazy">
         </div>
         <div>
           <p class="font-serif text-xl font-semibold text-sea-950 mb-1">Maria</p>
